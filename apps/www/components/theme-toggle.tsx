@@ -18,7 +18,7 @@ export const ThemeToggle = () => {
         return (
             <Button
                 variant="ghost"
-                className="size-8 rounded-full">
+                className="size-8 hover:bg-transparent rounded-full">
                 <SunDim className="size-5!" />
             </Button>
         )
@@ -28,7 +28,7 @@ export const ThemeToggle = () => {
         <Button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             variant="ghost"
-            className="size-8 rounded-full">
+            className="size-8 hover:bg-transparent rounded-full">
             {theme === 'dark' ? <SunDim className="size-5!" /> : <MoonStar />}
         </Button>
     )
