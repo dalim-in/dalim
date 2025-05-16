@@ -1,20 +1,30 @@
 {
-  "name": "dalim",
+  "name": "tailark",
+  "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Méschac Irung",
+    "email": "meschacirung@gmail.com",
+    "url": "https://x.com/MeschacIrung"
+  },
+  "packageManager": "pnpm@9.10.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "registry:build": "shadcn build"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.3",
-    "typescript": "5.8.2"
+    "prettier": "3.5.1",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "typescript": "^5"
   },
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=18"
+  "dependencies": {
+    "turbo": "^2.5.3"
   }
 }
