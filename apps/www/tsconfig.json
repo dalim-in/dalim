@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"],
-      "@dalim/core/*" : ["../../packages/core/src/*"]
+      "@dalim/ui/*" : ["../ui/registry/default/ui/*"]
     }
   },
   "include": [

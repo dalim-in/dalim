@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'  
+import { ThemeProvider } from '@/components/theme-provider'   
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -29,6 +29,7 @@ export default function RootLayout({
                     defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange>
+                        
                     {children}
                 </ThemeProvider>
                  

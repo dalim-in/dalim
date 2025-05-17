@@ -4,7 +4,7 @@ import * as React from 'react'
 import { MoonStar, SunDim } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
-import { Button } from '@dalim/core/ui/button'
+import { Button } from '@dalim/ui/button'
 
 export const ThemeToggle = () => {
     const [mounted, setMounted] = React.useState(false)
