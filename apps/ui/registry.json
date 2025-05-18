@@ -528,6 +528,40 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "comp-01",
+      "type": "registry:component",
+      "registryDependencies": [
+        "https://originui.com/r/label.json",
+        "https://originui.com/r/slider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/comp-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["slider", "label", "radix"]
+      }
+    },
+    {
+      "name": "comp-02",
+      "type": "registry:component",
+      "registryDependencies": [
+        "https://originui.com/r/label.json",
+        "https://originui.com/r/slider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/comp-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["slider", "label", "radix"]
+      }
     }
   ]
 }

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../../../../apps/ui";  
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -139,3 +141,4 @@
     scrollbar-color: var(--border) transparent;
   }
 }
+

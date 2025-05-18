@@ -3,17 +3,14 @@ import { categories } from "@/src/config/components"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const home = {
-    url: "https://originui.com",
+    url: "https://ui.dalim.in",
   }
   const search = {
-    url: "https://originui.com/search",
-  }
-  const easings = {
-    url: "https://originui.com/easings",
-  }
+    url: "https://ui.dalim.in/search",
+  } 
   const categoryPages = categories.map((category) => ({
-    url: `https://originui.com/${category.slug}`,
+    url: `https://ui.dalim.in/${category.slug}`,
   }))
 
-  return [home, ...categoryPages, search, easings]
+  return [home, ...categoryPages, search]
 }

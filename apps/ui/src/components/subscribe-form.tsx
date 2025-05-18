@@ -6,8 +6,7 @@ import { RiLoader3Line, RiNavigationLine } from "@remixicon/react"
 import { cn } from "@/registry/default/lib/utils"
 import { Button } from "@/registry/default/ui/button"
 import { Input } from "@/registry/default/ui/input"
-
-import { subscribe } from "./subscribe-action"
+ 
 
 // Add type for form state
 type FormStatus = "idle" | "loading" | "success" | "error"
@@ -26,28 +25,7 @@ function Form() {
     e.preventDefault()
     setFormState((prev) => ({ ...prev, status: "loading", message: "" }))
 
-    try {
-      const result = await subscribe(formState.email)
-      if (!result.success) {
-        setFormState((prev) => ({
-          ...prev,
-          status: "error",
-          message: result.error,
-        }))
-      } else {
-        setFormState({
-          email: "",
-          status: "success",
-          message: "Thanks for subscribing!",
-        })
-      }
-    } catch (error) {
-      setFormState((prev) => ({
-        ...prev,
-        status: "error",
-        message: error instanceof Error ? error.message : "Failed to subscribe",
-      }))
-    }
+     
   }
 
   return (
