@@ -37,10 +37,10 @@ export default function LinkSelect() {
 
   return (
     <Select value={value} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-32">
+      <SelectTrigger className="w-24">
         <SelectValue placeholder="Dalim" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent >
         <SelectItem value="dalim">Dalim</SelectItem>
         <SelectItem value="ui">UI</SelectItem>
         <SelectItem value="agency">Agency</SelectItem>
