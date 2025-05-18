@@ -8,7 +8,7 @@ import { Toaster } from "@/registry/default/ui/toaster"
 
 import "./globals.css"
 
-import { HeaderUI } from '@dalim/core/components/layout/header'
+import { HeaderUI } from "@dalim/core/components/layout/header"
 
 const fontSans = Geist({
   subsets: ["latin"],
