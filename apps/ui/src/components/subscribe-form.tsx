@@ -6,7 +6,6 @@ import { RiLoader3Line, RiNavigationLine } from "@remixicon/react"
 import { cn } from "@/registry/default/lib/utils"
 import { Button } from "@/registry/default/ui/button"
 import { Input } from "@/registry/default/ui/input"
- 
 
 // Add type for form state
 type FormStatus = "idle" | "loading" | "success" | "error"
@@ -24,8 +23,6 @@ function Form() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormState((prev) => ({ ...prev, status: "loading", message: "" }))
-
-     
   }
 
   return (

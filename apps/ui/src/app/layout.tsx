@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next"
-import { Geist } from "next/font/google" 
-import Footer from "@/src/components/footer" 
+import { Geist } from "next/font/google"
+import Footer from "@/src/components/footer"
 import { ThemeProvider } from "@/src/components/theme-provider"
 
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
 import { Toaster } from "@/registry/default/ui/toaster"
 
 import "./globals.css"
-import { HeaderUI } from "@/registry/default/components/layout/header/header"
+
+import { HeaderUI } from '@dalim/core/components/layout/header'
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -17,8 +18,7 @@ const fontSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ui.dalim.in"),
   title: "UI - Dalim",
-  description:
-    "Designs That Give",
+  description: "Designs That Give",
 }
 
 export default function RootLayout({
@@ -40,7 +40,7 @@ export default function RootLayout({
           <div className="overflow-hidden px-4 supports-[overflow:clip]:overflow-clip sm:px-6">
             <div className="before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-12 before:w-px after:absolute after:inset-y-0 after:-right-12 after:w-px">
               <div className="relative flex min-h-screen flex-col">
-                  <HeaderUI />
+                <HeaderUI />
                 <main className="grow">{children}</main>
                 <Footer />
               </div>

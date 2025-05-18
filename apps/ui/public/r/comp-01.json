@@ -3,8 +3,8 @@
   "name": "comp-01",
   "type": "registry:component",
   "registryDependencies": [
-    "https://originui.com/r/input.json",
-    "https://originui.com/r/label.json"
+    "https://ui.dalim.in/r/label.json",
+    "https://ui.dalim.in/r/slider.json"
   ],
   "files": [
     {
@@ -15,8 +15,9 @@
   ],
   "meta": {
     "tags": [
-      "input",
-      "label"
+      "slider",
+      "label",
+      "radix"
     ]
   }
 }

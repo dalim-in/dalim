@@ -7,7 +7,7 @@ import { categories } from "@/src/config/components"
 export default function Page() {
   return (
     <div data-home>
-      <div className="flex flex-col text-center items-center">
+      <div className="flex flex-col items-center text-center">
         <h1 className="text-center text-[clamp(2rem,8vw,7rem)] font-extrabold tracking-tighter">
           Dalim UI
         </h1>

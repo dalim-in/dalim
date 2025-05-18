@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 
-import { cn } from "@/registry/default/lib/utils"
+import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/registry/default/ui/navigation-menu"
+} from "../../../ui/navigation-menu"
 
 export function Menu() {
   return (
@@ -156,7 +156,7 @@ export function MenuAgency() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-           <NavigationMenuItem>
+          <NavigationMenuItem>
             <Link href="/pricing" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Pricing
@@ -177,6 +177,7 @@ const ListItem = React.forwardRef<
     <li>
       <NavigationMenuLink
         ref={ref as React.Ref<HTMLAnchorElement>}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {...(props as any)}
       >
         <div

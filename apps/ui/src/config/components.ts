@@ -6,15 +6,11 @@ export interface ComponentCategory {
 }
 
 export const categories: ComponentCategory[] = [
-   
   {
     slug: "button",
     name: "Button",
-    components: [
-      { name: "comp-02" },
-      
-    ],
-  }
+    components: [{ name: "comp-02" }],
+  },
 ]
 
 export function getCategory(slug: string): ComponentCategory | undefined {

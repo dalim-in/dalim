@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   const search = {
     url: "https://ui.dalim.in/search",
-  } 
+  }
   const categoryPages = categories.map((category) => ({
     url: `https://ui.dalim.in/${category.slug}`,
   }))

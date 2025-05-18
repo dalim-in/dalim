@@ -6,7 +6,7 @@
     "@radix-ui/react-slider"
   ],
   "registryDependencies": [
-    "https://originui.com/r/tooltip.json"
+    "https://ui.dalim.in/r/tooltip.json"
   ],
   "files": [
     {

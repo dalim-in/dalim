@@ -6,7 +6,7 @@
     "@radix-ui/react-alert-dialog"
   ],
   "registryDependencies": [
-    "https://originui.com/r/button.json"
+    "https://ui.dalim.in/r/button.json"
   ],
   "files": [
     {

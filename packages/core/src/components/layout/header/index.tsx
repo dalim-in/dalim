@@ -2,18 +2,16 @@ import Image from "next/image"
 import Link from "next/link"
 import LogoDark from "@/public/brand/logo-black.svg"
 import Logo from "@/public/brand/logo.svg"
-import ThemeToggle from "@/src/components/theme-toggle"
+import ThemeToggle from "../../../ui/theme-toggle"
 
-import { Button } from "@/registry/default/ui/button"
+import { Button } from "../../../ui/button"
 import {
   Select,
-  SelectContent,
-  SelectGroup,
+  SelectContent, 
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/default/ui/select"
-
+} from "../../../ui/select"
 import { Menu, MenuAgency, MenuUI } from "./navmenu"
 
 export function Header() {

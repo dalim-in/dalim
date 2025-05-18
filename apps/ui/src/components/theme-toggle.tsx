@@ -1,13 +1,13 @@
 "use client"
- 
+
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Toggle } from "@/registry/default/ui/toggle"
 
-export default function ThemeToggle() { 
-  const { theme, setTheme } = useTheme() 
-  
+export default function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
   return (
     <div className="flex flex-col justify-center">
       <div>

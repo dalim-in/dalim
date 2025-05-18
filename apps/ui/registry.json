@@ -48,7 +48,7 @@
       "name": "alert-dialog",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-alert-dialog"],
-      "registryDependencies": ["https://originui.com/r/button.json"],
+      "registryDependencies": ["https://ui.dalim.in/r/button.json"],
       "files": [
         {
           "path": "registry/default/ui/alert-dialog.tsx",
@@ -95,6 +95,17 @@
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/default/ui/card.tsx",
           "type": "registry:ui"
         }
       ]
@@ -245,10 +256,21 @@
     {
       "name": "multiselect",
       "type": "registry:ui",
-      "registryDependencies": ["https://originui.com/r/command.json"],
+      "registryDependencies": ["https://ui.dalim.in/r/command.json"],
       "files": [
         {
           "path": "registry/default/ui/multiselect.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "registryDependencies": ["https://ui.dalim.in/r/navigation-menu.json"],
+      "files": [
+        {
+          "path": "registry/default/ui/navigation-menu.tsx",
           "type": "registry:ui"
         }
       ]
@@ -333,7 +355,7 @@
       "name": "slider",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-slider"],
-      "registryDependencies": ["https://originui.com/r/tooltip.json"],
+      "registryDependencies": ["https://ui.dalim.in/r/tooltip.json"],
       "files": [
         {
           "path": "registry/default/ui/slider.tsx",
@@ -533,8 +555,8 @@
       "name": "comp-01",
       "type": "registry:component",
       "registryDependencies": [
-        "https://originui.com/r/label.json",
-        "https://originui.com/r/slider.json"
+        "https://ui.dalim.in/r/label.json",
+        "https://ui.dalim.in/r/slider.json"
       ],
       "files": [
         {
@@ -550,8 +572,8 @@
       "name": "comp-02",
       "type": "registry:component",
       "registryDependencies": [
-        "https://originui.com/r/label.json",
-        "https://originui.com/r/slider.json"
+        "https://ui.dalim.in/r/label.json",
+        "https://ui.dalim.in/r/slider.json"
       ],
       "files": [
         {

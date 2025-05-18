@@ -3,9 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"],
-      "@dalim/ui/*" : ["../ui/registry/default/ui/*"],
-      "@dalim/ui/registry/*" : ["../ui/registry/default/*"]
+     "@/*": ["./*"], 
+     "@dalim/core/*": ["../../packages/core/src/*"]
     }
   },
   "include": [

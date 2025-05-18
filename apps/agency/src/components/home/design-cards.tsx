@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { Button } from '@dalim/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@dalim/ui/card'
-import { Input } from '@dalim/ui/input'
-import { Label } from '@dalim/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/ui/select'
+import { Button } from '@dalim/core/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@dalim/core/ui/card'
+import { Input } from '@dalim/core/ui/input'
+import { Label } from '@dalim/core/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
 
 export function DesignCards() {
     return (
@@ -12,7 +12,7 @@ export function DesignCards() {
             <div>
                 <h1 className="text-xl font-semibold md:text-5xl text-brand tracking-tighter">Design, the way it was always meant to be.</h1>
             </div>
-            <Card className="w-[350px]">
+            <Card className="w-[350px] mt-10">
                 <CardHeader>
                     <CardTitle>Create project</CardTitle>
                     <CardDescription>Deploy your new project in one-click.</CardDescription>

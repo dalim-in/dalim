@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"  
 import { ThemeProvider } from "@/src/components/theme-provider"
 
-import { Toaster as Sonner } from "@dalim/ui/sonner"
-import { Toaster } from "@dalim/ui/toaster"
+import { Toaster as Sonner } from "@dalim/core/ui/sonner"
+import { Toaster } from "@dalim/core/ui/toaster"
 
 import "./globals.css"
-import { Header } from "@dalim/ui/registry/components/layout/header/header"
+import { Header } from '@dalim/core/components/layout/header'
 
 const fontSans = Geist({
   subsets: ["latin"],
