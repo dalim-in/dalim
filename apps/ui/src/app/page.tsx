@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div data-home>
       <div className="flex flex-col text-center items-center">
-        <h1 className="text-center text-3xl font-extrabold tracking-tighter md:text-8xl">
+        <h1 className="text-center text-[clamp(2rem,8vw,7rem)] font-extrabold tracking-tighter">
           Dalim UI
         </h1>
         <div className="my-10 flex items-center justify-center">

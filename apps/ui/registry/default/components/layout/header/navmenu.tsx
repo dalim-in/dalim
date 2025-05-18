@@ -144,6 +144,31 @@ export function MenuUI() {
   )
 }
 
+export function MenuAgency() {
+  return (
+    <div className="hidden pl-1 md:block">
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link href="/works" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Works
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+           <NavigationMenuItem>
+            <Link href="/pricing" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Pricing
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
+  )
+}
+
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">

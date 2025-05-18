@@ -16,9 +16,9 @@ const fontSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ui.dalim.in"),
-  title: "Dalim UI - Beautiful UI components built with Tailwind CSS and React",
+  title: "UI - Dalim",
   description:
-    "An extensive collection of copy-and-paste components for quickly building app UIs. Free, open-source, and ready to drop into your projects.",
+    "Designs That Give",
 }
 
 export default function RootLayout({

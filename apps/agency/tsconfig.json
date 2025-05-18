@@ -1,0 +1,18 @@
+{
+  "extends": "@dalim/ts-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"],
+      "@dalim/ui/*" : ["../ui/registry/default/ui/*"],
+      "@dalim/ui/registry/*" : ["../ui/registry/default/*"]
+    }
+  },
+  "include": [
+    "./next-env.d.ts",
+    "./**/*.ts",
+    "./**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}
