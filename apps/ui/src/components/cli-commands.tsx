@@ -15,10 +15,10 @@ export default function CliCommands({ name }: { name: string }) {
   const packageManager = config.packageManager || "pnpm"
 
   const commands = {
-    pnpm: `pnpm dlx shadcn@latest add https://originui.com/r/${name}.json`,
-    npm: `npx shadcn@latest add https://originui.com/r/${name}.json`,
-    yarn: `npx shadcn@latest add https://originui.com/r/${name}.json`,
-    bun: `bunx --bun shadcn@latest add https://originui.com/r/${name}.json`,
+    pnpm: `pnpm dlx shadcn@latest add https://ui.dalim.in/r/${name}.json`,
+    npm: `npx shadcn@latest add https://ui.dalim.in/r/${name}.json`,
+    yarn: `npx shadcn@latest add https://ui.dalim.in/r/${name}.json`,
+    bun: `bunx --bun shadcn@latest add https://ui.dalim.in/r/${name}.json`,
   }
 
   return (

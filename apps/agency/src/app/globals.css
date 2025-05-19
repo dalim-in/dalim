@@ -138,7 +138,7 @@
 
 @layer base {
   html {
-    scroll-padding-top: 2.5rem;
+    scroll-padding-top: 4rem;
   }
   /* Custom scrollbar styling. Thanks @pranathiperii. */
   pre::-webkit-scrollbar {

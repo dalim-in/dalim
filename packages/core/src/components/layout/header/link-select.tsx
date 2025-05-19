@@ -1,53 +1,131 @@
-"use client"
+'use client'
 
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../../ui/select"
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react' 
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../ui/select'
 
-// Map of select values to their respective URLs
-const LINK_MAP: Record<string, string> = {
-  dalim: "https://dalim.in",
-  ui: "https://ui.dalim.in",
-  ali: "https://ali.dalim.in",
-  agency: "https://agency.dalim.in",
-  works: "https://works.dalim.in",
-  fonts: "https://fonts.dalim.in",
-}
+const OPTIONS = [
+    {
+        value: 'dalim',
+        label: 'Dalim',
+        urls: {
+            prod: 'https://dalim.in',
+            dev: 'http://localhost:3000',
+        },
+    },
+    {
+        value: 'ui',
+        label: 'UI',
+        urls: {
+            prod: 'https://ui.dalim.in',
+            dev: 'http://localhost:3001',
+        },
+    },
+    {
+        value: 'agency',
+        label: 'Agency',
+        urls: {
+            prod: 'https://agency.dalim.in',
+            dev: 'http://localhost:3002',
+        },
+    },
+    {
+        value: 'ali',
+        label: 'Ali',
+        disabled: true,
+        urls: {
+            prod: 'https://ali.dalim.in',
+            dev: 'http://localhost:3000/ali',
+        },
+    },
+    {
+        value: 'works',
+        label: 'Works',
+        disabled: true,
+        urls: {
+            prod: 'https://works.dalim.in',
+            dev: 'http://localhost:3000/works',
+        },
+    },
+    {
+        value: 'fonts',
+        label: 'Fonts',
+        disabled: true,
+        urls: {
+            prod: 'https://fonts.dalim.in',
+            dev: 'http://localhost:3000/fonts',
+        },
+    },
+]
 
 export default function LinkSelect() {
-  const router = useRouter()
-  const [value, setValue] = useState("")
+    const router = useRouter()
+    // Always initialize with the same value on both server and client
+    const [value, setValue] = useState('dalim');
+    const [isRedirecting, setIsRedirecting] = useState(false);
+    
+    // Use useEffect to update the value based on URL after hydration
+    useEffect(() => {
+        const currentUrl = window.location.href;
+        const currentOption = OPTIONS.find(option => 
+            currentUrl.includes(option.urls.prod) || 
+            currentUrl.includes(option.urls.dev.replace('http://localhost', ''))
+        );
+        
+        if (currentOption?.value) {
+            setValue(currentOption.value);
+        }
+    }, []);
 
-  const handleValueChange = (newValue: string) => {
-    setValue(newValue)
-
-    // Get the URL from the map
-    const url = LINK_MAP[newValue]
-
-    if (url) {
-      if (url.startsWith("http")) {
-        // For external links — same tab
-        window.location.href = url
-      } else {
-        // For internal links — use router
-        router.push(url)
-      }
+    const handleValueChange = (newValue: string) => {
+        setValue(newValue);
+        setIsRedirecting(true);
     }
-  }
+    
+    // Handle redirect after state update
+    useEffect(() => {
+        if (isRedirecting) {
+            const redirectTimer = setTimeout(() => {
+                const isDev = process.env.NODE_ENV === 'development';
+                const selected = OPTIONS.find((o) => o.value === value);
+                const url = isDev ? selected?.urls.dev : selected?.urls.prod;
+                
+                if (url) {
+                    if (url.startsWith('http')) {
+                        window.location.href = url; // full page redirect
+                    } else {
+                        router.push(url); // internal navigation
+                    }
+                }
+                
+                setIsRedirecting(false);
+            }, 100); // Small delay to allow UI to update
+            
+            return () => clearTimeout(redirectTimer);
+        }
+    }, [value, isRedirecting, router]);
 
-  return ( 
-    <Select value={value} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-full md:w-24">
-        <SelectValue placeholder="Dalim" />
-      </SelectTrigger>
-      <SelectContent >
-        <SelectItem value="dalim">Dalim</SelectItem>
-        <SelectItem value="ui">UI</SelectItem>
-        <SelectItem value="agency">Agency</SelectItem>
-        <SelectItem disabled value="ali">Ali</SelectItem>
-        <SelectItem disabled value="works">Works</SelectItem>
-        <SelectItem disabled value="fonts">Fonts</SelectItem>
-      </SelectContent>
-    </Select> 
-  )
+    return (
+        <Select
+            value={value}
+            onValueChange={handleValueChange}
+            disabled={isRedirecting}>
+            <SelectTrigger className="w-full md:w-24">
+                <SelectValue placeholder="Select">
+                    {OPTIONS.find((option) => option.value === value)?.label}
+                </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+                {OPTIONS.map((option) => (
+                    <SelectItem
+                        key={option.value}
+                        value={option.value}
+                        disabled={option.disabled}
+                        className="flex items-center justify-between">
+                        <span>{option.label}</span>
+                    </SelectItem>
+                ))}
+            </SelectContent>
+        </Select>
+    )
 }

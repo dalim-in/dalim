@@ -7,6 +7,8 @@ import { Hero } from '../components/home/hero'
 import { Pricing } from '../components/home/pricing'
 import { FAQs } from '../components/home/faq'
 import { BrandLogos } from '../components/home/logos'
+import { BookCall } from '@dalim/core/components/common/book-call'
+import { Services } from '../components/home/services'
 
 export default function Home() {
     return (
@@ -15,7 +17,9 @@ export default function Home() {
             <FUIDashboardSells />
             <DesignCards />
             <BrandLogos/>
-            <Pricing/>
+            <Services/>
+            <BookCall/>
+            <Pricing/> 
             <FAQs/>
         </div>
     )

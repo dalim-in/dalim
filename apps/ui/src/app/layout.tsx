@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Geist } from "next/font/google"
-import Footer from "@/src/components/footer"
+import {FooterUI} from '@dalim/core/components/layout/footer'
 import { ThemeProvider } from "@/src/components/theme-provider"
 
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
@@ -42,7 +42,7 @@ export default function RootLayout({
               <div className="relative flex min-h-screen flex-col">
                 <HeaderUI />
                 <main className="grow">{children}</main>
-                <Footer />
+                <FooterUI />
               </div>
             </div>
           </div>

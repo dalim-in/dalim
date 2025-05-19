@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import SearchButton from "@/src/components/search-button"
-import { SubscribeBottom } from "@/src/components/subscribe-form"
+import SearchButton from "@/src/components/search-button" 
 import { categories } from "@/src/config/components"
 
 export default function Page() {
@@ -37,7 +36,7 @@ export default function Page() {
         </div>
       </div>
 
-      <SubscribeBottom />
+      
     </div>
   )
 }
