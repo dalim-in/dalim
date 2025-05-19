@@ -65,34 +65,13 @@ export function Menu() {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              href="/fonts"
-              className={navigationMenuTriggerStyle()}
-            >
-              Fonts
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
-                New
-              </span>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              href="/graphic"
-              className={navigationMenuTriggerStyle()}
-            >
-              Graphic
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
-                New
-              </span>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+        
+           
 
           <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Components
+                Docs
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

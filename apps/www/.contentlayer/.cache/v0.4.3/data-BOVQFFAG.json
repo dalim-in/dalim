@@ -1,0 +1,68 @@
+{
+  "cacheItemsMap": {
+    "blogs/portfolio.mdx": {
+      "document": {
+        "title": "Portfolio",
+        "description": "This is a simply designed Portfolio template available to use in Adobe Illustrator and Photoshop.",
+        "date": "2025-02-04T00:00:00.000Z",
+        "published": true,
+        "image": "/images/blogs/portfolio/cover.jpg",
+        "authors": [
+          "aliimam"
+        ],
+        "categories": [
+          "news"
+        ],
+        "related": [
+          "graaadients"
+        ],
+        "body": {
+          "raw": " ### Crafting a Captivating Portfolio: A Graphic Designer's Guide to Showcase Creativity\n\n## Introduction\n\nIn the dynamic world of graphic design, a portfolio is more than just a\ncollection of works; it's a visual narrative that speaks volumes about your\ncreativity, skills, and unique style. Whether you're a seasoned professional or\na budding graphic designer, a thoughtfully curated portfolio is your ticket to\nmaking a lasting impression in a competitive industry. In this blog post, we'll\nexplore the essential elements of a standout portfolio that not only showcases\nyour work but also tells a compelling story about your design journey.\n",
+          "code": "var Component=(()=>{var u=Object.create;var n=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(o,t)=>()=>(t||o((t={exports:{}}).exports,t),t.exports),v=(o,t)=>{for(var i in t)n(o,i,{get:t[i],enumerable:!0})},r=(o,t,i,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let e of g(t))!f.call(o,e)&&e!==i&&n(o,e,{get:()=>t[e],enumerable:!(s=p(t,e))||s.enumerable});return o};var b=(o,t,i)=>(i=o!=null?u(m(o)):{},r(t||!o||!o.__esModule?n(i,\"default\",{value:o,enumerable:!0}):i,o)),k=o=>r(n({},\"__esModule\",{value:!0}),o);var c=y((_,l)=>{l.exports=_jsx_runtime});var x={};v(x,{default:()=>d,frontmatter:()=>w});var a=b(c()),w={title:\"Portfolio\",description:\"This is a simply designed Portfolio template available to use in Adobe Illustrator and Photoshop.\",image:\"/images/blogs/portfolio/cover.jpg\",date:\"2025-02-04\",authors:[\"aliimam\"],categories:[\"news\"],related:[\"graaadients\"]};function h(o){let t={a:\"a\",h2:\"h2\",h3:\"h3\",p:\"p\",span:\"span\",...o.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(t.h3,{id:\"crafting-a-captivating-portfolio-a-graphic-designers-guide-to-showcase-creativity\",children:[(0,a.jsx)(t.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#crafting-a-captivating-portfolio-a-graphic-designers-guide-to-showcase-creativity\",children:(0,a.jsx)(t.span,{className:\"icon icon-link\"})}),\"Crafting a Captivating Portfolio: A Graphic Designer's Guide to Showcase Creativity\"]}),`\n`,(0,a.jsxs)(t.h2,{id:\"introduction\",children:[(0,a.jsx)(t.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#introduction\",children:(0,a.jsx)(t.span,{className:\"icon icon-link\"})}),\"Introduction\"]}),`\n`,(0,a.jsx)(t.p,{children:`In the dynamic world of graphic design, a portfolio is more than just a\ncollection of works; it's a visual narrative that speaks volumes about your\ncreativity, skills, and unique style. Whether you're a seasoned professional or\na budding graphic designer, a thoughtfully curated portfolio is your ticket to\nmaking a lasting impression in a competitive industry. In this blog post, we'll\nexplore the essential elements of a standout portfolio that not only showcases\nyour work but also tells a compelling story about your design journey.`})]})}function d(o={}){let{wrapper:t}=o.components||{};return t?(0,a.jsx)(t,{...o,children:(0,a.jsx)(h,{...o})}):h(o)}return k(x);})();\n;return Component;"
+        },
+        "_id": "blogs/portfolio.mdx",
+        "_raw": {
+          "sourceFilePath": "blogs/portfolio.mdx",
+          "sourceFileName": "portfolio.mdx",
+          "sourceFileDir": "blogs",
+          "contentType": "mdx",
+          "flattenedPath": "blogs/portfolio"
+        },
+        "type": "Post",
+        "slug": "/blogs/portfolio",
+        "slugAsParams": "portfolio"
+      },
+      "documentHash": "1747673402780",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    },
+    "docs/index.mdx": {
+      "document": {
+        "title": "Components",
+        "description": "An open-source collection of copy-and-paste components for quickly build application UIs.",
+        "published": true,
+        "featured": false,
+        "component": false,
+        "toc": true,
+        "body": {
+          "raw": " sfbfs",
+          "code": "var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var j=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),y=(n,t)=>{for(var o in t)c(n,o,{get:t[o],enumerable:!0})},i=(n,t,o,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let e of d(t))!_.call(n,e)&&e!==o&&c(n,e,{get:()=>t[e],enumerable:!(s=m(t,e))||s.enumerable});return n};var C=(n,t,o)=>(o=n!=null?l(x(n)):{},i(t||!n||!n.__esModule?c(o,\"default\",{value:n,enumerable:!0}):o,n)),M=n=>i(c({},\"__esModule\",{value:!0}),n);var a=j((X,p)=>{p.exports=_jsx_runtime});var h={};y(h,{default:()=>f,frontmatter:()=>b});var r=C(a()),b={title:\"Components\",description:\"An open-source collection of copy-and-paste components for quickly build application UIs.\"};function u(n){let t={p:\"p\",...n.components};return(0,r.jsx)(t.p,{children:\"sfbfs\"})}function f(n={}){let{wrapper:t}=n.components||{};return t?(0,r.jsx)(t,{...n,children:(0,r.jsx)(u,{...n})}):u(n)}return M(h);})();\n;return Component;"
+        },
+        "_id": "docs/index.mdx",
+        "_raw": {
+          "sourceFilePath": "docs/index.mdx",
+          "sourceFileName": "index.mdx",
+          "sourceFileDir": "docs",
+          "contentType": "mdx",
+          "flattenedPath": "docs"
+        },
+        "type": "Doc",
+        "slug": "/docs",
+        "slugAsParams": ""
+      },
+      "documentHash": "1747674259954",
+      "hasWarnings": false,
+      "documentTypeName": "Doc"
+    }
+  }
+}
