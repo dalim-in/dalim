@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Geist } from "next/font/google"
-import { FooterUI } from '@dalim/core/components/layout/footer'
 import { ThemeProvider } from "@/src/components/theme-provider"
+import { FooterUI } from "@dalim/core/components/layout/footer"
 
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
 import { Toaster } from "@/registry/default/ui/toaster"

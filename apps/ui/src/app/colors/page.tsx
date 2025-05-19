@@ -18,7 +18,9 @@ export default function ColorsPage() {
           Colors
         </h1>
         <div className="mb-10 flex items-center justify-center">
-          <p className="text-primary/60">Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats.</p>
+          <p className="text-primary/60">
+            Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats.
+          </p>
         </div>
       </div>
       {colors.map((colorPalette) => (

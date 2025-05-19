@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-
+import { useColors } from "@/src/hooks/use-colors"
 import { getColorFormat, type Color } from "@/src/lib/colors"
 import { cn } from "@dalim/core/lib/utils"
-import { useColors } from "@/src/hooks/use-colors"
 import {
   Select,
   SelectContent,
@@ -35,7 +34,7 @@ export function ColorFormatSelector({
         {...props}
       >
         <span className="font-medium">Format: </span>
-        <span className="font-mono text-xs text-muted-foreground">
+        <span className="text-muted-foreground font-mono text-xs">
           {format}
         </span>
       </SelectTrigger>
@@ -47,7 +46,7 @@ export function ColorFormatSelector({
             className="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
           >
             <span className="font-medium">{format}</span>
-            <span className="font-mono text-xs text-muted-foreground">
+            <span className="text-muted-foreground font-mono text-xs">
               {value}
             </span>
           </SelectItem>
