@@ -5,7 +5,7 @@ import { Inspect  } from "lucide-react";
 export const BrandLogos = () => {
   return (
     <>
-       <div className="group flex overflow-hidden py-2 [--gap:2rem] [gap:var(--gap))] flex-row max-w-full [--duration:40s] [mask-image:linear-gradient(to_right,_rgba(0,_0,_0,_0),rgba(0,_0,_0,_1)_0%,rgba(0,_0,_0,_1)_100%,rgba(0,_0,_0,_0))]">
+       <div className="group pb-6 flex overflow-hidden py-2 [--gap:2rem] [gap:var(--gap))] flex-row max-w-full [--duration:40s] [mask-image:linear-gradient(to_right,_rgba(0,_0,_0,_0),rgba(0,_0,_0,_1)_0%,rgba(0,_0,_0,_1)_100%,rgba(0,_0,_0,_0))]">
         {Array(4)
           .fill(0)
           .map((_, i) => (

@@ -1,156 +1,96 @@
-import { Check, MoveRight, PhoneCall } from 'lucide-react' 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@dalim/core/ui/card'
 import { Button } from '@dalim/core/ui/button'
+import { Check } from 'lucide-react'
+import Link from 'next/link'
+import { Services } from './services'
 
-function Pricing() {
+export function Pricing() {
     return (
         <div
-            id={'pricing'}
-            className="my-10 w-full">
-            <div className="relative pt-10 before:absolute before:-inset-x-12 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+            id="pricing"
+            className="relative pt-4">
             <div className="px-3">
-                <div className="flex flex-col items-center justify-center gap-3 text-center">
-                    <div className="flex flex-col gap-2">
-                        <div>
-                            <h1 className="mx-auto max-w-xs px-6 text-center text-xl font-thin md:max-w-full md:text-3xl"> Prices that make sense!</h1>
+                <Services />
+                <div className="">
+                    <div className="bg-card relative rounded-3xl border shadow-2xl shadow-zinc-950/5">
+                        <div className="grid items-center gap-12 divide-y p-12 md:grid-cols-2 md:divide-x md:divide-y-0">
+                            <div className="pb-12 text-center md:pb-0 md:pr-12">
+                                <h3 className="text-2xl font-semibold">Monthly Club</h3>
+                                <p className="text-primary/60 mt-2 text-lg">Pause or cancel anytime.</p>
+                                <span className="text-brand mb-6 mt-12 inline-block text-6xl font-bold">$999</span>
+
+                                <div className="flex justify-center">
+                                    <Button
+                                        asChild
+                                        size="lg">
+                                        <Link href="#">Join Today</Link>
+                                    </Button>
+                                </div>
+
+                                <p className="text-muted-foreground mt-12 text-sm">Consistent Pricing and Value Each Month, with the Flexibility to Cancel Anytime</p>
+                            </div>
+                            <div className="relative">
+                                <div className="grid gap-4 lg:grid-cols-2">
+                                    <ul
+                                        role="list"
+                                        className="space-y-4">
+                                        {['One request at a time', 'Avg. 48 hour delivery', 'Unlimited stock photos', 'Pause or cancel anytime'].map((item, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-center gap-2">
+                                                <Check className="size-3" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <ul
+                                        role="list"
+                                        className="space-y-4">
+                                        {['Unlimited design requests', 'Connect anytime', 'Web development'].map((item, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-center gap-2">
+                                                <Check className="size-3" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <p className="text-muted-foreground mt-6 text-sm">Consistent Pricing and Value Each Month, with the Flexibility to Cancel Anytime</p>
+                                <div className="mt-12 flex flex-wrap items-center justify-between gap-6">
+                                    <img
+                                        className="h-5 w-fit dark:invert"
+                                        src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                                        alt="Nvidia Logo"
+                                        height="20"
+                                        width="auto"
+                                    />
+                                    <img
+                                        className="h-4 w-fit dark:invert"
+                                        src="https://html.tailus.io/blocks/customers/column.svg"
+                                        alt="Column Logo"
+                                        height="16"
+                                        width="auto"
+                                    />
+                                    <img
+                                        className="h-4 w-fit dark:invert"
+                                        src="https://html.tailus.io/blocks/customers/github.svg"
+                                        alt="GitHub Logo"
+                                        height="16"
+                                        width="auto"
+                                    />
+                                    <img
+                                        className="h-5 w-fit dark:invert"
+                                        src="https://html.tailus.io/blocks/customers/nike.svg"
+                                        alt="Nike Logo"
+                                        height="20"
+                                        width="auto"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="grid w-full grid-cols-1 gap-3 pt-6 text-left lg:grid-cols-3">
-                        <Card className="w-full rounded-md">
-                            <CardHeader>
-                                <CardTitle>
-                                    <span className="flex flex-row items-center gap-4 font-normal">Startup</span>
-                                </CardTitle>
-                                <CardDescription>Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="flex flex-col justify-start gap-8">
-                                    <p className="flex flex-row items-center gap-2 text-xl">
-                                        <span className="text-4xl">$40</span>
-                                        <span className="text-muted-foreground text-sm"> / month</span>
-                                    </p>
-                                    <div className="flex flex-col justify-start gap-4">
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <Button
-                                        variant="outline"
-                                        className="gap-4">
-                                        Sign up today <MoveRight className="h-4 w-4" />
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card className="w-full rounded-md shadow-2xl">
-                            <CardHeader>
-                                <CardTitle>
-                                    <span className="flex flex-row items-center gap-4 font-normal">Growth</span>
-                                </CardTitle>
-                                <CardDescription>Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="flex flex-col justify-start gap-8">
-                                    <p className="flex flex-row items-center gap-2 text-xl">
-                                        <span className="text-4xl">$40</span>
-                                        <span className="text-muted-foreground text-sm"> / month</span>
-                                    </p>
-                                    <div className="flex flex-col justify-start gap-4">
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <Button className="gap-4">
-                                        Sign up today <MoveRight className="h-4 w-4" />
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card className="w-full rounded-md">
-                            <CardHeader>
-                                <CardTitle>
-                                    <span className="flex flex-row items-center gap-4 font-normal">Enterprise</span>
-                                </CardTitle>
-                                <CardDescription>Our goal is to streamline SMB trade, making it easier and faster than ever for everyone and everywhere.</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="flex flex-col justify-start gap-8">
-                                    <p className="flex flex-row items-center gap-2 text-xl">
-                                        <span className="text-4xl">$40</span>
-                                        <span className="text-muted-foreground text-sm"> / month</span>
-                                    </p>
-                                    <div className="flex flex-col justify-start gap-4">
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-row gap-4">
-                                            <Check className="text-primary mt-2 h-4 w-4" />
-                                            <div className="flex flex-col">
-                                                <p>Fast and reliable</p>
-                                                <p className="text-muted-foreground text-sm">We&apos;ve made it fast and reliable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <Button
-                                        variant="outline"
-                                        className="gap-4">
-                                        Book a meeting <PhoneCall className="h-4 w-4" />
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-
-export { Pricing }

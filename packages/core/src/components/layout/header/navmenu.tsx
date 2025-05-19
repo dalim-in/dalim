@@ -109,10 +109,10 @@ export function MenuUI() {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/fonts"
+              href="/layouts"
               className={navigationMenuTriggerStyle()}
             >
-              Fonts
+              Layouts
               <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
                 New
               </span>
@@ -121,20 +121,25 @@ export function MenuUI() {
 
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/graphic"
+              href="/templates"
               className={navigationMenuTriggerStyle()}
             >
-              Graphic
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none font-normal text-[#000000] no-underline group-hover:no-underline">
-                New
-              </span>
+              Templates
+             
             </NavigationMenuLink>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
+            <Link href="/colors" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Components
+                Colors
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/easings" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Easings
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

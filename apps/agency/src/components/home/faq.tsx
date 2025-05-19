@@ -30,12 +30,12 @@ export function FAQs() {
         },
     ]
     return (
-        <div className="px-3 py-10">
-            <div className="relative pt-10 before:absolute before:-inset-x-12 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+        <div className="py-10">
+            <div className="relative  pt-10 before:absolute before:-inset-x-12 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
             <div>
                 <h1 className="mx-auto mb-10 max-w-xs px-6 text-center text-xl font-thin md:max-w-full md:text-3xl">Frequently asked questions?</h1>
             </div>
-            <div className="grid items-stretch gap-3 md:grid-cols-2">
+            <div className="grid px-3 items-stretch gap-3 md:grid-cols-2">
                 <div className="h-full w-full">
                     <Accordion
                         type="single"

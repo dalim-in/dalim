@@ -1,74 +1,63 @@
-import { Card, CardContent, CardHeader } from '@dalim/core/ui/card'
-import { Settings2, Zap } from 'lucide-react'
+import { Zap, Globe } from 'lucide-react'
 import { ReactNode } from 'react'
 
 export function Services() {
     return (
-        <section className=" py-16 md:py-32 dark:bg-transparent">
-            <div className="@container px-3">
-                <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Built to cover your needs</h2>
-                    <p className="mt-4">Libero sapiente aliquam quibusdam aspernatur, praesentium iusto repellendus.</p>
+        <section className="pb-3 dark:bg-transparent">
+            <div className="@container">
+                <div className="grid rounded-3xl border md:grid-cols-2 lg:grid-cols-4">
+                    <div className="p-6 border-b lg:border-b-0 md:border-r">
+                        <div className="">
+                            <CardDecorator>
+                                <Globe
+                                    className="text-brand size-6"
+                                    aria-hidden
+                                />
+                            </CardDecorator>
+                            <h3 className="mb-6 text-center text-2xl font-medium">Website Design</h3>
+                        </div>
+                    </div>
+                    <div className="p-6 border-b lg:border-b-0 lg:border-r">
+                        <div className="">
+                            <CardDecorator>
+                                <Zap
+                                    className="text-brand size-6"
+                                    aria-hidden
+                                />
+                            </CardDecorator>
+                            <h3 className="mb-6 text-center text-2xl font-medium">Social Media Graphics</h3>
+                        </div>
+                    </div>
+                    <div className="p-6 border-b md:border-b-0 md:border-r">
+                        <div className="">
+                            <CardDecorator>
+                                <Zap
+                                    className="text-brand size-6"
+                                    aria-hidden
+                                />
+                            </CardDecorator>
+                            <h3 className="mb-6 text-center text-2xl font-medium">Branding</h3>
+                        </div>
+                    </div>
+                    <div className="p-6 ">
+                        <div className="">
+                            <CardDecorator>
+                                <Zap
+                                    className="text-brand size-6"
+                                    aria-hidden
+                                />
+                            </CardDecorator>
+                            <h3 className="mb-6 text-center text-2xl font-medium">Web Application</h3>
+                        </div>
+                    </div>
                 </div>
-                <Card className="@min-4xl:max-w-full @min-4xl:grid-cols-3 @min-4xl:divide-x @min-4xl:divide-y-0 mx-auto mt-8 grid max-w-sm divide-y overflow-hidden shadow-zinc-950/5 *:text-center md:mt-16">
-                    <div className="group shadow-zinc-950/5">
-                        <CardHeader className="pb-3">
-                            <CardDecorator>
-                                <Zap
-                                    className="size-6"
-                                    aria-hidden
-                                />
-                            </CardDecorator>
-
-                            <h3 className="mt-6 font-medium">Customizable</h3>
-                        </CardHeader>
-
-                        <CardContent>
-                            <p className="text-sm">Extensive customization options, allowing you to tailor every aspect to meet your specific needs.</p>
-                        </CardContent>
-                    </div>
-                    <div className="group  shadow-zinc-950/5">
-                        <CardHeader className="pb-3">
-                            <CardDecorator>
-                                <Zap
-                                    className="size-6"
-                                    aria-hidden
-                                />
-                            </CardDecorator>
-
-                            <h3 className="mt-6 font-medium">Customizable</h3>
-                        </CardHeader>
-
-                        <CardContent>
-                            <p className="text-sm">Extensive customization options, allowing you to tailor every aspect to meet your specific needs.</p>
-                        </CardContent>
-                    </div>
-
-                    <div className="group shadow-zinc-950/5">
-                        <CardHeader className="pb-3">
-                            <CardDecorator>
-                                <Settings2
-                                    className="size-6"
-                                    aria-hidden
-                                />
-                            </CardDecorator>
-
-                            <h3 className="mt-6 font-medium">You have full control</h3>
-                        </CardHeader>
-
-                        <CardContent>
-                            <p className="mt-3 text-sm">From design elements to functionality, you have complete control to create a unique and personalized experience.</p>
-                        </CardContent>
-                    </div>
- 
-                </Card>
             </div>
         </section>
     )
 }
 
 const CardDecorator = ({ children }: { children: ReactNode }) => (
-    <div className="relative mx-auto size-36 duration-200 [--color-border:color-mix(in_oklab,var(--color-zinc-950)10%,transparent)] group-hover:[--color-border:color-mix(in_oklab,var(--color-zinc-950)20%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-white)15%,transparent)] dark:group-hover:bg-white/5 dark:group-hover:[--color-border:color-mix(in_oklab,var(--color-white)20%,transparent)]">
+    <div className="relative mx-auto size-36 duration-200 [--color-border:color-mix(in_oklab,var(--color-neutral-950)10%,transparent)] group-hover:[--color-border:color-mix(in_oklab,var(--color-neutral-950)20%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-white)15%,transparent)] dark:group-hover:bg-white/5 dark:group-hover:[--color-border:color-mix(in_oklab,var(--color-white)20%,transparent)]">
         <div
             aria-hidden
             className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px]"
