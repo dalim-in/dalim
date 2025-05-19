@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { allDocs } from "contentlayer/generated";
 import { MobileNav } from "@/src/components/mdx/mobile-nav";
 import "@/src/styles/mdx.css";
-import type { Metadata } from "next";
+import { Metadata } from 'next/types'
 import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import Balancer from "react-wrap-balancer";

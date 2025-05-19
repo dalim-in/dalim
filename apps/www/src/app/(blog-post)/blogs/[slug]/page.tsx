@@ -63,7 +63,7 @@ export default async function PostPage({ params }: never) {
       <div className="">
         <div className="flex flex-col space-y-5">
           <div className="flex items-center space-x-3">
-            <Link href="/blog">
+            <Link href="/blogs">
               <Button variant="outline" size="sm">
                 All Blog
               </Button>

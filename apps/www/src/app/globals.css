@@ -125,16 +125,16 @@
 }
 
 @layer base {
-  /* Custom scrollbar styling. Thanks @pranathiperii. */
+   
   pre::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
   }
   pre::-webkit-scrollbar-track {
     background: transparent;
   }
   pre::-webkit-scrollbar-thumb {
     background: var(--border);
-    border-radius: 5px;
+    border-radius: 2px;
   }
   pre {
     scrollbar-width: thin;
