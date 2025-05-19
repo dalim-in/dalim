@@ -141,10 +141,9 @@ export function HeaderAgency() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <Link href={'#'}>
+                                    <Link target='_blank' href={'https://cal.com/dalim/15min'}>
                                         <Button>Book a call</Button>
-                                    </Link>
-                                    <Button variant={'outline'}>Login</Button>
+                                    </Link> 
                                 </div>
                             </div>
                         </div>

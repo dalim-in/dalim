@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/src/components/theme-provider"
 import { FooterUI } from "@dalim/core/components/layout/footer"
 
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
-import { Toaster } from "@/registry/default/ui/toaster"
+import { Toaster } from "@/registry/default/ui/toaster" 
 
 import "./globals.css"
 
@@ -41,7 +41,7 @@ export default function RootLayout({
             <div className="before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-12 before:w-px after:absolute after:inset-y-0 after:-right-12 after:w-px">
               <div className="relative flex min-h-screen flex-col">
                 <HeaderUI />
-                <main className="grow">{children}</main>
+                <main className="grow">{children}</main> 
                 <FooterUI />
               </div>
             </div>

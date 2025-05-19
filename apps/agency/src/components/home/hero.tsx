@@ -25,7 +25,7 @@ export function Hero() {
                 </div>
             </main>
             <div className="mt-8">
-                <Link href={'#pricing'}>
+                <Link href={'/#pricing'}>
                     <Button size={'lg'}>Let's Go</Button>
                 </Link>
             </div>
