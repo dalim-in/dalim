@@ -8,6 +8,7 @@ import { Toaster } from "@dalim/core/ui/toaster"
 import "./globals.css"
 import { Header } from '@dalim/core/components/layout/header'
 import { Footer } from '@dalim/core/components/layout/footer'
+import Analytics from "../components/analytics"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
           </div>
           <Toaster />
           <Sonner />
+          <Analytics/>
         </ThemeProvider>
       </body>
     </html>
