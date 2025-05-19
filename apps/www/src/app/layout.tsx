@@ -7,6 +7,7 @@ import { Toaster } from "@dalim/core/ui/toaster"
 
 import "./globals.css"
 import { Header } from '@dalim/core/components/layout/header'
+import { Footer } from '@dalim/core/components/layout/footer'
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
               <div className="relative flex min-h-screen flex-col">
                   <Header />
                 <main className="grow">{children}</main> 
+                <Footer/>
               </div>
             </div>
           </div>

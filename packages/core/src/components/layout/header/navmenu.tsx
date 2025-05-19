@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "../../../ui/navigation-menu"
+} from "../../../ui/navigation-menu" 
 
 export function Menu() {
   return (
@@ -146,7 +146,7 @@ export function MenuUI() {
 
 export function MenuAgency() {
   return (
-    <div className="hidden pl-1 md:block">
+    <div className="hidden pl-6 md:block">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -157,7 +157,7 @@ export function MenuAgency() {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/pricing" legacyBehavior passHref>
+            <Link href="#pricing" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Pricing
               </NavigationMenuLink>

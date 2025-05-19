@@ -1,54 +1,61 @@
 import * as React from 'react'
 
-import { Button } from '@dalim/core/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@dalim/core/ui/card'
-import { Input } from '@dalim/core/ui/input'
-import { Label } from '@dalim/core/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
+import Image from 'next/image'
 
 export function DesignCards() {
     return (
-        <div className='py-10 flex flex-col justify-center items-center'>
-            <div>
-                <h1 className="text-xl font-semibold md:text-5xl text-brand tracking-tighter">Design, the way it was always meant to be.</h1>
-            </div>
-            <Card className="w-[350px] mt-10">
-                <CardHeader>
-                    <CardTitle>Create project</CardTitle>
-                    <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <form>
-                        <div className="grid w-full items-center gap-4">
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
-                                    placeholder="Name of your project"
-                                />
-                            </div>
-                            <div className="flex flex-col space-y-1.5">
-                                <Label htmlFor="framework">Framework</Label>
-                                <Select>
-                                    <SelectTrigger id="framework">
-                                        <SelectValue placeholder="Select" />
-                                    </SelectTrigger>
-                                    <SelectContent position="popper">
-                                        <SelectItem value="next">Next.js</SelectItem>
-                                        <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                                        <SelectItem value="astro">Astro</SelectItem>
-                                        <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                                    </SelectContent>
-                                </Select>
+        <div className="">
+            <div className="flex flex-col items-center justify-center py-10">
+                <div>
+                    <h1 className="mb-10 text-xl mx-auto max-w-xs md:max-w-full px-6 text-center font-thin md:text-3xl">Design, the way it was always meant to be.</h1>
+                </div>
+                <div className="grid grid-cols-1 gap-3 px-3 md:grid-cols-3">
+                    <div className="relative">
+                        <Image
+                            src="/images/1.jpeg"
+                            alt="Your Image"
+                            height={700}
+                            width={700}
+                            className="h-[400px] w-full rounded-xl object-cover"
+                        />
+
+                        <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/90 to-transparent p-4 pt-16">
+                            <div>
+                                <h1 className="text-2xl text-white">Subscribe</h1>
+                                <p className="text-white/80">Subscribe to a plan & request as many designs as you'd like.</p>
                             </div>
                         </div>
-                    </form>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                    <Button variant="outline">Cancel</Button>
-                    <Button>Deploy</Button>
-                </CardFooter>
-            </Card>
+                    </div>
+                    <div className="relative">
+                        <Image
+                            src="/images/3.jpeg"
+                            alt="Your Image"
+                            height={700}
+                            width={700}
+                            className="h-[400px] w-full rounded-xl object-cover"
+                        />
+
+                        <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/90 to-transparent p-4 pt-16">
+                            <h1 className="text-2xl text-white">Request</h1>
+                            <p className="text-white/80">Request whatever you'd like, from mobile apps to logos.</p>
+                        </div>
+                    </div>
+                    <div className="relative">
+                        <Image
+                            src="/images/2.jpeg"
+                            alt="Your Image"
+                            height={700}
+                            width={700}
+                            className="h-[400px] w-full rounded-xl object-cover"
+                        />
+
+                        <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/90 to-transparent p-4 pt-16">
+                            <h1 className="text-2xl text-white">Receive</h1>
+                            <p className="text-white/80">Receive your design within two business days on average.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

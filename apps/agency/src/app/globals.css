@@ -118,6 +118,15 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -128,6 +137,9 @@
 }
 
 @layer base {
+  html {
+    scroll-padding-top: 2.5rem;
+  }
   /* Custom scrollbar styling. Thanks @pranathiperii. */
   pre::-webkit-scrollbar {
     width: 5px;

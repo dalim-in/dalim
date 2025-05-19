@@ -7,6 +7,8 @@ import ThemeToggle from '../../../ui/theme-toggle'
 import { Button } from '../../../ui/button'
 import { Menu, MenuAgency, MenuUI } from './navmenu'
 import LinkSelect from './link-select'
+import { SignIn } from './sign-in'
+import { MobileAgency } from './mobile-menu'
 
 export function Header() {
     return (
@@ -91,7 +93,7 @@ export function HeaderUI() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <Button size={'icon'}>A</Button>
+                                    <SignIn />
                                 </div>
                             </div>
                         </div>
@@ -134,7 +136,8 @@ export function HeaderAgency() {
                                 </Link>
                             </div>
                             <MenuAgency />
-                            <div className="flex items-center">
+                            <MobileAgency />
+                            <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />

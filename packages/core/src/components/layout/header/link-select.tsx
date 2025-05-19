@@ -35,9 +35,9 @@ export default function LinkSelect() {
     }
   }
 
-  return (
+  return ( 
     <Select value={value} onValueChange={handleValueChange}>
-      <SelectTrigger className="w-24">
+      <SelectTrigger className="w-full md:w-24">
         <SelectValue placeholder="Dalim" />
       </SelectTrigger>
       <SelectContent >
@@ -48,6 +48,6 @@ export default function LinkSelect() {
         <SelectItem disabled value="works">Works</SelectItem>
         <SelectItem disabled value="fonts">Fonts</SelectItem>
       </SelectContent>
-    </Select>
+    </Select> 
   )
 }
