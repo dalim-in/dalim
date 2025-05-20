@@ -1,4 +1,3 @@
- 
 import { Geist } from 'next/font/google'
 import { ThemeProvider } from '@/src/components/theme-provider'
 
@@ -12,6 +11,7 @@ import { Header } from '@dalim/core/components/layout/header'
 import { Footer } from '@dalim/core/components/layout/footer'
 import Analytics from '../components/analytics'
 import { Metadata } from 'next/types'
+import { AuthButtons } from '../components/layout/header/auth-buttons'
 
 const fontSans = Geist({
     subsets: ['latin'],
@@ -42,7 +42,9 @@ export default function RootLayout({
                     <div className="overflow-hidden px-4 supports-[overflow:clip]:overflow-clip sm:px-6">
                         <div className="relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-6 before:w-px before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:inset-y-0 after:-right-6 after:w-px after:bg-[linear-gradient(to_bottom,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]">
                             <div className="relative flex min-h-screen flex-col">
-                                <Header />
+                                <Header> 
+                                    <AuthButtons />
+                                </Header> 
                                 <main className="grow">{children}</main>
                                 <CookieConsent />
                                 <Footer />

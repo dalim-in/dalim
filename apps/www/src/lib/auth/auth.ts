@@ -13,9 +13,7 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   session: {
-    expiresIn: 60 * 60 * 24 * 7, // 7 days
-    // BUG: Prob a bug with updateAge method. It throws an error - Argument `where` of type SessionWhereUniqueInput needs at least one of `id` arguments. 
-    // As a workaround, set updateAge to a large value for now.
+    expiresIn: 60 * 60 * 24 * 7, // 7 days 
     updateAge: 60 * 60 * 24 * 7, // 7 days (every 7 days the session expiration is updated)
     cookieCache: {
       enabled: true,
@@ -46,13 +44,17 @@ export const auth = betterAuth({
       clientId: process.env.GITHUB_CLIENT_ID as string,
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
     },
+    google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID as string, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string, 
+        }, 
   },
   plugins: [openAPI(), admin({
     impersonationSessionDuration: 60 * 60 * 24 * 7, // 7 days
   })], // api/auth/reference
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: true,
+    requireEmailVerification: false,
     sendResetPassword: async ({ user, url }) => {
       await sendEmail({
         to: user.email,

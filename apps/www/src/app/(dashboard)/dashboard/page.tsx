@@ -13,10 +13,10 @@ export default async function DashboardPage() {
         }),
     ]).catch((e) => {
         console.log(e)
-        throw redirect('/sign-in')
+        throw redirect('/login')
     })
     return (
-        <div className="w-full">
+        <div className="w-full mb-10">
             <div className="flex flex-col gap-4">
                 <UserCard
                     session={JSON.parse(JSON.stringify(session))}

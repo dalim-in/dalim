@@ -11,7 +11,7 @@ export const siteConfig = {
   emails: {
     from: {
       name: "Dalim",
-      email: "contact@dalim.in", // Must be verified in Resend
+      email: "contact@dalim.in",  
     },
   },
    

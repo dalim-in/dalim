@@ -6,12 +6,14 @@ import ThemeToggle from '../../../ui/theme-toggle'
 
 import { Button } from '../../../ui/button'
 import { Menu, MenuAgency, MenuUI } from './navmenu'
-import LinkSelect from './link-select'
-import { SignIn } from './sign-in'
-import { MobileAgency } from './mobile-menu'
-import { AuthButtons } from '../../../../../../apps/www/src/components/layout/header/auth-buttons'
+import LinkSelect from './link-select' 
+import { MobileAgency } from './mobile-menu' 
 
-export function Header() {
+export function Header({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
     return (
         <div className="">
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
@@ -47,13 +49,8 @@ export function Header() {
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect />
-                                    <Link
-                                        target="_blank"
-                                        href={'https://cal.com/dalim/15min'}>
-                                        <Button>Book a call</Button>
-                                    </Link>
-                                    <AuthButtons />
+                                    <LinkSelect />  
+                                    {children}
                                 </div>
                             </div>
                         </div>
@@ -100,8 +97,7 @@ export function HeaderUI() {
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect />
-                                    <SignIn />
+                                    <LinkSelect /> 
                                 </div>
                             </div>
                         </div>
@@ -153,7 +149,7 @@ export function HeaderAgency() {
                                         target="_blank"
                                         href={'https://cal.com/dalim/15min'}>
                                         <Button>Book a call</Button>
-                                    </Link>
+                                    </Link> 
                                 </div>
                             </div>
                         </div>
