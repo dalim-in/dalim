@@ -12,7 +12,7 @@ export function Menu() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Designali</NavigationMenuTrigger>
+                        <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid gap-3 p-4 md:w-[600px] lg:w-[900px] lg:grid-cols-[1fr_1fr_1fr]">
                                 <li className="row-span-1">
@@ -23,7 +23,7 @@ export function Menu() {
                                         </div>
                                     </NavigationMenuLink>
                                 </li>
-                                <li className="row-span-1 space-y-3">
+                                <div className="row-span-1 space-y-3">
                                     <ListItem
                                         href="/agency"
                                         title="Agency">
@@ -40,7 +40,7 @@ export function Menu() {
                                         title="Blogs">
                                         Creative Chronicles: Insights, Inspiration, and Design Trends
                                     </ListItem>
-                                </li>
+                                </div>
                                 <li className="row-span-1">
                                     <NavigationMenuLink href="/agency/works">
                                         <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">

@@ -9,6 +9,7 @@ import { Menu, MenuAgency, MenuUI } from './navmenu'
 import LinkSelect from './link-select'
 import { SignIn } from './sign-in'
 import { MobileAgency } from './mobile-menu'
+import { AuthButtons } from '../../../../../../apps/www/src/components/layout/header/auth-buttons'
 
 export function Header() {
     return (
@@ -42,11 +43,17 @@ export function Header() {
                                 </Link>
                             </div>
                             <Menu />
-                            <div className="flex items-center">
+                            <MobileAgency />
+                            <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <Button>Login</Button>
+                                    <Link
+                                        target="_blank"
+                                        href={'https://cal.com/dalim/15min'}>
+                                        <Button>Book a call</Button>
+                                    </Link>
+                                    <AuthButtons />
                                 </div>
                             </div>
                         </div>
@@ -89,7 +96,8 @@ export function HeaderUI() {
                                 </Link>
                             </div>
                             <MenuUI />
-                            <div className="flex items-center">
+                            <MobileAgency />
+                            <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
@@ -141,9 +149,11 @@ export function HeaderAgency() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <Link target='_blank' href={'https://cal.com/dalim/15min'}>
+                                    <Link
+                                        target="_blank"
+                                        href={'https://cal.com/dalim/15min'}>
                                         <Button>Book a call</Button>
-                                    </Link> 
+                                    </Link>
                                 </div>
                             </div>
                         </div>

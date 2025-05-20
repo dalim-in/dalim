@@ -68,7 +68,7 @@ export default async function PostPage({ params }: never) {
                 All Blog
               </Button>
             </Link>
-            <Link href={`/blog/category/${category.slug}`}>
+            <Link href={`/blogs/category/${category.slug}`}>
               <Button variant="outline" size="sm">
                 {category.title}
               </Button>
