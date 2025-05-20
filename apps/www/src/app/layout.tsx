@@ -11,7 +11,7 @@ import { Header } from '@dalim/core/components/layout/header'
 import { Footer } from '@dalim/core/components/layout/footer'
 import Analytics from '../components/analytics'
 import { Metadata } from 'next/types'
-import { AuthButtons } from '../components/layout/header/auth-buttons'
+import { AuthButtons } from '../components/layout/header/auth-buttons' 
 
 const fontSans = Geist({
     subsets: ['latin'],
@@ -44,7 +44,7 @@ export default function RootLayout({
                             <div className="relative flex min-h-screen flex-col">
                                 <Header> 
                                     <AuthButtons />
-                                </Header> 
+                                </Header>  
                                 <main className="grow">{children}</main>
                                 <CookieConsent />
                                 <Footer />

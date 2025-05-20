@@ -5,6 +5,8 @@ import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@dalim/core/ui/card'
 import { Alert, AlertTitle, AlertDescription } from '@dalim/core/ui/alert'
 import { Checkbox } from '@dalim/core/ui/checkbox'
+import { ScrollArea } from '@dalim/core/ui/scroll-area'
+
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@dalim/core/ui/dialog'
 import { Input } from '@dalim/core/ui/input'
 import { Label } from '@dalim/core/ui/label'
@@ -103,49 +105,50 @@ export default function UserCard(props: { session: Session | null; activeSession
                         </Button>
                     </Alert>
                 )}
+                <ScrollArea className="h-72 w-60 rounded-md p-3 border">
+                    <div className="flex w-max flex-col gap-1 px-2">
+                        <p className="text-xs font-medium">Active Sessions</p>
+                        {props.activeSessions
+                            .filter((session) => session.userAgent)
+                            .map((session) => {
+                                return (
+                                    <div key={session.id}>
+                                        <div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
+                                            {new UAParser(session.userAgent || '').getDevice().type === 'mobile' ? <Phone /> : <Laptop size={16} />}
+                                            {new UAParser(session.userAgent || '').getOS().name}, {new UAParser(session.userAgent || '').getBrowser().name}
+                                            <button
+                                                className="cursor-pointer border-red-600 text-xs text-red-500 underline opacity-80"
+                                                onClick={async () => {
+                                                    setIsTerminating(session.id)
+                                                    const res = await client.revokeSession({
+                                                        token: session.token,
+                                                    })
 
-                <div className="flex w-max flex-col gap-1 border-l-2 px-2">
-                    <p className="text-xs font-medium">Active Sessions</p>
-                    {props.activeSessions
-                        .filter((session) => session.userAgent)
-                        .map((session) => {
-                            return (
-                                <div key={session.id}>
-                                    <div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
-                                        {new UAParser(session.userAgent || '').getDevice().type === 'mobile' ? <Phone /> : <Laptop size={16} />}
-                                        {new UAParser(session.userAgent || '').getOS().name}, {new UAParser(session.userAgent || '').getBrowser().name}
-                                        <button
-                                            className="cursor-pointer border-red-600 text-xs text-red-500 underline opacity-80"
-                                            onClick={async () => {
-                                                setIsTerminating(session.id)
-                                                const res = await client.revokeSession({
-                                                    token: session.token,
-                                                })
-
-                                                if (res.error) {
-                                                    toast.error(res.error.message)
-                                                } else {
-                                                    toast.success('Session terminated successfully')
-                                                }
-                                                router.refresh()
-                                                setIsTerminating(undefined)
-                                            }}>
-                                            {isTerminating === session.id ? (
-                                                <Loader2
-                                                    size={15}
-                                                    className="animate-spin"
-                                                />
-                                            ) : session.id === props.session?.session.id ? (
-                                                'Sign Out'
-                                            ) : (
-                                                'Terminate'
-                                            )}
-                                        </button>
+                                                    if (res.error) {
+                                                        toast.error(res.error.message)
+                                                    } else {
+                                                        toast.success('Session terminated successfully')
+                                                    }
+                                                    router.refresh()
+                                                    setIsTerminating(undefined)
+                                                }}>
+                                                {isTerminating === session.id ? (
+                                                    <Loader2
+                                                        size={15}
+                                                        className="animate-spin"
+                                                    />
+                                                ) : session.id === props.session?.session.id ? (
+                                                    'Sign Out'
+                                                ) : (
+                                                    'Terminate'
+                                                )}
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-                </div>
+                                )
+                            })}
+                    </div>
+                </ScrollArea>
                 <div className="flex flex-wrap items-center justify-between gap-2 border-y py-4">
                     <div className="flex flex-col gap-2">
                         <p className="text-sm">Passkeys</p>

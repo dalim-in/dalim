@@ -1,18 +1,50 @@
-import { Button } from '@dalim/core/ui/button'
+'use client'
+
+import { useRouter } from 'next/navigation'
+import { authClient } from '@/src/lib/auth/auth-client'
+import { useSession } from '@/src/lib/auth/auth-client'
+import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@dalim/core/ui/dropdown-menu'
-import SignoutButton from './signout-button'
+
 import Link from 'next/link'
 
 export function SignIn() {
+    const { data: session } = useSession()
+    const router = useRouter()
+
+    const handleSignOut = async () => {
+        try {
+            await authClient.signOut({
+                fetchOptions: {
+                    onSuccess: () => {
+                        router.push('/login')
+                        router.refresh()
+                    },
+                },
+            })
+        } catch (error) {
+            console.error('Error signing out:', error)
+        }
+    }
+
+    if (!session) return null // ✅ safely guard
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button size={'icon'}>A</Button>
+                <Avatar>
+                    <AvatarImage
+                        src={session.user.image ?? '/brand/logo.svg'}
+                        alt={session.user.name ?? 'A'}
+                    />
+                    <AvatarFallback>{(session.user.name ?? 'A').charAt(0).toUpperCase()}</AvatarFallback>
+                </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent
                 side="left"
                 className="mt-5 w-56">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel className="pb-0 text-xl">{session.user.name}</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-primary/60 pt-0 text-sm font-light">{session.user.email}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem asChild>
@@ -21,18 +53,19 @@ export function SignIn() {
                             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                         </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        Billing
-                        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                    {session?.user?.role === 'ADMIN' && (
+                        <DropdownMenuItem asChild>
+                            <Link href="/admin">
+                                Admin
+                                <DropdownMenuShortcut>⇧⌘A</DropdownMenuShortcut>
+                            </Link>
+                        </DropdownMenuItem>
+                    )}
                     <DropdownMenuItem>
                         Settings
                         <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        Keyboard shortcuts
-                        <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                     
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
@@ -53,13 +86,12 @@ export function SignIn() {
                         <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>GitHub</DropdownMenuItem>
-                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator /> 
+                <DropdownMenuItem disabled>Support</DropdownMenuItem>
                 <DropdownMenuItem disabled>API</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                    <SignoutButton />
+                <DropdownMenuItem onClick={handleSignOut}>
+                    Sign Out
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                 </DropdownMenuItem>
             </DropdownMenuContent>

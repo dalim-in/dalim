@@ -27,7 +27,7 @@ model User {
   instagram     String?
   linkedin      String?
   premium       Boolean   @default(false)
-  role          String    @default("user")
+  role          UserRole  @default(USER)
   banned        Boolean   @default(false)
   banReason     String?
   banExpires    Int? /// Unix timestamp for ban expiration

@@ -21,7 +21,7 @@ const LogIn = () => {
     const toggleVisibility = () => setIsVisible((prevState) => !prevState)
 
     return (
-        <Card className="z-50 mx-auto max-w-md">
+        <Card className="z-50 mb-10 mx-auto max-w-md">
             <CardHeader>
                 <CardTitle className="text-lg md:text-xl">Sign In</CardTitle>
                 <CardDescription className="text-xs md:text-sm">Enter your email below to login to your account</CardDescription>
@@ -44,7 +44,7 @@ const LogIn = () => {
                     <div className="flex items-center">
                         <Label htmlFor="password">Password</Label>
                         <Link
-                            href="/forget-password"
+                            href="/forgot-password"
                             className="ml-auto inline-block text-sm underline">
                             Forgot your password?
                         </Link>
