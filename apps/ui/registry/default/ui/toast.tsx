@@ -83,7 +83,7 @@ function ToastClose({
     <ToastPrimitives.Close
       className={cn(
         !asChild &&
-          "group focus-visible:border-ring focus-visible:ring-ring/50 absolute top-3 right-3 flex size-7 items-center justify-center rounded transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none",
+          "focus-visible:border-ring focus-visible:ring-ring/50 group absolute top-3 right-3 flex size-7 items-center justify-center rounded transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none",
         className
       )}
       toast-close=""

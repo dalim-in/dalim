@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Checkbox } from '@dalim/core/ui/checkbox'
 import { Input } from '@dalim/core/ui/input'
 import { Label } from '@dalim/core/ui/label'
-import { client } from '@/src/lib/auth/auth-client'
+import { client } from '@dalim/auth'
 import { EyeIcon, EyeOffIcon, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'

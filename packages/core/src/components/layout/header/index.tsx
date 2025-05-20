@@ -3,17 +3,13 @@ import Link from 'next/link'
 import LogoDark from '@/public/brand/logo-black.svg'
 import Logo from '@/public/brand/logo.svg'
 import ThemeToggle from '../../../ui/theme-toggle'
-
-import { Button } from '../../../ui/button'
+ 
 import { Menu, MenuAgency, MenuUI } from './navmenu'
-import LinkSelect from './link-select' 
-import { MobileAgency } from './mobile-menu' 
+import LinkSelect from './link-select'
+import { MobileAgency } from './mobile-menu'
+import { AuthButtons } from './auth-buttons'
 
-export function Header({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export function Header() {
     return (
         <div className="">
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
@@ -49,8 +45,8 @@ export function Header({
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect />  
-                                    {children}
+                                    <LinkSelect />
+                                    <AuthButtons />
                                 </div>
                             </div>
                         </div>
@@ -97,7 +93,8 @@ export function HeaderUI() {
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect /> 
+                                    <LinkSelect />
+                                    <AuthButtons />
                                 </div>
                             </div>
                         </div>
@@ -144,12 +141,8 @@ export function HeaderAgency() {
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect />
-                                    <Link
-                                        target="_blank"
-                                        href={'https://cal.com/dalim/15min'}>
-                                        <Button>Book a call</Button>
-                                    </Link> 
+                                    <LinkSelect /> 
+                                    <AuthButtons />
                                 </div>
                             </div>
                         </div>

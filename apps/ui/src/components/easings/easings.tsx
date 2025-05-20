@@ -118,11 +118,7 @@ const EasingSVG = ({
 
       {/* Bezier curve */}
       <path
-        d={`M${config.padding},${config.height - config.padding} C${config.padding + easing.points[0] * config.plotSize},${
-          config.height - config.padding - easing.points[1] * config.plotSize
-        } ${config.padding + easing.points[2] * config.plotSize},${
-          config.height - config.padding - easing.points[3] * config.plotSize
-        } ${config.padding + config.plotSize},${config.height - config.padding - config.plotSize}`}
+        d={`M${config.padding},${config.height - config.padding} C${config.padding + easing.points[0] * config.plotSize},${config.height - config.padding - easing.points[1] * config.plotSize} ${config.padding + easing.points[2] * config.plotSize},${config.height - config.padding - easing.points[3] * config.plotSize} ${config.padding + config.plotSize},${config.height - config.padding - config.plotSize}`}
         fill="none"
         className="stroke-muted-foreground"
         strokeWidth="2"
@@ -398,7 +394,7 @@ export default function Easings({ easings }: EasingsProps) {
         {getFilteredEasings().map((easing) => (
           <div
             key={`${easing.name}-${easingFilter}`}
-            className="group bg-muted/65 relative flex aspect-square flex-col items-center justify-center gap-4 rounded-xl"
+            className="bg-muted/65 group relative flex aspect-square flex-col items-center justify-center gap-4 rounded-xl"
           >
             <div className="pt-6 text-center text-sm font-medium">
               {easing.name}

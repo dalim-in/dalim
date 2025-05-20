@@ -25,6 +25,8 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
     "turbo": "^2.5.3"
   }
 }

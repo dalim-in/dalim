@@ -15,7 +15,7 @@ import LoadingButton from "@/src/components/ui/loading-button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { authClient } from "@/src/lib/auth/auth-client";
+import { authClient } from "@dalim/auth";
 import { useToast } from "@dalim/core/hooks/use-toast";
 import { forgotPasswordSchema } from "@dalim/db";
 

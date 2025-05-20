@@ -12,7 +12,7 @@ export default function ThemeToggle() {
     <div className="flex flex-col justify-center">
       <div>
         <Toggle
-          className="group data-[state=on]:hover:bg-muted size-9 data-[state=on]:bg-transparent"
+          className="data-[state=on]:hover:bg-muted group size-9 data-[state=on]:bg-transparent"
           pressed={theme === "dark"}
           onPressedChange={() =>
             setTheme((prev) => (prev === "dark" ? "light" : "dark"))

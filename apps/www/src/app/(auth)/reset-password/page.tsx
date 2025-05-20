@@ -10,7 +10,7 @@ import { z } from 'zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@dalim/core/ui/form'
 import { resetPasswordSchema } from '@dalim/db'
 import LoadingButton from '@/src/components/ui/loading-button'
-import { authClient } from '@/src/lib/auth/auth-client'
+import { authClient } from '@dalim/auth'
 import { useToast } from '@dalim/core/hooks/use-toast'
 import { useRouter } from 'next/navigation'
 

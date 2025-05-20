@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-import { auth } from '@/src/lib/auth/auth'
+import { auth } from '@dalim/auth'
 import { headers } from 'next/headers'
 import UsersTable from '@/src/components/admin/users-table'
 import { Card, CardContent, CardHeader, CardTitle } from '@dalim/core/ui/card'

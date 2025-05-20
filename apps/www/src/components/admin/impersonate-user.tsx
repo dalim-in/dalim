@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@dalim/core/ui/button";
-import { authClient } from "@/src/lib/auth/auth-client";
+import { authClient } from "@dalim/auth";
 import { useRouter } from "next/navigation";
 import { useToast } from "@dalim/core/hooks/use-toast";
 interface ImpersonateUserProps {

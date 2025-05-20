@@ -10,7 +10,7 @@ import {
 } from "@dalim/core/ui/table";
 import { User } from "@dalim/db";
 import { useState, useEffect } from "react";
-import { authClient } from "@/src/lib/auth/auth-client";
+import { authClient } from "@dalim/auth";
 import ImpersonateUser from "./impersonate-user";
 
 export default function UsersTable() {
