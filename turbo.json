@@ -19,5 +19,19 @@
       "cache": false,
       "outputs": []
     }
-  }
+  },
+  "globalEnv": [
+    "NEXT_PUBLIC_APP_NAME",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "DATABASE_URL",
+    "GITHUB_CLIENT_ID",
+    "GITHUB_CLIENT_SECRET",
+    "RESET_PASSWORD_CALLBACK_URL",
+    "EMAIL_VERIFICATION_CALLBACK_URL", 
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET", 
+    "EMAIL_FROM",
+    "RESEND_API_KEY", 
+  ]
 }

@@ -349,7 +349,7 @@ export default function UserCard(props: { session: Session | null; activeSession
                             await signOut({
                                 fetchOptions: {
                                     onSuccess() {
-                                        router.push('/')
+                                        router.push('/login')
                                     },
                                 },
                             })
