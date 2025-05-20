@@ -18,7 +18,7 @@ export function SignIn() {
             await authClient.signOut({
                 fetchOptions: {
                     onSuccess: () => {
-                        router.push('/login')
+                        router.push(`${DALIM_URL}`)
                         router.refresh()
                     },
                 },

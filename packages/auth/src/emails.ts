@@ -1,6 +1,5 @@
 "use server"
-import * as React from "react";
-import SubscriptionEmail from "./emails/subscription-email";
+import * as React from "react"; 
 import { Resend } from "resend";
 import { env } from "../env";
  
@@ -56,25 +55,4 @@ export async function sendEmail<T extends Record<string, unknown>>({
   }
 }
 
-// Specific email functions
-export async function sendSubscriptionEmail(
-  email: string,
-  name: string | null,
-  type: "created" | "updated" | "cancelled",
-) {
-  const subject = {
-    created: "Welcome to Your Subscription!",
-    updated: "Your Subscription Has Been Updated",
-    cancelled: "Your Subscription Has Been Cancelled",
-  }[type];
-
-  return sendEmail({
-    to: email,
-    subject,
-    template: SubscriptionEmail,
-    props: {
-      name: name || "there",
-      type,
-    },
-  });
-}
+ 

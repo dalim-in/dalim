@@ -3,11 +3,12 @@ import Link from 'next/link'
 import LogoDark from '@/public/brand/logo-black.svg'
 import Logo from '@/public/brand/logo.svg'
 import ThemeToggle from '../../../ui/theme-toggle'
- 
+
 import { Menu, MenuAgency, MenuUI } from './navmenu'
 import LinkSelect from './link-select'
 import { MobileAgency } from './mobile-menu'
 import { AuthButtons } from './auth-buttons'
+import { ClientOnly } from './client-only'
 
 export function Header() {
     return (
@@ -43,11 +44,13 @@ export function Header() {
                             <Menu />
                             <MobileAgency />
                             <div className="hidden items-center md:flex">
-                                <div className="flex items-center gap-1">
-                                    <ThemeToggle />
-                                    <LinkSelect />
-                                    <AuthButtons />
-                                </div>
+                                <ClientOnly>
+                                    <div className="flex items-center gap-1">
+                                        <ThemeToggle />
+                                        <LinkSelect />
+                                        <AuthButtons />
+                                    </div>
+                                </ClientOnly>
                             </div>
                         </div>
                     </div>
@@ -141,7 +144,7 @@ export function HeaderAgency() {
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
-                                    <LinkSelect /> 
+                                    <LinkSelect />
                                     <AuthButtons />
                                 </div>
                             </div>
