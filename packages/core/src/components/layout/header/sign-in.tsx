@@ -5,6 +5,7 @@ import { authClient } from '@dalim/auth'
 import { useSession } from '@dalim/auth'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '../../../ui/dropdown-menu'
+import { DALIM_URL } from '@dalim/auth'
 
 import Link from 'next/link'
 
@@ -48,14 +49,14 @@ export function SignIn() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem asChild>
-                        <Link href="/dashboard">
+                        <Link href={`${DALIM_URL}/dashboard`}>
                             Dashboard
                             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                         </Link>
                     </DropdownMenuItem>
                     {session?.user?.role === 'ADMIN' && (
                         <DropdownMenuItem asChild>
-                            <Link href="/admin">
+                            <Link href={`${DALIM_URL}/admin`}>
                                 Admin
                                 <DropdownMenuShortcut>⇧⌘A</DropdownMenuShortcut>
                             </Link>
@@ -65,7 +66,6 @@ export function SignIn() {
                         Settings
                         <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                     </DropdownMenuItem>
-                     
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
@@ -86,7 +86,7 @@ export function SignIn() {
                         <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
-                <DropdownMenuSeparator /> 
+                <DropdownMenuSeparator />
                 <DropdownMenuItem disabled>Support</DropdownMenuItem>
                 <DropdownMenuItem disabled>API</DropdownMenuItem>
                 <DropdownMenuSeparator />

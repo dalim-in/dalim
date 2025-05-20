@@ -1,4 +1,5 @@
-import { betterAuth, BetterAuthOptions } from "better-auth";
+import { betterAuth } from "better-auth";
+import type { BetterAuthOptions } from 'better-auth';
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "@dalim/db";
 import { sendEmail } from "./emails";
@@ -9,7 +10,7 @@ import ResetPasswordEmail from "./emails/reset-password-email";
 import VerifyEmail from "./emails/verify-email";
 import {
   TRUSTED_ORIGINS,
-  BETTER_AUTH_URL,
+  DALIM_URL,
 } from "./constants";
 
 export const auth = betterAuth({
@@ -77,7 +78,7 @@ export const auth = betterAuth({
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
     sendVerificationEmail: async ({ user, token }) => {
-      const verificationUrl = `${BETTER_AUTH_URL}/api/auth/verify-email?token=${token}&callbackURL=${process.env.EMAIL_VERIFICATION_CALLBACK_URL}`;
+      const verificationUrl = `${DALIM_URL}/api/auth/verify-email?token=${token}&callbackURL=${process.env.EMAIL_VERIFICATION_CALLBACK_URL}`;
       await sendEmail({
         to: user.email,
         subject: "Verify your email address",

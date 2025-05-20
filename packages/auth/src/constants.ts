@@ -8,4 +8,4 @@ export const AGENCY_URL = isProduction ? 'https://agency.dalim.in' : 'http://loc
 
 export const TRUSTED_ORIGINS = [APP_URL, AGENCY_URL, UI_URL]
 
-export const BETTER_AUTH_URL = APP_URL
+export const DALIM_URL = APP_URL
