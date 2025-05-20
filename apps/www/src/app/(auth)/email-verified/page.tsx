@@ -11,12 +11,12 @@ export default async function EmailVerifiedPage() {
 				Your email has been successfully verified.
 			</p>
 			<Link
-				href="/"
+				href="/dashboard"
 				className={buttonVariants({
 					variant: "default",
 				})}
 			>
-				Go to home
+				Go to Dashboard
 			</Link>
 		</div>
 	);

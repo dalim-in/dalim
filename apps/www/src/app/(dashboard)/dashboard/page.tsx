@@ -1,16 +1,28 @@
-import { auth } from "@/src/lib/auth/auth";
-import { headers } from "next/headers";
+import { auth } from '@/src/lib/auth/auth'
+import { headers } from 'next/headers'
+import { redirect } from 'next/navigation'
+import UserCard from '@/src/components/dashboard/settings/user-card'
 
-export default async function Home() {
-	const session = await auth.api.getSession({
-		headers: await headers(),
-	});
-	return (
-		<main className="flex items-center justify-center grow p-8">
-			<div className="flex flex-col items-center gap-4">
-				<h1 className="text-7xl">Hello</h1>
-				<p>You are logged in as: {session?.user?.email}</p>
-			</div>
-		</main>
-	);
+export default async function DashboardPage() {
+    const [session, activeSessions] = await Promise.all([
+        auth.api.getSession({
+            headers: await headers(),
+        }),
+        auth.api.listSessions({
+            headers: await headers(),
+        }),
+    ]).catch((e) => {
+        console.log(e)
+        throw redirect('/sign-in')
+    })
+    return (
+        <div className="w-full">
+            <div className="flex flex-col gap-4">
+                <UserCard
+                    session={JSON.parse(JSON.stringify(session))}
+                    activeSessions={JSON.parse(JSON.stringify(activeSessions))}
+                />
+            </div>
+        </div>
+    )
 }

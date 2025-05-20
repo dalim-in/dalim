@@ -1,8 +1,8 @@
 import * as React from "react";
-import SubscriptionEmail from "@/emails/subscription-email";
+import SubscriptionEmail from "@/src/emails/subscription-email";
 import { Resend } from "resend";
 
-import { siteConfig } from "../config/site";
+import { siteConfig } from "@/src/config/site";
 
 if (!process.env.RESEND_API_KEY) {
   throw new Error("Missing RESEND_API_KEY environment variable");

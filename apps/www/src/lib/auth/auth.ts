@@ -1,10 +1,12 @@
 import { betterAuth, BetterAuthOptions } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "@dalim/db"; 
+import { prisma } from "@dalim/db";
+import { sendEmail } from "../emails";
 import { openAPI } from "better-auth/plugins";
 import { admin } from "better-auth/plugins";
-import { sendEmail } from "../emails";
-
+import ChangeEmail from "@/src/emails/change-email";
+import ResetPasswordEmail from "@/src/emails/reset-password-email";
+import VerifyEmail from "@/src/emails/verify-email";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -32,8 +34,9 @@ export const auth = betterAuth({
       sendChangeEmailVerification: async ({ newEmail, url }) => {
         await sendEmail({
           to: newEmail,
-          subject: 'Verify your email change',
-          template: `${url}`
+          subject: "Verify your email change",
+          template: ChangeEmail,
+          props: { url },
         })
       }
     }
@@ -54,8 +57,9 @@ export const auth = betterAuth({
       await sendEmail({
         to: user.email,
         subject: "Reset your password",
-        text: `Click the link to reset your password: ${url}`,
-      });
+        template: ResetPasswordEmail,
+        props: { url },
+      })
     },
   },
   emailVerification: {
@@ -66,8 +70,9 @@ export const auth = betterAuth({
       await sendEmail({
         to: user.email,
         subject: "Verify your email address",
-        text: `Click the link to verify your email: ${verificationUrl}`,
-      });
+        template: VerifyEmail,
+        props: { url: verificationUrl },
+      })
     },
   }
 } satisfies BetterAuthOptions);

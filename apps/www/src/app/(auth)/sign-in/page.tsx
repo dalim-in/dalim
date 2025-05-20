@@ -52,7 +52,7 @@ export default function SignIn() {
 					setPendingCredentials(true);
 				},
 				onSuccess: async () => {
-					router.push("/");
+					router.push("/dashboard");
 					router.refresh();
 				},
 				onError: (ctx: ErrorContext) => {
@@ -72,13 +72,14 @@ export default function SignIn() {
 		await authClient.signIn.social(
 			{
 				provider: "github",
+				callbackURL: "/dashboard",
 			},
 			{
 				onRequest: () => {
 					setPendingGithub(true);
 				},
 				onSuccess: async () => {
-					router.push("/");
+					router.push("/dashboard");
 					router.refresh();
 				},
 				onError: (ctx: ErrorContext) => {
