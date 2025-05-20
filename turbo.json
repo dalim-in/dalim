@@ -32,6 +32,6 @@
     "GOOGLE_CLIENT_ID",
     "GOOGLE_CLIENT_SECRET", 
     "EMAIL_FROM",
-    "RESEND_API_KEY", 
+    "RESEND_API_KEY"
   ]
 }

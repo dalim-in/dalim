@@ -8,7 +8,7 @@ export default async function AdminDashboard() {
    const session = await authClient.getSession()
   const user = session.data?.user
 
-  if (!user || user.role !== "USER") {
+  if (!user || user.role !== "admin") {
     redirect("/dashboard")
   }
 
