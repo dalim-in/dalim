@@ -13,6 +13,7 @@
     "registry:build": "shadcn build"
   },
   "dependencies": { 
+    "@better-fetch/fetch": "^1.1.12",
     "@dalim/auth": "workspace:*",
     "@dalim/core": "workspace:*",
     "@dalim/db": "workspace:*",

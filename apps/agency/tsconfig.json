@@ -1,17 +1,26 @@
 {
   "extends": "@dalim/ts-config/base.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-     "@/*": ["./*"], 
-     "@dalim/core/*": ["../../packages/core/src/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@dalim/core/*": [
+        "../../packages/core/src/*"
+      ]
     }
   },
   "include": [
     "./next-env.d.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    ".next/types/**/*.ts"
-, "next.config.mjs"  ],
-  "exclude": ["node_modules", "dist"]
+    ".next/types/**/*.ts",
+    "next.config.mjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

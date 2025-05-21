@@ -1,6 +1,6 @@
 import { betterFetch } from "@better-fetch/fetch";
 import { NextResponse, type NextRequest } from "next/server";
-import type { Session } from "@/src/lib/auth/auth";
+import type { Session } from "@dalim/auth";
 
 const authRoutes = ["/login", "/signup"];
 const passwordRoutes = ["/reset-password", "/forgot-password"];
