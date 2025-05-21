@@ -1,5 +1,4 @@
  
-import * as React from 'react';
 import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } from "@react-email/components"
 
 interface ChangeEmailProps {
