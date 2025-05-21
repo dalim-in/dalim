@@ -6,11 +6,10 @@ import type { User } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
 
 import Link from 'next/link'
-import { signOut } from 'next-auth/react'
-import { LogOut } from 'lucide-react'
+import { signOut } from 'next-auth/react' 
 
 interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-    user: Pick<User, 'name' | 'image' | 'email'>
+    user: Pick<User, 'name' | 'image' | 'email'> & { role?: 'USER' | 'ADMIN' }
 }
 
 export function SignIn({ user }: UserAccountNavProps) {
@@ -18,7 +17,7 @@ export function SignIn({ user }: UserAccountNavProps) {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <div className="relative flex h-10 w-10 items-center justify-center rounded-full">
-                    <Avatar className="h-9 w-9 border">
+                    <Avatar className="h-9 w-9 rounded-full border">
                         <AvatarImage
                             src={user.image ?? ''}
                             alt={''}
@@ -40,6 +39,15 @@ export function SignIn({ user }: UserAccountNavProps) {
                             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                         </Link>
                     </DropdownMenuItem>
+
+                    {user.role === 'ADMIN' && (
+                        <DropdownMenuItem asChild>
+                            <Link href={`${DALIM_URL}/admin`}>
+                                Admin
+                                <DropdownMenuShortcut>⌘A</DropdownMenuShortcut>
+                            </Link>
+                        </DropdownMenuItem>
+                    )}
 
                     <DropdownMenuItem>
                         Settings
@@ -74,13 +82,13 @@ export function SignIn({ user }: UserAccountNavProps) {
                     onSelect={(event) => {
                         event.preventDefault()
                         signOut({
-                            callbackUrl: `${window.location.origin}/`,
+                            callbackUrl: `${DALIM_URL}`,
                         })
                     }}>
-                    <div className="flex items-center space-x-2.5">
-                        <LogOut className="h-4 w-4" />
+                    <div className="flex items-center space-x-2.5"> 
                         <p className="text-sm">Log out </p>
                     </div>
+                    <DropdownMenuShortcut>⌘+L</DropdownMenuShortcut>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

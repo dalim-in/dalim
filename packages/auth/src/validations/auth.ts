@@ -8,6 +8,15 @@ export const userAuthSchema = z.object({
   email: z.string().email(),
 });
 
+export const findUserByEmail = async (email: string) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  return user;
+};
+
 export const getUserByEmail = async (email: string) => {
   try {
     const user = await prisma.user.findUnique({

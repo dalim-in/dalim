@@ -53,6 +53,7 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   username      String?   @unique
+  password      String?
   email         String?   @unique
   emailVerified DateTime?
   bio           String?
@@ -66,6 +67,8 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
   role          UserRole  @default(USER)
+  isTwoFactorAuthEnabled Boolean   @default(false)
+  twoFactorAuthVerified  DateTime?
 
   accounts Account[]
   sessions Session[]
@@ -79,10 +82,29 @@ model User {
 }
 
 model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
+  id      String   @id @default(cuid())
+  email   String   @unique
+  token   String   @unique
+  expires DateTime
 
-  @@unique([identifier, token])
-  @@map(name: "verification_tokens")
+  @@unique([email, token])
 }
+
+model TwoFactorToken {
+  id      String   @id @default(cuid())
+  email   String   @unique
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model ResetPasswordToken {
+  id      String   @id @default(cuid())
+  email   String   @unique
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+ 

@@ -4,25 +4,28 @@ import Link from "next/link";
 import { Button } from "@dalim/core/ui/button";
 import { Card, CardContent } from "@dalim/core/ui/card";
 import { UserAuthForm } from "@/src/components/forms/user-auth-form";
+import { LoginForm } from "@/src/components/forms/login-form";
 
 export const metadata = {
-  title: "Log In - Designali",
+  title: "Login - Dalim",
   description: "A design agency with a touch of magic.",
 };
 
 export default function Page() {
   return (
     <div>
-      <section className="relative h-screen overflow-hidden bg-[linear-gradient(to_bottom,#bfdbfe_40%,#fff_80%)] dark:bg-[linear-gradient(to_bottom,#1e40af_40%,#000_80%)]">
+      <section className="relative h-screen -mt-14 -mx-6 overflow-hidden bg-[linear-gradient(to_bottom,#bfdbfe_40%,#fff_80%)] dark:bg-[linear-gradient(to_bottom,#1e40af_40%,#000_80%)]">
+        <div className="">
         <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(28px,10vw,120px)_auto_clamp(28px,10vw,120px)]">
           <div className="col-span-1 flex h-full items-center justify-center" />
-          <div className="col-span-1 flex h-full items-center justify-center border-x border-blue-300 dark:border-blue-700" />
+          <div className="col-span-1 flex h-full items-center justify-center border-x border-indigo-300 dark:border-indigo-700" />
           <div className="col-span-1 flex h-full items-center justify-center" />
         </div>
         <figure className="bg-accent-500/40 pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full blur-[200px]" />
         <figure className="bg-surface-primary dark:bg-dark-surface-primary pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden aspect-square w-[32vw] rounded-full opacity-50 blur-[100px] md:block" />
         <figure className="bg-surface-primary dark:bg-dark-surface-primary pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden aspect-square w-[30vw] rounded-full opacity-50 blur-[100px] md:block" />
-        <div className="relative z-10 flex flex-col divide-y divide-blue-300 pt-[35px] dark:divide-blue-700">
+      </div>
+        <div className="relative z-10 flex flex-col   divide-indigo-300 pt-[35px] dark:divide-indigo-700">
           <div className="mx-auto flex h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-10 lg:px-24">
             <Link href="/" className=" ">
               <Button variant="secondary">Back to Home</Button>
@@ -41,6 +44,7 @@ export default function Page() {
                 <Card className="py-6 shadow-2xl">
                   <CardContent>
                     <Suspense>
+                      <LoginForm/>
                       <UserAuthForm />
                     </Suspense>
                     <div className="mt-6 text-center text-sm">
