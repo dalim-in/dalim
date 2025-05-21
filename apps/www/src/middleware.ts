@@ -8,34 +8,45 @@ const adminRoutes = ["/admin"];
 
 export default async function authMiddleware(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
+
   const isAuthRoute = authRoutes.includes(pathName);
   const isPasswordRoute = passwordRoutes.includes(pathName);
   const isAdminRoute = adminRoutes.includes(pathName);
+  const isPublicRoute = pathName === "/"; // 👈 Make homepage public
 
-  const { data: session } = await betterFetch<Session>(
-    "/api/auth/get-session",
-    {
-      baseURL: process.env.DALIM_URL,
-      headers: {
-        //get the cookie from the request
-        cookie: request.headers.get("cookie") || "",
+  let session: Session | null = null;
+
+  try {
+    const { data } = await betterFetch<Session>(
+      "/api/auth/get-session",
+      {
+        baseURL: process.env.DALIM_URL,
+        headers: {
+          cookie: request.headers.get("cookie") || "",
+        },
       },
-    },
-  );
-
-  if (!session) {
-    if (isAuthRoute || isPasswordRoute) {
-      return NextResponse.next();
-    }
-    return NextResponse.redirect(new URL("/", request.url));
+    );
+    session = data ?? null;
+  } catch (err) {
+    console.error("Failed to fetch session:", err);
   }
 
+  // ✅ If route is public or auth/password route and no session, allow
+  if (!session) {
+    if (isAuthRoute || isPasswordRoute || isPublicRoute) {
+      return NextResponse.next();
+    }
+    return NextResponse.redirect(new URL("/login", request.url)); // 👈 Redirect to login instead
+  }
+
+  // ✅ Prevent access to login/signup when already logged in
   if (isAuthRoute || isPasswordRoute) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  if (isAdminRoute && session.user.role !== "admin") {
-  return NextResponse.redirect(new URL("/", request.url));
+  // ✅ Restrict admin route access
+  if (isAdminRoute && session.user.role !== "ADMIN") {
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
