@@ -13,7 +13,7 @@ import { toast } from "sonner";
 import { stripeClient } from "@better-auth/stripe/client";
 
 export const authClient = createAuthClient({
-  baseURL: process.env.BETTER_AUTH_URL,
+  baseURL: process.env.DALIM_URL,
   plugins: [adminClient()],
 });
 
