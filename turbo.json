@@ -21,7 +21,7 @@
     }
   },
   "globalEnv": [
-    "NEXT_PUBLIC_APP_NAME",
+    "NEXT_PUBLIC_APP_URL",
     "BETTER_AUTH_SECRET",
     "DALIM_URL",
     "UI_URL",

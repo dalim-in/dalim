@@ -113,7 +113,7 @@ export function MenuUI() {
 
 export function MenuAgency() {
     return (
-        <div className="hidden pl-6 md:block">
+        <div className="hidden pr-20 md:block">
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
