@@ -4,10 +4,7 @@ const nextConfig = {
     reactStrictMode: true,
     eslint: {
         ignoreDuringBuilds: true,
-    },
-    experimental: {
-        appDir: true,
-     }, 
+    }, 
     typescript: {
         ignoreBuildErrors: true,
     },

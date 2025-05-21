@@ -5,9 +5,9 @@ import { prisma } from "@dalim/db";
 import { sendEmail } from "./emails";
 import { openAPI } from "better-auth/plugins";
 import { admin } from "better-auth/plugins";
-import ChangeEmail from "./emails/change-email";
-import ResetPasswordEmail from "./emails/reset-password-email";
-import VerifyEmail from "./emails/verify-email";
+import {ChangeEmail} from "./emails/change-email";
+import {ResetPasswordEmail} from "./emails/reset-password-email";
+import {VerifyEmail} from "./emails/verify-email";
 import {
   TRUSTED_ORIGINS,
   DALIM_URL,

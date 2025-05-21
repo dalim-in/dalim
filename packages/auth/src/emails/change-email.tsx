@@ -4,8 +4,8 @@ import { Body, Button, Container, Head, Heading, Html, Preview, Section, Text } 
 interface ChangeEmailProps {
   url: string
 }
-
-export default function ChangeEmail({ url }: ChangeEmailProps) {
+ 
+export function ChangeEmail({ url }: ChangeEmailProps) {
   return (
     <Html>
       <Head />

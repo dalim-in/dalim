@@ -5,7 +5,7 @@ interface ResetPasswordEmailProps {
   url: string
 }
 
-export default function ResetPasswordEmail({ url }: ResetPasswordEmailProps) {
+export function ResetPasswordEmail({ url }: ResetPasswordEmailProps) {
   return (
     <Html>
       <Head />

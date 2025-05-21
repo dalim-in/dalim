@@ -5,7 +5,7 @@ interface VerifyEmailProps {
   url: string
 }
 
-export default function VerifyEmail({ url }: VerifyEmailProps) {
+export function VerifyEmail({ url }: VerifyEmailProps) {
   return (
     <Html>
       <Head />

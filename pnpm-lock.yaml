@@ -41,7 +41,7 @@ importers:
         version: link:../../packages/db
       '@next/third-parties':
         specifier: ^15.1.7
-        version: 15.3.2(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.3.2(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@prisma/client':
         specifier: ^5.17.0
         version: 5.22.0(prisma@5.22.0)
@@ -159,7 +159,7 @@ importers:
         version: 3.8.1
       '@next/third-parties':
         specifier: ^15.1.7
-        version: 15.3.2(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.3.2(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@origin-space/image-cropper':
         specifier: ^0.1.8
         version: 0.1.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -342,7 +342,7 @@ importers:
         version: 3.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
         specifier: ^3.24.2
-        version: 3.25.12
+        version: 3.25.13
     devDependencies:
       '@dalim/ts-config':
         specifier: workspace:*
@@ -415,22 +415,22 @@ importers:
         version: 3.10.0(react-hook-form@7.56.4(react@19.1.0))
       '@next/third-parties':
         specifier: ^15.1.7
-        version: 15.3.2(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.3.2(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@prisma/client':
         specifier: ^5.17.0
         version: 5.22.0(prisma@5.22.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.9.2
-        version: 0.9.2(typescript@5.8.3)(zod@3.25.12)
+        version: 0.9.2(typescript@5.8.3)(zod@3.25.13)
       '@tanstack/react-query':
         specifier: ^5.62.3
         version: 5.76.1(react@19.1.0)
       '@vercel/analytics':
         specifier: ^1.2.2
-        version: 1.5.0(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.5.0(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@vercel/speed-insights':
         specifier: ^1.0.12
-        version: 1.2.0(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.2.0(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       better-auth:
         specifier: ^1.1.10
         version: 1.2.8
@@ -460,7 +460,7 @@ importers:
         version: 15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(acorn@8.14.1)(contentlayer2@0.4.6(acorn@8.14.1)(esbuild@0.25.4))(esbuild@0.25.4)(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.14.1)(contentlayer2@0.4.6(acorn@8.14.1)(esbuild@0.25.4))(esbuild@0.25.4)(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -499,7 +499,7 @@ importers:
         version: 0.7.40
       zod:
         specifier: ^3.24.2
-        version: 3.25.12
+        version: 3.25.13
     devDependencies:
       '@dalim/ts-config':
         specifier: workspace:*
@@ -602,7 +602,7 @@ importers:
         version: 1.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.9.2
-        version: 0.9.2(typescript@5.8.3)(zod@3.25.12)
+        version: 0.9.2(typescript@5.8.3)(zod@3.25.13)
       better-auth:
         specifier: ^1.1.10
         version: 1.2.8
@@ -623,7 +623,7 @@ importers:
         version: 1.7.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
         specifier: ^3.24.2
-        version: 3.25.12
+        version: 3.25.13
     devDependencies:
       '@dalim/ts-config':
         specifier: workspace:*
@@ -765,7 +765,7 @@ importers:
         version: 1.1.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
         specifier: ^3.24.2
-        version: 3.25.12
+        version: 3.25.13
     devDependencies:
       '@dalim/ts-config':
         specifier: workspace:*
@@ -829,10 +829,10 @@ importers:
         version: 5.22.0(prisma@5.22.0)
       '@t3-oss/env-core':
         specifier: ^0.9.2
-        version: 0.9.2(typescript@5.8.3)(zod@3.25.12)
+        version: 0.9.2(typescript@5.8.3)(zod@3.25.13)
       zod:
         specifier: ^3.24.2
-        version: 3.25.12
+        version: 3.25.13
     devDependencies:
       '@dalim/ts-config':
         specifier: workspace:*
@@ -5926,7 +5926,6 @@ packages:
 
   libsql@0.3.19:
     resolution: {integrity: sha512-Aj5cQ5uk/6fHdmeW0TiXK42FqUlwx7ytmMLPSaUQPin5HKKKuUPD62MAbN4OEweGBBI7q1BekoEN4gPUEL6MZA==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lightningcss-darwin-arm64@1.30.1:
@@ -8042,8 +8041,8 @@ packages:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
 
-  zod@3.25.12:
-    resolution: {integrity: sha512-A8e9eiwm2L5YEupdjn1YcxL1ZDWuL3Bc4JKvLwUrpKZZtRUDOijR7XXsV5WMuUCZPc1tFYO5yfH14STI08MquA==}
+  zod@3.25.13:
+    resolution: {integrity: sha512-Q8mvk2iWi7rTDfpQBsu4ziE7A6AxgzJ5hzRyRYQkoV3A3niYsXVwDaP1Kbz3nWav6S+VZ6k2OznFn8ZyDHvIrg==}
 
   zustand@5.0.4:
     resolution: {integrity: sha512-39VFTN5InDtMd28ZhjLyuTnlytDr9HfwO512Ai4I8ZABCoyAj4F1+sr7sD1jP/+p7k77Iko0Pb5NhgBFDCX0kQ==}
@@ -8252,7 +8251,7 @@ snapshots:
   '@better-auth/stripe@1.2.8':
     dependencies:
       better-auth: 1.2.8
-      zod: 3.25.12
+      zod: 3.25.13
 
   '@better-auth/utils@0.2.5':
     dependencies:
@@ -8343,7 +8342,7 @@ snapshots:
       ts-pattern: 5.7.1
       unified: 11.0.5
       yaml: 2.8.0
-      zod: 3.25.12
+      zod: 3.25.13
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - acorn
@@ -9116,7 +9115,7 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.3.2':
     optional: true
 
-  '@next/third-parties@15.3.2(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@next/third-parties@15.3.2(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     dependencies:
       next: 15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
@@ -11672,16 +11671,16 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@t3-oss/env-core@0.9.2(typescript@5.8.3)(zod@3.25.12)':
+  '@t3-oss/env-core@0.9.2(typescript@5.8.3)(zod@3.25.13)':
     dependencies:
-      zod: 3.25.12
+      zod: 3.25.13
     optionalDependencies:
       typescript: 5.8.3
 
-  '@t3-oss/env-nextjs@0.9.2(typescript@5.8.3)(zod@3.25.12)':
+  '@t3-oss/env-nextjs@0.9.2(typescript@5.8.3)(zod@3.25.13)':
     dependencies:
-      '@t3-oss/env-core': 0.9.2(typescript@5.8.3)(zod@3.25.12)
-      zod: 3.25.12
+      '@t3-oss/env-core': 0.9.2(typescript@5.8.3)(zod@3.25.13)
+      zod: 3.25.13
     optionalDependencies:
       typescript: 5.8.3
 
@@ -12072,12 +12071,12 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.7.2':
     optional: true
 
-  '@vercel/analytics@1.5.0(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@vercel/analytics@1.5.0(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     optionalDependencies:
       next: 15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@vercel/speed-insights@1.2.0(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@vercel/speed-insights@1.2.0(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     optionalDependencies:
       next: 15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
@@ -12266,7 +12265,7 @@ snapshots:
       jose: 5.10.0
       kysely: 0.28.2
       nanostores: 0.11.4
-      zod: 3.25.12
+      zod: 3.25.13
 
   better-call@1.0.9:
     dependencies:
@@ -14745,7 +14744,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  next-contentlayer2@0.4.6(acorn@8.14.1)(contentlayer2@0.4.6(acorn@8.14.1)(esbuild@0.25.4))(esbuild@0.25.4)(next@15.2.1(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next-contentlayer2@0.4.6(acorn@8.14.1)(contentlayer2@0.4.6(acorn@8.14.1)(esbuild@0.25.4))(esbuild@0.25.4)(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@contentlayer2/core': 0.4.3(acorn@8.14.1)(esbuild@0.25.4)
       '@contentlayer2/utils': 0.4.3
@@ -15867,7 +15866,7 @@ snapshots:
       stringify-object: 5.0.0
       ts-morph: 18.0.0
       tsconfig-paths: 4.2.0
-      zod: 3.25.12
+      zod: 3.25.13
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -16746,7 +16745,7 @@ snapshots:
 
   yoctocolors@2.1.1: {}
 
-  zod@3.25.12: {}
+  zod@3.25.13: {}
 
   zustand@5.0.4(@types/react@19.1.4)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0)):
     optionalDependencies:
