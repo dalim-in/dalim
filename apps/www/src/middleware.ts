@@ -35,7 +35,7 @@ export default async function authMiddleware(request: NextRequest) {
   }
 
   if (isAdminRoute && session.user.role !== "admin") {
-    return NextResponse.redirect(new URL("/admin", request.url));
+  return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
