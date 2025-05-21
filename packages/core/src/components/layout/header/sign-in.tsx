@@ -1,51 +1,37 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { authClient } from '@dalim/auth'
-import { useSession } from '@dalim/auth'
-import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '../../../ui/dropdown-menu'
 import { DALIM_URL } from '@dalim/auth'
+import type { User } from 'next-auth'
+import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
 
 import Link from 'next/link'
+import { signOut } from 'next-auth/react'
+import { LogOut } from 'lucide-react'
 
-export function SignIn() {
-    const { data: session } = useSession()
-    const router = useRouter()
+interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
+    user: Pick<User, 'name' | 'image' | 'email'>
+}
 
-    const handleSignOut = async () => {
-        try {
-            await authClient.signOut({
-                fetchOptions: {
-                    onSuccess: () => {
-                        router.push(`${DALIM_URL}`)
-                        router.refresh()
-                    },
-                },
-            })
-        } catch (error) {
-            console.error('Error signing out:', error)
-        }
-    }
-
-    if (!session) return null // ✅ safely guard
-
+export function SignIn({ user }: UserAccountNavProps) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Avatar>
-                    <AvatarImage
-                        src={session.user.image ?? '/brand/logo.svg'}
-                        alt={session.user.name ?? 'A'}
-                    />
-                    <AvatarFallback>{(session.user.name ?? 'A').charAt(0).toUpperCase()}</AvatarFallback>
-                </Avatar>
+                <div className="relative flex h-10 w-10 items-center justify-center rounded-full">
+                    <Avatar className="h-9 w-9 border">
+                        <AvatarImage
+                            src={user.image ?? ''}
+                            alt={''}
+                        />
+                        <AvatarFallback className="from-foreground via-muted-foreground to-muted bg-gradient-to-br opacity-70" />
+                    </Avatar>
+                </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
                 side="left"
                 className="mt-5 w-56">
-                <DropdownMenuLabel className="pb-0 text-xl">{session.user.name}</DropdownMenuLabel>
-                <DropdownMenuLabel className="text-primary/60 pt-0 text-sm font-light">{session.user.email}</DropdownMenuLabel>
+                <DropdownMenuLabel className="pb-0 text-xl">{user.name && <p className="font-medium">{user.name}</p>}</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-primary/60 pt-0 text-sm font-light"> {user.email && <span className="text-muted-foreground w-[200px] truncate text-sm">{user.email}</span>}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem asChild>
@@ -54,14 +40,7 @@ export function SignIn() {
                             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                         </Link>
                     </DropdownMenuItem>
-                    {session?.user?.role === 'ADMIN' && (
-                        <DropdownMenuItem asChild>
-                            <Link href={`${DALIM_URL}/admin`}>
-                                Admin
-                                <DropdownMenuShortcut>⇧⌘A</DropdownMenuShortcut>
-                            </Link>
-                        </DropdownMenuItem>
-                    )}
+
                     <DropdownMenuItem>
                         Settings
                         <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
@@ -90,9 +69,18 @@ export function SignIn() {
                 <DropdownMenuItem disabled>Support</DropdownMenuItem>
                 <DropdownMenuItem disabled>API</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleSignOut}>
-                    Sign Out
-                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                <DropdownMenuItem
+                    className="cursor-pointer"
+                    onSelect={(event) => {
+                        event.preventDefault()
+                        signOut({
+                            callbackUrl: `${window.location.origin}/`,
+                        })
+                    }}>
+                    <div className="flex items-center space-x-2.5">
+                        <LogOut className="h-4 w-4" />
+                        <p className="text-sm">Log out </p>
+                    </div>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

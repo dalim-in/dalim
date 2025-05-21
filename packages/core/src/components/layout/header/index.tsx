@@ -7,7 +7,7 @@ import ThemeToggle from '../../../ui/theme-toggle'
 import { Menu, MenuAgency, MenuUI } from './navmenu'
 import LinkSelect from './link-select'
 import { MobileAgency } from './mobile-menu'
-import { AuthButtons } from './auth-buttons'
+import { LoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'
 
 export function Header() {
@@ -48,7 +48,7 @@ export function Header() {
                                     <div className="flex items-center gap-1">
                                         <ThemeToggle />
                                         <LinkSelect />
-                                        <AuthButtons />
+                                        <LoginButton />
                                     </div>
                                 </ClientOnly>
                             </div>
@@ -97,7 +97,7 @@ export function HeaderUI() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <AuthButtons />
+                                    <LoginButton />
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@ export function HeaderAgency() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <AuthButtons />
+                                    <LoginButton />
                                 </div>
                             </div>
                         </div>

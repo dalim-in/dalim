@@ -1,11 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@dalim/core/ui/card"
-import { Users, UserCheck, Crown, Ban, ShieldCheck, UserPlus } from "lucide-react"
+import { Users, UserCheck,  ShieldCheck, UserPlus } from "lucide-react"
 
 type Stats = {
   totalUsers: number
-  verifiedUsers: number
-  premiumUsers: number
-  bannedUsers: number
+  verifiedUsers: number 
   admins: number
   newUsersToday: number
 }
@@ -26,18 +24,7 @@ export function UserStats({ stats }: { stats: Stats }) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Premium Users</CardTitle>
-          <Crown className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{stats.premiumUsers}</div>
-          <p className="text-xs text-muted-foreground">
-            {Math.round((stats.premiumUsers / stats.totalUsers) * 100) || 0}% of total users
-          </p>
-        </CardContent>
-      </Card>
+       
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -66,19 +53,7 @@ export function UserStats({ stats }: { stats: Stats }) {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Banned Users</CardTitle>
-          <Ban className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{stats.bannedUsers}</div>
-          <p className="text-xs text-muted-foreground">
-            {Math.round((stats.bannedUsers / stats.totalUsers) * 100) || 0}% of total users
-          </p>
-        </CardContent>
-      </Card>
-
+       
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">Admins</CardTitle>

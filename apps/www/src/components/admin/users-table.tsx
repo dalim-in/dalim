@@ -22,11 +22,7 @@ type User = {
     email: string
     emailVerified: boolean
     image?: string | null
-    role: 'ADMIN' | 'USER'
-    premium: boolean
-    banned: boolean
-    banReason?: string | null
-    banExpires?: number | null
+    role: 'ADMIN' | 'USER' 
     createdAt: Date
     updatedAt: Date
     _count?: {
@@ -36,9 +32,7 @@ type User = {
 
 type Stats = {
   totalUsers: number
-  verifiedUsers: number
-  premiumUsers: number
-  bannedUsers: number
+  verifiedUsers: number 
   admins: number
   newUsersToday: number
 }
@@ -158,20 +152,7 @@ export default function AdminUsersTable({ initialUsers, stats }: AdminDashboardP
                                                     <X className="mr-1 h-3 w-3" /> Unverified
                                                 </Badge>
                                             )}
-                                            {user.banned && (
-                                                <Badge
-                                                    variant="destructive"
-                                                    className="ml-2">
-                                                    Banned
-                                                </Badge>
-                                            )}
-                                            {user.premium && (
-                                                <Badge
-                                                    variant="outline"
-                                                    className="ml-2 border-purple-200 bg-purple-50 text-purple-700">
-                                                    Premium
-                                                </Badge>
-                                            )}
+                                            
                                         </TableCell>
                                         <TableCell>
                                             <Badge variant={user.role === 'ADMIN' ? 'default' : 'secondary'}>{user.role}</Badge>
