@@ -1,4 +1,4 @@
-import { DALIM_URL } from '@dalim/auth'
+ 
 import { createContentlayerPlugin } from 'next-contentlayer2'
 
 /** @type {import('next').NextConfig} */
@@ -10,15 +10,7 @@ const nextConfig = {
     },
     typescript: {
         ignoreBuildErrors: true,
-    },
-    async rewrites() {
-        return [
-            {
-                source: '/api/auth/:path*',
-                destination: `${DALIM_URL}/api/auth/:path*`,
-            },
-        ]
-    },
+    }, 
     images: {
         remotePatterns: [
             {
