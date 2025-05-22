@@ -92,11 +92,7 @@ export const login = async (credentials: z.infer<typeof CredentialsSchema>) => {
 			}
 		}
 
-		const resp = await signIn("credentials", {
-			email,
-			password,
-			redirectTo: process.env.AUTH_LOGIN_REDIRECT,
-		});
+		 
 	} catch (err) {
 		if (err instanceof AuthError) {
 			if (err instanceof CredentialsSignin) {
