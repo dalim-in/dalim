@@ -15,11 +15,10 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         <SessionProvider>
           <TooltipProvider>
             <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange>
               <Suspense
                 fallback={
                   <div className="flex mt-[400px] justify-center h-screen">
