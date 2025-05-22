@@ -37,7 +37,7 @@ export async function generateToken(userId: string) {
 }
 
 // Function to verify token
-export async function verifyToken(token: string) {
+export async function verifyTokenDalim(token: string) {
   try {
     const secret = process.env.AUTH_SECRET || "fallback-secret"
     const decoded = jwt.verify(token, secret) as { sub: string }

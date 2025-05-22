@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { verifyToken } from "@dalim/auth"
+import { verifyTokenDalim } from "@dalim/auth"
 import { prisma } from "@dalim/db"
 
 export async function GET(req: NextRequest) {
@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     }
 
     const token = authHeader.split(" ")[1]
-    const userId = await verifyToken(token)
+    const userId = await verifyTokenDalim(token)
 
     if (!userId) {
       return NextResponse.json({ error: "Invalid token" }, { status: 401 })
