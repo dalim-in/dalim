@@ -1,30 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { auth } from "@dalim/auth";
 
 export { auth as middleware } from "@dalim/auth";
 
-export default auth(async (req: NextRequest) => {
-  
-  const isAuthenticated = await auth();
+export default async function middleware(req: NextRequest) {
+  const session = await auth(); // ✅ Get session manually
+  const isAuthenticated = !!session;
 
   const pathname = req.nextUrl.pathname;
-  const isSignInPage = pathname === "/login";
+  const isHomePage = pathname === "/";
+  const isLoginPage = pathname === "/login";
 
-  if (isSignInPage && isAuthenticated) {
+  if (isLoginPage && isAuthenticated) {
     return NextResponse.redirect(new URL("/", req.nextUrl));
   }
 
-  if (!isAuthenticated && !isSignInPage) {
-    return NextResponse.redirect(new URL("/login", req.nextUrl));
+  if (!isAuthenticated && !isHomePage && !isLoginPage) {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
   }
-});
 
-// Read more: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+  return NextResponse.next();
+}
+
 export const config = {
   matcher: [
     "/login",
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
     "/((?!_next|api|[\\w-]+\\.\\w+).*)"
-  ], 
+  ],
+  runtime: "nodejs", // avoids Edge runtime issues like MessageChannel errors
 };
