@@ -23,7 +23,6 @@
   "globalEnv": [
     "NEXT_PUBLIC_APP_URL",
     "AUTH_SECRET",
-    "NEXTAUTH_URL",
     "DALIM_URL",
     "UI_URL",
     "AGENCY_URL",
