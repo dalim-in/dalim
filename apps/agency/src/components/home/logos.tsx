@@ -1,39 +1,126 @@
-"use client";
- 
-import { Inspect  } from "lucide-react";
- 
-export const BrandLogos = () => {
-  return (
-    <>
-       <div className="group pb-6 flex overflow-hidden py-2 [--gap:2rem] [gap:var(--gap))] flex-row max-w-full [--duration:40s] [mask-image:linear-gradient(to_right,_rgba(0,_0,_0,_0),rgba(0,_0,_0,_1)_0%,rgba(0,_0,_0,_1)_100%,rgba(0,_0,_0,_0))]">
-        {Array(4)
-          .fill(0)
-          .map((_, i) => (
-            <div
-              className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row"
-              key={i}
-            >
-              <div className="flex items-center w-28 gap-2">
-                <Inspect size={24} />
-                <p className="text-lg font-semibold opacity-80">Spotify</p>
-              </div>
-              <div className="flex items-center w-28 gap-2">
-                <Inspect size={24} />
-                <p className="text-lg font-semibold opacity-80">YouTube</p>
-              </div>
-              <div className="flex items-center w-28 gap-2">
-                <Inspect size={24} />
-                <p className="text-lg font-semibold opacity-80">Amazon</p>
-              </div>
+'use client'
 
-              <div className="flex items-center w-28 gap-2">
-                <Inspect size={24} />
-                <p className="text-lg font-semibold opacity-80">Google</p>
-              </div>
+import Image from 'next/image'
+
+export const BrandLogos = () => {
+    return (
+        <>
+            <div
+                className="animate-marquee-container group flex max-w-full flex-row overflow-hidden py-2 pb-6 [--duration:40s] [--gap:2rem]"
+                style={{
+                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                    maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
+                }}>
+                {' '}
+                {Array(4)
+                    .fill(0)
+                    .map((_, i) => (
+                        <div
+                            className="animate-marquee flex shrink-0 flex-row justify-around [gap:var(--gap)]"
+                            key={i}>
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c1-2.png"
+                                />
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c1-1.png"
+                                />
+                            </div>
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c2-2.png"
+                                />
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c2-1.png"
+                                />
+                            </div>
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c3-2.png"
+                                />
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c3-1.png"
+                                />
+                            </div>
+
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c7-2.png"
+                                />
+
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c7-1.png"
+                                />
+                            </div>
+
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c8-2.png"
+                                />
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c8-1.png"
+                                />
+                            </div>
+
+                            <div className="flex w-28 items-center gap-2">
+                                <Image
+                                    alt="Ali Imam"
+                                    className="block dark:hidden"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c10-2.png"
+                                />
+                                <Image
+                                    alt="Ali Imam"
+                                    className="hidden dark:block"
+                                    height={100}
+                                    width={100}
+                                    src="/images/logos/c10-1.png"
+                                />
+                            </div>
+                        </div>
+                    ))}
             </div>
-          ))}
-      </div>
-    </>
-  );
-};
-  
+        </>
+    )
+}
