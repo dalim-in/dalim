@@ -1,8 +1,8 @@
-import { Geist } from 'next/font/google' 
+import { Geist } from 'next/font/google'
 
 import { Toaster as Sonner } from '@dalim/core/ui/sonner'
 import { Toaster } from '@dalim/core/ui/toaster'
-
+import { Suspense } from 'react'
 import { CookieConsent } from '@dalim/core/components/common/CookieConsent'
 
 import './globals.css'
@@ -11,6 +11,7 @@ import { Footer } from '@dalim/core/components/layout/footer'
 import Analytics from '../components/analytics'
 import { Metadata } from 'next/types'
 import Providers from '../components/providers'
+import { Loader } from 'lucide-react'
 
 const fontSans = Geist({
     subsets: ['latin'],
@@ -38,7 +39,17 @@ export default function RootLayout({
                         <div className="relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-6 before:w-px before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:inset-y-0 after:-right-6 after:w-px after:bg-[linear-gradient(to_bottom,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]">
                             <div className="relative flex min-h-screen flex-col">
                                 <Header />
-                                <main className="grow">{children}</main>
+                                <Suspense
+                                    fallback={
+                                        <div className="mt-[400px] flex h-screen justify-center">
+                                            <Loader
+                                                strokeWidth={0.5}
+                                                className="h-10 w-10 animate-spin"
+                                            />
+                                        </div>
+                                    }>
+                                    <main className="grow">{children}</main>
+                                </Suspense>
                                 <CookieConsent />
                                 <Footer />
                             </div>

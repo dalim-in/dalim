@@ -4,14 +4,14 @@ import { prisma } from "@dalim/db";
 import mail from "../../../mail";
 import { findUserByEmail } from "../../../validations/auth";
 import { findVerificationTokenByToken } from "../../../services";
-import type { User } from "@prisma/client"; 
+import type { User } from "@prisma/client";
+
 /**
- * This method uses Resend to send an email to the user to verify
- * the ownership of the email by the user.
+ * Sends a verification email to the user using Resend.
  *
  * @param {User} user - The user to send the verification email to.
  * @param {string} token - The verification token.
- * @returns {Promise<{ error?: string, success?: string }>} An object indicating the result of the operation.
+ * @returns {Promise<{ error?: string; success?: string }>} An object indicating the result of the operation.
  */
 export const sendAccountVerificationEmail = async (
   user: User,
@@ -23,6 +23,7 @@ export const sendAccountVerificationEmail = async (
     DALIM_URL,
     VERIFICATION_URL,
   } = process.env;
+
   if (
     !RESEND_EMAIL_FROM ||
     !VERIFICATION_SUBJECT ||
@@ -30,57 +31,57 @@ export const sendAccountVerificationEmail = async (
     !VERIFICATION_URL
   ) {
     return {
-      error: "Congratulation e-mail.",
+      error: "Missing email configuration.",
     };
   }
 
   const verificationUrl = `${DALIM_URL}${VERIFICATION_URL}?token=${token}`;
   const { email } = user;
+
   try {
-  if (!email) return { error: "Email is required." };
+    if (!email) return { error: "User email is required." };
 
-  await mail.emails.send({
-    from: RESEND_EMAIL_FROM,
-    to: email,
-    subject: VERIFICATION_SUBJECT,
-    html: `<p>Clique <a href="${verificationUrl}">aqui</a> para confirmar seu e-mail.</p>`,
-  });
+    await mail.emails.send({
+      from: RESEND_EMAIL_FROM,
+      to: email,
+      subject: VERIFICATION_SUBJECT,
+      html: `<p>Click <a href="${verificationUrl}">here</a> to verify your email address.</p>`,
+    });
 
-  return {
-    success: "E-mail enviado com sucesso",
-  };
-} catch (error) {
-  return { error };
-}
-
-
+    return {
+      success: "Verification email sent successfully.",
+    };
+  } catch (error) {
+    return { error: "Failed to send verification email." };
+  }
 };
 
 /**
- * This method updates the user's record with the date the email was verified.
+ * Verifies a user's email address using the provided token.
  *
  * @param {string} token - The verification token.
- * @returns {Promise<{ error?: string, success?: string }>} An object indicating the result of the operation.
+ * @returns {Promise<{ error?: string; success?: string }>} An object indicating the result of the operation.
  */
 export const verifyToken = async (token: string) => {
   const existingToken = await findVerificationTokenByToken(token);
+
   if (!existingToken) {
     return {
-      error: "Código de verificação não encontrado",
+      error: "Verification code not found.",
     };
   }
 
   const isTokenExpired = new Date(existingToken.expires) < new Date();
   if (isTokenExpired) {
     return {
-      error: "Código de verificação expirado",
+      error: "Verification code has expired.",
     };
   }
 
   const user = await findUserByEmail(existingToken.email);
   if (!user) {
     return {
-      error: "Usuário não encontrado",
+      error: "User not found.",
     };
   }
 
@@ -99,9 +100,9 @@ export const verifyToken = async (token: string) => {
     });
 
     return {
-      success: "E-mail verificado",
+      success: "Email successfully verified.",
     };
   } catch (err) {
-    return { error: "Erro ao atualizar verificação de e-mail" };
+    return { error: "Failed to update email verification status." };
   }
 };

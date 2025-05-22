@@ -1,8 +1,8 @@
 "use client";
 import { verifyToken } from "@dalim/auth";
 import { useSearchParams } from "next/navigation";
-import React, {   useCallback, useEffect, useState } from "react";
-import AuthCard from "./auth-card";
+import React, { useCallback, useEffect, useState } from "react";
+ 
 import AuthFormMessage from "./auth-form-message";
 
 const EmailVerificationForm = () => {
@@ -37,10 +37,10 @@ const EmailVerificationForm = () => {
 	}, [automaticSubmission]);
 	return (
 		<div className="flex flex-1 justify-center items-center">
-			<AuthCard title="Verifique seu E-mail">
+			<div title="Verifique seu E-mail">
 				{success && <AuthFormMessage title="Sucesso" type="default" message={success} />}
 				{error && <AuthFormMessage title="Encontramos um problema" type="default" message={error} />}
-			</AuthCard>
+			</div>
 		</div>
 	);
 };

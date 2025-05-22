@@ -7,25 +7,18 @@ import { findTwoFactorAuthTokeByToken } from "../../../services";
 import type { User } from "@prisma/client";
 
 /**
- * This method sends an e-mail to the user with the 6 digits code to login
- * when Two Factor Authentication is enabled
- * @param {User} user
- * @param {string} token
- * @returns
- */
-/**
- * This method sends an e-mail to the user with the 6 digits code to login
- * when Two Factor Authentication is enabled
- * @param {User} user - The user to send the verification email to.
- * @param {string} token - The verification token.
- * @returns {Promise<{ error?: string, success?: string }>} An object indicating the result of the operation.
+ * Sends a two-factor authentication (2FA) email containing a 6-digit OTP code to the user.
+ * 
+ * @param {User} user - The user to whom the email will be sent.
+ * @param {string} token - The OTP code for 2FA.
+ * @returns {Promise<{ error?: string, success?: string }>} The result of the email operation.
  */
 export const sendTwoFactorAuthEmail = async (user: User, token: string) => {
   const { RESEND_EMAIL_FROM, OTP_SUBJECT } = process.env;
 
   if (!RESEND_EMAIL_FROM || !OTP_SUBJECT) {
     return {
-      error: "Configuração de ambiente insuficiente para envio de e-mail.",
+      error: "Environment configuration is missing for sending emails.",
     };
   }
 
@@ -33,7 +26,7 @@ export const sendTwoFactorAuthEmail = async (user: User, token: string) => {
 
   if (!email) {
     return {
-      error: "O e-mail do usuário está ausente.",
+      error: "User email is missing.",
     };
   }
 
@@ -42,45 +35,44 @@ export const sendTwoFactorAuthEmail = async (user: User, token: string) => {
       from: RESEND_EMAIL_FROM,
       to: email,
       subject: OTP_SUBJECT,
-      html: `<p>Seu código OTP: <strong>${token}</strong></p>`,
+      html: `<p>Your 2FA code: <strong>${token}</strong></p>`,
     });
 
     return {
-      success: "E-mail enviado com sucesso.",
+      success: "Two-factor authentication email sent successfully.",
     };
   } catch (error) {
     return {
-      error: "Erro ao enviar o e-mail. Verifique as configurações do serviço.",
+      error: "Failed to send email. Please check your email service configuration.",
     };
   }
 };
 
-
 /**
- * This method updates the user's record with the date and time the
- * Two Factor Authentication was verified
- * @param token
- * @returns
+ * Verifies a two-factor authentication (2FA) token and updates the user's record accordingly.
+ * 
+ * @param {string} token - The OTP token to verify.
+ * @returns {Promise<{ error?: string, success?: string }>} The result of the verification process.
  */
 export const verifyTwoFactorToken = async (token: string) => {
   const existingToken = await findTwoFactorAuthTokeByToken(token);
   if (!existingToken) {
     return {
-      error: "Código de verificação não encontrado",
+      error: "Verification code not found.",
     };
   }
 
   const isTokenExpired = new Date(existingToken.expires) < new Date();
   if (isTokenExpired) {
     return {
-      error: "Código de verificação expirado",
+      error: "Verification code has expired.",
     };
   }
 
   const user = await findUserByEmail(existingToken.email);
   if (!user) {
     return {
-      error: "Usuário não encontrado",
+      error: "User not found.",
     };
   }
 
@@ -99,11 +91,11 @@ export const verifyTwoFactorToken = async (token: string) => {
     });
 
     return {
-      success: "Autênticação de dois fatores verificada",
+      success: "Two-factor authentication verified successfully.",
     };
   } catch (err) {
     return {
-      error: "Erro ao verificar o  código de autenticação de 2 fatores",
+      error: "Error verifying the two-factor authentication code.",
     };
   }
 };
