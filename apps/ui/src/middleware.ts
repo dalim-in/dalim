@@ -1,14 +1,32 @@
-// apps/agency/middleware.ts
-import { getToken } from 'next-auth/jwt'
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@dalim/auth";
 
-export async function middleware(req: NextRequest) {
-  const token = await getToken({ req, secret: process.env.AUTH_SECRET })
-  console.log('Token from middleware:', token?.email)
-  return NextResponse.next()
+export { auth as middleware } from "@dalim/auth";
+
+export default async function middleware(req: NextRequest) {
+  const session = await auth(); // ✅ Get session manually
+  const isAuthenticated = !!session;
+
+  const pathname = req.nextUrl.pathname;
+  const isHomePage = pathname === "/";
+  const isLoginPage = pathname === "/login";
+
+  if (isLoginPage && isAuthenticated) {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
+
+  if (!isAuthenticated && !isHomePage && !isLoginPage) {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon.ico).*)'],
-}
+  matcher: [
+    "/login",
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    "/((?!_next|api|[\\w-]+\\.\\w+).*)"
+  ],
+  runtime: "nodejs", // avoids Edge runtime issues like MessageChannel errors
+};
