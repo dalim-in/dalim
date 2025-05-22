@@ -4,8 +4,7 @@ import { UserRole } from "@prisma/client";
 import NextAuth, { type DefaultSession } from "next-auth";
 
 import { prisma } from "@dalim/db";
-import { getUserById } from "./validations/auth";
-import { DALIM_URL } from "./constants";
+import { getUserById } from "./validations/auth"; 
 
 async function generateUniqueUsername(baseName: string) {
   let username = baseName.toLowerCase().replace(/\s+/g, "");
