@@ -9,7 +9,7 @@ import { Loader } from 'lucide-react'
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <SessionProvider>
+            <SessionProvider >
                 <TooltipProvider>
                     <ThemeProvider
                         attribute="class"
