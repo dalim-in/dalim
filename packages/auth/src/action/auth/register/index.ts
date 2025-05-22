@@ -4,7 +4,7 @@ import { prisma } from "@dalim/db";
 import { RegisterSchema } from "../../../schemas/auth";
 import { createVerificationToken } from "../../../services";
 import { UserRole } from "@prisma/client";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { Prisma } from '@prisma/client';
 import bcryptjs from "bcryptjs";
 import type { z } from "zod"; 
 import { sendAccountVerificationEmail } from "../email-verification";
@@ -41,7 +41,7 @@ export const register = async (user: z.infer<typeof RegisterSchema>) => {
 			success: "Verification email sent",
 		};
 	} catch (error) {
-		if (error instanceof PrismaClientKnownRequestError) {
+		if (error instanceof Prisma.PrismaClientKnownRequestError) {
 			if (error.code === "P2002") {
 				return {
 					error: "email already send este e-mail.",

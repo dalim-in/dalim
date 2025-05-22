@@ -5,6 +5,7 @@ import NextAuth, { type DefaultSession } from "next-auth";
 
 import { prisma } from "@dalim/db";
 import { getUserById } from "./validations/auth";
+import { DALIM_URL } from "./constants";
 
 async function generateUniqueUsername(baseName: string) {
   let username = baseName.toLowerCase().replace(/\s+/g, "");
@@ -17,7 +18,7 @@ async function generateUniqueUsername(baseName: string) {
 
   return username;
 }
-
+ 
 declare module "next-auth" {
   interface Session {
     user: {
@@ -37,8 +38,8 @@ export const {
   pages: {
     signIn: "/login",
     // error: "/auth/error",
-  },
-  callbacks: {
+  }, 
+  callbacks: { 
     async session({ token, session }) {
       if (session.user) {
         if (token.sub) {
