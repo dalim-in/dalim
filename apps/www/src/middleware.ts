@@ -22,5 +22,10 @@ export default auth(async (req: NextRequest) => {
 
 // Read more: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
-  matcher: ["/login", "/((?!api|_next/static|_next/image|favicon.ico).*)", "/((?!_next|api|[\\w-]+\\.\\w+).*)"],
+  matcher: [
+    "/login",
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    "/((?!_next|api|[\\w-]+\\.\\w+).*)"
+  ],
+  runtime: "nodejs", // 👈 this is the key line
 };
