@@ -1,6 +1,5 @@
 "use server";
-
-import { signIn } from "../../../auth";
+ 
 import { CredentialsSchema } from "../../../schemas/auth";
 import { findUserByEmail } from "../../../validations/auth";
 import {
@@ -30,7 +29,7 @@ export const login = async (credentials: z.infer<typeof CredentialsSchema>) => {
 	}
 
 	try {
-		const { email, password, code } = validCredentials.data;
+		const { email, code } = validCredentials.data;
 		const user = await findUserByEmail(email);
 		if (!user) {
 			return {
