@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import Providers from "@/src/components/providers"
@@ -9,6 +10,7 @@ import { Toaster } from "@/registry/default/ui/toaster"
 import "./globals.css"
 
 import { HeaderUI } from "@dalim/core/components/layout/header"
+import { Loader } from "lucide-react"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -36,7 +38,18 @@ export default function RootLayout({
             <div className="before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-12 before:w-px after:absolute after:inset-y-0 after:-right-12 after:w-px">
               <div className="relative flex min-h-screen flex-col">
                 <HeaderUI />
-                <main className="grow">{children}</main>
+                <Suspense
+                  fallback={
+                    <div className="mt-[400px] flex h-screen justify-center">
+                      <Loader
+                        strokeWidth={0.5}
+                        className="h-10 w-10 animate-spin"
+                      />
+                    </div>
+                  }
+                >
+                  <main className="grow">{children}</main>
+                </Suspense>
                 <FooterUI />
               </div>
             </div>

@@ -44,13 +44,13 @@ export function Header() {
                             <Menu />
                             <MobileAgency />
                             <div className="hidden items-center md:flex">
-                                <ClientOnly>
-                                    <div className="flex items-center gap-1">
-                                        <ThemeToggle />
-                                        <LinkSelect />
+                                <div className="flex items-center gap-1">
+                                    <ThemeToggle />
+                                    <LinkSelect />
+                                    <ClientOnly>
                                         <LoginButton />
-                                    </div>
-                                </ClientOnly>
+                                    </ClientOnly>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,9 @@ export function HeaderUI() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <LoginButton />
+                                    <ClientOnly>
+                                        <LoginButton />
+                                    </ClientOnly>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +147,9 @@ export function HeaderAgency() {
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
                                     <LinkSelect />
-                                    <LoginButton />
+                                    <ClientOnly>
+                                        <LoginButton />
+                                    </ClientOnly>
                                 </div>
                             </div>
                         </div>

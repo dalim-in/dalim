@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
+import { AGENCY_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -25,7 +26,7 @@ export function Menu() {
                                 </li>
                                 <div className="row-span-1 space-y-3">
                                     <ListItem
-                                        href="/agency"
+                                        href={`${AGENCY_URL}`}
                                         title="Agency">
                                         Design Without Limits. Get agency-level designs without the agency price.
                                     </ListItem>
