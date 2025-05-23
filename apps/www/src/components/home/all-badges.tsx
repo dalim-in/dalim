@@ -1,3 +1,6 @@
+'use client'
+
+import * as React from 'react'
 import { Gravity, MatterBody } from '@/src/components/ui/gravity'
 
 function Preview() {

@@ -3,7 +3,7 @@
 import { Button } from '@dalim/core/ui/button'
 import Link from 'next/link'
 import * as React from 'react' 
-import { Orb } from '../ui/orb'
+import { Orb } from '@dalim/core/components/backgrunds/orb'
 
 export function Hero() {
     return (

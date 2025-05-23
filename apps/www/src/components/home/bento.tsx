@@ -1,32 +1,33 @@
 import React from 'react'
 import { cn } from '@/src/lib/utils'
-import Image from 'next/image' 
+import Image from 'next/image'   
+import { BlogCard } from './blog-stacks'
 
 export function ProductBento() {
     const features = [
         {
             title: 'Graphic',
-            description: 'Discover the essence of creativity in our exquisite collection of top-tier abstract design assets. Each piece is a blend of beauty and utility, perfect for elevating any project.',
+            description: 'Discover the essence of creativity in our exquisite collection of top-tier abstract design assets.',
             skeleton: <SkeletonOne />,
-            className: 'col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800',
+            className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b md:border-r dark:border-neutral-800',
         },
         {
             title: 'Fonts',
-            description: 'Discover beautifully crafted typefaces for every creative project — from modern displays to vintage-inspired lettering.',
+            description: 'Discover beautifully crafted typefaces for every creative project — from modern displays to.',
             skeleton: <SkeletonTwo />,
-            className: 'col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800',
+            className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b lg:border-r dark:border-neutral-800',
         },
         {
             title: 'Agency',
             description: 'Get agency-level designs without the agency price. A flat monthly rate for all your design needs.',
             skeleton: <SkeletonThree />,
-            className: 'col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-b-0 md:border-r dark:border-neutral-800',
+            className: 'col-span-1 md:col-span-3 md:border-r lg:border-b lg:col-span-2 border-b md:border-b-0 dark:border-neutral-800',
         },
         {
             title: 'Works',
             description: 'Welcome to My Creative Playground! Welcome to My Creative Playground!',
             skeleton: <SkeletonFour />,
-            className: 'col-span-1 md:col-span-3 lg:col-span-3   md:border-none',
+            className: 'col-span-1 md:col-span-3 lg:col-span-6 md:border-none',
         },
     ]
     return (
@@ -53,51 +54,33 @@ const FeatureCard = ({ children, className }: { children?: React.ReactNode; clas
 }
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
-    return <p className="mx-auto max-w-5xl text-left text-xl tracking-tight text-black md:text-2xl md:leading-snug dark:text-white">{children}</p>
+    return <p className="  text-left text-xl tracking-tight text-black md:text-2xl md:leading-snug dark:text-white">{children}</p>
 }
 
 const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
-    return <p className={cn('mx-auto max-w-4xl text-left text-sm md:text-base', 'text-center font-normal text-neutral-500 dark:text-neutral-300', 'mx-0 my-2 max-w-sm text-left md:text-sm')}>{children}</p>
+    return <p className={cn(' text-left text-sm md:text-base', 'text-center font-normal text-neutral-500 dark:text-neutral-300', 'mx-0 my-2 max-w-sm text-left md:text-sm')}>{children}</p>
 }
 
 export const SkeletonOne = () => {
     return (
-        <div className="relative mt-6 flex h-full">
-            <Image
-                src="/images/2.jpeg"
-                alt="header"
-                width={800}
-                height={800}
-                className="h-[200px] w-full rounded-3xl object-cover"
-            />
+        <div className="">
+            <BlogCard/>
         </div>
     )
 }
 
 export const SkeletonThree = () => {
     return (
-       <div className="relative mt-6 flex h-full">
-            <Image
-                 src="/images/2.jpeg"
-                alt="header"
-                width={800}
-                height={800}
-                className="h-[200px] w-full rounded-3xl object-cover"
-            />
+       <div className=" ">
+            <BlogCard/>
         </div>
     )
 }
 
 export const SkeletonTwo = () => {
     return (
-       <div className="relative mt-6 flex h-full">
-            <Image
-                 src="/images/2.jpeg"
-                alt="header"
-                width={800}
-                height={800}
-                className="h-[200px] w-full rounded-3xl object-cover"
-            />
+       <div className=" ">
+            <BlogCard/>
         </div>
     )
 }
@@ -105,14 +88,14 @@ export const SkeletonTwo = () => {
 export const SkeletonFour = () => {
     return (
         <div className="">
-           <div className="relative mt-6 flex h-full">
+           <div className=" ">
                 <Image
-                     src="/images/2.jpeg"
-                    alt="header"
-                    width={800}
-                    height={800}
-                    className="h-[200px] w-full rounded-3xl object-cover"
-                />
+                src="/images/blogs/gradient/cover.jpg"
+                alt="header"
+                width={800}
+                height={800}
+                className="h-[200px] mt-10 w-full rounded-xl object-cover"
+            />
             </div>
         </div>
     )
