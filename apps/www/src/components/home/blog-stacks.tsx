@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export function BlogCard() {
     return (
-        <div className="h-60 w-full mt-6">
+        <div className="w-full h-full mt-6">
             <CardStack items={CARDS} />
         </div>
     )
@@ -18,7 +18,7 @@ const CARDS = [
                 alt="header"
                 width={800}
                 height={800}
-                className="h-[200px] w-full rounded-xl object-cover"
+                className="h-full w-full rounded-xl object-cover"
             />
         ),
     },
@@ -30,7 +30,7 @@ const CARDS = [
                 alt="header"
                 width={800}
                 height={800}
-                className="h-[200px] w-full rounded-xl object-cover"
+                 className="h-full w-full rounded-xl object-cover"
             />
         ),
     },
@@ -43,7 +43,7 @@ const CARDS = [
                     alt="header"
                     width={800}
                     height={800}
-                    className="h-[200px] w-full rounded-xl object-cover"
+                     className="h-full w-full rounded-xl object-cover"
                 />
             </div>
         ),

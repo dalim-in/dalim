@@ -5,7 +5,8 @@ import { Equal, X } from 'lucide-react'
 
 import { Button } from '../../../ui/button'
 import { Drawer, DrawerClose, DrawerContent, DrawerFooter, DrawerTitle, DrawerTrigger } from '../../../ui/drawer'
-import LinkSelect from './link-select'
+import { PhoneLinkSelect } from './link-select'
+import { ThemeSwitch } from '../footer/theme-switch'
 
 export function MobileAgency() {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -22,16 +23,18 @@ export function MobileAgency() {
                         {isOpen ? <X className="h-5 w-5" /> : <Equal className="h-5 w-5" />}
                     </Button>
                 </DrawerTrigger>
-                <DrawerContent className="space-y-4 p-6">
+                <DrawerContent className="space-y-4 border-brand bg-brand p-6">
                     <DrawerTitle></DrawerTitle>
                     <div className="">
-                        <LinkSelect />
-                        <div className="space-y-6 my-6 text-xl">
+                        <PhoneLinkSelect />
+                        <div className="my-6 mx-2 text-white dark:text-black space-y-6 text-xl">
                             <p>Works</p>
                             <p>Pricing</p>
                             <p>Projects</p>
                             <p>Achievements</p>
                             <p>FAQs</p>
+
+                            <ThemeSwitch />
                         </div>
                         <DrawerFooter>
                             <DrawerClose asChild>

@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL } from '@dalim/auth'
+import { AGENCY_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -31,8 +31,8 @@ export function Menu() {
                                         Design Without Limits. Get agency-level designs without the agency price.
                                     </ListItem>
                                     <ListItem
-                                        href="/icons"
-                                        title="icons">
+                                        href="/"
+                                        title="Icons">
                                         World's Top Designers profile list. Download the Assets from users.
                                     </ListItem>
 
@@ -43,7 +43,7 @@ export function Menu() {
                                     </ListItem>
                                 </div>
                                 <li className="row-span-1">
-                                    <NavigationMenuLink href="/agency/works">
+                                    <NavigationMenuLink href={`${WORKS_URL}`}>
                                         <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
                                             <div className="text-primary mb-2 text-lg font-medium">Works</div>
                                             <p className="text-muted-foreground text-sm leading-tight">Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.</p>

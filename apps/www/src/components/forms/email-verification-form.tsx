@@ -1,48 +1,64 @@
-"use client";
-import { verifyToken } from "@dalim/auth";
-import { useSearchParams } from "next/navigation";
-import React, { useCallback, useEffect, useState } from "react";
- 
-import AuthFormMessage from "./auth-form-message";
+'use client'
+
+import { verifyToken } from '@dalim/auth'
+import { useSearchParams } from 'next/navigation'
+import React, { useCallback, useEffect, useState } from 'react'
+
+import AuthFormMessage from './auth-form-message'
 
 const EmailVerificationForm = () => {
-	const [error, setError] = useState<string | undefined>(undefined);
-	const [success, setSuccess] = useState<string | undefined>(undefined);
-	const searchParams = useSearchParams();
-	if (!searchParams || !searchParams.has("token")) return null;
-	const token = searchParams.get("token");
+    const [error, setError] = useState<string | undefined>(undefined)
+    const [success, setSuccess] = useState<string | undefined>(undefined)
+    const searchParams = useSearchParams()
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const automaticSubmission = useCallback(() => {
-		if (error || success) return;
+    if (!searchParams || !searchParams.has('token')) return null
 
-		if (!token) {
-			setError("Token inválido");
-			return;
-		}
+    const token = searchParams.get('token')
 
-		verifyToken(token)
-			.then((data) => {
-				setSuccess(data.success);
-				setError(data.error);
-			})
-			.catch(() => {
-				setError("Algo deu errado");
-			});
-	}, [token, success, error]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const automaticSubmission = useCallback(() => {
+        if (error || success) return
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	useEffect(() => {
-		automaticSubmission();
-	}, [automaticSubmission]);
-	return (
-		<div className="flex flex-1 justify-center items-center">
-			<div title="Verifique seu E-mail">
-				{success && <AuthFormMessage title="Sucesso" type="default" message={success} />}
-				{error && <AuthFormMessage title="Encontramos um problema" type="default" message={error} />}
-			</div>
-		</div>
-	);
-};
+        if (!token) {
+            setError('Invalid token')
+            return
+        }
 
-export default EmailVerificationForm;
+        verifyToken(token)
+            .then((data) => {
+                setSuccess(data.success)
+                setError(data.error)
+            })
+            .catch(() => {
+                setError('Something went wrong')
+            })
+    }, [token, success, error])
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        automaticSubmission()
+    }, [automaticSubmission])
+
+    return (
+        <div className="flex flex-1 items-center justify-center">
+            <div title="Verify your Email">
+                {success && (
+                    <AuthFormMessage
+                        title="Success"
+                        type="default"
+                        message={success}
+                    />
+                )}
+                {error && (
+                    <AuthFormMessage
+                        title="We encountered a problem"
+                        type="default"
+                        message={error}
+                    />
+                )}
+            </div>
+        </div>
+    )
+}
+
+export default EmailVerificationForm

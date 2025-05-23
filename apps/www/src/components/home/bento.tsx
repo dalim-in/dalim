@@ -1,13 +1,15 @@
 import React from 'react'
-import { cn } from '@/src/lib/utils'
-import Image from 'next/image'   
+import { cn, getTimeOfDayGreeting } from '@/src/lib/utils'
+import Image from 'next/image'
 import { BlogCard } from './blog-stacks'
+import { AboutMe } from './about-me'
 
 export function ProductBento() {
+    const timeOfDayGreeting = getTimeOfDayGreeting()
     const features = [
         {
-            title: 'Graphic',
-            description: 'Discover the essence of creativity in our exquisite collection of top-tier abstract design assets.',
+            title: 'Ali Imam',
+            description: `${timeOfDayGreeting} I am Ali, an experienced Design Engineer. Learn more about me.`,
             skeleton: <SkeletonOne />,
             className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b md:border-r dark:border-neutral-800',
         },
@@ -21,7 +23,7 @@ export function ProductBento() {
             title: 'Agency',
             description: 'Get agency-level designs without the agency price. A flat monthly rate for all your design needs.',
             skeleton: <SkeletonThree />,
-            className: 'col-span-1 md:col-span-3 md:border-r lg:border-b lg:col-span-2 border-b md:border-b-0 dark:border-neutral-800',
+            className: 'col-span-1 md:col-span-3 md:border-r lg:border-b lg:border-r-0 lg:col-span-2 border-b md:border-b-0 dark:border-neutral-800',
         },
         {
             title: 'Works',
@@ -54,33 +56,33 @@ const FeatureCard = ({ children, className }: { children?: React.ReactNode; clas
 }
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
-    return <p className="  text-left text-xl tracking-tight text-black md:text-2xl md:leading-snug dark:text-white">{children}</p>
+    return <p className="text-left text-xl tracking-tight text-black md:text-2xl md:leading-snug dark:text-white">{children}</p>
 }
 
 const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
-    return <p className={cn(' text-left text-sm md:text-base', 'text-center font-normal text-neutral-500 dark:text-neutral-300', 'mx-0 my-2 max-w-sm text-left md:text-sm')}>{children}</p>
+    return <p className={cn('text-left text-sm md:text-base', 'text-center font-normal text-neutral-500 dark:text-neutral-300', 'mx-0 my-2 max-w-sm text-left md:text-sm')}>{children}</p>
 }
 
 export const SkeletonOne = () => {
     return (
         <div className="">
-            <BlogCard/>
+            <AboutMe linkTo={'/about'} />
         </div>
     )
 }
 
 export const SkeletonThree = () => {
     return (
-       <div className=" ">
-            <BlogCard/>
+        <div className=" ">
+            <BlogCard />
         </div>
     )
 }
 
 export const SkeletonTwo = () => {
     return (
-       <div className=" ">
-            <BlogCard/>
+        <div className=" ">
+            <BlogCard />
         </div>
     )
 }
@@ -88,14 +90,14 @@ export const SkeletonTwo = () => {
 export const SkeletonFour = () => {
     return (
         <div className="">
-           <div className=" ">
+            <div className=" ">
                 <Image
-                src="/images/blogs/gradient/cover.jpg"
-                alt="header"
-                width={800}
-                height={800}
-                className="h-[200px] mt-10 w-full rounded-xl object-cover"
-            />
+                    src="/images/blogs/gradient/cover.jpg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="mt-10 h-[200px] w-full rounded-xl object-cover"
+                />
             </div>
         </div>
     )

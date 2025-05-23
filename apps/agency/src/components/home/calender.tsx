@@ -64,7 +64,7 @@ export function Calendar() {
         <BentoCard
             height="h-auto"
             linkTo={bookingLink}>
-            <div className="grid h-[500px] md:h-[450px]  lg:h-[350px] w-full gap-5">
+            <div className="grid h-[500px] md:h-[450px] lg:h-[350px] w-full gap-5">
                 <div className="">
                     <div className="grid gap-4 lg:grid-cols-2">
                         <ul
@@ -95,7 +95,7 @@ export function Calendar() {
                 </div>
                 <div className="transition-all duration-500 ease-out md:group-hover:-right-12 md:group-hover:top-5">
                     <div>
-                        <div className="border-border-primary w-[550px] rounded-[24px] hover:border-dotted border p-2 transition-colors duration-100 group-hover:border-brand">
+                        <div className="border-border-primary w-[550px] rounded-[24px]  border p-2 transition-colors duration-100 ">
                             <div
                                 className="h-full rounded-2xl border-2 border-brand p-3"
                                 style={{ boxShadow: '0px 2px 1.5px 0px #A5AEB852 inset' }}>

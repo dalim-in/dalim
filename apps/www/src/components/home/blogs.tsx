@@ -4,7 +4,7 @@ import { BlogPostsHome } from '@/src/components/mdx/blogs/blog-posts'
 import { getBlurDataURL } from '@/src/lib/utils'
 import { Badge } from '@dalim/core/ui/badge'
 import { Button } from '@dalim/core/ui/button'
-import Link from 'next/link' 
+import Link from 'next/link'
 
 export async function BlogHome() {
     const posts = await Promise.all(
@@ -32,7 +32,7 @@ export async function BlogHome() {
                     <h2 className="mt-5 text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Design That Speaks</h2>
                     <p className="mt-2 pb-10 text-center opacity-60">Exploring ideas that connect, communicate, and inspire.</p>
                     <div className="">
-                        <BlogPostsHome posts={posts} /> 
+                        <BlogPostsHome posts={posts} />
                     </div>
                     <Link
                         className="mt-10"

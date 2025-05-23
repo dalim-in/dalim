@@ -5,7 +5,7 @@ import Logo from '@/public/brand/logo.svg'
 import ThemeToggle from '../../../ui/theme-toggle'
 
 import { Menu, MenuAgency, MenuUI } from './navmenu'
-import LinkSelect from './link-select'
+import {LinkSelect} from './link-select'
 import { MobileAgency } from './mobile-menu'
 import { LoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'

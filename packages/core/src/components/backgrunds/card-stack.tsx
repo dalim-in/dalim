@@ -39,12 +39,12 @@ export const CardStack = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative h-50">
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute dark:bg-black bg-white h-60 w-full md:h-60 rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1] shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
+            className="absolute dark:bg-black bg-white h-auto w-full rounded-3xl p-2 shadow-xl border border-neutral-200 dark:border-white/[0.1] shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
             
             animate={{
               top: index * -CARD_OFFSET,

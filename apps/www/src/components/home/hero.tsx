@@ -5,9 +5,10 @@ import Link from 'next/link'
 import * as React from 'react' 
 import { Orb } from '@dalim/core/components/backgrunds/orb'
 
+
 export function Hero() {
     return (
-        <div className="mt-10 flex flex-col items-center">
+        <div className="md:mt-10 flex flex-col items-center">
             <div className="relative">
                 <Orb
                     hoverIntensity={0.5}
@@ -16,7 +17,7 @@ export function Hero() {
                     forceHoverState={false}
                 /> 
             </div>
-            <main className="relative mt-20 w-full overflow-hidden px-6">
+            <main className="relative mt-10 md:mt-20 w-full overflow-hidden px-6">
                 <h1 className="mb-3 text-center text-7xl font-extrabold tracking-tighter md:text-[clamp(2rem,8vw,7rem)]">Designs That Give</h1>
                 <p className="text-primary/60 px-6 text-center text-xs md:text-sm lg:text-lg">Unleashing creativity through bold visuals, seamless interfaces, and limitless possibilities.</p>
                 <div className="my-8 flex items-center justify-center gap-1">
@@ -28,7 +29,7 @@ export function Hero() {
                 </div>
             </main>
             <div className="">
-                <Link href={'/#pricing'}>
+                <Link href={'/'}>
                     <Button size={'lg'}>Let's Go</Button>
                 </Link>
             </div>

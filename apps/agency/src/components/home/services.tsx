@@ -1,4 +1,4 @@
-import { Zap, Globe } from 'lucide-react'
+import { Zap, Globe, Smartphone, Code } from 'lucide-react'
 import { ReactNode } from 'react'
 
 export function Services() {
@@ -20,7 +20,7 @@ export function Services() {
                     <div className="p-6 border-b lg:border-b-0 lg:border-r">
                         <div className="">
                             <CardDecorator>
-                                <Zap
+                                <Smartphone
                                     className="text-brand size-6"
                                     aria-hidden
                                 />
@@ -42,7 +42,7 @@ export function Services() {
                     <div className="p-6 ">
                         <div className="">
                             <CardDecorator>
-                                <Zap
+                                <Code
                                     className="text-brand size-6"
                                     aria-hidden
                                 />
