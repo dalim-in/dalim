@@ -7,7 +7,7 @@ import { Orb } from '../ui/orb'
 
 export function Hero() {
     return (
-        <div className="mt-12 flex flex-col items-center">
+        <div className="mt-10 flex flex-col items-center">
             <div className="relative">
                 <Orb
                     hoverIntensity={0.5}
