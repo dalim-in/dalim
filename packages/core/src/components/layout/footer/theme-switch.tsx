@@ -22,7 +22,7 @@ export function ThemeSwitch() {
     <div className="group inline-flex items-center gap-2">
       <span
         className={`${
-          isDark ? "text-muted-foreground/70" : ""
+          isDark ? "text-black/60" : ""
         } flex-1 cursor-pointer text-right text-sm font-medium`}
         onClick={() => handleToggle(false)}
       >
@@ -36,7 +36,7 @@ export function ThemeSwitch() {
       />
       <span
         className={`${
-          !isDark ? "text-muted-foreground/70" : ""
+          !isDark ? "text-white/60" : ""
         } flex-1 cursor-pointer text-left text-sm font-medium`}
         onClick={() => handleToggle(true)}
       >

@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@source "../../../../packages/core";   
+@source "../../../../packages/core";  
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-brand: var(--dalim);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -47,6 +48,7 @@
 }
 
 :root {
+  --dalim: oklch(0 0 0);
   --radius: 1rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -82,6 +84,7 @@
 }
 
 .dark {
+  --dalim: oklch(0.94 0.200377 105.6889);
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -114,6 +117,7 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
+
 
 @layer base {
   * {

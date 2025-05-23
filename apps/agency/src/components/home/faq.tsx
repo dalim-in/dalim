@@ -38,6 +38,7 @@ export function FAQs() {
             <div className="grid items-stretch gap-3 px-3 md:grid-cols-2">
                 <div className="h-full w-full">
                     <Accordion
+                    defaultValue="item-1"
                         type="single"
                         collapsible
                         className="bg-muted dark:bg-muted/50 w-full rounded-3xl p-1">
@@ -59,7 +60,7 @@ export function FAQs() {
                     </Accordion>
                 </div>
 
-                <div className="relative h-full w-full">
+                <div className="relative h-[350px] md:h-full w-full">
                     {/* Floating Image (centered) */}
                     <Image
                         src="/brand/logo-icon.svg"
