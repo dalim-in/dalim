@@ -29,7 +29,7 @@ const skills = [
 
 const Skills = () => {
     return (
-        <section className="mx-auto -mt-7 mb-12 max-w-4xl px-3 lg:px-0">
+        <section className="mx-auto -mt-7 mb-12 max-w-4xl">
             <div className="p-10 rounded-3xl border">
                 <div className="flex flex-wrap justify-center gap-2">
                     {skills.map((item, idx) => {

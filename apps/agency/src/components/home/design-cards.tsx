@@ -9,7 +9,7 @@ export function DesignCards() {
                 <div>
                     <h1 className="mb-10 text-xl mx-auto max-w-xs md:max-w-full px-6 text-center font-thin md:text-3xl">Design, the way it was always meant to be.</h1>
                 </div>
-                <div className="grid grid-cols-1 gap-3 w-full px-3 lg:px-0 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 w-full lg:px-0 lg:grid-cols-3">
                     <div className="relative">
                         <Image
                             src="/images/1.jpeg"

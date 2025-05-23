@@ -30,21 +30,28 @@ const OPTIONS = [
         },
     },
     {
+        value: 'works',
+        label: 'Works', 
+        urls: {
+            prod: 'https://works.dalim.in',
+            dev: 'http://localhost:3003',
+        },
+    },
+    {
+        value: 'learn',
+        label: 'Learn', 
+        urls: {
+            prod: 'https://learn.dalim.in',
+            dev: 'http://localhost:3004',
+        },
+    },
+    {
         value: 'ali',
         label: 'Ali',
         disabled: true,
         urls: {
             prod: 'https://ali.dalim.in',
             dev: 'http://localhost:3000/ali',
-        },
-    },
-    {
-        value: 'works',
-        label: 'Works',
-        disabled: true,
-        urls: {
-            prod: 'https://works.dalim.in',
-            dev: 'http://localhost:3000/works',
         },
     },
     {

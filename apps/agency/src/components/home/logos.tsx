@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export const BrandLogos = () => {
     return (
-        <div className="relative before:absolute before:-inset-x-12 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]">
+        <div className="relative before:absolute before:-inset-x-6 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]">
             <div
                 className="animate-marquee-container group flex max-w-full flex-row overflow-hidden py-2 pb-6 [--duration:40s] [--gap:2rem]"
                 style={{
@@ -126,7 +126,7 @@ export const BrandLogos = () => {
                         </div>
                     ))}
             </div>
-            <div className="relative before:absolute before:-inset-x-12 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+            <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
         </div>
     )
 }

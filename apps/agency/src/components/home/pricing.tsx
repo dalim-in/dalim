@@ -8,7 +8,7 @@ export function Pricing() {
         <div
             id="pricing"
             className="relative pt-12">
-            <div className="px-3">
+            <div className="">
                 <Services />
                 <div className="">
                     <div className="relative flex flex-col md:grid grid-cols-2 rounded-3xl border shadow-2xl">

@@ -26,6 +26,8 @@
     "DALIM_URL",
     "UI_URL",
     "AGENCY_URL",
+    "WORKS_URL",
+    "LEARN_URL",
     "RESEND_EMAIL_FROM",
     "VERIFICATION_URL",
     "VERIFICATION_SUBJECT",
