@@ -9,7 +9,7 @@ import Image from 'next/image'
 import { Button, buttonVariants } from '../../ui/button'
 
 import { HighlighterItem, HighlightGroup, Particles } from '../backgrunds/highlighter'
-import { Mail, Menu } from 'lucide-react'
+import { Mail  } from 'lucide-react'
 
 type ConnectProps = {
     className?: string

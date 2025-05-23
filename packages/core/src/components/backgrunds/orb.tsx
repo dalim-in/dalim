@@ -3,7 +3,7 @@ import { Renderer, Program, Mesh, Triangle, Vec3 } from 'ogl'
 import { CircularText } from './circular-text'
 
 export function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = true, forceHoverState = false }) {
-    const ctnDom = useRef(null)
+    const ctnDom = useRef<HTMLDivElement>(null)
 
     const vert = /* glsl */ `
     precision highp float;
