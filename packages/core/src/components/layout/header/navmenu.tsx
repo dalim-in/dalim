@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, FONTS_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -13,14 +13,22 @@ export function Menu() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
+                        <Link
+                            href="/about"
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid gap-3 p-4 md:w-[600px] lg:w-[900px] lg:grid-cols-[1fr_1fr_1fr]">
                                 <li className="row-span-1">
-                                    <NavigationMenuLink href="/about">
+                                    <NavigationMenuLink href={`${FONTS_URL}`}>
                                         <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
-                                            <div className="text-primary mb-2 text-lg font-medium">About</div>
-                                            <p className="text-muted-foreground text-sm leading-tight">Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.</p>
+                                            <div className="text-primary mb-2 text-lg font-medium">Fonts</div>
+                                            <p className="text-muted-foreground text-sm leading-tight">Discover beautifully crafted typefaces for every creative project.</p>
                                         </div>
                                     </NavigationMenuLink>
                                 </li>
@@ -51,8 +59,7 @@ export function Menu() {
                                 </li>
                             </ul>
                         </NavigationMenuContent>
-                    </NavigationMenuItem>
-
+                    </NavigationMenuItem> 
                     <NavigationMenuItem>
                         <Link
                             href="/docs"
@@ -74,21 +81,19 @@ export function MenuUI() {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuLink
+                            href="/"
+                            className={navigationMenuTriggerStyle()}>
+                            UI
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
                             href="/layouts"
                             className={navigationMenuTriggerStyle()}>
                             Layouts
                             <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
-                    </NavigationMenuItem>
-
-                    <NavigationMenuItem>
-                        <NavigationMenuLink
-                            href="/templates"
-                            className={navigationMenuTriggerStyle()}>
-                            Templates
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-
+                    </NavigationMenuItem> 
                     <NavigationMenuItem>
                         <Link
                             href="/colors"
@@ -118,7 +123,7 @@ export function MenuAgency() {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <Link
-                            href="/works"
+                            href={`${WORKS_URL}`}
                             legacyBehavior
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Works</NavigationMenuLink>

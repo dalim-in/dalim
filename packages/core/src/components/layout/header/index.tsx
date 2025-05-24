@@ -1,7 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import LogoDark from '@/public/brand/logo-black.svg'
-import Logo from '@/public/brand/logo.svg'
+import LogoDark from '@/public/brand/dalim-black.svg'
+import Logo from '@/public/brand/dalim.svg'
+import UILogoDark from '@/public/brand/dalim-ui-black.svg'
+import UILogo from '@/public/brand/dalim-ui.svg'
+import AgencyLogoDark from '@/public/brand/dalim-agency-black.svg'
+import AgencyLogo from '@/public/brand/dalim-agency.svg'
+import WorksLogoDark from '@/public/brand/dalim-works-black.svg'
+import WorksLogo from '@/public/brand/dalim-works.svg'
 import PhoneLogoDark from '@/public/brand/logo-icon-black.svg'
 import PhoneLogo from '@/public/brand/logo-icon.svg'
 import ThemeToggle from '../../../ui/theme-toggle'
@@ -20,32 +26,33 @@ export function Header() {
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
                         <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                            {/* LOGO SECTION */}
                             <div className="w-40">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href={`${DALIM_URL}`}
+                                    href={DALIM_URL}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
                                         src={LogoDark}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={24}
-                                        className="dark:hidden"
-                                        priority={true}
+                                        height={24} // fixed height
+                                        width={0} // width auto-adjusts with "w-auto"
+                                        className="h-6 w-auto object-contain dark:hidden"
+                                        priority
                                     />
                                     <Image
                                         src={Logo}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={30}
-                                        className="hidden dark:block"
-                                        priority={true}
+                                        height={24}
+                                        width={0}
+                                        className="hidden h-6 w-auto object-contain dark:block"
+                                        priority
                                     />
-                                </Link>
+                                </Link> 
                                 <Link
                                     className="block shrink-0 md:hidden"
-                                    href={`${DALIM_URL}`}
+                                    href={DALIM_URL}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -54,7 +61,7 @@ export function Header() {
                                         width={24}
                                         height={24}
                                         className="dark:hidden"
-                                        priority={true}
+                                        priority
                                     />
                                     <Image
                                         src={PhoneLogo}
@@ -62,10 +69,12 @@ export function Header() {
                                         width={24}
                                         height={30}
                                         className="hidden dark:block"
-                                        priority={true}
+                                        priority
                                     />
                                 </Link>
                             </div>
+
+                            {/* OTHER COMPONENTS */}
                             <Menu />
                             <MobileWWW />
                             <div className="hidden items-center md:flex">
@@ -95,26 +104,26 @@ export function HeaderUI() {
                             <div className="w-38">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href={`${DALIM_URL}`}
+                                    href={DALIM_URL}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
-                                        src={LogoDark}
+                                        src={UILogoDark}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={24}
-                                        className="dark:hidden"
-                                        priority={true}
+                                        height={24} // fixed height
+                                        width={0} // width auto-adjusts with "w-auto"
+                                        className="h-6 w-auto object-contain dark:hidden"
+                                        priority
                                     />
                                     <Image
-                                        src={Logo}
+                                        src={UILogo}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={30}
-                                        className="hidden dark:block"
-                                        priority={true}
+                                        height={24}
+                                        width={0}
+                                        className="hidden h-6 w-auto object-contain dark:block"
+                                        priority
                                     />
-                                </Link>
+                                </Link> 
                                 <Link
                                     className="block shrink-0 md:hidden"
                                     href={`${DALIM_URL}`}
@@ -167,26 +176,27 @@ export function HeaderAgency() {
                             <div className="w-68">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href={`${DALIM_URL}`}
+                                    href={DALIM_URL}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
-                                        src={LogoDark}
+                                        src={AgencyLogoDark}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={24}
-                                        className="dark:hidden"
-                                        priority={true}
+                                        height={24} // fixed height
+                                        width={0} // width auto-adjusts with "w-auto"
+                                        className="h-6 w-auto object-contain dark:hidden"
+                                        priority
                                     />
                                     <Image
-                                        src={Logo}
+                                        src={AgencyLogo}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={30}
-                                        className="hidden dark:block"
-                                        priority={true}
+                                        height={24}
+                                        width={0}
+                                        className="hidden h-6 w-auto object-contain dark:block"
+                                        priority
                                     />
                                 </Link>
+
                                 <Link
                                     className="block shrink-0 md:hidden"
                                     href={`${DALIM_URL}`}
@@ -239,26 +249,27 @@ export function HeaderWorks() {
                             <div className="w-68">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href={`${DALIM_URL}`}
+                                    href={DALIM_URL}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
-                                        src={LogoDark}
+                                        src={WorksLogoDark}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={24}
-                                        className="dark:hidden"
-                                        priority={true}
+                                        height={24} // fixed height
+                                        width={0} // width auto-adjusts with "w-auto"
+                                        className="h-6 w-auto object-contain dark:hidden"
+                                        priority
                                     />
                                     <Image
-                                        src={Logo}
+                                        src={WorksLogo}
                                         alt="Dalim logo"
-                                        width={100}
-                                        height={30}
-                                        className="hidden dark:block"
-                                        priority={true}
+                                        height={24}
+                                        width={0}
+                                        className="hidden h-6 w-auto object-contain dark:block"
+                                        priority
                                     />
                                 </Link>
+
                                 <Link
                                     className="block shrink-0 md:hidden"
                                     href={`${DALIM_URL}`}

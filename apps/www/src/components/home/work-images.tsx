@@ -243,8 +243,9 @@ export const Photo = ({ src, alt, className, direction, width, height, ...props 
             tabIndex={0}>
             <div className="rounded- relative h-full w-full overflow-hidden shadow-sm">
                 <MotionImage
-                    className={cn('rounded-sm object-cover')}
-                    fill
+                    className={cn('rounded-sm aspect-square object-cover')}
+                    width={300}
+                    height={300}
                     src={src}
                     alt={alt}
                     {...props}
