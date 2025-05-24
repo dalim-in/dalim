@@ -3,6 +3,8 @@ import { cn, getTimeOfDayGreeting } from '@/src/lib/utils'
 import Image from 'next/image'
 import { BlogCard } from './blog-stacks'
 import { AboutMe } from './about-me'
+import { AgencyList } from './lists'
+import { AGENCY_URL } from '@dalim/auth'
 
 export function ProductBento() {
     const timeOfDayGreeting = getTimeOfDayGreeting()
@@ -74,7 +76,7 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
     return (
         <div className=" ">
-            <BlogCard />
+            <AgencyList linkUrl={AGENCY_URL}/>
         </div>
     )
 }

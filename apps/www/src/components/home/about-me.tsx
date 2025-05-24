@@ -14,30 +14,30 @@ export function AboutMe({ linkTo }: { linkTo: string }) {
                                 className="grid h-full place-items-center rounded-lg border-2 border-[#fff200] bg-[#EDEEF0]"
                                 style={{ boxShadow: '10px 10px 1.5px 0px #fff200 inset' }}></div>
                         </div>
-                    </div> 
+                    </div>
                     <Image
-                        src="/images/blogs/gradient/cover.jpg"
+                        src="/images/1.jpeg"
                         alt="ali"
                         width={300}
                         height={300}
                         className="absolute left-1 top-1 h-[200px] w-40 -rotate-[6deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/blogs/gradient/cover.jpg"
+                        src="/images/3.jpeg"
                         alt="ali"
                         width={300}
                         height={300}
-                        className="absolute left-17 top-1 h-[200px] w-40 -rotate-[3deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
+                        className="left-17 absolute top-1 h-[200px] w-40 -rotate-[3deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/blogs/gradient/cover.jpg"
+                        src="/images/2.jpeg"
                         alt="ali"
                         width={300}
                         height={300}
-                        className="absolute right-17 top-1 h-[200px] w-40 rotate-[5deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
+                        className="right-17 absolute top-1 h-[200px] w-40 rotate-[5deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/blogs/gradient/cover.jpg"
+                        src="/ali.jpg"
                         alt="ali"
                         width={300}
                         height={300}

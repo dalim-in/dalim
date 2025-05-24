@@ -3,11 +3,10 @@ import { notFound } from "next/navigation"
 import ComponentCard from "@/src/components/component-card"
 import ComponentDetails from "@/src/components/component-details"
 import ComponentLoader from "@/src/components/component-loader-server"
-import Cta from "@/src/components/cta"
 import PageGrid from "@/src/components/page-grid"
-import PageHeader from "@/src/components/page-header"
 import { categories, getCategory } from "@/src/config/components"
 import { getComponentsByNames } from "@/src/lib/utils"
+import { PageHeader } from "@dalim/core/components/common/page-header"
 
 type Props = {
   params: Promise<{ category: string }>
@@ -108,8 +107,14 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <>
-      <PageHeader title={category.name}>{getDescriptionText()}</PageHeader>
+    <div>
+      <PageHeader
+        badge="UI"
+        className="-mx-6 -mt-14"
+        title={category.name}
+        subheading={`${getDescriptionText()}`}
+      />
+
       <PageGrid>
         {components.map((component) => (
           <ComponentCard
@@ -122,7 +127,8 @@ export default async function Page({ params }: Props) {
           </ComponentCard>
         ))}
       </PageGrid>
-      <Cta />
-    </>
+      <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
+    
+    </div>
   )
 }

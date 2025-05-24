@@ -25,17 +25,16 @@ export function Menu() {
                                     </NavigationMenuLink>
                                 </li>
                                 <div className="row-span-1 space-y-3">
+                                     <ListItem
+                                        href="/pricing"
+                                        title="Pricing">
+                                        World's Top Designers profile list. Download the Assets from users.
+                                    </ListItem>
                                     <ListItem
                                         href={`${AGENCY_URL}`}
                                         title="Agency">
                                         Design Without Limits. Get agency-level designs without the agency price.
-                                    </ListItem>
-                                    <ListItem
-                                        href="/"
-                                        title="Icons">
-                                        World's Top Designers profile list. Download the Assets from users.
-                                    </ListItem>
-
+                                    </ListItem> 
                                     <ListItem
                                         href="/blogs"
                                         title="Blogs">

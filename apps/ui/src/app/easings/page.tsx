@@ -128,18 +128,7 @@ const easings = [
 
 export default function Page() {
   return (
-    <div className="mb-20 grid gap-3">
-      <div className="flex flex-col items-center text-center">
-        <h1 className="text-center text-[clamp(2rem,8vw,7rem)] font-extrabold tracking-tighter">
-          Easings
-        </h1>
-        <div className="mb-10 flex items-center justify-center">
-          <p className="text-primary/60">
-            A set of easing functions ready to copy and paste into your Tailwind
-            CSS project.
-          </p>
-        </div>
-      </div>
+    <div className="grid gap-3">
       <Easings easings={easings} />
     </div>
   )
