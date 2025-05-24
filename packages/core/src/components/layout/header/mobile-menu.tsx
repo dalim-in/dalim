@@ -4,12 +4,17 @@ import * as React from 'react'
 import { Equal, X } from 'lucide-react'
 
 import { Button } from '../../../ui/button'
-import { Drawer, DrawerClose, DrawerContent, DrawerFooter, DrawerTitle, DrawerTrigger } from '../../../ui/drawer'
+import { Drawer,  DrawerContent,  DrawerTrigger } from '../../../ui/drawer'
 import { PhoneLinkSelect } from './link-select'
 import { ThemeSwitch } from '../footer/theme-switch'
 import Link from 'next/link'
+import { DialogTitle } from '@radix-ui/react-dialog'
 
-export function MobileWWW() {
+interface ProtectedLayoutProps {
+    children: React.ReactNode
+}
+
+export function MobileWWW({ children }: ProtectedLayoutProps) {
     const [isOpen, setIsOpen] = React.useState(false)
 
     const infoLinks = [
@@ -32,9 +37,10 @@ export function MobileWWW() {
                     </Button>
                 </DrawerTrigger>
                 <DrawerContent className="border-brand bg-brand space-y-4 p-6">
-                    <DrawerTitle></DrawerTitle>
+                    <DialogTitle></DialogTitle>
                     <div className="">
                         <PhoneLinkSelect />
+                        <div className="mt-1">{children}</div>
                         <div className="mx-2 my-6 space-y-6 text-xl text-white dark:text-black">
                             {infoLinks.map(({ label, href }) => (
                                 <Link
@@ -45,12 +51,7 @@ export function MobileWWW() {
                                 </Link>
                             ))}
                             <ThemeSwitch />
-                        </div>
-                        <DrawerFooter>
-                            <DrawerClose asChild>
-                                <Button variant="outline">Back</Button>
-                            </DrawerClose>
-                        </DrawerFooter>
+                        </div> 
                     </div>
                 </DrawerContent>
             </Drawer>
@@ -58,7 +59,7 @@ export function MobileWWW() {
     )
 }
 
-export function MobileAgency() {
+export function MobileAgency({ children }: ProtectedLayoutProps) {
     const [isOpen, setIsOpen] = React.useState(false)
 
     const infoLinks = [
@@ -66,7 +67,7 @@ export function MobileAgency() {
         { label: 'Pricing', href: '/pricing' },
         { label: 'Blogs', href: '/blogs' },
         { label: 'Docs', href: '/docs' },
-        { label: 'Contact', href: '/contact' },
+        { label: 'Contact', href: '/docs/legal/contact' },
     ]
     return (
         <div className="block md:hidden">
@@ -81,9 +82,10 @@ export function MobileAgency() {
                     </Button>
                 </DrawerTrigger>
                 <DrawerContent className="border-brand bg-brand space-y-4 p-6">
-                    <DrawerTitle></DrawerTitle>
+                     <DialogTitle></DialogTitle>
                     <div className="">
                         <PhoneLinkSelect />
+                        <div className="mt-1">{children}</div>
                         <div className="mx-2 my-6 space-y-6 text-xl text-white dark:text-black">
                             {infoLinks.map(({ label, href }) => (
                                 <Link
@@ -94,12 +96,7 @@ export function MobileAgency() {
                                 </Link>
                             ))}
                             <ThemeSwitch />
-                        </div>
-                        <DrawerFooter>
-                            <DrawerClose asChild>
-                                <Button variant="outline">Back</Button>
-                            </DrawerClose>
-                        </DrawerFooter>
+                        </div> 
                     </div>
                 </DrawerContent>
             </Drawer>

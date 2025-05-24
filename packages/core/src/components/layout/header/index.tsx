@@ -14,8 +14,8 @@ import ThemeToggle from '../../../ui/theme-toggle'
 
 import { Menu, MenuAgency, MenuUI } from './navmenu'
 import { LinkSelect } from './link-select'
-import { MobileAgency, MobileWWW } from './mobile-menu'
-import { LoginButton } from './auth-buttons'
+import { MobileWWW } from './mobile-menu'
+import { LoginButton, MobileLoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'
 import { DALIM_URL } from '@dalim/auth'
 
@@ -49,7 +49,7 @@ export function Header() {
                                         className="hidden h-6 w-auto object-contain dark:block"
                                         priority
                                     />
-                                </Link> 
+                                </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
                                     href={DALIM_URL}
@@ -76,7 +76,11 @@ export function Header() {
 
                             {/* OTHER COMPONENTS */}
                             <Menu />
-                            <MobileWWW />
+                            <MobileWWW>
+                                <ClientOnly>
+                                    <MobileLoginButton />
+                                </ClientOnly>
+                            </MobileWWW>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -123,7 +127,7 @@ export function HeaderUI() {
                                         className="hidden h-6 w-auto object-contain dark:block"
                                         priority
                                     />
-                                </Link> 
+                                </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
                                     href={`${DALIM_URL}`}
@@ -148,7 +152,11 @@ export function HeaderUI() {
                                 </Link>
                             </div>
                             <MenuUI />
-                            <MobileAgency />
+                            <MobileWWW>
+                                <ClientOnly>
+                                    <MobileLoginButton />
+                                </ClientOnly>
+                            </MobileWWW>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -221,7 +229,11 @@ export function HeaderAgency() {
                                 </Link>
                             </div>
                             <MenuAgency />
-                            <MobileAgency />
+                           <MobileWWW>
+                                <ClientOnly>
+                                    <MobileLoginButton />
+                                </ClientOnly>
+                            </MobileWWW>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -293,7 +305,11 @@ export function HeaderWorks() {
                                     />
                                 </Link>
                             </div>
-                            <MobileAgency />
+                            <MobileWWW>
+                                <ClientOnly>
+                                    <MobileLoginButton />
+                                </ClientOnly>
+                            </MobileWWW>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />

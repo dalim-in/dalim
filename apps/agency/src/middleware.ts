@@ -27,5 +27,6 @@ export const config = {
     "/login",
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
     "/((?!_next|api|[\\w-]+\\.\\w+).*)"
-  ]
+  ],
+  runtime: "nodejs", // avoids Edge runtime issues like MessageChannel errors
 };
