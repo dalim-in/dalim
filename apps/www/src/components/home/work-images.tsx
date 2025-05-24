@@ -160,7 +160,7 @@ export const PhotoGallery = ({ animationDelay = 0.5 }: { animationDelay?: number
             </div>
             <div className="mb-3 flex w-full justify-center">
                 <Link href={`${WORKS_URL}`}>
-                    <Button>View All Works</Button>
+                    <Button>See All Works</Button>
                 </Link>
             </div>
         </div>
