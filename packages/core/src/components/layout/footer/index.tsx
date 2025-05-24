@@ -8,7 +8,7 @@ import { ThemeSwitch } from './theme-switch'
 
 function FooterAgency() {
     return (
-        <div className="text-white dark:text-black">
+         <div className="text-white dark:text-black">
             <footer className="relative before:absolute before:-inset-x-full before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="pt-10">
                     <div className="bg-brand -my-6 grid gap-12 rounded-3xl border p-10 md:-my-4 md:grid-cols-2 lg:grid-cols-4">
@@ -118,7 +118,7 @@ function FooterAgency() {
 
 function FooterUI() {
     return (
-        <div className="text-white dark:text-black">
+         <div className="text-white dark:text-black">
             <footer className="relative before:absolute before:-inset-x-full before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="pt-10">
                     <div className="bg-brand -my-6 grid gap-12 rounded-3xl border p-10 md:-my-4 md:grid-cols-2 lg:grid-cols-4">

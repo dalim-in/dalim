@@ -6,8 +6,8 @@ import { categories } from "@/src/config/components"
 export function CategoryUI() {
   return (
     <div data-home className="mx-auto max-w-6xl border-x px-6 py-6"> 
-      <div className="relative my-6">
-        <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="relative">
+        <div className="grid gap-x-6 gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {categories
             .sort((a, b) => {
               if (a.isNew && !b.isNew) return -1
@@ -22,7 +22,7 @@ export function CategoryUI() {
                 componentsCount={category.components.length}
                 isNew={category.isNew}
               />
-            ))}
+            ))} 
         </div>
       </div>
     </div>

@@ -1,36 +1,44 @@
-import { ScrollArea, ScrollBar } from '@dalim/core/ui/scroll-area'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
+import { Tabs, TabsContent } from '@dalim/core/ui/tabs'  
+import { ScrollableTabs } from "./scroll-tab"
 
-import { Festive } from './creatives/festive'
+import { Campaigns, Creatives, Festive, Logos, Modals, Music, Packaging, UIUX } from "./creatives"
 
 export function Works() {
-    return (
-        <Tabs
-            defaultValue="1"
-            className="mb-6 items-center justify-center px-6 text-center">
-            <TabsList className="sticky top-24 z-20 w-full items-center justify-center text-center shadow-xl lg:w-auto">
-                <ScrollArea className="whitespace-nowrap">
-                    <div className="space-x-2">
-                        <TabsTrigger
-                            value="1"
-                            className="px-6">
-                            SM Creative
-                        </TabsTrigger>
-                        <TabsTrigger
-                            value="2"
-                            className="px-6">
-                            SM Festive
-                        </TabsTrigger>
-                    </div>
-                    <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-            </TabsList>
-            <div className="mt-6">
-                <TabsContent value="1"><Festive /></TabsContent>
-                <TabsContent value="2">
-                    Coming Soon
-                </TabsContent>
-            </div>
-        </Tabs>
-    )
+  return (
+    <div className="w-full">
+      <Tabs defaultValue="1" className="items-center justify-center px-6 text-center">
+        <ScrollableTabs />
+
+        <div className="mt-6">
+          <TabsContent value="1">
+            <Creatives />
+          </TabsContent>
+          <TabsContent value="2">
+            <Festive />
+          </TabsContent>
+          <TabsContent value="3">
+            <Campaigns />
+          </TabsContent>
+          <TabsContent value="4">
+            <Modals />
+          </TabsContent>
+          <TabsContent value="5">
+            <Packaging />
+          </TabsContent>
+          <TabsContent value="6">
+            <UIUX />
+          </TabsContent>
+          <TabsContent value="7">
+            <Logos />
+          </TabsContent>
+          <TabsContent value="8">
+            <Music />
+          </TabsContent>
+          <TabsContent value="9"></TabsContent>
+          <TabsContent value="10"></TabsContent>
+          <TabsContent value="11"></TabsContent>
+        </div>
+      </Tabs>
+    </div>
+  )
 }

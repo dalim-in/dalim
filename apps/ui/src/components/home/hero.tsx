@@ -11,8 +11,7 @@ export function Hero() {
           Unleashing creativity through bold visuals, seamless interfaces, and
           limitless possibilities.
         </p>
-      </main>
-
+      </main> 
       <SearchButton />
     </div>
   )

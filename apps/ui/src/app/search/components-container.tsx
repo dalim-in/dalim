@@ -42,7 +42,7 @@ export default function ComponentsContainer() {
   }, [])
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 mb-6">
       <SearchField selectedTags={tags} onTagChange={updateTags} />
       <PageGrid>
         {filtered.map((component: RegistryItem) => (

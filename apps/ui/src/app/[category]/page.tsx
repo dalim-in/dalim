@@ -6,6 +6,7 @@ import ComponentLoader from "@/src/components/component-loader-server"
 import PageGrid from "@/src/components/page-grid"
 import { categories, getCategory } from "@/src/config/components"
 import { getComponentsByNames } from "@/src/lib/utils"
+import { Connect } from "@dalim/core/components/common/connect"
 import { PageHeader } from "@dalim/core/components/common/page-header"
 
 type Props = {
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (category.slug === "event-calendar") {
     return {
       title:
-        "Event calendar component built with React and Tailwind CSS - Origin UI",
+        "Event calendar component built with React and Tailwind CSS - Dalim UI",
       description:
         "An event calendar component built with React and Tailwind CSS. Originally built in v0 and currently in early alpha stage.",
     }
@@ -38,8 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: isSingleComponent
-      ? `${category.name} component built with React and Tailwind CSS - Origin UI`
-      : `${category.name} components built with React and Tailwind CSS - Origin UI`,
+      ? `${category.name} - UI - Dalim`
+      : `${category.name} - UI - Dalim `,
     description: isSingleComponent
       ? `A beautiful and accessible ${category.name.toLowerCase()} component built with React and Tailwind CSS.`
       : `A collection of beautiful and accessible ${category.name.toLowerCase()} components built with React and Tailwind CSS.`,
@@ -63,9 +64,7 @@ export default async function Page({ params }: Props) {
     category.components.map((item) => item.name)
   )
 
-  // Determine the description text based on category
   const getDescriptionText = () => {
-    // Special case for event-calendar
     if (category.slug === "event-calendar") {
       return (
         <span className="block text-balance">
@@ -128,7 +127,9 @@ export default async function Page({ params }: Props) {
         ))}
       </PageGrid>
       <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
-    
+      <div className="py-6">
+        <Connect />
+      </div>
     </div>
   )
 }

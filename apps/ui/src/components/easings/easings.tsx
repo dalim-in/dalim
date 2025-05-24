@@ -394,13 +394,13 @@ export default function Easings({ easings }: EasingsProps) {
         {getFilteredEasings().map((easing) => (
           <div
             key={`${easing.name}-${easingFilter}`}
-            className="bg-muted/65 group relative flex aspect-square flex-col items-center justify-center gap-4 rounded-xl"
+            className="bg-muted/50 group relative flex  flex-col items-center justify-center gap-4 rounded-xl"
           >
             <div className="pt-6 text-center text-sm font-medium">
               {easing.name}
             </div>
 
-            <div className="flex w-full grow flex-col items-start justify-center px-8">
+            <div className="flex w-full grow flex-col items-start justify-center px-6">
               <div className="mb-4 flex w-full justify-center">
                 <EasingSVG
                   easing={easing}
