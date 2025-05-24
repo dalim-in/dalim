@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
 import { getCurrentUser } from '@dalim/auth'
-import { SidebarInset, SidebarProvider } from '@dalim/core/ui/sidebar'
-import { Heart } from 'lucide-react'
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@dalim/core/ui/sidebar'
+
+import { AppSidebar } from '@/src/components/dashboard/sidebar/app-sidebar'
 
 interface ProtectedLayoutProps {
     children: React.ReactNode
@@ -19,42 +19,28 @@ export default async function Users({ children }: ProtectedLayoutProps) {
     if ((user && user.role === 'USER') || 'ADMIN')
         return (
             <div className="">
-                <SidebarProvider>
-                    <SidebarInset
-                        style={{ marginTop: '18px' }}
-                        className="mx-2 mb-2 rounded-lg border shadow-md">
-                        {children}
-                        <div className="mt-6">
-                            <div className="absolute bottom-3 left-0 right-0 flex flex-col justify-between text-center text-xs">
-                                <div className="flex flex-row items-center justify-center gap-1 border-t pt-3 text-slate-600 dark:text-slate-400">
-                                    <span> © </span>
-                                    <span>{new Date().getFullYear()}</span>
-                                    <span>Made with</span>
-                                    <Heart className="text-ali mx-1 h-4 w-4 animate-pulse" />
-                                    <span> by </span>
-                                    <span className="hover:text-ali dark:hover:text-ali cursor-pointer text-black dark:text-white">
-                                        <Link
-                                            aria-label="Logo"
-                                            className="font-bold"
-                                            href="https://www.instagram.com/aliimam.in/"
-                                            target="_blank">
-                                            Ali Imam {''}
-                                        </Link>
-                                    </span>
-                                    -
-                                    <span className="hover:text-ali dark:hover:text-ali cursor-pointer text-slate-600 dark:text-slate-400">
-                                        <Link
-                                            aria-label="Logo"
-                                            className=""
-                                            href="/">
-                                            Designali
-                                        </Link>
-                                    </span>
+                <div className="relative -mx-6">
+                    <SidebarProvider>
+                        <AppSidebar className="sticky top-24 -mt-14" />
+                        <SidebarInset className="-mt-11 mb-4 md:mb-3 mx-6 md:mx-0 md:mr-3 rounded-xl p-6">
+                            <div className="flex flex-col">
+                                <div className="">
+                                    <SidebarTrigger className="mb-4 -mt-3" />
+                                    <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
                                 </div>
                             </div>
-                        </div>
-                    </SidebarInset>
-                </SidebarProvider>
+                            {children}
+                            <div className="flex flex-1 flex-col gap-4">
+                                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+                                    <div className="bg-muted/50 aspect-video rounded-xl" />
+                                    <div className="bg-muted/50 aspect-video rounded-xl" />
+                                    <div className="bg-muted/50 aspect-video rounded-xl" />
+                                </div>
+                                <div className="bg-muted/50 h-[100vh] flex-1 rounded-xl" />
+                            </div>
+                        </SidebarInset>
+                    </SidebarProvider>
+                </div>
             </div>
         )
 }

@@ -23,7 +23,7 @@ export function DashboardUser({ user }: { user: PublicUser }) {
       <div className="grid items-center gap-3">
         <div className="flex mt-3 items-center gap-4">
           <Image
-            src={"/placeholder.svg"}
+            src={user.image || "/placeholder.svg"}
             width={48}
             height={48}
             alt={user.name || "Avatar"}
