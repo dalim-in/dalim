@@ -1,46 +1,61 @@
 import React from 'react'
 import { cn, getTimeOfDayGreeting } from '@/src/lib/utils'
-import Image from 'next/image'
 import { BlogCard } from './blog-stacks'
 import { AboutMe } from './about-me'
 import { AgencyList } from './lists'
-import { AGENCY_URL } from '@dalim/auth'
+import { AGENCY_URL, FONTS_URL } from '@dalim/auth'
+import { PhotoGallery } from './work-images'
+import Link from 'next/link'
+import { PageHeader } from '@dalim/core/components/common/page-header'
 
 export function ProductBento() {
     const timeOfDayGreeting = getTimeOfDayGreeting()
     const features = [
         {
+            id: 'about',
             title: 'Ali Imam',
             description: `${timeOfDayGreeting} I am Ali, an experienced Design Engineer. Learn more about me.`,
             skeleton: <SkeletonOne />,
             className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b md:border-r dark:border-neutral-800',
         },
         {
+            id: 'fonts',
             title: 'Fonts',
             description: 'Discover beautifully crafted typefaces for every creative project — from modern displays to.',
             skeleton: <SkeletonTwo />,
             className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b lg:border-r dark:border-neutral-800',
         },
         {
+            id: 'agency',
             title: 'Agency',
             description: 'Get agency-level designs without the agency price. A flat monthly rate for all your design needs.',
             skeleton: <SkeletonThree />,
-            className: 'col-span-1 md:col-span-3 md:border-r lg:border-b lg:border-r-0 lg:col-span-2 border-b md:border-b-0 dark:border-neutral-800',
+            className: 'col-span-1 md:col-span-3 md:border-r md:border-b lg:border-r-0 lg:col-span-2 border-b dark:border-neutral-800',
         },
         {
-            title: 'Works',
-            description: 'Welcome to My Creative Playground! Welcome to My Creative Playground!',
+            id: 'works-header',
+            title: '',
+            description: '',
             skeleton: <SkeletonFour />,
-            className: 'col-span-1 md:col-span-3 lg:col-span-6 md:border-none',
+            className: 'col-span-1 md:border-b md:col-span-3 lg:col-span-6 md:border-none',
+        },
+        {
+            id: 'works-gallery',
+            title: '',
+            description: '',
+            skeleton: <SkeletonFive />,
+            className: 'col-span-1 md:col-span-6 lg:col-span-6 md:border-none',
         },
     ]
+
     return (
         <div className="relative mb-6">
             <div className="relative">
                 <div className="grid grid-cols-1 rounded-3xl border md:grid-cols-6 lg:grid-cols-6 dark:border-neutral-800">
                     {features.map((feature) => (
                         <FeatureCard
-                            key={feature.title}
+                            key={feature.id}
+                            id={feature.id}
                             className={feature.className}>
                             <FeatureTitle>{feature.title}</FeatureTitle>
                             <FeatureDescription>{feature.description}</FeatureDescription>
@@ -53,8 +68,14 @@ export function ProductBento() {
     )
 }
 
-const FeatureCard = ({ children, className }: { children?: React.ReactNode; className?: string }) => {
-    return <div className={cn(`relative overflow-hidden p-4 sm:p-8`, className)}>{children}</div>
+const FeatureCard = ({ id, children, className }: { id?: string; children?: React.ReactNode; className?: string }) => {
+    return (
+        <div
+            id={id}
+            className={cn(`relative overflow-hidden p-4 sm:p-8`, className)}>
+            {children}
+        </div>
+    )
 }
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
@@ -76,7 +97,7 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
     return (
         <div className=" ">
-            <AgencyList linkUrl={AGENCY_URL}/>
+            <AgencyList linkUrl={AGENCY_URL} />
         </div>
     )
 }
@@ -84,7 +105,9 @@ export const SkeletonThree = () => {
 export const SkeletonTwo = () => {
     return (
         <div className=" ">
-            <BlogCard />
+            <Link href={`${FONTS_URL}`}>
+                <BlogCard />
+            </Link>
         </div>
     )
 }
@@ -93,13 +116,22 @@ export const SkeletonFour = () => {
     return (
         <div className="">
             <div className=" ">
-                <Image
-                    src="/images/blogs/gradient/cover.jpg"
-                    alt="header"
-                    width={800}
-                    height={800}
-                    className="mt-10 h-[200px] w-full rounded-xl object-cover"
+                <PageHeader
+                    badge="Works"
+                    className="-mx-8 -mb-8 -mt-10"
+                    title={'Designs That Speak'}
+                    subheading="A curated collection of graphic design work—from branding and print to digital media—crafted to communicate, inspire, and leave a lasting impression."
                 />
+            </div>
+        </div>
+    )
+}
+
+export const SkeletonFive = () => {
+    return (
+        <div className="">
+            <div className=" ">
+                <PhotoGallery />
             </div>
         </div>
     )

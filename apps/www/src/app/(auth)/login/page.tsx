@@ -22,7 +22,7 @@ export default async function Page() {
     }
 
     return (
-        <WarpBackground perspective={500} className='-mx-6 -mt-14'>
+        <WarpBackground perspective={200} className='-mx-6 -mt-14'>
         <div className="">
             <div className="relative z-10 flex flex-col divide-indigo-300 dark:divide-indigo-700">
                 <div className="mx-auto flex h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-10 lg:px-24">

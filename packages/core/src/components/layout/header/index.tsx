@@ -8,9 +8,10 @@ import ThemeToggle from '../../../ui/theme-toggle'
 
 import { Menu, MenuAgency, MenuUI } from './navmenu'
 import { LinkSelect } from './link-select'
-import { MobileAgency } from './mobile-menu'
+import { MobileAgency, MobileWWW } from './mobile-menu'
 import { LoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'
+import { DALIM_URL } from '@dalim/auth'
 
 export function Header() {
     return (
@@ -22,7 +23,7 @@ export function Header() {
                             <div className="w-40">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -44,7 +45,7 @@ export function Header() {
                                 </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -66,7 +67,7 @@ export function Header() {
                                 </Link>
                             </div>
                             <Menu />
-                            <MobileAgency />
+                            <MobileWWW />
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -91,10 +92,10 @@ export function HeaderUI() {
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
                         <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
-                           <div className="w-38">
+                            <div className="w-38">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -116,7 +117,7 @@ export function HeaderUI() {
                                 </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -163,10 +164,10 @@ export function HeaderAgency() {
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
                         <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
-                           <div className="w-68">
+                            <div className="w-68">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -188,7 +189,7 @@ export function HeaderAgency() {
                                 </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -228,8 +229,6 @@ export function HeaderAgency() {
     )
 }
 
-
-
 export function HeaderWorks() {
     return (
         <div className="">
@@ -237,10 +236,10 @@ export function HeaderWorks() {
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
                         <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
-                           <div className="w-68">
+                            <div className="w-68">
                                 <Link
                                     className="hidden shrink-0 md:block"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -262,7 +261,7 @@ export function HeaderWorks() {
                                 </Link>
                                 <Link
                                     className="block shrink-0 md:hidden"
-                                    href="/"
+                                    href={`${DALIM_URL}`}
                                     aria-label="Home">
                                     <span className="sr-only">Dalim</span>
                                     <Image
@@ -282,7 +281,7 @@ export function HeaderWorks() {
                                         priority={true}
                                     />
                                 </Link>
-                            </div> 
+                            </div>
                             <MobileAgency />
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">

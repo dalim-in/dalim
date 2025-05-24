@@ -2,7 +2,7 @@
 
 import { cn } from "../../lib/utils";
 import { motion } from "motion/react";
-import React, { type HTMLAttributes, useCallback, useMemo } from "react";
+import React, { type HTMLAttributes, useCallback, useEffect, useMemo, useState } from "react";
 
 interface WarpBackgroundProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -26,8 +26,16 @@ const Beam = ({
   delay: number;
   duration: number;
 }) => {
-  const hue = Math.floor(Math.random() * 360);
-  const ar = Math.floor(Math.random() * 10) + 1;
+  const [hue, setHue] = useState(0);
+  const [ar, setAr] = useState(1);
+
+  useEffect(() => {
+    setHue(Math.floor(Math.random() * 360));
+    setAr(Math.floor(Math.random() * 10) + 1);
+  }, []);
+
+  // Don't render until values are set
+  if (hue === 0 && ar === 1) return null;
 
   return (
     <motion.div
@@ -51,6 +59,7 @@ const Beam = ({
     />
   );
 };
+
 
 export const WarpBackground: React.FC<WarpBackgroundProps> = ({
   children,

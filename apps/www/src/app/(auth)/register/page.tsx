@@ -23,7 +23,7 @@ export default async function Page() {
     return (
         <div>
             <WarpBackground
-                perspective={500}
+                perspective={200}
                 className="-mx-6 -mt-14">
                 <div className="relative z-10 -mt-10 flex flex-col">
                     {/* Header */}

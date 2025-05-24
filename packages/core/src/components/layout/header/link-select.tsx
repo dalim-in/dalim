@@ -46,6 +46,14 @@ const OPTIONS = [
         },
     },
     {
+        value: 'fonts',
+        label: 'Fonts', 
+        urls: {
+            prod: 'https://fonts.dalim.in',
+            dev: 'http://localhost:3005',
+        },
+    },
+    {
         value: 'ali',
         label: 'Ali',
         disabled: true,
@@ -55,12 +63,12 @@ const OPTIONS = [
         },
     },
     {
-        value: 'fonts',
-        label: 'Fonts',
+        value: 'graphic',
+        label: 'Graphic',
         disabled: true,
         urls: {
-            prod: 'https://fonts.dalim.in',
-            dev: 'http://localhost:3000/fonts',
+            prod: 'https://graphic.dalim.in',
+            dev: 'http://localhost:3006',
         },
     },
 ]

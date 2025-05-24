@@ -74,7 +74,7 @@ const Notification = ({ name, description, icon, color, time, linkUrl }: Item) =
 
 export function AgencyList({ className, linkUrl }: { className?: string; linkUrl: string }) {
     return (
-        <div className={cn('lg:h-54 relative flex h-60 w-full flex-col overflow-hidden p-2 xl:h-60', className)}>
+        <div className={cn('lg:h-54 relative flex md:h-80 h-60 w-full flex-col overflow-hidden p-2 xl:h-60', className)}>
             <AnimatedList>
                 {notifications.map((item, idx) => (
                     <Notification
