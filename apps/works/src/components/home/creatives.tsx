@@ -1,5 +1,5 @@
-import { Grid5 } from "@dalim/core/components/common/gallery";
-import { getFestiveImages, getCreativeImages, getCampaignsImages, get3DImages, getPackagingImages, getUIUXImages, getLogosImages, getMusicImages } from "@/src/lib/cloudinary";
+import { Grid5, Grid3, Grid4 } from "@dalim/core/components/common/gallery";
+import { getFestiveImages, getCreativeImages, getCampaignsImages, get3DImages, getPackagingImages, getUIUXImages, getLogosImages, getMusicImages, getOthersImages } from "@/src/lib/cloudinary";
 
 export async function Festive() {
   const data = await getFestiveImages();
@@ -26,7 +26,7 @@ export async function Campaigns() {
 
   return (
     <main>
-      <Grid5 images={data.resources} />
+      <Grid3 images={data.resources} />
     </main>
   );
 }
@@ -36,7 +36,7 @@ export async function Modals() {
 
   return (
     <main>
-      <Grid5 images={data.resources} />
+      <Grid4 images={data.resources} />
     </main>
   );
 }
@@ -56,7 +56,7 @@ export async function UIUX() {
 
   return (
     <main>
-      <Grid5 images={data.resources} />
+      <Grid4 images={data.resources} />
     </main>
   );
 }
@@ -76,7 +76,17 @@ export async function Music() {
 
   return (
     <main>
-      <Grid5 images={data.resources} />
+      <Grid3 images={data.resources} />
+    </main>
+  );
+}
+
+export async function Others() {
+  const data = await getOthersImages();
+
+  return (
+    <main>
+      <Grid3 images={data.resources} />
     </main>
   );
 }

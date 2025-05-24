@@ -48,6 +48,14 @@ export async function getMusicImages() {
     .execute();
 }
 
+export async function getOthersImages() {
+  return await cloudinary.search
+    .expression('folder:Dalim/Works/Creatives/others/*')
+    .sort_by('created_at', 'desc')
+    .max_results(400)
+    .execute();
+}
+
 export async function getCampaignsImages() {
   return await cloudinary.search
     .expression('folder:Dalim/Works/Creatives/campaigns/*')
