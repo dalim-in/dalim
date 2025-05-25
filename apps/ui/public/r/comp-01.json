@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comp-01",
+  "type": "registry:component",
+  "registryDependencies": [
+    "https://ui.dalim.in/r/label.json",
+    "https://ui.dalim.in/r/slider.json"
+  ],
+  "files": [
+    {
+      "path": "registry/default/components/comp-01.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return <Button>Button</Button>\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "slider",
+      "ai",
+      "radix"
+    ]
+  }
+}

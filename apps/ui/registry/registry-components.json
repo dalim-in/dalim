@@ -1,0 +1,66 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Dalim Part 2",
+  "homepage": "https://ui.dalim.in",
+  "items": [ 
+    {
+      "name": "comp-01",
+      "type": "registry:component",
+      "registryDependencies": ["https://ui.dalim.in/r/label.json", "https://ui.dalim.in/r/slider.json"],
+      "files": [
+        {
+          "path": "registry/default/components/comp-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["slider", "ai", "radix"]
+      }
+    },
+    {
+      "name": "button-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["button", "example", "component"],
+        "style": 1
+      }
+    },
+    {
+      "name": "ai-input-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/ai/ai-input-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["ai", "input", "component"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["pagination", "navigation", "component"],
+        "colSpan": 2
+      }
+    }
+  ]
+}

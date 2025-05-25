@@ -1,14 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "Dalim",
+  "name": "Dalim Part 1",
   "homepage": "https://ui.dalim.in",
   "items": [
     {
       "name": "accordion",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-accordion"
-      ],
+      "dependencies": ["@radix-ui/react-accordion"],
       "files": [
         {
           "path": "registry/default/ui/accordion.tsx",
@@ -21,20 +19,12 @@
             "extend": {
               "keyframes": {
                 "accordion-down": {
-                  "from": {
-                    "height": "0"
-                  },
-                  "to": {
-                    "height": "var(--radix-accordion-content-height)"
-                  }
+                  "from": { "height": "0" },
+                  "to": { "height": "var(--radix-accordion-content-height)" }
                 },
                 "accordion-up": {
-                  "from": {
-                    "height": "var(--radix-accordion-content-height)"
-                  },
-                  "to": {
-                    "height": "0"
-                  }
+                  "from": { "height": "var(--radix-accordion-content-height)" },
+                  "to": { "height": "0" }
                 }
               },
               "animation": {
@@ -49,9 +39,7 @@
     {
       "name": "ai-input",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/ai/input.tsx",
@@ -60,33 +48,10 @@
       ]
     },
     {
-      "name": "ai-input-01",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/ai/ai-input-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "ai",
-          "input",
-          "component"
-        ],
-        "colSpan": 2
-      }
-    },
-    {
       "name": "alert-dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-alert-dialog"
-      ],
-      "registryDependencies": [
-        "https://ui.dalim.in/r/button.json"
-      ],
+      "dependencies": ["@radix-ui/react-alert-dialog"],
+      "registryDependencies": ["https://ui.dalim.in/r/button.json"],
       "files": [
         {
           "path": "registry/default/ui/alert-dialog.tsx",
@@ -97,9 +62,7 @@
     {
       "name": "avatar",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-avatar"
-      ],
+      "dependencies": ["@radix-ui/react-avatar"],
       "files": [
         {
           "path": "registry/default/ui/avatar.tsx",
@@ -120,9 +83,7 @@
     {
       "name": "breadcrumb",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/breadcrumb.tsx",
@@ -133,9 +94,7 @@
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
@@ -144,34 +103,10 @@
       ]
     },
     {
-      "name": "button-01",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
       "name": "calendar",
       "type": "registry:ui",
-      "dependencies": [
-        "react-day-picker",
-        "date-fns"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["react-day-picker", "date-fns"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/default/ui/calendar.tsx",
@@ -182,10 +117,7 @@
     {
       "name": "calendar-rac",
       "type": "registry:ui",
-      "dependencies": [
-        "react-aria-components",
-        "@internationalized/date"
-      ],
+      "dependencies": ["react-aria-components", "@internationalized/date"],
       "files": [
         {
           "path": "registry/default/ui/calendar-rac.tsx",
@@ -196,9 +128,7 @@
     {
       "name": "card",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/card.tsx",
@@ -209,9 +139,7 @@
     {
       "name": "checkbox",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-checkbox"
-      ],
+      "dependencies": ["@radix-ui/react-checkbox"],
       "files": [
         {
           "path": "registry/default/ui/checkbox.tsx",
@@ -232,9 +160,7 @@
     {
       "name": "collapsible",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-collapsible"
-      ],
+      "dependencies": ["@radix-ui/react-collapsible"],
       "files": [
         {
           "path": "registry/default/ui/collapsible.tsx",
@@ -245,12 +171,8 @@
     {
       "name": "command",
       "type": "registry:ui",
-      "dependencies": [
-        "cmdk@1.0.0"
-      ],
-      "registryDependencies": [
-        "dialog"
-      ],
+      "dependencies": ["cmdk@1.0.0"],
+      "registryDependencies": ["dialog"],
       "files": [
         {
           "path": "registry/default/ui/command.tsx",
@@ -259,32 +181,9 @@
       ]
     },
     {
-      "name": "comp-01",
-      "type": "registry:component",
-      "registryDependencies": [
-        "https://ui.dalim.in/r/label.json",
-        "https://ui.dalim.in/r/slider.json"
-      ],
-      "files": [
-        {
-          "path": "registry/default/components/comp-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "slider",
-          "ai",
-          "radix"
-        ]
-      }
-    },
-    {
       "name": "cropper",
       "type": "registry:ui",
-      "dependencies": [
-        "@origin-space/image-cropper"
-      ],
+      "dependencies": ["@origin-space/image-cropper"],
       "files": [
         {
           "path": "registry/default/ui/cropper.tsx",
@@ -295,9 +194,7 @@
     {
       "name": "datefield-rac",
       "type": "registry:ui",
-      "dependencies": [
-        "react-aria-components"
-      ],
+      "dependencies": ["react-aria-components"],
       "files": [
         {
           "path": "registry/default/ui/datefield-rac.tsx",
@@ -308,9 +205,7 @@
     {
       "name": "dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-dialog"
-      ],
+      "dependencies": ["@radix-ui/react-dialog"],
       "files": [
         {
           "path": "registry/default/ui/dialog.tsx",
@@ -321,9 +216,7 @@
     {
       "name": "dropdown-menu",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-dropdown-menu"
-      ],
+      "dependencies": ["@radix-ui/react-dropdown-menu"],
       "files": [
         {
           "path": "registry/default/ui/dropdown-menu.tsx",
@@ -334,9 +227,7 @@
     {
       "name": "hover-card",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-hover-card"
-      ],
+      "dependencies": ["@radix-ui/react-hover-card"],
       "files": [
         {
           "path": "registry/default/ui/hover-card.tsx",
@@ -357,9 +248,7 @@
     {
       "name": "label",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-label"
-      ],
+      "dependencies": ["@radix-ui/react-label"],
       "files": [
         {
           "path": "registry/default/ui/label.tsx",
@@ -370,9 +259,7 @@
     {
       "name": "multiselect",
       "type": "registry:ui",
-      "registryDependencies": [
-        "https://ui.dalim.in/r/command.json"
-      ],
+      "registryDependencies": ["https://ui.dalim.in/r/command.json"],
       "files": [
         {
           "path": "registry/default/ui/multiselect.tsx",
@@ -383,9 +270,7 @@
     {
       "name": "navigation-menu",
       "type": "registry:ui",
-      "registryDependencies": [
-        "https://ui.dalim.in/r/navigation-menu.json"
-      ],
+      "registryDependencies": ["https://ui.dalim.in/r/navigation-menu.json"],
       "files": [
         {
           "path": "registry/default/ui/navigation-menu.tsx",
@@ -396,9 +281,7 @@
     {
       "name": "pagination",
       "type": "registry:ui",
-      "registryDependencies": [
-        "button"
-      ],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/default/ui/pagination.tsx",
@@ -407,30 +290,9 @@
       ]
     },
     {
-      "name": "pagination-01",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/pagination/pagination-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "pagination",
-          "navigation",
-          "component"
-        ],
-        "colSpan": 2
-      }
-    },
-    {
       "name": "popover",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-popover"
-      ],
+      "dependencies": ["@radix-ui/react-popover"],
       "files": [
         {
           "path": "registry/default/ui/popover.tsx",
@@ -441,9 +303,7 @@
     {
       "name": "progress",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-progress"
-      ],
+      "dependencies": ["@radix-ui/react-progress"],
       "files": [
         {
           "path": "registry/default/ui/progress.tsx",
@@ -454,9 +314,7 @@
     {
       "name": "radio-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-radio-group"
-      ],
+      "dependencies": ["@radix-ui/react-radio-group"],
       "files": [
         {
           "path": "registry/default/ui/radio-group.tsx",
@@ -467,9 +325,7 @@
     {
       "name": "scroll-area",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-scroll-area"
-      ],
+      "dependencies": ["@radix-ui/react-scroll-area"],
       "files": [
         {
           "path": "registry/default/ui/scroll-area.tsx",
@@ -480,9 +336,7 @@
     {
       "name": "select",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-select"
-      ],
+      "dependencies": ["@radix-ui/react-select"],
       "files": [
         {
           "path": "registry/default/ui/select.tsx",
@@ -503,12 +357,8 @@
     {
       "name": "slider",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slider"
-      ],
-      "registryDependencies": [
-        "https://ui.dalim.in/r/tooltip.json"
-      ],
+      "dependencies": ["@radix-ui/react-slider"],
+      "registryDependencies": ["https://ui.dalim.in/r/tooltip.json"],
       "files": [
         {
           "path": "registry/default/ui/slider.tsx",
@@ -519,10 +369,7 @@
     {
       "name": "sonner",
       "type": "registry:ui",
-      "dependencies": [
-        "sonner",
-        "next-themes"
-      ],
+      "dependencies": ["sonner", "next-themes"],
       "files": [
         {
           "path": "registry/default/ui/sonner.tsx",
@@ -543,9 +390,7 @@
     {
       "name": "switch",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-switch"
-      ],
+      "dependencies": ["@radix-ui/react-switch"],
       "files": [
         {
           "path": "registry/default/ui/switch.tsx",
@@ -566,9 +411,7 @@
     {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tabs"
-      ],
+      "dependencies": ["@radix-ui/react-tabs"],
       "files": [
         {
           "path": "registry/default/ui/tabs.tsx",
@@ -589,9 +432,7 @@
     {
       "name": "timeline",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/default/ui/timeline.tsx",
@@ -602,9 +443,7 @@
     {
       "name": "toast",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toast"
-      ],
+      "dependencies": ["@radix-ui/react-toast"],
       "files": [
         {
           "path": "registry/default/ui/toast.tsx",
@@ -623,9 +462,7 @@
     {
       "name": "toggle",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toggle"
-      ],
+      "dependencies": ["@radix-ui/react-toggle"],
       "files": [
         {
           "path": "registry/default/ui/toggle.tsx",
@@ -636,12 +473,8 @@
     {
       "name": "toggle-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toggle-group"
-      ],
-      "registryDependencies": [
-        "toggle"
-      ],
+      "dependencies": ["@radix-ui/react-toggle-group"],
+      "registryDependencies": ["toggle"],
       "files": [
         {
           "path": "registry/default/ui/toggle-group.tsx",
@@ -652,77 +485,11 @@
     {
       "name": "tooltip",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tooltip"
-      ],
+      "dependencies": ["@radix-ui/react-tooltip"],
       "files": [
         {
           "path": "registry/default/ui/tooltip.tsx",
           "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "use-character-limit",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/default/hooks/use-character-limit.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "use-file-upload",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/default/hooks/use-file-upload.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "use-pagination",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/default/hooks/use-pagination.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "use-slider-with-input",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/default/hooks/use-slider-with-input.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "use-toast",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/default/hooks/use-toast.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "utils",
-      "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
-      "files": [
-        {
-          "path": "registry/default/lib/utils.ts",
-          "type": "registry:lib"
         }
       ]
     }

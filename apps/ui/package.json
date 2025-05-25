@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev -p 3001 --turbopack",
     "build": "next build",
+    "registry": "tsx scripts/build.ts",
     "registry:build": "shadcn build",
     "start": "next start",
     "lint": "next lint"

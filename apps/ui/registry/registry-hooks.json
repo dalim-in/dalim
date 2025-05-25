@@ -1,0 +1,68 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Dalim Part 2",
+  "homepage": "https://ui.dalim.in",
+  "items": [ 
+    {
+      "name": "use-character-limit",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-character-limit.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-file-upload",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-file-upload.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-pagination",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-pagination.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-slider-with-input",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-slider-with-input.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-toast",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-toast.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/default/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}

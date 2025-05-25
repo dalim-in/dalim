@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-input-01",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/ai/ai-input-01.tsx",
+      "content": "'use client';\nimport {\n  AIInput,\n  AIInputButton,\n  AIInputModelSelect,\n  AIInputModelSelectContent,\n  AIInputModelSelectItem,\n  AIInputModelSelectTrigger,\n  AIInputModelSelectValue,\n  AIInputSubmit,\n  AIInputTextarea,\n  AIInputToolbar,\n  AIInputTools,\n} from '@/registry/default/ui/ai/input';\nimport { GlobeIcon, MicIcon, PlusIcon, SendIcon } from 'lucide-react';\nimport { type FormEventHandler, useState } from 'react';\nconst models = [\n  { id: 'gpt-4', name: 'GPT-4' },\n  { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo' },\n  { id: 'claude-2', name: 'Claude 2' },\n  { id: 'claude-instant', name: 'Claude Instant' },\n  { id: 'palm-2', name: 'PaLM 2' },\n  { id: 'llama-2-70b', name: 'Llama 2 70B' },\n  { id: 'llama-2-13b', name: 'Llama 2 13B' },\n  { id: 'cohere-command', name: 'Command' },\n  { id: 'mistral-7b', name: 'Mistral 7B' },\n];\nconst Component = () => {\n  const [model, setModel] = useState<string>(models[0].id);\n  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {\n    event.preventDefault();\n    const formData = new FormData(event.currentTarget);\n    const message = formData.get('message');\n    console.log('Submitted message:', message);\n  };\n  return (\n    <AIInput onSubmit={handleSubmit}>\n      <AIInputTextarea />\n      <AIInputToolbar>\n        <AIInputTools>\n          <AIInputButton>\n            <PlusIcon size={16} />\n          </AIInputButton>\n          <AIInputButton>\n            <MicIcon size={16} />\n          </AIInputButton>\n          <AIInputButton>\n            <GlobeIcon size={16} />\n            <span>Search</span>\n          </AIInputButton>\n          <AIInputModelSelect value={model} onValueChange={setModel}>\n            <AIInputModelSelectTrigger>\n              <AIInputModelSelectValue />\n            </AIInputModelSelectTrigger>\n            <AIInputModelSelectContent>\n              {models.map((model) => (\n                <AIInputModelSelectItem key={model.id} value={model.id}>\n                  {model.name}\n                </AIInputModelSelectItem>\n              ))}\n            </AIInputModelSelectContent>\n          </AIInputModelSelect>\n        </AIInputTools>\n        <AIInputSubmit>\n          <SendIcon size={16} />\n        </AIInputSubmit>\n      </AIInputToolbar>\n    </AIInput>\n  );\n};\nexport default Component;",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "ai",
+      "input",
+      "component"
+    ],
+    "colSpan": 2
+  }
+}
