@@ -16,10 +16,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'res.cloudinary.com',
-            },
-            {
+            }, 
+             {
                 protocol: 'https',
-                hostname: 'ik.imagekit.io',
+                hostname: 'lh3.googleusercontent.com',
             },
         ],
     },

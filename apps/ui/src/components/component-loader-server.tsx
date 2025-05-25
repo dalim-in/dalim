@@ -1,17 +1,10 @@
 import { ComponentType } from "react"
-import type { RegistryItem } from "shadcn/registry" 
+import type { RegistryItem } from "shadcn/registry"
+import { categories } from "@/src/config/components"
 
 interface ComponentLoaderProps {
   component: RegistryItem
 }
-
-// Define folders to search
-const componentFolders = [
-  "default/components",
-  "default/components/ai",
-  "default/components/button",
-  "default/components/pagination"
-]
 
 export default async function ComponentLoader<TProps extends object>({
   component,
@@ -21,53 +14,24 @@ export default async function ComponentLoader<TProps extends object>({
     return null
   }
 
-  const loadedComponents: ComponentType<TProps>[] = []
+  // Find which folder the component belongs to
+  const category = categories.find(cat =>
+    cat.components.some(c => c.name === component.name)
+  )
 
-  for (const folder of componentFolders) {
-    let found = false
-
-    // Try multiple path formats
-    const possiblePaths = [
-      `../../registry/${folder}/${component.name}`,
-      `../../registry/${folder}/${component.name}/index.tsx`
-    ]
-
-    for (const path of possiblePaths) {
-      try {
-        const ImportedComponent = (
-          await import(path)
-        ).default as ComponentType<TProps>
-
-        loadedComponents.push(ImportedComponent)
-        found = true
-        break // stop trying other paths in this folder
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (error: any) {
-        if (error.code !== "MODULE_NOT_FOUND") {
-          console.error(`Error loading "${component.name}" from ${path}:`, error)
-        }
-      }
-    }
-
-    if (!found) {
-      console.warn(`Component "${component.name}" not found in ${folder}`)
-    }
-  }
-
-  if (loadedComponents.length === 0) {
+  if (!category) {
+    console.error(`No category found for component ${component.name}`)
     return null
   }
 
-  return (
-    <>
-      {loadedComponents.map((Component, index) => (
-        <Component
-          key={`${component.name}-${index}`}
-          {...(props as TProps)}
-          currentPage={1}
-          totalPages={10}
-        />
-      ))}
-    </>
-  )
+  try {
+    const Component = (
+      await import(`@/registry/default/components/${category.slug}/${component.name}`)
+    ).default as ComponentType<TProps>
+
+    return <Component {...(props as TProps)} currentPage={1} totalPages={10} />
+  } catch (error) {
+    console.error(`Failed to load component ${component.name} from ${category.slug}:`, error)
+    return null
+  }
 }
