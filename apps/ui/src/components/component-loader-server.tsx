@@ -1,5 +1,5 @@
 import { ComponentType } from "react"
-import type { RegistryItem } from "shadcn/registry"
+import type { RegistryItem } from "shadcn/registry" 
 
 interface ComponentLoaderProps {
   component: RegistryItem
@@ -28,8 +28,8 @@ export default async function ComponentLoader<TProps extends object>({
 
     // Try multiple path formats
     const possiblePaths = [
-      `@/registry/${folder}/${component.name}`,
-      `@/registry/${folder}/${component.name}/index.tsx`
+      `../../registry/${folder}/${component.name}`,
+      `../../registry/${folder}/${component.name}/index.tsx`
     ]
 
     for (const path of possiblePaths) {
