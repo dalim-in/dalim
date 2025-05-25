@@ -4,6 +4,8 @@ import ComponentCard from "@/src/components/component-card"
 import ComponentDetails from "@/src/components/component-details"
 import ComponentLoader from "@/src/components/component-loader-server"
 import { PageGrid } from "@/src/components/page-grid"
+import { ThemeCustomizer } from "@/src/components/theme/theme-customizer"
+import { ThemeWrapper } from "@/src/components/theme/theme-wrapper"
 import { categories, getCategory } from "@/src/config/components"
 import { getComponentsByNames } from "@/src/lib/utils"
 import { Connect } from "@dalim/core/components/common/connect"
@@ -113,19 +115,23 @@ export default async function Page({ params }: Props) {
         title={category.name}
         subheading={`${getDescriptionText()}`}
       />
-
-      <PageGrid>
-        {components.map((component) => (
-          <ComponentCard
-            key={component.name}
-            component={component}
-            className=""
-          >
-            <ComponentLoader component={component} />
-            <ComponentDetails component={component} />
-          </ComponentCard>
-        ))}
-      </PageGrid>
+      <div className="flex mt-3 mx-auto px-3 max-w-max border rounded-xl bg-background z-10 sticky top-20 justify-center border-b">
+        <ThemeCustomizer />
+      </div> 
+      <ThemeWrapper>
+        <PageGrid>
+          {components.map((component) => (
+            <ComponentCard
+              key={component.name}
+              component={component}
+              className=""
+            >
+              <ComponentLoader component={component} />
+              <ComponentDetails component={component} />
+            </ComponentCard>
+          ))}
+        </PageGrid>
+      </ThemeWrapper>
       <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
       <div className="py-6">
         <Connect />
@@ -133,4 +139,3 @@ export default async function Page({ params }: Props) {
     </div>
   )
 }
- 
