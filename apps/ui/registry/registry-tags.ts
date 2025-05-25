@@ -1,6 +1,7 @@
 // Before adding a new tag, ensure it doesn't already exist in the array.
 export const registryTags = [
   // Component tags
+  "ai",
   "accordion",
   "alert",
   "avatar",

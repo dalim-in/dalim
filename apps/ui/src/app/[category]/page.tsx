@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import ComponentCard from "@/src/components/component-card"
 import ComponentDetails from "@/src/components/component-details"
 import ComponentLoader from "@/src/components/component-loader-server"
-import PageGrid from "@/src/components/page-grid"
+import { PageGrid } from "@/src/components/page-grid"
 import { categories, getCategory } from "@/src/config/components"
 import { getComponentsByNames } from "@/src/lib/utils"
 import { Connect } from "@dalim/core/components/common/connect"
@@ -119,7 +119,7 @@ export default async function Page({ params }: Props) {
           <ComponentCard
             key={component.name}
             component={component}
-            className="data-[slot=comp-542]:px-0"
+            className=""
           >
             <ComponentLoader component={component} />
             <ComponentDetails component={component} />
@@ -133,3 +133,4 @@ export default async function Page({ params }: Props) {
     </div>
   )
 }
+ 

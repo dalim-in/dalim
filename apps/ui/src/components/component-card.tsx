@@ -16,7 +16,7 @@ export default function ComponentCard({
   const getColSpanClasses = (includeStart = false) => {
     const baseClasses =
       component.meta?.colSpan === 2
-        ? "col-span-12 sm:col-span-6 lg:col-span-6"
+        ? "col-span-12 sm:col-span-12 lg:col-span-6"
         : component.meta?.colSpan === 3
           ? "col-span-12 sm:col-span-12 lg:col-span-12"
           : "col-span-12 sm:col-span-6 lg:col-span-4"
@@ -41,7 +41,7 @@ export default function ComponentCard({
   return (
     <div
       className={cn(
-        "group/item relative border has-[[data-comp-loading=true]]:border-none",
+        "group/item border-border/50 relative border has-[[data-comp-loading=true]]:border-none",
         isSearchPage
           ? "col-span-12 grid grid-cols-12"
           : cn(getColSpanClasses(), styleClasses),
@@ -49,13 +49,15 @@ export default function ComponentCard({
       )}
       data-slot={component.name}
     >
-      {isSearchPage ? (
-        <div className={cn(getColSpanClasses(true), styleClasses)}>
-          {children}
-        </div>
-      ) : (
-        children
-      )}
+      <div className="my-10">
+        {isSearchPage ? (
+          <div className={cn(getColSpanClasses(true), styleClasses)}>
+            {children}
+          </div>
+        ) : (
+          children
+        )}
+      </div>
     </div>
   )
 }

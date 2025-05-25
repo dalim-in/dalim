@@ -4,6 +4,17 @@
   "homepage": "https://ui.dalim/in",
   "items": [
     {
+      "name": "ai-input",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/default/ui/ai/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-accordion"],
@@ -565,24 +576,55 @@
         }
       ],
       "meta": {
-        "tags": ["slider", "label", "radix"]
+        "tags": ["slider", "ai", "radix"]
       }
     },
     {
-      "name": "comp-02",
+      "name": "button-01",
       "type": "registry:component",
-      "registryDependencies": [
-        "https://ui.dalim.in/r/label.json",
-        "https://ui.dalim.in/r/slider.json"
+      "registryDependencies": [ 
       ],
       "files": [
         {
-          "path": "registry/default/components/comp-02.tsx",
+          "path": "registry/default/components/button/button-01.tsx",
           "type": "registry:component"
         }
       ],
       "meta": {
-        "tags": ["slider", "label", "radix"]
+        "tags": ["slider", "ai", "radix"],
+        "style": 1
+      }
+    },
+    {
+      "name": "ai-input-01",
+      "type": "registry:component",
+      "registryDependencies": [ 
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/ai/ai-input-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+         "tags": ["pagination", "ai", "radix"],
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-01",
+      "type": "registry:component",
+      "registryDependencies": [ 
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["pagination", "ai", "radix"],
+        "colSpan": 2
       }
     }
   ]

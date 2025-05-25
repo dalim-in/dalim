@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { JSX, useEffect, useState } from "react"
 import ComponentCli from "@/src/components/cli-commands"
-import CodeBlock, { highlight } from "@/src/components/code-block"
+import CodeBlock from "@/src/components/code-block"
 import CopyButton from "@/src/components/copy-button"
 import OpenInV0 from "@/src/components/open-in-v0"
 import { convertRegistryPaths } from "@/src/lib/utils"
@@ -19,6 +20,12 @@ import {
   DialogTrigger,
 } from "@/registry/default/ui/dialog"
 import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/default/ui/tabs"
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -30,51 +37,59 @@ export default function ComponentDetails({
 }: {
   component: RegistryItem
 }) {
-  const [code, setCode] = useState<string | null>(null)
+  const [files, setFiles] = useState<
+    { type: string; content: string; label: string }[]
+  >([])
   const [highlightedCode, setHighlightedCode] = useState<JSX.Element | null>(
     null
   )
 
+  const baseName = component.name.replace(/-\d+$/, "")
+
   useEffect(() => {
-    const handleEmptyCode = () => {
-      setCode("")
+    const fetchFiles = async () => {
+      const baseName = component.name.replace(/-\d+$/, "") // e.g. ai-input-01 → ai-input
       setHighlightedCode(null)
-    }
 
-    const loadCode = async () => {
       try {
-        const response = await fetch(`/r/${component.name}.json`)
-        if (!response.ok) {
-          handleEmptyCode()
-          return
-        }
+        const [componentRes, uiRes] = await Promise.all([
+          fetch(`/r/${component.name}.json`),
+          fetch(`/r/${baseName}.json`),
+        ])
 
-        const contentType = response.headers.get("content-type")
-        if (!contentType || !contentType.includes("application/json")) {
-          handleEmptyCode()
-          return
-        }
+        const [componentJson, uiJson] = await Promise.all([
+          componentRes.ok ? componentRes.json() : { files: [] },
+          uiRes.ok ? uiRes.json() : { files: [] },
+        ])
 
-        const data = await response.json()
-        const codeContent = convertRegistryPaths(data.files[0].content) || ""
-        setCode(codeContent)
+        const componentFiles =
+          componentJson.files?.map((f: any) => ({
+            type: f.type,
+            content: convertRegistryPaths(f.content),
+            label: "Component Code",
+          })) || []
 
-        // Pre-highlight the code
-        const highlighted = await highlight(codeContent, "tsx")
-        setHighlightedCode(highlighted)
-      } catch (error) {
-        console.error("Failed to load code:", error)
-        handleEmptyCode()
+        const uiFiles =
+          uiJson.files?.map((f: any) => ({
+            type: f.type,
+            content: convertRegistryPaths(f.content),
+            label: "UI Code",
+          })) || []
+
+        setFiles([...uiFiles, ...componentFiles])
+      } catch (err) {
+        console.error("Error loading files:", err)
+        setFiles([])
       }
     }
 
-    loadCode()
+    fetchFiles()
   }, [component.name])
 
   return (
     <div className="absolute top-2 right-2 flex gap-2 peer-data-comp-loading:hidden">
       <OpenInV0
-        componentSource={`https://originui.com/r/${component.name}.json`}
+        componentSource={`https://ui.dalim.in/r/${component.name}.json`}
       />
       <Dialog>
         <TooltipProvider delayDuration={0}>
@@ -97,7 +112,7 @@ export default function ComponentDetails({
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] -mt-10">
           <DialogHeader>
             <DialogTitle className="text-left">Installation</DialogTitle>
             <DialogDescription className="sr-only">
@@ -105,33 +120,64 @@ export default function ComponentDetails({
             </DialogDescription>
           </DialogHeader>
           <div className="min-w-0 space-y-5">
-            <ComponentCli name={component.name} />
             <div className="space-y-4">
-              <p className="text-lg font-semibold tracking-tight">Code</p>
-              <div className="relative">
-                {code === "" ? (
-                  <p className="text-muted-foreground text-sm">
-                    No code available. If you think this is an error, please{" "}
-                    <a
-                      href="https://github.com/origin-space/originui/issues"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground font-medium underline hover:no-underline"
-                    >
-                      open an issue
-                    </a>
-                    .
-                  </p>
-                ) : (
-                  <>
-                    <CodeBlock
-                      code={code}
-                      lang="tsx"
-                      preHighlighted={highlightedCode}
-                    />
-                    <CopyButton componentSource={code} />
-                  </>
-                )}
+              <div className="relative space-y-6">
+                <Tabs defaultValue="component" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="component">Component Code</TabsTrigger>
+                    <TabsTrigger value="ui">UI Code</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="component">
+                    {files.filter((file) => file.label === "Component Code")
+                      .length === 0 ? (
+                      <p className="text-muted-foreground text-sm">
+                        No component code available.
+                      </p>
+                    ) : (
+                      files
+                        .filter((file) => file.label === "Component Code")
+                        .map((file, idx) => (
+                          <div key={`component-${idx}`} className="space-y-2">
+                            <ComponentCli name={component.name} />
+                            <CodeBlock
+                              code={file.content}
+                              lang="tsx"
+                              preHighlighted={highlightedCode}
+                            />
+                            <CopyButton
+                              className="top-40"
+                              componentSource={file.content}
+                            />
+                          </div>
+                        ))
+                    )}
+                  </TabsContent>
+                  <TabsContent value="ui">
+                    {files.filter((file) => file.label === "UI Code").length ===
+                    0 ? (
+                      <p className="text-muted-foreground text-sm">
+                        No UI code available.
+                      </p>
+                    ) : (
+                      files
+                        .filter((file) => file.label === "UI Code")
+                        .map((file, idx) => (
+                          <div key={`ui-${idx}`} className="space-y-2">
+                            <ComponentCli name={baseName} />
+                            <CodeBlock
+                              code={file.content}
+                              lang="tsx"
+                              preHighlighted={highlightedCode}
+                            />
+                            <CopyButton
+                               className="top-40"
+                              componentSource={file.content}
+                            />
+                          </div>
+                        ))
+                    )}
+                  </TabsContent>
+                </Tabs>
               </div>
             </div>
           </div>

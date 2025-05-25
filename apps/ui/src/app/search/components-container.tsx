@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation"
 import ComponentCard from "@/src/components/component-card"
 import ComponentDetails from "@/src/components/component-details"
 import ComponentLoader from "@/src/components/component-loader-client"
-import PageGrid from "@/src/components/page-grid"
+import { PageGrid } from "@/src/components/page-grid"
 import { getComponents } from "@/src/lib/utils"
 import type { RegistryItem } from "shadcn/registry"
 
@@ -42,7 +42,7 @@ export default function ComponentsContainer() {
   }, [])
 
   return (
-    <div className="space-y-4 mb-6">
+    <div className="space-y-4 -mx-6 mb-6">
       <SearchField selectedTags={tags} onTagChange={updateTags} />
       <PageGrid>
         {filtered.map((component: RegistryItem) => (

@@ -111,11 +111,11 @@ export function Connect({ className }: ConnectProps) {
 
                                     <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-[400px]">
                                         <div className="flex flex-col items-center">
-                                            <h3 className="mt-6 pb-1 font-bold">
+                                            <h1 className="mt-6 pb-1 font-bold">
                                                 <span className="text-2xl md:text-4xl">Any questions about Design?</span>
-                                            </h3>
+                                            </h1>
                                         </div>
-                                        <p className="mb-4 text-neutral-400">Feel free to reach out to me!</p>
+                                        <p className="mb-4 text-muted-foreground">Feel free to reach out to me!</p>
                                         <div className="flex flex-wrap gap-2">
                                             <Link
                                                 href={'https://cal.com/dalim/15min'}

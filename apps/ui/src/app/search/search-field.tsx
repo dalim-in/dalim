@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { getAvailableTags } from "@/src/lib/utils"
-import { RiSearch2Line } from "@remixicon/react"
+import { getAvailableTags } from "@/src/lib/utils" 
 
 import type { RegistryTag } from "@/registry/registry-tags"
 import { registryTags } from "@/registry/registry-tags"
 
 import MultipleSelector, { Option } from "./multiselect"
+import { Search } from "lucide-react"
 
 interface SearchFieldProps {
   selectedTags: string[]
@@ -101,7 +101,7 @@ export default function SearchField({
           className="text-muted-foreground pointer-events-none absolute inset-y-0 start-0 flex items-start justify-center ps-4 pt-2.5"
           aria-label="Search component"
         >
-          <RiSearch2Line size={24} aria-hidden="true" />
+          <Search size={24} aria-hidden="true" />
         </div>
       </div>
     </div>

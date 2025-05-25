@@ -18,7 +18,7 @@ export function Grid2({ images }: { images: ImageType[] }) {
   return (
     <>
       <PhotoProvider>
-        <div className="grid items-stretch gap-2 md:grid-cols-2">
+        <div className="grid items-stretch gap-1 md:gap-2 md:grid-cols-2">
           {images.map((image: ImageType) => (
             <PhotoView key={image.secure_url}  src={image.secure_url}>
               <CldImage
@@ -41,7 +41,7 @@ export function Grid4({ images }: { images: ImageType[] }) {
   return (
     <>
       <PhotoProvider>
-        <div className="grid grid-cols-2 items-stretch gap-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 items-stretch gap-1 md:gap-2 md:grid-cols-4">
           {images.map((image: ImageType) => (
             <PhotoView key={image.secure_url} src={image.secure_url}>
               <CldImage
@@ -50,7 +50,7 @@ export function Grid4({ images }: { images: ImageType[] }) {
                 loading="lazy"
                 width={500}
                 height={500}
-                className="rounded-xl object-cover hover:cursor-zoom-in hover:saturate-0"
+                className="rounded object-cover hover:cursor-zoom-in hover:saturate-0"
               />
             </PhotoView>
           ))}
@@ -64,7 +64,7 @@ export function Grid3({ images }: { images: ImageType[] }) {
   return (
     <>
       <PhotoProvider>
-        <div className="grid grid-cols-2 items-stretch gap-2 md:grid-cols-3">
+        <div className="grid grid-cols-2 items-stretch gap-1 md:gap-2 md:grid-cols-3">
           {images.map((image: ImageType) => (
             <PhotoView key={image.secure_url} src={image.secure_url}>
               <CldImage
@@ -73,7 +73,7 @@ export function Grid3({ images }: { images: ImageType[] }) {
                 loading="lazy"
                 width={500}
                 height={500}
-                className="rounded-xl object-cover hover:cursor-zoom-in hover:saturate-0"
+                className="rounded object-cover hover:cursor-zoom-in hover:saturate-0"
               />
             </PhotoView>
           ))}
@@ -87,7 +87,7 @@ export function Grid5({ images }: { images: ImageType[] }) {
   return (
     <>
       <PhotoProvider>
-        <div className="grid grid-cols-3 items-stretch gap-2 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-3 items-stretch gap-1 md:gap-2 md:grid-cols-4 lg:grid-cols-5">
           {images.map((image: ImageType) => (
             <PhotoView key={image.secure_url} src={image.secure_url}>
               <CldImage
@@ -96,7 +96,7 @@ export function Grid5({ images }: { images: ImageType[] }) {
                 loading="lazy"
                 width={500}
                 height={500}
-                className="rounded-xl object-cover hover:cursor-zoom-in hover:saturate-0"
+                className="rounded object-cover hover:cursor-zoom-in hover:saturate-0"
               />
             </PhotoView>
           ))}

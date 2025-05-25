@@ -7,8 +7,8 @@ import PhoneLogo from '@/public/brand/logo-icon.svg'
 
 export function Tools() {
     return (
-        <section className='py-10'>
-            <div className="py-10 pt-20">
+        <section className="pb-10">
+            <div className="pb-10">
                 <div className="mx-auto max-w-4xl px-6">
                     <div className="bg-muted/25 group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md">
                         <div
@@ -566,13 +566,14 @@ export function Tools() {
                         </div>
                     </div>
                     <div className="mx-auto mt-12 max-w-lg space-y-2 text-center">
-                        <h2 className="text-balance text-3xl font-semibold md:text-4xl">Tools That Shape My Work.</h2>
-                        <p className="text-muted-foreground">From code editors to design systems — here’s what keeps me productive every day.</p>
+                        <h1 className="mt-6 pb-1 font-bold text-2xl md:text-4xl">
+                            Tools That Shape My Work.
+                        </h1>
+                        <p className="mb-4 text-muted-foreground">From code editors to design systems — here’s what keeps me productive every day.</p>
                     </div>
                 </div>
             </div>
-                        <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-
+            <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
         </section>
     )
 }
