@@ -38,26 +38,24 @@ export default function ComponentCard({
         ? "text-center"
         : ""
 
-  return (
-    <div
-      className={cn(
-        "group/item border-border/50 relative border has-[[data-comp-loading=true]]:border-none",
-        isSearchPage
-          ? "col-span-12 grid grid-cols-12"
-          : cn(getColSpanClasses(), styleClasses),
-        className
-      )}
-      data-slot={component.name}
-    >
-      <div className="my-10">
+  return ( 
+      <div
+        className={cn(
+          "group/item border-border/50 relative border has-[[data-comp-loading=true]]:border-none",
+          isSearchPage
+            ? "col-span-12 grid grid-cols-12"
+            : cn(getColSpanClasses(), styleClasses),
+          className
+        )}
+        data-slot={component.name}
+      >
         {isSearchPage ? (
-          <div className={cn(getColSpanClasses(true), styleClasses)}>
+          <div className={cn(getColSpanClasses(true), styleClasses, "py-10")}>
             {children}
           </div>
         ) : (
           children
         )}
-      </div>
-    </div>
+      </div> 
   )
 }

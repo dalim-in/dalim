@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-03",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-03.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return <Button className=\"rounded-full\">Button</Button>\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}

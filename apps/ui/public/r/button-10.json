@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-10",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-10.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <div className=\"inline-flex items-center gap-2\">\n      <Button variant=\"ghost\">Cancel</Button>\n      <Button>Save</Button>\n    </div>\n  )\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}

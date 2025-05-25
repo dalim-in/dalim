@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-02",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-02.tsx",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return <Button disabled>Button</Button>\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}

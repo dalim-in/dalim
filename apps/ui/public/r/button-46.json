@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-46",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-46.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { ChevronDownIcon, ChevronUpIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  const [isExpanded, setIsExpanded] = useState<boolean>(false)\n\n  const toggleExpand = () => {\n    setIsExpanded((prevState) => !prevState)\n  }\n\n  return (\n    <Button\n      className=\"gap-1\"\n      variant=\"ghost\"\n      onClick={toggleExpand}\n      aria-expanded={isExpanded}\n      aria-controls=\"expandable-content\" // Use this ID on the element that this button controls\n    >\n      {isExpanded ? \"Show less\" : \"Show more\"}\n      {isExpanded ? (\n        <ChevronUpIcon className=\"-me-1\" size={16} aria-hidden=\"true\" />\n      ) : (\n        <ChevronDownIcon className=\"-me-1\" size={16} aria-hidden=\"true\" />\n      )}\n    </Button>\n  )\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}

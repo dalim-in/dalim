@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-30",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-30.tsx",
+      "content": "import {\n  ToggleGroup,\n  ToggleGroupItem,\n} from \"@/registry/default/ui/toggle-group\"\n\nexport default function Component() {\n  return (\n    <ToggleGroup variant=\"outline\" className=\"inline-flex\" type=\"single\">\n      <ToggleGroupItem value=\"left\">Left</ToggleGroupItem>\n      <ToggleGroupItem value=\"center\">Center</ToggleGroupItem>\n      <ToggleGroupItem value=\"right\">Right</ToggleGroupItem>\n    </ToggleGroup>\n  )\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}
