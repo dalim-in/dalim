@@ -13,7 +13,7 @@ export const blocks: Record<string, Block> = {
         path: "page.tsx",
         target: "app/navbar-01/page.tsx",
       },
-      {
+      { 
         path: "logo.tsx",
         target: "app/navbar-01/logo.tsx",
       },
@@ -25,6 +25,18 @@ export const blocks: Record<string, Block> = {
         path: "navigation-sheet.tsx",
         target: "app/navbar-01/navigation-sheet.tsx",
       },
+    ], 
+  },
+  "login-01": {
+    name: "login-01",
+    title: "Login 01",
+    category: "navbar",
+    component: React.lazy(() => import("@/registry/default/blocks/login/login-01/page")),
+    files: [
+      {
+        path: "page.tsx",
+        target: "app/login-01/page.tsx",
+      }
     ], 
   },
 };

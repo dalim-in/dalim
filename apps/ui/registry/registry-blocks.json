@@ -32,6 +32,21 @@
           "target": "components/navbar-01/navigation-sheet.tsx"
         }
       ]
+    },
+    {
+      "name": "login-01",
+      "type": "registry:block",
+      "title": "Login 01",
+      "description": "A simple login block",
+      "dependencies": [],
+      "registryDependencies": ["button", "input", "label"],
+      "files": [
+        {
+          "path": "registry/default/blocks/login/login-01/page.tsx",
+          "type": "registry:block",
+          "target": "components/login-01/login-01.tsx"
+        }
+      ]
     }
   ]
 }

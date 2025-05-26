@@ -1,8 +1,15 @@
 import { Metadata } from "next"
-import BlockPreviewList from "@/src/components/category/block-preview-list"
+import { notFound } from "next/navigation"
+import BlockPreview from "@/src/components/blocks/block-preview"
+import { BlockProvider } from "@/src/components/blocks/block-provider"
+import BlockToolbar from "@/src/components/blocks/block-toolbar"
+import FileExplorer from "@/src/components/blocks/file-explorer"
+import PreviewListFilter from "@/src/components/category/preview-list-filter"
 import { UI_URL } from "@dalim/auth"
 import { PageHeader } from "@dalim/core/components/common/page-header"
-import BlockPreview from "@/src/components/blocks/block-preview" 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@dalim/core/ui/tabs"
+
+import registry from "../../../registry.json"
 
 export const metadata: Metadata = {
   title: "Dalim UI Blocks",
@@ -13,21 +20,66 @@ export const metadata: Metadata = {
   },
 }
 
-const BlocksPage = async (props: {
-  searchParams: Promise<{ columns: string; q: string }>
+const BlocksPage = ({
+  searchParams,
+}: {
+  searchParams: { q?: string }
 }) => {
-  const searchParams = await props.searchParams 
+  const query = searchParams.q?.toLowerCase() || ""
+
+  const filteredBlocks = registry.items.filter(
+    (item) =>
+      item.type === "registry:block" && item.name.toLowerCase().includes(query)
+  )
+
+  if (filteredBlocks.length === 0) notFound()
+
   return (
     <>
       <PageHeader
         badge="Blocks"
         className="-mx-6 -mt-14"
-        title={"Find a block component."}
+        title="Find a block component."
         subheading="Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats."
-      /> 
-      <BlockPreview block={"navbar-01"} />
-      <div className="my-6">
-        <BlockPreviewList {...searchParams} />
+      />
+
+      <div className="py-10">
+        <PreviewListFilter />
+        <div className="grid">
+          {filteredBlocks.map((block) => {
+            const files =
+              block.files?.map((file) => ({
+                ...file,
+                path: file.path.replace(
+                  `registry/default/blocks/${block.name}/`,
+                  ""
+                ),
+              })) ?? []
+
+            return (
+              <div key={block.name}>
+                <BlockProvider block={block.name}>
+                  <Tabs defaultValue="preview" className="mt-6">
+                    <div className="mb-4 flex items-center justify-between gap-2">
+                      <TabsList>
+                        <TabsTrigger value="preview">Preview</TabsTrigger>
+                        <TabsTrigger value="code">Code</TabsTrigger>
+                      </TabsList>
+                      <BlockToolbar block={block.name} />
+                    </div>
+
+                    <TabsContent value="preview">
+                      <BlockPreview block={block.name} />
+                    </TabsContent>
+                    <TabsContent value="code">
+                      <FileExplorer files={files} />
+                    </TabsContent>
+                  </Tabs>
+                </BlockProvider>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </>
   )

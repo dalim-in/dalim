@@ -1,3 +1,4 @@
+// block-provider.tsx
 "use client";
 
 import {
@@ -5,7 +6,6 @@ import {
   BlockScreenSize,
   BlockScreenSizeUnion,
 } from "@/scripts/types";
-import { useParams } from "next/navigation";
 import registry from "../../../registry.json";
 import { createContext, ReactNode, useContext, useState } from "react";
 
@@ -14,25 +14,24 @@ const BlockContext = createContext<{
   screenSize: BlockScreenSizeUnion;
   selectFile: (file: BlockFile) => void;
   setScreenSize: (screenSize: BlockScreenSize) => void;
-}>({
-  activeFile: { path: "" },
-  screenSize: "desktop",
-  selectFile: () => {},
-  setScreenSize: () => {},
-});
+} | null>(null);
 
-export const BlockProvider = ({ children }: { children: ReactNode }) => {
-  const { block } = useParams();
+export const BlockProvider = ({
+  block,
+  children,
+}: {
+  block: string;
+  children: ReactNode;
+}) => {
   const blockDetails = registry.items.find((item) => item.name === block);
-
   if (!blockDetails) {
-    throw new Error("Block not found");
+    throw new Error(`Block '${block}' not found`);
   }
 
-  const { files } = blockDetails as { files: BlockFile[] };
+  const { files } = blockDetails;
   const [activeFile, setActiveFile] = useState<BlockFile>({
     path: files[0].path.replace(`registry/default/blocks/${block}/`, ""),
-    target: files[0].target,
+     
   });
   const [screenSize, setScreenSize] = useState<BlockScreenSizeUnion>("desktop");
 
@@ -55,6 +54,6 @@ export const useBlockContext = () => {
   if (!context) {
     throw new Error("useBlockContext must be used within a BlockProvider.");
   }
-
   return context;
 };
+
