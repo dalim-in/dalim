@@ -29,7 +29,7 @@ export const docsConfig: DocsConfig = {
 
         {
           title: "Typography",
-          href: "/docs/typography",
+          href: "/docs",
           items: [],
         },
       ],
@@ -40,34 +40,34 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Accordion",
-          href: "/docs/components/accordion",
+          href: "/docs",
           items: [],
         },
         {
           title: "Alert",
-          href: "/docs/components/alert",
+          href: "/docs",
           items: [],
         },
 
         {
           title: "Avatar",
-          href: "/docs/components/avatar",
+          href: "/docs",
           items: [],
         },
         {
           title: "Badge",
-          href: "/docs/components/badge",
+          href: "/docs",
           items: [],
         },
         {
           title: "Banner",
-          href: "/docs/components/banner",
+          href: "/docs",
           items: [],
         },
         {
           title: "Book",
           label: "New",
-          href: "/docs/components/book",
+          href: "/docs",
           items: [],
         },
         
