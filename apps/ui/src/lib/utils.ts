@@ -60,3 +60,9 @@ export const convertRegistryPaths = (content: string): string => {
 export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+export function formatCategoryName(name: string) {
+  return name
+    .replace(/[-_]/g, " ")             // replace dashes/underscores with spaces
+    .replace(/\b\w/g, (char) => char.toUpperCase()) // capitalize first letter of each word
+}

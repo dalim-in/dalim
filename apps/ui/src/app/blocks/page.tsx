@@ -5,8 +5,7 @@ import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar"
 import { PreviewListFilter } from "@/src/components/blocks/category-filter"
 import FileExplorer from "@/src/components/blocks/file-explorer"
-import { UI_URL } from "@dalim/auth"
-import { PageHeader } from "@dalim/core/components/common/page-header"
+import { UI_URL } from "@dalim/auth" 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@dalim/core/ui/tabs"
 
 import registry from "../../../registry.json"
@@ -31,14 +30,7 @@ const BlocksPage = ({ searchParams }: { searchParams: { q?: string } }) => {
   if (filteredBlocks.length === 0) notFound()
 
   return (
-    <>
-      <PageHeader
-        badge="Blocks"
-        className="-mx-6 -mt-14"
-        title="Find a block component."
-        subheading="Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats."
-      />
-
+    <> 
       <div className="py-10">
         <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
 

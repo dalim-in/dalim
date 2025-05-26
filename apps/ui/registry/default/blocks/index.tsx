@@ -30,7 +30,7 @@ export const blocks: Record<string, Block> = {
   "login-01": {
     name: "login-01",
     title: "Login 01",
-    category: "navbar",
+    category: "login",
     component: React.lazy(() => import("@/registry/default/blocks/login/login-01/page")),
     files: [
       {
