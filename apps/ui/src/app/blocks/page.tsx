@@ -3,8 +3,8 @@ import { notFound } from "next/navigation"
 import BlockPreview from "@/src/components/blocks/block-preview"
 import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar"
+import { PreviewListFilter } from "@/src/components/blocks/category-filter"
 import FileExplorer from "@/src/components/blocks/file-explorer"
-import PreviewListFilter from "@/src/components/category/preview-list-filter"
 import { UI_URL } from "@dalim/auth"
 import { PageHeader } from "@dalim/core/components/common/page-header"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@dalim/core/ui/tabs"
@@ -20,11 +20,7 @@ export const metadata: Metadata = {
   },
 }
 
-const BlocksPage = ({
-  searchParams,
-}: {
-  searchParams: { q?: string }
-}) => {
+const BlocksPage = ({ searchParams }: { searchParams: { q?: string } }) => {
   const query = searchParams.q?.toLowerCase() || ""
 
   const filteredBlocks = registry.items.filter(
@@ -44,7 +40,10 @@ const BlocksPage = ({
       />
 
       <div className="py-10">
+        <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
+
         <PreviewListFilter />
+        <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
         <div className="grid">
           {filteredBlocks.map((block) => {
             const files =
