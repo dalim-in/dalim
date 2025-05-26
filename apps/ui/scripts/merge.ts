@@ -7,6 +7,7 @@ import {
   REGISTRY_PART1_PATH,
   REGISTRY_PART2_PATH,
   REGISTRY_PART3_PATH,
+  REGISTRY_PART4_PATH
 } from "./types"
 
 async function mergeRegistries(): Promise<void> {
@@ -22,7 +23,8 @@ async function mergeRegistries(): Promise<void> {
     if (
       !fs.existsSync(REGISTRY_PART1_PATH) ||
       !fs.existsSync(REGISTRY_PART2_PATH) ||
-      !fs.existsSync(REGISTRY_PART3_PATH)
+      !fs.existsSync(REGISTRY_PART3_PATH) ||
+      !fs.existsSync(REGISTRY_PART4_PATH)
     ) {
       throw new Error(`Registry part files not found in /`)
     }
@@ -36,13 +38,16 @@ async function mergeRegistries(): Promise<void> {
     const part3 = JSON.parse(
       fs.readFileSync(REGISTRY_PART3_PATH, "utf8")
     ) as Registry
+    const part4 = JSON.parse(
+      fs.readFileSync(REGISTRY_PART4_PATH, "utf8")
+    ) as Registry
 
     // Merge the items
     const mergedRegistry: Registry = {
       $schema: "https://ui.shadcn.com/schema/registry.json",
       name: "Dalim",
       homepage: "https://ui.dalim.in",
-      items: [...part1.items, ...part2.items, ...part3.items],
+      items: [...part1.items, ...part2.items, ...part3.items, ...part4.items],
     }
 
     // Sort items alphabetically by name
@@ -58,6 +63,7 @@ async function mergeRegistries(): Promise<void> {
     console.log(`   📦 Part 1: ${part1.items.length} components`)
     console.log(`   📦 Part 2: ${part2.items.length} components`)
     console.log(`   📦 Part 3: ${part3.items.length} components`)
+    console.log(`   📦 Part 4: ${part4.items.length} components`)
     console.log(`   📄 Total: ${mergedRegistry.items.length} components`)
     console.log(`   💾 Output: ${REGISTRY_OUTPUT_PATH}`)
   } catch (error) {

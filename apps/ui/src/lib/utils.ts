@@ -55,3 +55,8 @@ export const convertRegistryPaths = (content: string): string => {
     .replace(/@\/registry\/default\/hooks/g, "@/hooks")
     .replace(/@\/registry\/default\/lib/g, "@/lib")
 }
+
+
+export function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

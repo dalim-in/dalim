@@ -1,16 +1,12 @@
-import { Suspense } from "react"
+ 
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
-import Providers from "@/src/components/providers"
-import { FooterUI } from "@dalim/core/components/layout/footer"
+import Providers from "@/src/components/providers" 
 
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
 import { Toaster } from "@/registry/default/ui/toaster"
 
-import "./globals.css"
-
-import { HeaderUI } from "@dalim/core/components/layout/header"
-import { Loader } from "lucide-react"
+import "./globals.css" 
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -37,20 +33,7 @@ export default function RootLayout({
           <div className="overflow-hidden px-4 supports-[overflow:clip]:overflow-clip sm:px-6">
             <div className="before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative mx-auto w-full max-w-7xl before:absolute before:inset-y-0 before:-left-6 before:w-px after:absolute after:inset-y-0 after:-right-6 after:w-px">
               <div className="relative flex min-h-screen flex-col">
-                <HeaderUI />
-                <Suspense
-                  fallback={
-                    <div className="mt-[400px] flex h-screen justify-center">
-                      <Loader
-                        strokeWidth={0.5}
-                        className="h-10 w-10 animate-spin"
-                      />
-                    </div>
-                  }
-                >
-                  <main className="grow">{children}</main>
-                </Suspense>
-                <FooterUI />
+                <main className="grow">{children}</main>
               </div>
             </div>
           </div>

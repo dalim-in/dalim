@@ -8,6 +8,7 @@ import {
   REGISTRY_PART1_PATH,
   REGISTRY_PART2_PATH,
   REGISTRY_PART3_PATH,
+  REGISTRY_PART4_PATH,
 } from "./types"
 
 const ajv = new Ajv()
@@ -105,7 +106,7 @@ function findDuplicateNames(items: Registry["items"]): string[] {
 async function validateAllRegistries(): Promise<void> {
   console.log("🔍 Validating registry files...")
 
-  const filesToValidate = [REGISTRY_PART1_PATH, REGISTRY_PART2_PATH, REGISTRY_PART3_PATH]
+  const filesToValidate = [REGISTRY_PART1_PATH, REGISTRY_PART2_PATH, REGISTRY_PART3_PATH, REGISTRY_PART4_PATH]
 
   // Also validate merged registry if it exists
   if (fs.existsSync(REGISTRY_OUTPUT_PATH)) {

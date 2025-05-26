@@ -1,5 +1,5 @@
-import { CategoryUI } from "../components/home/category"
-import { Hero } from "../components/home/hero"
+import { CategoryUI } from "../../components/home/category"
+import { Hero } from "../../components/home/hero"
 
 export default function Page() {
   return (

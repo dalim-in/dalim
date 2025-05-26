@@ -52,6 +52,7 @@
     "react-hook-form": "^7.56.4",
     "react-medium-image-zoom": "^5.2.14",
     "react-photo-view": "^1.2.7",
+    "react-resizable-panels": "^2.1.7",
     "react-use-measure": "^2.1.7",
     "recharts": "^2.15.1",
     "sonner": "^1.7.4",
