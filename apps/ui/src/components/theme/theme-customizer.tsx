@@ -120,9 +120,7 @@ export function Customizer() {
               className="w-40"
             />
             <div className="text-muted-foreground flex justify-between gap-2 text-xs">
-              <span>0</span>
-              <span className="font-medium">{config.radius} rem</span>
-              <span>1.0</span>
+              <span className="font-medium">{config.radius} rem</span> 
             </div>
           </div>
         </div>

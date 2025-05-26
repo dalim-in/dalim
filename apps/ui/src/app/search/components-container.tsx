@@ -44,24 +44,26 @@ export default function ComponentsContainer() {
   return (
     <div className="-mx-6 mb-6 space-y-4">
       <SearchField selectedTags={tags} onTagChange={updateTags} />
-      <PageGrid> 
-          {filtered.map((component: RegistryItem) => (
-            <ComponentCard
-              key={component.name}
-              component={component}
-              isSearchPage
-            >
-              <ComponentLoader component={component} />
+      <PageGrid>
+        {filtered.map((component: RegistryItem) => (
+          <ComponentCard
+            key={component.name}
+            component={component}
+            isSearchPage
+          >
+            <ComponentLoader component={component} />
+            <div className="right-10 top-0 absolute">
               <ComponentDetails component={component} />
-            </ComponentCard>
-          ))}
-          {tags.length > 0 && filtered.length === 0 && (
-            <div className="col-span-full py-8 text-center">
-              <p className="text-muted-foreground">
-                No components found for the selected tags.
-              </p>
             </div>
-          )} 
+          </ComponentCard>
+        ))}
+        {tags.length > 0 && filtered.length === 0 && (
+          <div className="col-span-full py-8 text-center">
+            <p className="text-muted-foreground">
+              No components found for the selected tags.
+            </p>
+          </div>
+        )}
       </PageGrid>
     </div>
   )
