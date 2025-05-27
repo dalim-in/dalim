@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/button/button-10.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <div className=\"inline-flex items-center gap-2\">\n      <Button variant=\"ghost\">Cancel</Button>\n      <Button>Save</Button>\n    </div>\n  )\n}",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function Component() {\n  return (\n    <>\n      <Button\n        className=\"relative rounded-full bg-primary shadow-lg border-white dark:border-black\"\n      >\n        Pulse Border \n        <span className=\"absolute inset-0 rounded-full border-2 border-purple-500 opacity-50 animate-border-pulse pointer-events-none\"></span>\n\n      </Button>\n\n      <style jsx>{`\n        @keyframes borderPulse {\n          0%, 100% {\n            opacity: 0.5;\n            box-shadow: 0 0 6px 2px rgba(59, 130, 246, 0.6);\n          }\n          50% {\n            opacity: 1;\n            box-shadow: 0 0 20px 3px rgba(59, 130, 246, 1);\n          }\n        }\n\n        .animate-border-pulse {\n          animation: borderPulse 3s ease-in-out infinite;\n        }\n      `}</style>\n    </>\n  );\n}",
       "type": "registry:component"
     }
   ],

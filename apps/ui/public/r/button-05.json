@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/button/button-05.tsx",
-      "content": "import { TrashIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <Button variant=\"destructive\">\n      <TrashIcon className=\"-ms-1 opacity-60\" size={16} aria-hidden=\"true\" />\n      Button\n    </Button>\n  )\n}",
+      "content": "\"use client\";\n\nimport React, { useState } from \"react\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Bell, Check } from \"lucide-react\";\n\nexport default function Component() {\n  const [subscribed, setSubscribed] = useState(false);\n\n  return (\n    <Button\n      onClick={() => setSubscribed(!subscribed)}\n      className={`relative overflow-hidden text-white transition-all duration-300\n        ${\n          subscribed\n            ? \"bg-gray-800 hover:bg-gray-900\"\n            : \"bg-red-600 hover:bg-red-700\"\n        }\n        ${subscribed ? \"scale-95\" : \"scale-100\"}\n      `}\n    >\n      {/* Default state: Subscribe */}\n      <span\n        className={`flex items-center gap-2 transition-opacity duration-300 ${\n          subscribed ? \"opacity-0\" : \"opacity-100\"\n        }`}\n      >\n        <Bell className=\"h-5 w-5\" />\n        Subscribe\n      </span>\n\n      {/* Subscribed state */}\n      <span\n        className={`absolute inset-0 flex items-center justify-center gap-2 transition-opacity duration-300 ${\n          subscribed ? \"opacity-100\" : \"opacity-0\"\n        }`}\n      >\n        <Check className=\"h-5 w-5\" />\n        Subscribed\n      </span>\n    </Button>\n  );\n}\n",
       "type": "registry:component"
     }
   ],

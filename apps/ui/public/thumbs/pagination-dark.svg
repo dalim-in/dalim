@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="536" height="396" viewBox="0 0 536 396">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .5;
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-3 {
+        fill: #221f20;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-5 {
+        font-family: Geist-Regular, Geist;
+        font-size: 14px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-11 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" width="536" height="396"/>
+  <text class="cls-5" transform="translate(197.13 202.97)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-5" transform="translate(303.31 202.97)"><tspan x="0" y="0">3</tspan></text>
+  <text class="cls-5" transform="translate(404.42 202.89)"><tspan x="0" y="0">N</tspan><tspan class="cls-8" x="10.4" y="0">e</tspan><tspan class="cls-10" x="17.64" y="0">x</tspan><tspan x="25.41" y="0">t</tspan></text>
+  <text class="cls-5" transform="translate(99.8 202.89)"><tspan class="cls-11" x="0" y="0">P</tspan><tspan class="cls-9" x="8.96" y="0">r</tspan><tspan class="cls-6" x="13.89" y="0">e</tspan><tspan x="21.48" y="0">vi</tspan><tspan class="cls-12" x="32.4" y="0">o</tspan><tspan class="cls-7" x="40.36" y="0">u</tspan><tspan x="48.2" y="0">s</tspan></text>
+  <path class="cls-2" d="M89.5,194.25l-3.75,3.75,3.75,3.75"/>
+  <path class="cls-2" d="M446.5,201.75l3.75-3.75-3.75-3.75"/>
+  <text class="cls-5" transform="translate(248.65 202.97)"><tspan x="0" y="0">2</tspan></text>
+  <rect class="cls-1" x="234.48" y="179.49" width="37.01" height="37.01" rx="10.26" ry="10.26"/>
+  <g>
+    <circle class="cls-4" cx="360.3" cy="198" r="1"/>
+    <circle class="cls-4" cx="367.3" cy="198" r="1"/>
+    <circle class="cls-4" cx="353.3" cy="198" r="1"/>
+  </g>
+</svg>

@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/button/button-11.tsx",
-      "content": "import { LoaderCircleIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <Button disabled>\n      <LoaderCircleIcon\n        className=\"-ms-1 animate-spin\"\n        size={16}\n        aria-hidden=\"true\"\n      />\n      Button\n    </Button>\n  )\n}",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <Button className=\"relative border-4 h-12 border-black dark:border-white shadow-black dark:shadow-white transition-all duration-200 hover:shadow-[6px_6px_0_0_rgb(0,0,0)]\">\n      Retro Button\n    </Button>\n  )\n}\n",
       "type": "registry:component"
     }
   ],

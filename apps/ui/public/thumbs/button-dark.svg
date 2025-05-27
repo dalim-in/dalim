@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="536" height="396" viewBox="0 0 536 396">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #221f20;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-family: Geist-Regular, Geist;
+        font-size: 17.6px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" y="0" width="536" height="396"/>
+  <rect class="cls-4" x="213" y="176" width="110" height="44" rx="16.05" ry="16.05"/>
+  <text class="cls-2" transform="translate(241.09 204.8)"><tspan class="cls-5" x="0" y="0">B</tspan><tspan class="cls-6" x="11.7" y="0">u</tspan><tspan class="cls-5" x="21.49" y="0">tt</tspan><tspan class="cls-7" x="33.49" y="0">o</tspan><tspan class="cls-3" x="43.6" y="0">n</tspan></text>
+</svg>

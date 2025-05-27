@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/button/button-13.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <Button variant=\"outline\" className=\"gap-3\">\n      Messages\n      <span className=\"text-muted-foreground -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium\">\n        18\n      </span>\n    </Button>\n  )\n}",
+      "content": "\"use client\";\n\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function Component() {\n  return (\n    <Button\n      className=\"relative z-0 overflow-hidden group\"\n    >\n      <span className=\"relative z-10\">Hover Me</span>\n      <span\n        className=\"absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-in-out group-hover:w-full z-0\"\n      ></span>\n    </Button>\n  );\n}\n",
       "type": "registry:component"
     }
   ],

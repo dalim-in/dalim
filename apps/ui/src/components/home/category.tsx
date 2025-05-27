@@ -7,7 +7,7 @@ export function CategoryUI() {
   return (
     <div data-home className="mx-auto max-w-6xl border-x px-6 py-6"> 
       <div className="relative">
-        <div className="grid gap-x-6 gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {categories
             .sort((a, b) => {
               if (a.isNew && !b.isNew) return -1
@@ -33,7 +33,7 @@ export function CategoryHomeUI() {
   return (
     <div data-home className="mx-auto max-w-6xl border-x px-6 py-6"> 
       <div className="relative">
-        <div className="grid gap-x-6 gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {categories.slice(0, 4)
             .sort((a, b) => {
               if (a.isNew && !b.isNew) return -1
@@ -141,14 +141,14 @@ function ImageComponent({ imageBasePath, alt }: ImageComponentProps) {
     <>
       <Image
         className="w-full dark:hidden"
-        src={`${imageBasePath}.png`}
+        src={`${imageBasePath}.svg`}
         alt={alt}
         width={268}
         height={198}
       />
       <Image
         className="hidden w-full dark:block"
-        src={`${imageBasePath}-dark.png`}
+        src={`${imageBasePath}-dark.svg`}
         alt={`${alt} dark`}
         width={268}
         height={198}

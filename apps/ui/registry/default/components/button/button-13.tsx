@@ -1,12 +1,16 @@
-import { Button } from "@/registry/default/ui/button"
+"use client";
+
+import { Button } from "@/registry/default/ui/button";
 
 export default function Component() {
   return (
-    <Button variant="outline" className="gap-3">
-      Messages
-      <span className="text-muted-foreground -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-        18
-      </span>
+    <Button
+      className="relative z-0 overflow-hidden group"
+    >
+      <span className="relative z-10">Hover Me</span>
+      <span
+        className="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 ease-in-out group-hover:w-full z-0"
+      ></span>
     </Button>
-  )
+  );
 }

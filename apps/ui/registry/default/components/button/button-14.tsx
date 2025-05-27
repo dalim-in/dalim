@@ -1,15 +1,21 @@
-import { PrinterIcon } from "lucide-react"
+"use client"
+
+import { ChevronDown } from "lucide-react"
 
 import { Button } from "@/registry/default/ui/button"
 
-export default function Component() {
+export default function SplitButton() {
   return (
-    <Button variant="outline">
-      <PrinterIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-      Print
-      <kbd className="bg-background text-muted-foreground/70 ms-1 -me-1 inline-flex h-5 max-h-full items-center rounded border px-1 font-[inherit] text-[0.625rem] font-medium">
-        ⌘P
-      </kbd>
-    </Button>
+    <div className="relative inline-flex rounded-md shadow-sm">
+      {/* Main action button */}
+      <Button className="rounded-r-none px-6 py-2">Action</Button>
+      <div className="border-x"></div>
+      <Button
+        className="flex items-center justify-center rounded-l-none px-3 py-2"
+       
+      >
+        <ChevronDown className="h-4 w-4" />
+      </Button>
+    </div>
   )
 }
