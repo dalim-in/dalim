@@ -355,6 +355,18 @@
       ]
     },
     {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": ["https://ui.dalim.in/r/sidebar.json"],
+      "files": [
+        {
+          "path": "registry/default/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "slider",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-slider"],

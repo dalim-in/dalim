@@ -2,7 +2,93 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "Dalim Blocks",
   "homepage": "https://ui.dalim.in",
-  "items": [ 
+  "items": [
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard 01",
+      "description": "A dashboard block with multiple components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/page.tsx",
+          "type": "registry:block",
+          "target": "app/dashboard-01/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/app-sidebar.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/app-sidebar.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/chart-area-interactive.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/chart-area-interactive.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/data-table.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/data-table.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/nav-documents.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/nav-documents.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/nav-main.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/nav-main.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/nav-secondary.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/nav-secondary.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/nav-user.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/nav-user.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/section-cards.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/section-cards.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/site-header.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-01/site-header.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-01/data.json",
+          "type": "registry:component",
+          "target": "app/dashboard-01/data.json"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-02",
+      "type": "registry:block",
+      "title": "Dashboard 02",
+      "description": "A dashboard block with multiple components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-02/page.tsx",
+          "type": "registry:block",
+          "target": "app/dashboard-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-02/app-sidebar.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-02/app-sidebar.tsx"
+        }
+      ]
+    },
+
     {
       "name": "navbar-01",
       "type": "registry:block",
@@ -45,6 +131,26 @@
           "path": "registry/default/blocks/login/login-01/page.tsx",
           "type": "registry:block",
           "target": "components/login-01/login-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login-02",
+      "type": "registry:block",
+      "title": "Login 02",
+      "description": "A login block with multiple components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/blocks/login/login-02/page.tsx",
+          "type": "registry:block",
+          "target": "app/login-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/login/login-02/login-form.tsx",
+          "type": "registry:component",
+          "target": "app/login-02/login-form.tsx"
         }
       ]
     }

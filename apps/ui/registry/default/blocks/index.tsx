@@ -3,6 +3,74 @@ import * as React from "react";
 
 // TODO: Remove these blocks and use the registry.json file instead
 export const blocks: Record<string, Block> = {
+   "dashboard-01": {
+    name: "dashboard-01",
+    title: "Dashboard 01",
+    category: "dashboard",
+    component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-01/page")),
+    files: [
+      {
+        path: "page.tsx",
+        target: "app/dashboard-01/page.tsx",
+      },
+      { 
+        path: "app-sidebar.tsx",
+        target: "app/dashboard-01/app-sidebar.tsx",
+      },
+      {
+        path: "chart-area-interactive.tsx",
+        target: "app/dashboard-01/chart-area-interactive.tsx",
+      },
+      {
+        path: "data-table.tsx",
+        target: "app/dashboard-01/data-table.tsx",
+      },
+      {
+        path: "nav-documents.tsx",
+        target: "app/dashboard-01/nav-documents.tsx",
+      },
+      {
+        path: "nav-main.tsx",
+        target: "app/dashboard-01/nav-main.tsx",
+      },
+      {
+        path: "nav-secondary.tsx",
+        target: "app/dashboard-01/nav-secondary.tsx",
+      },
+      {
+        path: "nav-user.tsx",
+        target: "app/dashboard-01/nav-user.tsx",
+      },
+       {
+        path: "section-cards.tsx",
+        target: "app/dashboard-01/section-cards.tsx",
+      },
+       {
+        path: "site-header.tsx",
+        target: "app/dashboard-01/site-header.tsx",
+      },
+       {
+        path: "data.json",
+        target: "app/dashboard-01/data.json",
+      },
+    ], 
+  },
+  "dashboard-02": {
+    name: "dashboard-02",
+    title: "Dashboard 02",
+    category: "dashboard",
+    component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-02/page")),
+    files: [
+      {
+        path: "page.tsx",
+        target: "app/dashboard-02/page.tsx",
+      },
+      { 
+        path: "app-sidebar.tsx",
+        target: "app/dashboard-02/app-sidebar.tsx",
+      }, 
+    ], 
+  },
   "navbar-01": {
     name: "navbar-01",
     title: "Navbar 01",
@@ -37,6 +105,22 @@ export const blocks: Record<string, Block> = {
         path: "page.tsx",
         target: "app/login-01/page.tsx",
       }
+    ], 
+  },
+  "login-02": {
+    name: "login-02",
+    title: "Login 02",
+    category: "login",
+    component: React.lazy(() => import("@/registry/default/blocks/login/login-02/page")),
+    files: [
+      {
+        path: "page.tsx",
+        target: "app/login-02/page.tsx",
+      },
+      { 
+        path: "login-form.tsx",
+        target: "app/login-02/login-form.tsx",
+      }, 
     ], 
   },
 };
