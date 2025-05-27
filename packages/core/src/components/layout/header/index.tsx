@@ -5,7 +5,7 @@ import { LinkSelect } from './link-select'
 import { MobileWWW } from './mobile-menu'
 import { LoginButton, MobileLoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'
-import { DalimLogo, DalimUILogo, DalimAgencyLogo, DalimWorksLogo } from '@/components/logo'
+import { DalimLogo, DalimUILogo, DalimAgencyLogo, DalimWorksLogo } from '../../logo'
 
 export function Header() {
     return (
