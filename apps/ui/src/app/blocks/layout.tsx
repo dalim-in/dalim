@@ -22,12 +22,13 @@ export default function RootLayout({
       >
         <PageHeader
           badge="Category"
-          title={`Blocks in `}
+          title={`Blocks`}
           className="-mx-6 -mt-14"
           subheading="Explore categorized UI blocks for faster development."
         />
         <CategoryNavbar />
-        <main className="grow">{children}</main>
+        <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div> 
+        <main className="grow mx-auto max-w-6xl border-x px-6">{children}</main>
       </Suspense>
       <FooterUI />
     </div>

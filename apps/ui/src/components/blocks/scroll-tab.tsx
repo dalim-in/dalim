@@ -81,7 +81,7 @@ export function ScrollableTabs() {
             value="all"
             className="data-[state=active]:bg-brand h-10 px-6 whitespace-nowrap data-[state=active]:text-white dark:data-[state=active]:text-black"
           >
-            {formatCategoryName("all")}
+            Featured
           </TabsTrigger>
 
           {blockCategories.map(({ name, totalBlocks }) => (
@@ -90,7 +90,10 @@ export function ScrollableTabs() {
               value={name}
               className="data-[state=active]:bg-brand h-10 px-6 whitespace-nowrap data-[state=active]:text-white dark:data-[state=active]:text-black"
             >
-              {formatCategoryName(name)} ({totalBlocks})
+              <h2>
+                {formatCategoryName(name)}{" "}
+                <span className="font-semibold">{totalBlocks}</span>
+              </h2>
             </TabsTrigger>
           ))}
         </div>

@@ -3,7 +3,7 @@
 
 import { JSX, useEffect, useState } from "react"
 import ComponentCli from "@/src/components/cli-commands"
-import CodeBlock from "@/src/components/code-block"
+import {CodeBlock} from "@/src/components/code-block"
 import CopyButton from "@/src/components/copy-button"
 import OpenInV0 from "@/src/components/open-in-v0"
 import { convertRegistryPaths } from "@/src/lib/utils"
@@ -138,12 +138,12 @@ export default function ComponentDetails({
                         .filter((file) => file.label === "Component Code")
                         .map((file, idx) => (
                           <div key={`component-${idx}`} className="space-y-2">
-                            <ComponentCli name={component.name} />
+                            <ComponentCli name={component.name} /> 
                             <CodeBlock
                               code={file.content}
                               lang="tsx"
                               preHighlighted={highlightedCode}
-                            />
+                            /> 
                             <CopyButton
                               className="top-40"
                               componentSource={file.content}

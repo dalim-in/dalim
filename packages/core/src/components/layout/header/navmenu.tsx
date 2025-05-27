@@ -33,7 +33,7 @@ export function Menu() {
                                     </NavigationMenuLink>
                                 </li>
                                 <div className="row-span-1 space-y-3">
-                                     <ListItem
+                                    <ListItem
                                         href="/pricing"
                                         title="Pricing">
                                         World's Top Designers profile list. Download the Assets from users.
@@ -42,7 +42,7 @@ export function Menu() {
                                         href={`${AGENCY_URL}`}
                                         title="Agency">
                                         Design Without Limits. Get agency-level designs without the agency price.
-                                    </ListItem> 
+                                    </ListItem>
                                     <ListItem
                                         href="/blogs"
                                         title="Blogs">
@@ -59,7 +59,7 @@ export function Menu() {
                                 </li>
                             </ul>
                         </NavigationMenuContent>
-                    </NavigationMenuItem> 
+                    </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link
                             href="/docs"
@@ -88,12 +88,12 @@ export function MenuUI() {
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink
-                            href="/layouts"
+                            href="/blocks"
                             className={navigationMenuTriggerStyle()}>
-                            Layouts
-                            <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            Blocks
+                            <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
-                    </NavigationMenuItem> 
+                    </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link
                             href="/colors"

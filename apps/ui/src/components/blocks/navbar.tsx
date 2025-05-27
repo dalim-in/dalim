@@ -21,7 +21,7 @@ export default function CategoryNavbar() {
   }
 
   return (
-    <div className="mt-6 mx-auto max-w-max relative">
+    <div className="my-6 mx-auto max-w-max relative">
       <Tabs
         defaultValue="all"
         value={current}

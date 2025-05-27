@@ -29,8 +29,7 @@ const BlockPreview = ({ block }: BlockPreviewProps) => {
   }, [selectedScreenSize, blockScreen?.size])
 
   return (
-    <div>
-     
+    <div> 
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel 
           ref={resizablePanelRef} 

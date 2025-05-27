@@ -115,7 +115,7 @@ const PreviewListSearch = () => {
 
 const PreviewListFilter = () => {
   return (
-    <div className="flex justify-center my-6">
+    <div className="flex justify-center p-6">
       <div className="flex justify-center gap-2 text-center">
         <CategoryFilter />
         <PreviewListSearch />
