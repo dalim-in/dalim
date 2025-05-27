@@ -1,9 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 const BlockPreviewLayout = ({ children }: { children: ReactNode }) => {
-  return <div className="block-preview-wrapper -mx-6">
-    {children}
-    </div>;
-};
+  return (
+    <div className="overflow-hidden">
+      <div className="relative">{children}</div>
+    </div>
+  )
+}
 
-export default BlockPreviewLayout;
+export default BlockPreviewLayout

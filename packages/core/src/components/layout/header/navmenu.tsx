@@ -81,7 +81,7 @@ export function MenuUI() {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuLink
-                            href="/"
+                            href="/ui"
                             className={navigationMenuTriggerStyle()}>
                             UI
                         </NavigationMenuLink>

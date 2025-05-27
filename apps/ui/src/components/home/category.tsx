@@ -29,6 +29,32 @@ export function CategoryUI() {
   )
 }
 
+export function CategoryHomeUI() {
+  return (
+    <div data-home className="mx-auto max-w-6xl border-x px-6 py-6"> 
+      <div className="relative">
+        <div className="grid gap-x-6 gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {categories.slice(0, 4)
+            .sort((a, b) => {
+              if (a.isNew && !b.isNew) return -1
+              if (!a.isNew && b.isNew) return 1
+              return 0
+            })
+            .map((category) => (
+              <CategoryCard
+                key={category.slug}
+                slug={category.slug}
+                name={category.name}
+                componentsCount={category.components.length}
+                isNew={category.isNew}
+              />
+            ))} 
+        </div>
+      </div>
+    </div>
+  )
+}
+
 type CategoryCardProps = {
   slug: string
   name: string

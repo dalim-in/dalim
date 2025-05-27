@@ -12,7 +12,11 @@ const BlockPreviewPage = async (props: {
 
   const { component: Component } = blocks[block];
 
-  return <Component />;
+  return (
+    <div className=""> 
+      <Component /> 
+    </div>
+  )
 };
 
 export default BlockPreviewPage;

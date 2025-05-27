@@ -37,7 +37,7 @@ const BlocksPage = ({ searchParams }: { searchParams: { q?: string } }) => {
       <div>
         <PreviewListFilter />
         <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
-        <div className="grid pb-6">
+        <div className="grid pb-6 md:pb-9 md:pl-3">
           {filteredBlocks.map((block) => {
             const files =
               block.files?.map((file) => ({

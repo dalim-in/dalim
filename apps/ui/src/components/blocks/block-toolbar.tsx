@@ -19,7 +19,7 @@ const BlockToolbar = ({ block }: BlockToolbarProps) => {
   const { screenSize, setScreenSize } = useBlockContext()
 
   return (
-    <div className="flex flex-col items-center gap-2 md:flex-row">
+    <div className="flex flex-col items-center gap-2 md:flex-row pr-3">
       <BlockInstallCommandCopyButton block={block} />
       <div className="flex gap-2">
         <div className="flex items-center gap-1 rounded-md border px-0.5">

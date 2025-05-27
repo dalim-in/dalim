@@ -1,22 +1,21 @@
 import Link from "next/link"
+import { DalimLogo } from "@dalim/core/components/logo"
 import { Button } from "@dalim/core/ui/button"
 import { Input } from "@dalim/core/ui/input"
 import { Label } from "@dalim/core/ui/label"
 
 export default function LoginPage() {
   return (
-    <section className="flex min-h-screen bg-zinc-50 px-4 py-16 md:py-32 dark:bg-transparent">
+    <section className="flex px-4 py-16">
       <form
         action=""
         className="bg-card m-auto h-fit w-full max-w-sm rounded-[calc(var(--radius)+.125rem)] border p-0.5 shadow-md dark:[--color-muted:var(--color-zinc-900)]"
       >
         <div className="p-8 pb-6">
           <div>
-            <Link href="/" aria-label="go home">
-              Logo
-            </Link>
+            <DalimLogo />
             <h1 className="mt-4 mb-1 text-xl font-semibold">
-              Sign In to dalim
+              Sign In to Dalim
             </h1>
             <p className="text-sm">Welcome back! Sign in to continue</p>
           </div>
