@@ -10,8 +10,9 @@ export default async function DashboardPage() {
     }
 
     return (
-        <div className="mb-4 w-full"> 
+        <div className="mb-6">
             <DashboardUser user={user} />
+             
         </div>
     )
 }

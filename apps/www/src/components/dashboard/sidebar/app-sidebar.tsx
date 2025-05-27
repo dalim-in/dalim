@@ -4,9 +4,10 @@ import * as React from 'react'
 import { AudioWaveform, BookOpen, Bot, Command, Frame, GalleryVerticalEnd, Map, PieChart, Settings2, SquareTerminal } from 'lucide-react'
 
 import { NavMain } from './nav-main'
-import { NavProjects } from './nav-projects' 
+import { NavProjects } from './nav-projects'
 import { TeamSwitcher } from './team-switcher'
-import { Sidebar, SidebarContent, SidebarHeader, SidebarRail, useSidebar } from '@dalim/core/ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@dalim/core/ui/sidebar'
+import { NavUser } from './nav-user'
 
 // This is sample data.
 const data = {
@@ -139,21 +140,19 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { state } = useSidebar()
-    return (
-        <Sidebar
-            className="relative transition-all duration-200 ease-linear data-[state=collapsed]:w-[2rem] data-[state=expanded]:w-[20rem]"
-            collapsible="icon"
-            {...props}
-            style={{ width: state === 'collapsed' ? '3rem' : '14rem' }}>
-            <SidebarHeader>
-                <TeamSwitcher teams={data.teams} />
-            </SidebarHeader>
-            <SidebarContent>
-                <NavMain items={data.navMain} />
-                <NavProjects projects={data.projects} />
-            </SidebarContent> 
-            <SidebarRail />
-        </Sidebar>
-    )
+  return (
+    <Sidebar className='' collapsible="icon" {...props}>
+      <SidebarHeader>
+        <TeamSwitcher teams={data.teams} />
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
+      </SidebarFooter>
+      <SidebarRail />
+    </Sidebar>
+  )
 }

@@ -76,7 +76,7 @@ export function ScrollableTabs() {
         ref={scrollAreaRef}
         className={`w-auto overflow-hidden transition-all duration-200 ${getScrollAreaMargin()}`}
       >
-        <div className="inline-flex space-x-2 px-4">
+        <div className="inline-flex cursor-pointer space-x-2 px-4">
           <TabsTrigger
             value="all"
             className="data-[state=active]:bg-brand h-10 px-6 whitespace-nowrap data-[state=active]:text-white dark:data-[state=active]:text-black"
@@ -88,7 +88,7 @@ export function ScrollableTabs() {
             <TabsTrigger
               key={name}
               value={name}
-              className="data-[state=active]:bg-brand h-10 px-6 whitespace-nowrap data-[state=active]:text-white dark:data-[state=active]:text-black"
+              className="data-[state=active]:bg-brand cursor-pointer h-10 px-6 whitespace-nowrap data-[state=active]:text-white dark:data-[state=active]:text-black"
             >
               <h2>
                 {formatCategoryName(name)}{" "}
