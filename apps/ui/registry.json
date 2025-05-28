@@ -79,6 +79,25 @@
       }
     },
     {
+      "name": "ai-input-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/ai/ai-input-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "ai",
+          "input",
+          "component"
+        ],
+        "colSpan": 2
+      }
+    },
+    {
       "name": "alert-dialog",
       "type": "registry:ui",
       "dependencies": [

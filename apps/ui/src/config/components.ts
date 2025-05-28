@@ -52,14 +52,14 @@ export const categories: ComponentCategory[] = [
       { name: "button-39" },
       { name: "button-40" },
       { name: "button-41" },
-      { name: "button-42" }
+      { name: "button-42" },
     ],
   },
 
   {
     slug: "ai",
     name: "AI",
-    components: [{ name: "ai-input-01" }],
+    components: [{ name: "ai-input-01" }, { name: "ai-input-02" }],
   },
   {
     slug: "pagination",

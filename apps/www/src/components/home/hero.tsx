@@ -8,7 +8,7 @@ import { Orb } from '@dalim/core/components/backgrunds/orb'
 
 export function Hero() {
     return (
-        <div className="md:mt-10 flex flex-col items-center">
+        <div className="mt-10 flex flex-col items-center">
             <div className="relative">
                 <Orb
                     hoverIntensity={0.5}

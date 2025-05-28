@@ -83,8 +83,37 @@ export function DalimLogoIcon() {
                     src={PhoneLogo}
                     alt="Dalim logo"
                     width={24}
+                    height={24}
+                    className="hidden dark:block"
+                    priority
+                />
+            </Link>
+        </div>
+    )
+}
+
+export function DalimLogoIcon2() {
+    return (
+        <div className="">
+            <Link
+                className="shrink-0"
+                href={DALIM_URL}
+                aria-label="Home">
+                <span className="sr-only">Dalim</span>
+                <Image
+                    src={PhoneLogoDark}
+                    alt="Dalim logo"
+                    width={30}
                     height={30}
                     className="hidden dark:block"
+                    priority
+                />
+                <Image
+                    src={PhoneLogo}
+                    alt="Dalim logo"
+                    width={30}
+                    height={30}
+                    className="dark:hidden"
                     priority
                 />
             </Link>
@@ -215,7 +244,7 @@ export function DalimAgencyLogo() {
                     alt="Dalim logo"
                     height={24}
                     width={0}
-                    className="hidden mt-1 h-7.5 w-auto object-contain dark:block"
+                    className="h-7.5 mt-1 hidden w-auto object-contain dark:block"
                     priority
                 />
             </Link>
