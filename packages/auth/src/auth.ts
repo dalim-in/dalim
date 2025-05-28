@@ -6,13 +6,16 @@ import NextAuth, { type DefaultSession } from "next-auth";
 import { prisma } from "@dalim/db";
 import { getUserById } from "./validations/auth";  
 
-async function generateUniqueUsername(baseName: string) {
-  let username = baseName.toLowerCase().replace(/\s+/g, "");
+const sanitize = (str: string) => str.toLowerCase().replace(/\s+/g, "");
+
+async function generateUniqueUsername(name: string) {
+  const base = sanitize(name || "user");
+  let username = base;
   let count = 1;
 
   while (await prisma.user.findUnique({ where: { username } })) {
-    username = `${baseName}${count}`;
-    count++;
+    username = `${base}${count}`;
+    count += 1;
   }
 
   return username;

@@ -1,47 +1,25 @@
-import { getCurrentUser } from '@dalim/auth'
 import { redirect } from 'next/navigation'
-import { Metadata } from 'next/types'
+
+import { getCurrentUser } from '@dalim/auth'
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@dalim/core/ui/sidebar'
 
 import { AppSidebar } from '@/src/components/dashboard/sidebar/app-sidebar'
-
 import { Separator } from '@dalim/core/ui/separator'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@dalim/core/ui/breadcrumb'
 
-const title = 'Admin'
-const description = 'Manage users and view system statistics'
-
-export const metadata: Metadata = {
-    title,
-    description,
-    openGraph: {
-        images: [
-            {
-                url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
-            },
-        ],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        images: [
-            {
-                url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
-            },
-        ],
-    },
+interface ProtectedLayoutProps {
+    children: React.ReactNode
 }
 
-export default async function BlocksLayout({ children }: { children: React.ReactNode }) {
+export default async function Users({ children }: ProtectedLayoutProps) {
     const user = await getCurrentUser()
 
     if (!user) {
         redirect('/login') // Redirect to login if no user is found
     }
 
-    if (!user || user.role !== 'ADMIN') {
-        redirect('/dashboard') // Redirect to dashboard if no user or if user is not an admin
-    }
-    return (
+    if ((user && user.role === 'USER') || 'ADMIN')
+        return (
             <div className="relative -mx-6 -mt-14 h-[950px]">
                 <SidebarProvider className="relative flex h-full">
                     <AppSidebar user={user} className="relative h-[950px] border-l" />
@@ -72,5 +50,5 @@ export default async function BlocksLayout({ children }: { children: React.React
                     </SidebarInset>
                 </SidebarProvider>
             </div>
-    )
+        )
 }
