@@ -1378,9 +1378,29 @@
           "target": "app/dashboard-03/page.tsx"
         },
         {
-          "path": "registry/default/blocks/dashboard/dashboard-023/creative.tsx",
+          "path": "registry/default/blocks/dashboard/dashboard-03/app-header.tsx",
           "type": "registry:component",
-          "target": "app/dashboard-03/creative.tsx"
+          "target": "app/dashboard-03/app-header.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/app-sidebar.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-03/app-sidebar.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/data.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-03/data.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/home-content.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-03/home-content.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/types.ts",
+          "type": "registry:component",
+          "target": "app/dashboard-03/types.ts"
         }
       ]
     },

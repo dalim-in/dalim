@@ -7,6 +7,7 @@ import { ThemeSwitch } from './theme-switch'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../../../ui/select'
 import { useRouter } from 'next/navigation'
 import { Send } from 'lucide-react'
+import { DALIM_URL, WORKS_URL } from '@dalim/auth'
 
 const navLinks = [
     { label: 'About', href: '/about' },
@@ -14,6 +15,22 @@ const navLinks = [
     { label: 'Blogs', href: '/blogs' },
     { label: 'Docs', href: '/docs' },
     { label: 'Contact', href: '/contact' },
+]
+
+const navLinksUI = [
+    { label: 'UI', href: '/ui' },
+    { label: 'Blocks', href: '/blocks' },
+    { label: 'Colors', href: '/colors' },
+    { label: 'Easings', href: '/easings' },
+    { label: 'Contact', href: `${DALIM_URL}/docs` },
+]
+
+const navLinksAgency = [
+    { label: 'Works', href: `${WORKS_URL}/docs` },
+    { label: 'About', href: `${DALIM_URL}/about` },
+    { label: 'Pricing', href: `${DALIM_URL}/pricing` },
+    { label: 'Blogs', href: `${DALIM_URL}/blogs` },
+    { label: 'Contact', href: `${DALIM_URL}/docs` },
 ]
 
 function Footer() {
@@ -45,7 +62,7 @@ function Footer() {
                         <div>
                             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                             <nav className="space-y-2">
-                                {navLinks.map(({ label, href }) => (
+                                {navLinksUI.map(({ label, href }) => (
                                     <Link
                                         key={label}
                                         href={href}
@@ -56,9 +73,9 @@ function Footer() {
                             </nav>
                         </div>
                         <div className="">
-                            <div className=''>
+                            <div className="">
                                 <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
-                                <div className="space-y-2 grid text-white/40 dark:text-black/60">
+                                <div className="grid space-y-2 text-white/40 dark:text-black/60">
                                     <a
                                         href="https://www.google.com/maps/place/Dalim/@23.6407561,86.1020664,19z/data=!3m1!4b1!4m6!3m5!1s0x39f42309f0f5d0b5:0xb7e835eb8fe26ca3!8m2!3d23.6407549!4d86.1027101!16s%2Fg%2F11xftydckp"
                                         target="_blank"
@@ -142,6 +159,7 @@ function Footer() {
 }
 
 function FooterAgency() {
+    const router = useRouter()
     return (
         <div className="text-white dark:text-black">
             <footer className="relative before:absolute before:-inset-x-full before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
@@ -169,39 +187,53 @@ function FooterAgency() {
                         <div>
                             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                             <nav className="space-y-2">
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Works
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Fonts
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Graphics
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Products
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    About
-                                </a>
+                                {navLinks.map(({ label, href }) => (
+                                    <Link
+                                        key={label}
+                                        href={href}
+                                        className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                                        {label}
+                                    </Link>
+                                ))}
                             </nav>
                         </div>
                         <div className="">
-                            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
-                            <div className="space-y-2 text-white/40 dark:text-black/60">
-                                <p>Bokaro, India</p>
-                                <p>Phone: (123) 456-7890</p>
-                                <p>Email: contact@dalim.in</p>
+                            <div className="">
+                                <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
+                                <div className="grid space-y-2 text-white/40 dark:text-black/60">
+                                    <a
+                                        href="https://www.google.com/maps/place/Dalim/@23.6407561,86.1020664,19z/data=!3m1!4b1!4m6!3m5!1s0x39f42309f0f5d0b5:0xb7e835eb8fe26ca3!8m2!3d23.6407549!4d86.1027101!16s%2Fg%2F11xftydckp"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline">
+                                        Bokaro, India
+                                    </a>
+                                    <a
+                                        href="tel:+11234567890"
+                                        className="hover:underline">
+                                        Phone
+                                    </a>
+                                    <a
+                                        href="mailto:contact@dalim.in"
+                                        className="hover:underline">
+                                        Email
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="-ml-3 mt-1">
+                                <Select onValueChange={(value) => router.push(`/docs/legal/${value}`)}>
+                                    <SelectTrigger className="text-md w-40 border-0 text-white/40 shadow-none dark:text-black/60">
+                                        <SelectValue placeholder="Legal" />
+                                    </SelectTrigger>
+                                    <SelectContent side="top">
+                                        <SelectGroup>
+                                            <SelectItem value="contact">Contact</SelectItem>
+                                            <SelectItem value="terms">Terms</SelectItem>
+                                            <SelectItem value="privacy">Privacy</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
                         <div className="relative">
@@ -252,6 +284,7 @@ function FooterAgency() {
 }
 
 function FooterUI() {
+    const router = useRouter()
     return (
         <div className="text-white dark:text-black">
             <footer className="relative before:absolute before:-inset-x-full before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
@@ -279,39 +312,53 @@ function FooterUI() {
                         <div>
                             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                             <nav className="space-y-2">
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Works
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Fonts
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Graphics
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    Products
-                                </a>
-                                <a
-                                    href="#"
-                                    className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
-                                    About
-                                </a>
+                                {navLinksAgency.map(({ label, href }) => (
+                                    <Link
+                                        key={label}
+                                        href={href}
+                                        className="block text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                                        {label}
+                                    </Link>
+                                ))}
                             </nav>
                         </div>
                         <div className="">
-                            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
-                            <div className="space-y-2 text-white/40 dark:text-black/60">
-                                <p>Bokaro, India</p>
-                                <p>Phone: (123) 456-7890</p>
-                                <p>Email: contact@dalim.in</p>
+                            <div className="">
+                                <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
+                                <div className="grid space-y-2 text-white/40 dark:text-black/60">
+                                    <a
+                                        href="https://www.google.com/maps/place/Dalim/@23.6407561,86.1020664,19z/data=!3m1!4b1!4m6!3m5!1s0x39f42309f0f5d0b5:0xb7e835eb8fe26ca3!8m2!3d23.6407549!4d86.1027101!16s%2Fg%2F11xftydckp"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline">
+                                        Bokaro, India
+                                    </a>
+                                    <a
+                                        href="tel:+11234567890"
+                                        className="hover:underline">
+                                        Phone
+                                    </a>
+                                    <a
+                                        href="mailto:contact@dalim.in"
+                                        className="hover:underline">
+                                        Email
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="-ml-3 mt-1">
+                                <Select onValueChange={(value) => router.push(`/docs/legal/${value}`)}>
+                                    <SelectTrigger className="text-md w-40 border-0 text-white/40 shadow-none dark:text-black/60">
+                                        <SelectValue placeholder="Legal" />
+                                    </SelectTrigger>
+                                    <SelectContent side="top">
+                                        <SelectGroup>
+                                            <SelectItem value="contact">Contact</SelectItem>
+                                            <SelectItem value="terms">Terms</SelectItem>
+                                            <SelectItem value="privacy">Privacy</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
                         <div className="relative">

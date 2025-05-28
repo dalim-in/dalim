@@ -82,12 +82,28 @@ export const blocks: Record<string, Block> = {
         target: "app/dashboard-03/page.tsx",
       },
       { 
-        path: "creative.tsx",
-        target: "app/dashboard-02/creative.tsx",
+        path: "app-header.tsx",
+        target: "app/dashboard-03/app-header.tsx",
+      }, 
+      { 
+        path: "app-sidebar.tsx",
+        target: "app/dashboard-03/app-sidebar.tsx",
+      }, 
+      { 
+        path: "data.tsx",
+        target: "app/dashboard-03/data.tsx",
+      }, 
+      { 
+        path: "home-content.tsx",
+        target: "app/dashboard-03/home-content.tsx",
+      }, 
+      { 
+        path: "types.ts",
+        target: "app/dashboard-03/types.ts",
       }, 
     ], 
   },
-  "navbar-01": {
+  "navbar-01": { 
     name: "navbar-01",
     title: "Navbar 01",
     category: "navbar",

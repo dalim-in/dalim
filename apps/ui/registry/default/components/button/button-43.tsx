@@ -303,7 +303,7 @@ export default function Component() {
                 Alt
               </KeyButton>
               <KeyButton
-                className="min-w-[20%] flex-1"
+                className="max-w-xs flex-1"
                 onClick={() => handleKeyPress(" ")}
                 isPressed={pressedKey === " "}
               >

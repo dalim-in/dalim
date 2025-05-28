@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import BlockPreview from "@/src/components/blocks/block-preview"
+import {BlockPreview} from "@/src/components/blocks/block-preview"
 import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar"
 import { PreviewListFilter } from "@/src/components/blocks/category-filter"
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const BlocksPage = ({ searchParams }: { searchParams: { q?: string } }) => {
   const query = searchParams.q?.toLowerCase() || ""
-  const featuredBlocks = ["dashboard-03", "login-01", "navbar-01", "dashboard-01"]
+  const featuredBlocks = ["dashboard-03", "login-01", "navbar-01"]
 
   const filteredBlocks = registry.items.filter(
     (item) =>
