@@ -1,24 +1,14 @@
-import { SquareArrowOutUpRightIcon } from "lucide-react"
+import { ChevronLeftIcon } from "lucide-react"
 
 import { Button } from "@/registry/default/ui/button"
 
 export default function Component() {
   return (
-    <div className="inline-flex -space-x-px rounded-md shadow-xs rtl:space-x-reverse">
-      <Button
-        className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
-        variant="outline"
-      >
-        Preview
-      </Button>
-      <Button
-        className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
-        variant="outline"
-        size="icon"
-        aria-label="Open link"
-      >
-        <SquareArrowOutUpRightIcon size={16} aria-hidden="true" />
-      </Button>
-    </div>
+    <Button className="relative ps-12">
+      Previous
+      <span className="bg-primary-foreground/15 pointer-events-none absolute inset-y-0 start-0 flex w-9 items-center justify-center">
+        <ChevronLeftIcon className="opacity-60" size={16} aria-hidden="true" />
+      </span>
+    </Button>
   )
 }

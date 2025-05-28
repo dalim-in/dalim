@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/button/button-34.tsx",
-      "content": "import { SquareArrowOutUpRightIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <div className=\"inline-flex -space-x-px rounded-md shadow-xs rtl:space-x-reverse\">\n      <Button\n        className=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n        variant=\"outline\"\n      >\n        Preview\n      </Button>\n      <Button\n        className=\"rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10\"\n        variant=\"outline\"\n        size=\"icon\"\n        aria-label=\"Open link\"\n      >\n        <SquareArrowOutUpRightIcon size={16} aria-hidden=\"true\" />\n      </Button>\n    </div>\n  )\n}",
+      "content": "import { ChevronLeftIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <Button className=\"relative ps-12\">\n      Previous\n      <span className=\"bg-primary-foreground/15 pointer-events-none absolute inset-y-0 start-0 flex w-9 items-center justify-center\">\n        <ChevronLeftIcon className=\"opacity-60\" size={16} aria-hidden=\"true\" />\n      </span>\n    </Button>\n  )\n}",
       "type": "registry:component"
     }
   ],

@@ -71,6 +71,22 @@ export const blocks: Record<string, Block> = {
       }, 
     ], 
   },
+  "dashboard-03": {
+    name: "dashboard-03",
+    title: "Dashboard 03",
+    category: "dashboard",
+    component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-03/page")),
+    files: [
+      {
+        path: "page.tsx",
+        target: "app/dashboard-03/page.tsx",
+      },
+      { 
+        path: "creative.tsx",
+        target: "app/dashboard-02/creative.tsx",
+      }, 
+    ], 
+  },
   "navbar-01": {
     name: "navbar-01",
     title: "Navbar 01",

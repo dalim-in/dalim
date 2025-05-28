@@ -1,58 +1,20 @@
-"use client"
+import { QrCodeIcon } from "lucide-react"
 
-import { useState } from "react"
-import {
-  AlignCenterIcon,
-  AlignJustifyIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
-} from "lucide-react"
-
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/registry/default/ui/toggle-group"
+import { Button } from "@/registry/default/ui/button"
 
 export default function Component() {
-  const [value, setValue] = useState<string>("center")
-
   return (
-    <ToggleGroup
-      className="divide-background inline-flex divide-x"
-      type="single"
-      value={value}
-      onValueChange={(value) => {
-        if (value) setValue(value)
-      }}
-    >
-      <ToggleGroupItem
-        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-        aria-label="Align Left"
-        value="left"
+    <div className="divide-primary-foreground/30 inline-flex divide-x rounded-md shadow-xs rtl:space-x-reverse">
+      <Button
+        className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
+        size="icon"
+        aria-label="QR code"
       >
-        <AlignLeftIcon size={16} aria-hidden="true" />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-        aria-label="Align Center"
-        value="center"
-      >
-        <AlignCenterIcon size={16} aria-hidden="true" />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-        aria-label="Align Right"
-        value="right"
-      >
-        <AlignRightIcon size={16} aria-hidden="true" />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-        aria-label="Align Justify"
-        value="justify"
-      >
-        <AlignJustifyIcon size={16} aria-hidden="true" />
-      </ToggleGroupItem>
-    </ToggleGroup>
+        <QrCodeIcon size={16} aria-hidden="true" />
+      </Button>
+      <Button className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10">
+       Pay Now
+      </Button>
+    </div>
   )
 }

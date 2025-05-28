@@ -1,20 +1,26 @@
-import { ChevronDownIcon, PinIcon } from "lucide-react"
+import {
+  RiFacebookFill,
+  RiGithubFill,
+  RiGoogleFill,
+  RiTwitterXFill,
+} from "@remixicon/react"
 
 import { Button } from "@/registry/default/ui/button"
 
 export default function Component() {
   return (
-    <div className="divide-primary-foreground/30 inline-flex divide-x rounded-md shadow-xs rtl:space-x-reverse">
-      <Button
-        className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
-        size="icon"
-        aria-label="Options"
-      >
-        <ChevronDownIcon size={16} aria-hidden="true" />
+    <div className="inline-flex flex-wrap gap-2">
+      <Button variant="outline" aria-label="Login with Google" size="icon">
+        <RiGoogleFill size={16} aria-hidden="true" />
       </Button>
-      <Button className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10">
-        <PinIcon className="-ms-1 opacity-60" size={16} aria-hidden="true" />
-        Pinned
+      <Button variant="outline" aria-label="Login with Facebook" size="icon">
+        <RiFacebookFill size={16} aria-hidden="true" />
+      </Button>
+      <Button variant="outline" aria-label="Login with X" size="icon">
+        <RiTwitterXFill size={16} aria-hidden="true" />
+      </Button>
+      <Button variant="outline" aria-label="Login with GitHub" size="icon">
+        <RiGithubFill size={16} aria-hidden="true" />
       </Button>
     </div>
   )

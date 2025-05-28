@@ -1,27 +1,33 @@
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+"use client"
 
-import { Button } from "@/registry/default/ui/button"
+import { useState } from "react"
+
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/registry/default/ui/toggle-group"
 
 export default function Component() {
+  const [value, setValue] = useState<string>("left")
+
   return (
-    <div className="inline-flex -space-x-px rounded-full shadow-xs rtl:space-x-reverse">
-      <Button
-        className="rounded-none shadow-none first:rounded-s-full last:rounded-e-full focus-visible:z-10"
-        size="icon"
-        aria-label="Upvote"
-      >
-        <ChevronUpIcon size={16} aria-hidden="true" />
-      </Button>
-      <span className="bg-primary text-primary-foreground flex items-center px-1 text-sm font-medium">
-        235
-      </span>
-      <Button
-        className="rounded-none shadow-none first:rounded-s-full last:rounded-e-full focus-visible:z-10"
-        size="icon"
-        aria-label="Downvote"
-      >
-        <ChevronDownIcon size={16} aria-hidden="true" />
-      </Button>
-    </div>
+    <ToggleGroup
+      type="single"
+      variant="outline"
+      value={value}
+      onValueChange={(value) => {
+        if (value) setValue(value)
+      }}
+    >
+      <ToggleGroupItem className="flex-1" value="left">
+        Left
+      </ToggleGroupItem>
+      <ToggleGroupItem className="flex-1" value="center">
+        Center
+      </ToggleGroupItem>
+      <ToggleGroupItem className="flex-1" value="right">
+        Right
+      </ToggleGroupItem>
+    </ToggleGroup>
   )
 }

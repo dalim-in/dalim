@@ -957,7 +957,8 @@
           "example",
           "component"
         ],
-        "style": 1
+        "style": 1,
+        "colSpan": 3
       }
     },
     {
@@ -1360,6 +1361,26 @@
           "path": "registry/default/blocks/dashboard/dashboard-02/app-sidebar.tsx",
           "type": "registry:component",
           "target": "app/dashboard-02/app-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-03",
+      "type": "registry:block",
+      "title": "Dashboard 03",
+      "description": "A dashboard block with multiple components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/page.tsx",
+          "type": "registry:block",
+          "target": "app/dashboard-03/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-023/creative.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-03/creative.tsx"
         }
       ]
     },

@@ -645,7 +645,8 @@
       ],
       "meta": {
         "tags": ["button", "example", "component"],
-        "style": 1
+        "style": 1,
+        "colSpan": 3
       }
     },
     {

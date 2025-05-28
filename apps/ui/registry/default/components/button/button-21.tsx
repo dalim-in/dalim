@@ -1,46 +1,37 @@
 "use client"
 
 import { useState } from "react"
+import { BookmarkIcon } from "lucide-react"
 
-import { Button } from "@/registry/default/ui/button"
+import { Toggle } from "@/registry/default/ui/toggle"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/registry/default/ui/tooltip"
 
 export default function Component() {
-  const [open, setOpen] = useState<boolean>(false)
-
+  const [bookmarked, setBookmarked] = useState<boolean>(false)
   return (
-    <Button
-      className="group"
-      variant="outline"
-      size="icon"
-      onClick={() => setOpen((prevState) => !prevState)}
-      aria-expanded={open}
-      aria-label={open ? "Close menu" : "Open menu"}
-    >
-      <svg
-        className="pointer-events-none"
-        width={16}
-        height={16}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 12L20 12"
-          className="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
-        />
-        <path
-          d="M4 12H20"
-          className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
-        />
-        <path
-          d="M4 12H20"
-          className="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
-        />
-      </svg>
-    </Button>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div>
+            <Toggle
+              className="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
+              aria-label="BookmarkIcon this"
+              pressed={bookmarked}
+              onPressedChange={setBookmarked}
+            >
+              <BookmarkIcon size={16} aria-hidden="true" />
+            </Toggle>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent className="px-2 py-1 text-xs">
+          <p>{bookmarked ? "Remove bookmark" : "BookmarkIcon this"}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   )
 }

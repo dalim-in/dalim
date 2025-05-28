@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const BlocksPage = ({ searchParams }: { searchParams: { q?: string } }) => {
   const query = searchParams.q?.toLowerCase() || ""
-  const featuredBlocks = ["dashboard-01", "login-01", "navbar-01"]
+  const featuredBlocks = ["dashboard-03", "login-01", "navbar-01", "dashboard-01"]
 
   const filteredBlocks = registry.items.filter(
     (item) =>

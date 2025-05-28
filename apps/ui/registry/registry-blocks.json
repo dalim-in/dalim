@@ -88,7 +88,26 @@
         }
       ]
     },
-
+{
+      "name": "dashboard-03",
+      "type": "registry:block",
+      "title": "Dashboard 03",
+      "description": "A dashboard block with multiple components",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-03/page.tsx",
+          "type": "registry:block",
+          "target": "app/dashboard-03/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dashboard/dashboard-023/creative.tsx",
+          "type": "registry:component",
+          "target": "app/dashboard-03/creative.tsx"
+        }
+      ]
+    },
     {
       "name": "navbar-01",
       "type": "registry:block",

@@ -1,7 +1,4 @@
-
 "use client"
-
-import { PlusIcon } from "lucide-react"
 
 import { Button } from "@/registry/default/ui/button"
 import {
@@ -16,8 +13,9 @@ export default function Component() {
     <TooltipProvider delayDuration={0}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button variant="outline" size="icon" aria-label="Add new item">
-            <PlusIcon size={16} aria-hidden="true" />
+          <Button variant="outline" aria-label="Tooltip">
+            {" "}
+            Tooltip
           </Button>
         </TooltipTrigger>
         <TooltipContent className="px-2 py-1 text-xs">Tooltip</TooltipContent>

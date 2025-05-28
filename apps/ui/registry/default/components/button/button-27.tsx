@@ -1,4 +1,4 @@
-import { FlipHorizontalIcon, FlipVerticalIcon } from "lucide-react"
+import { EllipsisIcon,  Folders, Images } from "lucide-react"
 
 import { Button } from "@/registry/default/ui/button"
 
@@ -8,18 +8,24 @@ export default function Component() {
       <Button
         className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
         variant="outline"
-        size="icon"
-        aria-label="Flip Horizontal"
       >
-        <FlipHorizontalIcon size={16} aria-hidden="true" />
+        <Folders className=" opacity-60" size={16} aria-hidden="true" />
+        Folders
+      </Button>
+      <Button
+        className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
+        variant="outline"
+      >
+        <Images className=" opacity-60" size={16} aria-hidden="true" />
+        Images
       </Button>
       <Button
         className="rounded-none shadow-none first:rounded-s-md last:rounded-e-md focus-visible:z-10"
         variant="outline"
         size="icon"
-        aria-label="Flip Vertical"
+        aria-label="Menu"
       >
-        <FlipVerticalIcon size={16} aria-hidden="true" />
+        <EllipsisIcon size={16} aria-hidden="true" />
       </Button>
     </div>
   )

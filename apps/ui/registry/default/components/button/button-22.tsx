@@ -1,37 +1,58 @@
 "use client"
 
 import { useState } from "react"
-import { BookmarkIcon } from "lucide-react"
-
-import { Toggle } from "@/registry/default/ui/toggle"
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/registry/default/ui/tooltip"
+  AlignCenterIcon,
+  AlignJustifyIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
+} from "lucide-react"
+
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/registry/default/ui/toggle-group"
 
 export default function Component() {
-  const [bookmarked, setBookmarked] = useState<boolean>(false)
+  const [value, setValue] = useState<string>("center")
+
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <div>
-            <Toggle
-              className="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
-              aria-label="BookmarkIcon this"
-              pressed={bookmarked}
-              onPressedChange={setBookmarked}
-            >
-              <BookmarkIcon size={16} aria-hidden="true" />
-            </Toggle>
-          </div>
-        </TooltipTrigger>
-        <TooltipContent className="px-2 py-1 text-xs">
-          <p>{bookmarked ? "Remove bookmark" : "BookmarkIcon this"}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <ToggleGroup
+      className="divide-background inline-flex divide-x"
+      type="single"
+      value={value}
+      onValueChange={(value) => {
+        if (value) setValue(value)
+      }}
+    >
+      <ToggleGroupItem
+        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+        aria-label="Align Left"
+        value="left"
+      >
+        <AlignLeftIcon size={16} aria-hidden="true" />
+      </ToggleGroupItem>
+      <ToggleGroupItem
+        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+        aria-label="Align Center"
+        value="center"
+      >
+        <AlignCenterIcon size={16} aria-hidden="true" />
+      </ToggleGroupItem>
+      <ToggleGroupItem
+        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+        aria-label="Align Right"
+        value="right"
+      >
+        <AlignRightIcon size={16} aria-hidden="true" />
+      </ToggleGroupItem>
+      <ToggleGroupItem
+        className="bg-primary/80 text-primary-foreground hover:bg-primary hover:text-primary-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+        aria-label="Align Justify"
+        value="justify"
+      >
+        <AlignJustifyIcon size={16} aria-hidden="true" />
+      </ToggleGroupItem>
+    </ToggleGroup>
   )
 }

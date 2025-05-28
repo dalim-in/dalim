@@ -57,6 +57,7 @@
     "contentlayer2": "^0.4.6",
     "date-fns": "^4.1.0",
     "emblor": "^1.4.8",
+    "framer-motion": "^12.12.1",
     "google": "link:@next/third-parties/google",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "input-otp": "^1.4.2",

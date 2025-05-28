@@ -1,33 +1,31 @@
 "use client"
 
 import { useState } from "react"
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/registry/default/ui/toggle-group"
+import { Button } from "@/registry/default/ui/button"
 
 export default function Component() {
-  const [value, setValue] = useState<string>("left")
+  const [isExpanded, setIsExpanded] = useState<boolean>(false)
+
+  const toggleExpand = () => {
+    setIsExpanded((prevState) => !prevState)
+  }
 
   return (
-    <ToggleGroup
-      type="single"
-      variant="outline"
-      value={value}
-      onValueChange={(value) => {
-        if (value) setValue(value)
-      }}
+    <Button
+      className="gap-1"
+      variant="ghost"
+      onClick={toggleExpand}
+      aria-expanded={isExpanded}
+      aria-controls="expandable-content" // Use this ID on the element that this button controls
     >
-      <ToggleGroupItem className="flex-1" value="left">
-        Left
-      </ToggleGroupItem>
-      <ToggleGroupItem className="flex-1" value="center">
-        Center
-      </ToggleGroupItem>
-      <ToggleGroupItem className="flex-1" value="right">
-        Right
-      </ToggleGroupItem>
-    </ToggleGroup>
+      {isExpanded ? "Show less" : "Show more"}
+      {isExpanded ? (
+        <ChevronUpIcon className="-me-1" size={16} aria-hidden="true" />
+      ) : (
+        <ChevronDownIcon className="-me-1" size={16} aria-hidden="true" />
+      )}
+    </Button>
   )
 }

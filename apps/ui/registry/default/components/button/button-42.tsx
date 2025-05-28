@@ -1,24 +1,32 @@
-import { useId } from "react"
+"use client"
 
-import { Input } from "@/registry/default/ui/input"
-import { Label } from "@/registry/default/ui/label"
+import { useState } from "react"
+import { BellIcon } from "lucide-react"
+
+import { Badge } from "@/registry/default/ui/badge"
+import { Button } from "@/registry/default/ui/button"
 
 export default function Component() {
-  const id = useId()
+  const [count, setCount] = useState(3)
+
+  const handleClick = () => {
+    setCount(0)
+  }
+
   return (
-    <div className="*:not-first:mt-2">
-      <Label htmlFor={id}>Input with end inline add-on</Label>
-      <div className="relative">
-        <Input
-          id={id}
-          className="peer pe-12"
-          placeholder="google"
-          type="text"
-        />
-        <span className="text-muted-foreground pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 text-sm peer-disabled:opacity-50">
-          .com
-        </span>
-      </div>
-    </div>
+    <Button
+      variant="outline"
+      size="icon"
+      className="relative"
+      onClick={handleClick}
+      aria-label="Notifications"
+    >
+      <BellIcon size={16} aria-hidden="true" />
+      {count > 0 && (
+        <Badge className="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1">
+          {count > 99 ? "99+" : count}
+        </Badge>
+      )}
+    </Button>
   )
 }

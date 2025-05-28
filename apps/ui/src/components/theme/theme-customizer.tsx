@@ -114,7 +114,7 @@ export function Customizer() {
                   radius: value[0],
                 })
               }}
-              max={1}
+              max={1.5}
               min={0}
               step={0.1}
               className="w-40"
