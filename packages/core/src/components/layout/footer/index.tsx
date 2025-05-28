@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { useRouter } from 'next/navigation'
 import { Send } from 'lucide-react'
 import { DALIM_URL, WORKS_URL } from '@dalim/auth'
-import { DalimLogoIcon2 } from '@/components/logo'
+import { DalimLogoIcon2 } from '../../logo'
 
 const navLinks = [
     { label: 'About', href: '/about' },
