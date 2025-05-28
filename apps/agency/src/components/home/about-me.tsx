@@ -16,21 +16,21 @@ export function AboutMe() {
                         </div>
                     </div>
                     <Image
-                        src="/images/1.jpeg"
+                        src="/images/5.jpg"
                         alt="ali"
                         width={300}
                         height={300}
                         className="absolute left-1 top-1 h-[200px] w-40 -rotate-[10deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     /> 
                     <Image
-                        src="/images/1.jpeg"
+                        src="/images/6.jpg"
                         alt="ali"
                         width={300}
                         height={300}
                         className="absolute right-6 top-1 h-[200px] w-40 rotate-[10deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/1.jpeg"
+                        src="/images/7.jpg"
                         alt="ali"
                         width={300}
                         height={300}

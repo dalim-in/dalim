@@ -7,55 +7,55 @@ import { Badge } from "@dalim/core/ui/badge";
 const testimonials = [
   {
     text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Briana Patton",
     role: "Operations Manager",
   },
   {
     text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/4347368/pexels-photo-4347368.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Bilal Ahmed",
     role: "IT Manager",
   },
   {
     text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/4342352/pexels-photo-4342352.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Saman Malik",
     role: "Customer Support Lead",
   },
   {
     text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/5876695/pexels-photo-5876695.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Omar Raza",
     role: "CEO",
   },
   {
     text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/4484071/pexels-photo-4484071.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Zainab Hussain",
     role: "Project Manager",
   },
   {
     text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/5699868/pexels-photo-5699868.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Aliza Khan",
     role: "Business Analyst",
   },
   {
     text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/4307884/pexels-photo-4307884.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Farhan Siddiqui",
     role: "Marketing Director",
   },
   {
     text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/5920753/pexels-photo-5920753.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Sana Sheikh",
     role: "Sales Manager",
   },
   {
     text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image: "/images/1.jpeg",
+    image: "https://images.pexels.com/photos/6999225/pexels-photo-6999225.jpeg?auto=compress&cs=tinysrgb&w=50",
     name: "Hassan Ali",
     role: "E-commerce Manager",
   },
@@ -130,7 +130,7 @@ export const TestimonialsCol = (props: {
                       height={40}
                       src={image}
                       alt={name}
-                      className="h-10 w-10 rounded-full"
+                      className="h-10 object-cover w-10 rounded-full"
                     />
                     <div className="flex flex-col">
                       <div className="font-medium tracking-tight leading-5">{name}</div>

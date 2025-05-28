@@ -16,21 +16,21 @@ export function AboutMe({ linkTo }: { linkTo: string }) {
                         </div>
                     </div>
                     <Image
-                        src="/images/1.jpeg"
+                        src="/ali1.jpg"
                         alt="ali"
                         width={300}
                         height={300}
                         className="absolute left-1 top-1 h-[200px] w-40 -rotate-[6deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/3.jpeg"
+                        src="/ali3.jpg"
                         alt="ali"
                         width={300}
                         height={300}
                         className="left-17 absolute top-1 h-[200px] w-40 -rotate-[3deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[0deg] group-hover:scale-95"
                     />
                     <Image
-                        src="/images/2.jpeg"
+                        src="/ali2.jpg"
                         alt="ali"
                         width={300}
                         height={300}

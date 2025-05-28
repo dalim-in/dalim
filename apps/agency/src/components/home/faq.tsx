@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@dalim/core/ui/accordion'
-import Image from 'next/image'
+ 
 
 export function FAQs() {
     const faqItems = [
@@ -35,7 +35,7 @@ export function FAQs() {
             <div>
                 <h1 className="mx-auto mb-10 max-w-xs px-6 text-center text-xl font-thin md:max-w-full md:text-3xl">Frequently asked questions?</h1>
             </div>
-            <div className="grid items-stretch gap-3 md:grid-cols-2">
+            <div className="mx-auto max-w-xl">
                 <div className="h-full w-full">
                     <Accordion
                     defaultValue="item-1"
@@ -60,30 +60,7 @@ export function FAQs() {
                     </Accordion>
                 </div>
 
-                <div className="relative h-[350px] md:h-full w-full">
-                    {/* Floating Image (centered) */}
-                    <Image
-                        src="/brand/logo-icon.svg"
-                        alt="Your Image"
-                        width={150}
-                        height={150}
-                        className="animate-float absolute left-1/2 top-1/3 z-10  -translate-x-1/2 -translate-y-1/2 "
-                    />
-
-                    {/* Background Image */}
-                    <Image
-                        src="/images/1.jpeg"
-                        alt="Your Image"
-                        fill
-                        className="rounded-xl object-cover"
-                    />
-
-                    {/* Gradient Overlay + Text */}
-                    <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/90 to-transparent p-8 pt-16">
-                        <h1 className="text-2xl text-white">Subscribe</h1>
-                        <p className="text-white/80">Subscribe to a plan & request as many designs as you'd like.</p>
-                    </div>
-                </div>
+                 
             </div>
         </div>
     )

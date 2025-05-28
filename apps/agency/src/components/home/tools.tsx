@@ -4,14 +4,11 @@ import { DalimLogoIcon } from '@dalim/core/components/logo'
 
 export function Tools() {
     return (
-        <section className="pb-10">
-            <div className="pb-10">
-                <div className="mx-auto max-w-4xl px-6">
+        <section className="relative">
+            <div className="">
+                <div className="">
                     <div className="group relative mx-auto max-w-[22rem] items-center justify-between space-y-6 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] sm:max-w-md">
-                        <div
-                            role="presentation"
-                            className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:32px_32px] opacity-50"></div>
-                        <div>
+                         <div>
                             <InfiniteSlider
                                 gap={24}
                                 speed={20}
@@ -543,14 +540,10 @@ export function Tools() {
                             </IntegrationCard>
                         </div>
                     </div>
-                    <div className="mx-auto mt-12 max-w-lg space-y-2 text-center">
-                        <h1 className="mt-6 pb-1 text-2xl font-bold md:text-4xl">Tools That Shape My Work.</h1>
-                        <p className="text-muted-foreground mb-4">From code editors to design systems — here’s what keeps me productive every day.</p>
-                    </div>
+                    
                 </div>
             </div>
-            <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-        </section>
+         </section>
     )
 }
 

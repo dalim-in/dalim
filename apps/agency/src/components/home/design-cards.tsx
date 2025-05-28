@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import Image from 'next/image'
 import { AboutMe } from './about-me'
+import { Tools } from './tools'
 
 export function DesignCards() {
     return (
@@ -24,7 +25,7 @@ export function DesignCards() {
                             alt="Your Image"
                             height={300}
                             width={300}
-                            className="absolute shadow-xl border-4 left-1/2 top-36 z-10 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-md object-cover"
+                            className="absolute transition-all duration-500 hover:scale-105 left-1/2 top-36 z-10 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-md border-4 object-cover shadow-xl"
                         />
                         <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/60 to-transparent p-4 pt-16">
                             <div>
@@ -41,13 +42,9 @@ export function DesignCards() {
                             width={700}
                             className="h-[400px] w-full rounded-xl object-cover"
                         />
-                        <Image
-                            src="/images/1.svg"
-                            alt="Your Image"
-                            height={700}
-                            width={700}
-                            className="absolute left-20 top-4 h-[200px] w-full rounded-xl object-cover"
-                        />
+                        <div className="absolute left-1/2 top-36 z-10 -translate-x-1/2 -translate-y-1/2">
+                            <Tools />
+                        </div>
                         <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/60 to-transparent p-4 pt-16">
                             <h1 className="text-2xl text-white">Request</h1>
                             <p className="text-sm text-white/80">Request whatever you'd like, from branding, website, social media to any design. </p>
@@ -61,7 +58,7 @@ export function DesignCards() {
                             width={700}
                             className="h-[400px] w-full rounded-xl object-cover"
                         />
-                        <AboutMe/>
+                        <AboutMe />
                         <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/60 to-transparent p-4 pt-16">
                             <h1 className="text-2xl text-white">Receive</h1>
                             <p className="text-sm text-white/80">Receive your design within two business days on average except weekends. Yes, it can be that fast.</p>

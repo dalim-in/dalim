@@ -8,128 +8,124 @@ import { Button } from '@dalim/core/ui/button'
 
 const SQRT_5000 = Math.sqrt(5000)
 
+const profilePics = [
+    'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=50',
+    'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=50',
+]
+
 const testimonials = [
     {
         tempId: 0,
-        testimonial: 'My favorite solution in the market. We work 5x faster with COMPANY.',
-        by: 'Alex, CEO at TechCorp',
-        imgSrc: '/ali.jpg',
+        testimonial: 'The design system transformed our workflow. What used to take days now takes hours.',
+        by: 'Alex, Creative Director at StudioNova',
     },
     {
         tempId: 1,
-        testimonial: "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
-        by: 'Dan, CTO at SecureNet',
-        imgSrc: '/ali.jpg',
+        testimonial: "We've never had such consistent branding across platforms. It's a visual dream.",
+        by: 'Dan, Lead Designer at PixelForge',
     },
     {
         tempId: 2,
-        testimonial: "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
-        by: 'Stephanie, COO at InnovateCo',
-        imgSrc: '/ali.jpg',
+        testimonial: 'COMPANY gave our design team superpowers. The UI is stunning and functional.',
+        by: 'Stephanie, Product Designer at UI Bloom',
     },
     {
         tempId: 3,
-        testimonial: "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
-        by: 'Marie, CFO at FuturePlanning',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Designing at scale is hard. COMPANY made it seamless.',
+        by: 'Marie, UX Strategist at FlowGrid',
     },
     {
         tempId: 4,
-        testimonial: "If I could give 11 stars, I'd give 12.",
-        by: 'Andre, Head of Design at CreativeSolutions',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Typography, spacing, grids — all just work now. We finally design with confidence.',
+        by: 'Andre, Visual Designer at Brandlight',
     },
     {
         tempId: 5,
-        testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
-        by: 'Jeremy, Product Manager at TimeWise',
-        imgSrc: '/ali.jpg',
+        testimonial: 'We ship faster and iterate better. Our design-to-dev handoff is practically automatic.',
+        by: 'Jeremy, Design Ops at Sprintly',
     },
     {
         tempId: 6,
-        testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
-        by: 'Pam, Marketing Director at BrandBuilders',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Clients keep complimenting the UI polish. That’s all COMPANY.',
+        by: 'Pam, Freelance Web Designer',
     },
     {
         tempId: 7,
-        testimonial: "I would be lost without COMPANY's in-depth analytics. The ROI is EASILY 100X for us.",
-        by: 'Daniel, Data Scientist at AnalyticsPro',
-        imgSrc: '/ali.jpg',
+        testimonial: 'The components are clean, scalable, and beautiful. We finally stopped rebuilding the wheel.',
+        by: 'Daniel, Senior Designer at Craft & Co.',
     },
     {
         tempId: 8,
-        testimonial: "It's just the best. Period.",
-        by: 'Fernando, UX Designer at UserFirst',
-        imgSrc: '/ali.jpg',
+        testimonial: "COMPANY took our brand guidelines and brought them to life. It's artful and precise.",
+        by: 'Fernando, Brand Designer at Palette',
     },
     {
         tempId: 9,
-        testimonial: 'I switched 5 years ago and never looked back.',
-        by: 'Andy, DevOps Engineer at CloudMasters',
-        imgSrc: '/ali.jpg',
+        testimonial: 'We’ve reduced design debt to near zero. It’s the dream for any design lead.',
+        by: 'Andy, Head of Design at Clarity Systems',
     },
     {
         tempId: 10,
-        testimonial: "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
-        by: 'Pete, Sales Director at RevenueRockets',
-        imgSrc: '/ali.jpg',
+        testimonial: 'From dark mode support to responsive layouts — it’s all thought through beautifully.',
+        by: 'Pete, UI/UX Designer at Modular',
     },
     {
         tempId: 11,
-        testimonial: "It's so simple and intuitive, we got the team up to speed in 10 minutes.",
-        by: 'Marina, HR Manager at TalentForge',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Our Figma files are lighter, cleaner, and more consistent. Huge win.',
+        by: 'Marina, Product Designer at Lucent',
     },
     {
         tempId: 12,
-        testimonial: "COMPANY's customer support is unparalleled. They're always there when we need them.",
-        by: 'Olivia, Customer Success Manager at ClientCare',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Visual feedback cycles are quicker and more collaborative now. Everyone’s on the same page.',
+        by: 'Olivia, Design Manager at Alignly',
     },
     {
         tempId: 13,
-        testimonial: "The efficiency gains we've seen since implementing COMPANY are off the charts!",
-        by: 'Raj, Operations Manager at StreamlineSolutions',
-        imgSrc: '/ali.jpg',
+        testimonial: "It's like having a design system architect baked into every decision.",
+        by: 'Raj, Design Systems Lead at Gridworks',
     },
     {
         tempId: 14,
-        testimonial: "COMPANY has revolutionized how we handle our workflow. It's a game-changer!",
-        by: 'Lila, Workflow Specialist at ProcessPro',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Design tokens, accessibility, theming — all solved. It’s perfect for modern design teams.',
+        by: 'Lila, UI Engineer at Layered',
     },
     {
         tempId: 15,
-        testimonial: "The scalability of COMPANY's solution is impressive. It grows with our business seamlessly.",
-        by: 'Trevor, Scaling Officer at GrowthGurus',
-        imgSrc: '/ali.jpg',
+        testimonial: 'No more inconsistencies. Just clean, scalable design from start to finish.',
+        by: 'Trevor, Senior Visual Designer at Neatline',
     },
     {
         tempId: 16,
-        testimonial: "I appreciate how COMPANY continually innovates. They're always one step ahead.",
-        by: 'Naomi, Innovation Lead at FutureTech',
-        imgSrc: '/ali.jpg',
+        testimonial: 'This platform feels like it was made by designers, for designers. It just *gets* us.',
+        by: 'Naomi, Creative Technologist at Bezel',
     },
     {
         tempId: 17,
-        testimonial: "The ROI we've seen with COMPANY is incredible. It's paid for itself many times over.",
-        by: 'Victor, Finance Analyst at ProfitPeak',
-        imgSrc: '/ali.jpg',
+        testimonial: 'Designers love it. Developers love it. Leadership loves the results. That’s rare.',
+        by: 'Victor, Design Lead at Merge Studio',
     },
     {
         tempId: 18,
-        testimonial: "COMPANY's platform is so robust, yet easy to use. It's the perfect balance.",
-        by: 'Yuki, Tech Lead at BalancedTech',
-        imgSrc: '/ali.jpg',
+        testimonial: 'It’s not just a tool — it’s how we design now. Everything’s more cohesive.',
+        by: 'Yuki, UI Designer at SurfaceLab',
     },
     {
         tempId: 19,
-        testimonial: "We've tried many solutions, but COMPANY stands out in terms of reliability and performance.",
-        by: 'Zoe, Performance Manager at ReliableSystems',
-        imgSrc: '/ali.jpg',
+        testimonial: 'COMPANY helped us stop debating pixels and start focusing on real design impact.',
+        by: 'Zoe, Product Designer at Dashline',
     },
-]
+].map((t, i) => ({
+    ...t,
+    imgSrc: profilePics[i % profilePics.length],
+}))
 
 interface TestimonialCardProps {
     position: number
@@ -144,11 +140,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ position, testimonial
     return (
         <div
             onClick={() => handleMove(position)}
-            className={cn('absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out', isCenter ? 'bg-primary text-primary-foreground border-primary z-10' : 'bg-card text-card-foreground border-border hover:border-primary/50 z-0')}
+            className={cn('absolute left-1/2 top-1/2 cursor-pointer border p-8 transition-all duration-500 ease-in-out', isCenter ? 'bg-primary text-primary-foreground border-primary z-10' : 'bg-card text-card-foreground border-border hover:border-primary/40 z-0')}
             style={{
                 width: cardSize,
                 height: cardSize,
-                clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
+                clipPath: 'polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)',
                 transform: `
           translate(-50%, -50%) 
           translateX(${(cardSize / 1.5) * position}px)
@@ -217,8 +213,8 @@ export const StaggerTestimonials: React.FC = () => {
 
     return (
         <div
-            className="relative mb-14 z-10 w-full"
-            style={{ height: 500 }}>
+            className="relative z-10 mb-14 w-full"
+            style={{ height: 500, WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)', maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)', WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat' }}>
             {testimonialsList.map((testimonial, index) => {
                 const position = testimonialsList.length % 2 ? index - (testimonialsList.length + 1) / 2 : index - testimonialsList.length / 2
                 return (
