@@ -18,7 +18,7 @@ export function BlogCard({
     return (
         <article className={cn('group relative', horizontale ? 'grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6' : 'flex flex-col space-y-2')}>
             {data.image && (
-                <div className="w-full overflow-hidden rounded-xl border">
+                <div className="w-full overflow-hidden rounded-sm md:rounded-xl border">
                     <BlurImage
                         alt={data.title}
                         blurDataURL={data.blurDataURL ?? placeholderBlurhash}
@@ -35,10 +35,10 @@ export function BlogCard({
 
             <div className={cn('flex flex-1 flex-col', horizontale ? 'justify-center' : 'justify-between')}>
                 <div className="w-full">
-                    <h2 className="font-heading my-1.5 line-clamp-2 text-2xl">{data.title}</h2>
-                    {data.description && <p className="text-muted-foreground line-clamp-2">{data.description}</p>}
+                    <h2 className="font-heading my-1.5 line-clamp-2 text-md md:text-xl">{data.title}</h2>
+                    {data.description && <p className="text-muted-foreground text-sm line-clamp-2">{data.description}</p>}
                 </div>
-                <div className="mt-4 flex items-center space-x-3">{data.date && <p className="text-muted-foreground text-sm">{formatDate(data.date)}</p>}</div>
+                <div className="mt-4 flex items-center space-x-3">{data.date && <p className="text-muted-foreground text-xs">{formatDate(data.date)}</p>}</div>
             </div>
             <Link
                 href={data.slug}
@@ -61,9 +61,9 @@ export function BlogCardHome({
     horizontale?: boolean
 }) {
     return (
-        <article className={cn('group relative', horizontale ? 'grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6' : 'flex flex-col space-y-2 rounded-3xl border p-2')}>
+        <article className={cn('group relative', horizontale ? 'grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6' : 'flex flex-col space-y-2 rounded-xl md:rounded-3xl border p-2')}>
             {data.image && (
-                <div className="w-full overflow-hidden rounded-lg border">
+                <div className="w-full overflow-hidden rounded-sm md:rounded-xl border">
                     <BlurImage
                         alt={data.title}
                         blurDataURL={data.blurDataURL ?? placeholderBlurhash}
@@ -80,7 +80,7 @@ export function BlogCardHome({
 
             <div className={cn('flex flex-1 flex-col px-3', horizontale ? 'justify-center' : 'justify-between')}>
                 <div className="flex w-full mt-1 -mb-1 items-center justify-between">
-                    <h2 className="text-xl">{data.title}</h2>
+                    <h2 className="text-sm md:text-lg">{data.title}</h2>
                     {data.date && <p className="text-muted-foreground text-xs">{formatDate(data.date)}</p>}
                 </div>
             </div>

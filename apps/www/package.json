@@ -50,6 +50,7 @@
     "tailwindcss-animate": "^1.0.7",
     "third-parties": "link:@next/third-parties",
     "ua-parser-js": "^0.7.39",
+    "vaul": "^1.1.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {

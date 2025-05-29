@@ -95,11 +95,11 @@ export default async function PostPage({ params }: never) {
                 <div className="absolute w-full" />
 
                 <div className="grid grid-cols-4 gap-10 pt-8 max-md:px-0">
-                    <div className="bg-background relative col-span-4 mb-10 flex flex-col space-y-8 rounded-3xl border lg:col-span-3">
+                    <div className="bg-background relative col-span-4 mb-10 flex flex-col space-y-8 rounded-xl border lg:col-span-3">
                         <BlurImage
                             alt={post.title}
                             blurDataURL={placeholderBlurhash}
-                            className="aspect-[1200/630] rounded-t-3xl object-cover"
+                            className="aspect-[1200/630] border-b rounded-t-xl object-cover"
                             width={1200}
                             height={630}
                             priority

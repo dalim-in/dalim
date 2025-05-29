@@ -1,0 +1,228 @@
+---
+title: Large Open Source Next.js Projects
+description: Next.js is a powerhouse framework for React applications, widely adopted for its server-side rendering, static site generation, and now the powerful **App Router**. When you want to deepen your understanding of Next.js, the best teachers are **real-world projects**. 
+image: /images/blogs/large-open-source-projects/cover.jpg
+date: "2025-04-06"
+authors: 
+ - aliimam 
+categories:
+  - education
+related:
+  - education
+---
+
+## Why Study Large Open Source Next.js Projects?
+
+- **Real-world architecture:** See how multi-team projects organize code using monorepos and Turborepo.
+- **Advanced Next.js features:** Server components, API routes, App Router, middleware.
+- **Fullstack integration:** Databases (Prisma, Planetscale, Drizzle ORM), auth (Clerk, Auth.js), payments (Stripe).
+- **TypeScript at scale:** How to maintain type safety in big apps.
+- **Incremental migration:** See how projects migrate legacy pages-based apps to the new App Router.
+- **Community best practices:** Spot patterns and antipatterns in production codebases.
+
+---
+
+## 1. **Vercel Commerce**  
+**Repo:** [vercel/commerce](https://github.com/vercel/commerce)  
+Built by the creators of Next.js, Vercel Commerce is a headless e-commerce platform supporting Shopify, BigCommerce, and Vendure. It leverages Next.js API routes for backend logic and React Query for client-side data fetching. Tailwind CSS powers the design system, and TypeScript ensures type safety across the app. This project demonstrates how to build a fully server-rendered commerce frontend integrated with various providers.  
+
+**Why study?**  
+- Server-rendered e-commerce workflows  
+- Modular provider architecture  
+- API routes with TypeScript  
+
+---
+
+## 2. **Cal.com**  
+**Repo:** [calcom/cal.com](https://github.com/calcom/cal.com)  
+Cal.com is an open-source alternative to Calendly. It’s a large Turborepo monorepo managing several apps and libraries. Cal.com is in the process of migrating from Next.js `pages` directory to the new App Router (`app` directory), making it an excellent example of incremental migration in a large app. Tech stack includes Prisma for database ORM, tRPC for type-safe APIs, Tailwind CSS for styling, React Hook Form for forms, and Zustand for state management.  
+
+**Why study?**  
+- Monorepo architecture with Turborepo  
+- Incremental migration to App Router  
+- Type-safe API communication with tRPC  
+
+---
+
+## 3. **Supabase**  
+**Repo:** [supabase/supabase](https://github.com/supabase/supabase)  
+Supabase is a popular open-source Firebase alternative. Their repo contains multiple Next.js apps for dashboard, docs, and experimental apps. While most apps are still on the `pages` router, newer apps use App Router, showcasing gradual adoption of Next.js 14 features. The stack includes PostgreSQL, Tailwind CSS, React Hook Form, and Tanstack Query for data fetching and caching.  
+
+**Why study?**  
+- Multi-app monorepo structure  
+- Balancing legacy code and new router  
+- Complex dashboard and marketing sites in one repo  
+
+---
+
+## 4. **Unkey**  
+**Repo:** [unkey/unkey](https://github.com/unkey/unkey)  
+Unkey is an API key and rate limiting management platform. Its Turborepo monorepo includes marketing site, main dashboard app, and docs site — all built with Next.js. It uses Planetscale for the database, Drizzle ORM for database modeling, Clerk for authentication, React Hook Form for forms, and Stripe for payments. This project is a great example of fullstack SaaS architecture using modern tools.  
+
+**Why study?**  
+- API management SaaS architecture  
+- Full Turborepo monorepo setup  
+- Integration of multiple backend and frontend tools  
+
+---
+
+## 5. **Documenso**  
+**Repo:** [documenso/documenso](https://github.com/documenso/documenso)  
+Documenso is an open-source alternative to DocuSign focused on digital signatures. It uses a Turborepo monorepo with apps for marketing and the main web application. Stack includes Prisma, tRPC, Kysely for auth, React Hook Form, and Stripe for payment processing. It’s a real-world example of a SaaS product built with Next.js App Router and robust type-safe APIs.  
+
+**Why study?**  
+- Digital signature workflow  
+- Authentication and payment integration  
+- Using multiple ORMs in one repo  
+
+---
+
+## 6. **Midday**  
+**Repo:** [middayapp/midday](https://github.com/middayapp/midday)  
+Midday is a platform for freelancers and consultants to manage projects, finances, and invoices. Built with Bun (a new JS runtime) alongside Turborepo, it includes marketing, dashboard, and docs apps. It uses Supabase, Upstash, Zustand, and React Hook Form. This project shows how to combine emerging technologies with Next.js for SaaS apps.  
+
+**Why study?**  
+- Bun + Next.js integration  
+- Managing multiple apps with Turborepo  
+- SaaS features for freelancers  
+
+---
+
+## 7. **Plane**  
+**Repo:** [planeapp/plane](https://github.com/planeapp/plane)  
+Plane is an open-source alternative to JIRA and Linear for issue and roadmap tracking. It uses a Turborepo monorepo with multiple Next.js apps — some using App Router and others still on pages router. The stack also includes Tailwind CSS, React Hook Form, SWR, and MobX for state management.  
+
+**Why study?**  
+- Complex multi-app monorepo  
+- Incremental App Router adoption  
+- Project management UI best practices  
+
+---
+
+## 8. **TypeHero**  
+**Repo:** [typehero/typehero](https://github.com/typehero/typehero)  
+TypeHero helps developers improve TypeScript skills with interactive challenges. Its monorepo uses Turborepo with web and admin apps. The stack includes Prisma, Tailwind, Auth.js for authentication, React Hook Form, Zustand, and Tanstack Query.  
+
+**Why study?**  
+- Educational platform with challenges  
+- Multi-app monorepo with shared logic  
+- Full TypeScript-centric stack  
+
+---
+
+## 9. **Dify**  
+**Repo:** [dify-ai/dify](https://github.com/dify-ai/dify)  
+Dify is a platform to build applications powered by large language models (LLMs). It provides AI workflows, retrieval augmented generation (RAG), and model management. Built with Tailwind, Zustand, React Hook Form, Zod, and SWR, this project shows how to build AI-enabled SaaS apps with Next.js.  
+
+**Why study?**  
+- AI workflow platform  
+- Advanced React state management  
+- Modern Next.js frontend patterns  
+
+---
+
+## 10. **Dub**  
+**Repo:** [dubco/dub](https://github.com/dubco/dub)  
+Dub.co is an open-source URL shortening and link management platform. It uses a Turborepo monorepo with a web app featuring Planetscale, Prisma ORM, Auth.js, Stripe payments, Upstash caching, and Tailwind.  
+
+**Why study?**  
+- URL shortener architecture  
+- Caching and rate limiting with Upstash  
+- Payment and auth in SaaS apps  
+
+---
+
+## 11. **Noodle**  
+**Repo:** [noodleai/noodle](https://github.com/noodleai/noodle)  
+Noodle is a student education management platform combining notes, calendars, flashcards, and more. Though still unreleased, it’s built with Bun, Tailwind, Clerk, Drizzle ORM, and Next.js App Router — showcasing modern indie SaaS development.  
+
+**Why study?**  
+- Indie app with modern stack  
+- Bun runtime + Next.js integration  
+- Educational SaaS domain  
+
+---
+
+## 12. **Morphic**  
+**Repo:** [morphic-ai/morphic](https://github.com/morphic-ai/morphic)  
+Morphic is an AI-powered search engine with generative UI features. Built with Bun, Tailwind, OpenAI SDKs, and Vercel AI SDK, it demonstrates Next.js with AI integrations and server components.  
+
+**Why study?**  
+- AI-driven search interface  
+- Next.js and Vercel AI SDK  
+- Complex UI and backend integration  
+
+---
+
+## 13. **OpenStatus**  
+**Repo:** [openstatus/openstatus](https://github.com/openstatus/openstatus)  
+OpenStatus is a synthetic monitoring and frontend performance tool. It’s a Turborepo monorepo with web and docs apps. It uses Upstash, Tinybird, Drizzle ORM, Auth.js, React Hook Form, and Stripe.  
+
+**Why study?**  
+- Monitoring and analytics platform  
+- Multi-app repo with real-time features  
+- Modern database and auth integration  
+
+---
+
+## 14. **Skateshop**  
+**Repo:** [skateshop/skateshop](https://github.com/skateshop/skateshop)  
+An open-source e-commerce demo shop for skateboards, built to demonstrate modern Next.js features like API routes, Stripe integration, and authentication with Clerk.  
+
+**Why study?**  
+- E-commerce basics with Next.js  
+- Payment and auth integration  
+- Good for learning modern Next.js techniques  
+
+---
+
+## 15. **Feedbase**  
+**Repo:** [feedbase/feedbase](https://github.com/feedbase/feedbase)  
+Feedbase is a feedback collection and update communication platform. It’s a Turborepo monorepo using Supabase, Tinybird, React Hook Form, and Mintlify for documentation.  
+
+**Why study?**  
+- SaaS communication tool architecture  
+- Monorepo with multiple apps  
+- Data collection and analytics  
+
+---
+
+## 16. **Blitz.js**  
+**Repo:** [blitz-js/blitz](https://github.com/blitz-js/blitz)  
+Blitz.js is a fullstack framework built on Next.js that adds conventions and a zero-API data layer for rapid app development. It uses Next.js pages, Prisma ORM, and full TypeScript support.  
+
+**Why study?**  
+- Fullstack framework built on Next.js  
+- Zero-API data layer pattern  
+- Rapid prototyping ideas  
+
+---
+
+## 17. **T3 Stack (Create T3 App)**  
+**Repo:** [t3-oss/create-t3-app](https://github.com/t3-oss/create-t3-app)  
+A starter kit integrating Next.js, Prisma, tRPC, Tailwind, and NextAuth.js. It’s a popular boilerplate for modern fullstack TypeScript apps.  
+
+**Why study?**  
+- Modern starter boilerplate  
+- Best-in-class fullstack tooling  
+- Opinionated architecture and dev experience  
+
+---
+
+## 18. **Hashnode**  
+**Repo:** [Hashnode/mern-starter](https://github.com/Hashnode/mern-starter) (partial Next.js usage)  
+Hashnode is a developer blogging platform with a React and Next.js frontend, showcasing advanced integrations and real-time features.  
+
+**Why study?**  
+- Developer community platform  
+- Blog + social features  
+- Real-time UI with React and Next.js  
+
+---
+
+## 19. **NextAuth.js**  
+**Repo:** [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)  
+The most popular open-source authentication library for Next.js. It supports dozens of OAuth providers, email login, JWT, and integrates with many database adapters.  
+
+**Why study?**  
+- Authentication flows in Next.js
