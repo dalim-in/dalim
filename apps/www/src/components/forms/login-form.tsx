@@ -16,6 +16,7 @@ import { AuthFormMessageLogin } from './auth-form-message'
 import { Separator } from '@dalim/core/ui/separator'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@dalim/core/ui/form'
 import { Input } from '../ui/input'
+import { Google } from '@dalim/core/components/logos'
 
 export function LoginForm() {
     const router = useRouter()
@@ -117,6 +118,7 @@ export function LoginForm() {
                 className="w-full">
                 {isGoogleLoading && <Loader className="mr-2 size-4 animate-spin" />}
                 <span>Continue with Google</span>
+                <Google/>
             </Button>
 
             <Separator />

@@ -58,7 +58,7 @@ const AuthFormMessageLogin = ({ message, type, title }: AuthFormMessageProps) =>
         <div>
             <div>
                 <Alert variant={type}>
-                    {type === 'default' ? <CheckCircle className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
+                    {type === 'default' ? <CheckCircle className="h-4 w-4 text-green-500" /> : <AlertCircle className="h-4 w-4" />}
                     {title && <AlertTitle>{title}</AlertTitle>}
                     <AlertDescription>{message}</AlertDescription>
                 </Alert>

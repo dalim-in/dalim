@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL, FONTS_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, FONTS_URL, LEARN_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -24,14 +24,6 @@ export function Menu() {
                         <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid gap-3 p-4 md:w-[600px] lg:w-[900px] lg:grid-cols-[1fr_1fr_1fr]">
-                                <li className="row-span-1">
-                                    <NavigationMenuLink href={`${FONTS_URL}`}>
-                                        <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
-                                            <div className="text-primary mb-2 text-lg font-medium">Fonts</div>
-                                            <p className="text-muted-foreground text-sm leading-tight">Discover beautifully crafted typefaces for every creative project.</p>
-                                        </div>
-                                    </NavigationMenuLink>
-                                </li>
                                 <div className="row-span-1 space-y-3">
                                     <ListItem
                                         href="/pricing"
@@ -39,9 +31,9 @@ export function Menu() {
                                         World's Top Designers profile list. Download the Assets from users.
                                     </ListItem>
                                     <ListItem
-                                        href={`${AGENCY_URL}`}
-                                        title="Agency">
-                                        Design Without Limits. Get agency-level designs without the agency price.
+                                        href={`${FONTS_URL}`}
+                                        title="Fonts">
+                                        Discover beautifully crafted typefaces for every creative project.
                                     </ListItem>
                                     <ListItem
                                         href="/blogs"
@@ -50,13 +42,30 @@ export function Menu() {
                                     </ListItem>
                                 </div>
                                 <li className="row-span-1">
-                                    <NavigationMenuLink href={`${WORKS_URL}`}>
+                                    <NavigationMenuLink href={`${AGENCY_URL}`}>
                                         <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
-                                            <div className="text-primary mb-2 text-lg font-medium">Works</div>
-                                            <p className="text-muted-foreground text-sm leading-tight">Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.</p>
+                                            <div className="text-primary mb-2 text-lg font-medium">Agency</div>
+                                            <p className="text-muted-foreground text-sm leading-tight"> Design Without Limits. Get agency-level designs without the agency price.</p>
                                         </div>
                                     </NavigationMenuLink>
                                 </li>
+                                <div className="row-span-1 space-y-3">
+                                    <ListItem
+                                        href="/creators"
+                                        title="Creators">
+                                        World's Top Designers profile list. Download the Assets from users.
+                                    </ListItem>
+                                    <ListItem
+                                        href={`${LEARN_URL}`}
+                                        title="Learn">
+                                        Learn Without Limits. Get agency-level designs without the agency price.
+                                    </ListItem>
+                                    <ListItem
+                                        href={`${WORKS_URL}`}
+                                        title="Works">
+                                        Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.
+                                    </ListItem>
+                                </div>
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>

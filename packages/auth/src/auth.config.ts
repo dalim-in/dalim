@@ -31,10 +31,10 @@ export default {
     if (!isPasswordValid) return null;
 
     if (!user.emailVerified) {
-      // Prevent login if email is not verified
-      throw new Error("E-mail não verificado. Verifique seu e-mail antes de continuar.");
+     // Prevent login if email is not verified
+     throw new Error("Email not verified. Please verify your email before continuing.");
     }
-
+ 
     return user;
   },
 }),
