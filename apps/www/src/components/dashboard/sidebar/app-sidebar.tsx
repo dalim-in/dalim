@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Frame, Map, PieChart, Settings2, SquareTerminal } from 'lucide-react'
+import { Frame, SquareLibrary, PenTool, Settings2, SquareCode } from 'lucide-react'
 import Image from 'next/image'
 
 import { NavMain } from './nav-main'
@@ -10,23 +10,19 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupConte
 import { AGENCY_URL, UI_URL, WORKS_URL } from '@dalim/auth'
 import { PublicUser } from '@/src/types/user'
 import { SidebarOptInForm } from './sidebar-opt-in-form'
+import Link from 'next/link'
 
-const data = {
-    user: {
-        name: 'shadcn',
-        email: 'm@example.com',
-        avatar: '/avatars/shadcn.jpg',
-    },
+const data = { 
     navMain: [
         {
-            title: 'General',
+            title: 'Designs',
             url: '#',
-            icon: SquareTerminal,
+            icon: PenTool,
             isActive: true,
             items: [
-                { title: 'Downloads', url: '#' },
-                { title: 'Chats', url: '#' },
-                { title: 'Designs', url: '#' },
+                { title: 'Fonts', url: '#' },
+                { title: 'Graphics', url: '#' },
+                { title: 'Assets', url: '#' },
             ],
         },
         {
@@ -34,7 +30,7 @@ const data = {
             url: '#',
             icon: Settings2,
             items: [
-                { title: 'General', url: '#' },
+                { title: 'General', url: '/dashboard/settings' },
                 { title: 'Team', url: '#' },
                 { title: 'Billing', url: '#' },
             ],
@@ -42,8 +38,8 @@ const data = {
     ],
     projects: [
         { name: 'Agency', url: AGENCY_URL, icon: Frame },
-        { name: 'UI', url: UI_URL, icon: PieChart },
-        { name: 'Works', url: WORKS_URL, icon: Map },
+        { name: 'UI', url: UI_URL, icon: SquareCode },
+        { name: 'Works', url: WORKS_URL, icon: SquareLibrary },
     ],
 }
 
@@ -89,16 +85,18 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
                     <SidebarGroupContent>
                         <SidebarMenu>
                             <SidebarMenuItem>
-                                <div className="pl-3">
+                                <div className="pl-2">
                                     {state !== 'collapsed' && (
-                                        <div className='space-y-1'>
-                                            <div>
-                                                <span className="text-xs">Username: </span>
-                                                <span className="text-md text-brand cursor-pointer hover:underline">{user.username}</span>
+                                        <div className="space-y-1">
+                                            <div className='flex items-center gap-2'>
+                                                <p className="text-xs">Username:</p>
+                                                <Link href={`/${user.username}`}>
+                                                    <span className="text-md text-brand cursor-pointer hover:underline">{user.username}</span>
+                                                </Link>
                                             </div>
-                                            <div>
-                                                <span className="text-xs">Bio: </span>
-                                                <span className="text-md text-brand cursor-pointer hover:underline">{user.bio || " "}</span>
+                                           <div className='flex items-center gap-2'>
+                                                <p className="text-xs">Bio:</p>
+                                                <span className="text-md">{user.bio || ' '}</span>
                                             </div>
                                         </div>
                                     )}

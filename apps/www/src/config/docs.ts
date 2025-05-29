@@ -25,49 +25,17 @@ export const docsConfig: DocsConfig = {
           title: "Introduction",
           href: "/docs",
           items: [],
-        },
-
-        {
-          title: "Typography",
-          href: "/docs",
-          items: [],
-        },
+        }, 
       ],
     },
       
     {
       title: "Components",
-      items: [
-        {
-          title: "Accordion",
-          href: "/docs",
-          items: [],
-        },
-        {
-          title: "Alert",
-          href: "/docs",
-          items: [],
-        },
-
-        {
-          title: "Avatar",
-          href: "/docs",
-          items: [],
-        },
-        {
-          title: "Badge",
-          href: "/docs",
-          items: [],
-        },
-        {
-          title: "Banner",
-          href: "/docs",
-          items: [],
-        },
+      items: [ 
         {
           title: "Book",
           label: "New",
-          href: "/docs",
+          href: "/docs", 
           items: [],
         },
         

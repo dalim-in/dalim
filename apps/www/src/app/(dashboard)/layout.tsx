@@ -24,7 +24,7 @@ export default async function Users({ children }: ProtectedLayoutProps) {
                 <SidebarProvider className="relative flex h-full">
                     <AppSidebar user={user} className="relative h-[950px] border-l" />
                     <SidebarInset className="">
-                        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                        <header className="flex border-b h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
                             <div className="flex items-center gap-2 px-4">
                                 <SidebarTrigger className="-ml-1" />
                                 <Separator
@@ -44,7 +44,7 @@ export default async function Users({ children }: ProtectedLayoutProps) {
                                 </Breadcrumb>
                             </div>
                         </header>
-                        <div className="h-[870px] overflow-y-auto px-6">
+                        <div className="h-[870px] mt-3 overflow-y-auto px-6">
                             {children} 
                         </div>
                     </SidebarInset>

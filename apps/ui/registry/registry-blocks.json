@@ -140,12 +140,7 @@
           "path": "registry/default/blocks/navbar/navbar-01/page.tsx",
           "type": "registry:block",
           "target": "components/navbar-01/navbar-01.tsx"
-        },
-        {
-          "path": "registry/default/blocks/navbar/navbar-01/logo.tsx",
-          "type": "registry:component",
-          "target": "components/navbar-01/logo.tsx"
-        },
+        }, 
         {
           "path": "registry/default/blocks/navbar/navbar-01/nav-menu.tsx",
           "type": "registry:component",

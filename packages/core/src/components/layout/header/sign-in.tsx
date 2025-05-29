@@ -6,7 +6,7 @@ import type { User } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
 
 import Link from 'next/link'
-import { signOut } from 'next-auth/react' 
+import { signOut } from 'next-auth/react'
 
 interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
     user: Pick<User, 'name' | 'image' | 'email'> & { role?: 'USER' | 'ADMIN' }
@@ -49,9 +49,11 @@ export function SignIn({ user }: UserAccountNavProps) {
                         </DropdownMenuItem>
                     )}
 
-                    <DropdownMenuItem>
-                        Settings
-                        <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                    <DropdownMenuItem asChild>
+                        <Link href={`${DALIM_URL}/dashboard/settings`}>
+                            Settings
+                            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                        </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
@@ -85,7 +87,7 @@ export function SignIn({ user }: UserAccountNavProps) {
                             callbackUrl: `${DALIM_URL}`,
                         })
                     }}>
-                    <div className="flex items-center space-x-2.5"> 
+                    <div className="flex items-center space-x-2.5">
                         <p className="text-sm">Log out </p>
                     </div>
                     <DropdownMenuShortcut>⌘+L</DropdownMenuShortcut>
