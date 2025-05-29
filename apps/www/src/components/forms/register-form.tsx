@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 import { register, RegisterSchema } from '@dalim/auth'
 
-import AuthFormMessage from './auth-form-message'
+import { AuthFormMessageLogin } from './auth-form-message'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@dalim/core/ui/form'
 import { Button } from '@dalim/core/ui/button'
 import { Input } from '../ui/input'
@@ -163,14 +163,14 @@ export function RegisterForm() {
                     />
 
                     {error && (
-                        <AuthFormMessage
+                        <AuthFormMessageLogin
                             type="default"
                             message={error}
                             title="Error"
                         />
                     )}
                     {success && (
-                        <AuthFormMessage
+                        <AuthFormMessageLogin
                             type="default"
                             message={success}
                             title="Success"

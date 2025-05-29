@@ -11,7 +11,7 @@ import { findUserByEmail } from "./validations/auth";
 export default {
   providers: [
     Credentials({
-  async authorize(credentials) {
+    async authorize(credentials) {
     const validatedCredentials = CredentialsSchema.safeParse(credentials);
     if (!validatedCredentials.success) return null;
 
@@ -20,6 +20,10 @@ export default {
 
     if (!user || !user.password) {
       throw new UserNotFound();
+    }
+
+    if (!user.password) {
+          throw new Error("Please sign in with Google or set a password first.")
     }
 
     const isPasswordValid = await bcryptjs.compare(password, user.password);
@@ -39,6 +43,7 @@ export default {
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
   ],
 } satisfies NextAuthConfig;

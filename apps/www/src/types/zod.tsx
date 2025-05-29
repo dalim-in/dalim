@@ -24,6 +24,15 @@ export const updateSecuritySchema = z.object({
   isTwoFactorAuthEnabled: z.boolean(),
 })
 
+export const setPasswordSchema = z
+  .object({
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    confirmPassword: z.string().min(6, "Password must be at least 6 characters"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  })
 
 export const profileSchema = z.object({
   name: z.string().min(1, "Name is required").max(50, "Name must be less than 50 characters"),

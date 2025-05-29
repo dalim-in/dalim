@@ -2,6 +2,7 @@ import { auth } from "@dalim/auth"
 import { redirect } from "next/navigation" 
 import { prisma } from "@dalim/db"
 import { ProfileSettingsForm } from "@/src/components/dashboard/settings/profile-settings-form"
+ 
 
 export default async function SettingsPage() {
   const session = await auth()
@@ -40,7 +41,7 @@ export default async function SettingsPage() {
         <div>
           <h1 className="text-3xl font-bold">Settings</h1>
           <p className="text-muted-foreground">Manage your account settings and preferences.</p>
-        </div>
+        </div> 
         <ProfileSettingsForm user={user} />
       </div>
     </div>

@@ -105,7 +105,29 @@ export const {
       },
     },
   },
+  events: {
+    async linkAccount({ user }) {
+      // When an account is linked, mark email as verified
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { emailVerified: new Date() },
+      })
+    },
+  },
   callbacks: { 
+    async signIn({ user, account, profile }) {
+      // Allow OAuth without email verification
+      if (account?.provider !== "credentials") return true
+
+      // For credentials, check email verification
+      const existingUser = await getUserById(user.id!)
+
+      if (!existingUser?.emailVerified) {
+        return false
+      }
+
+      return true
+    },
     async session({ token, session }) {
       if (session.user) {
         if (token.sub) {
@@ -117,10 +139,9 @@ export const {
         }
 
         if (token.role) {
-  session.user.role = token.role as UserRole;
-}
-
-
+          session.user.role = token.role as UserRole;
+        }
+ 
         session.user.name = token.name;
         session.user.image = token.picture;
         

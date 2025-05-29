@@ -4,7 +4,7 @@ import { verifyToken } from '@dalim/auth'
 import { useSearchParams } from 'next/navigation'
 import React, { useCallback, useEffect, useState } from 'react'
 
-import AuthFormMessage from './auth-form-message'
+import { AuthFormMessage } from './auth-form-message'
 
 const EmailVerificationForm = () => {
     const [error, setError] = useState<string | undefined>(undefined)
@@ -52,7 +52,7 @@ const EmailVerificationForm = () => {
                 {error && (
                     <AuthFormMessage
                         title="We encountered a problem"
-                        type="default"
+                        type="destructive"
                         message={error}
                     />
                 )}

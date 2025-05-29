@@ -6,4 +6,5 @@ export * from "./src/schemas/auth"
 export * from "./src/action/auth/email-verification"
 export * from "./src/action/auth/register"
 export * from "./src/action/auth/login"
+export * from "./src/services"
 

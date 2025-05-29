@@ -4,11 +4,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@dalim/core/ui/card'
 
-import { Calendar, Globe, Twitter, Instagram, Linkedin, LinkIcon, Share, MoreHorizontal, CheckCircle, Eye } from 'lucide-react'
+import { Calendar, Globe, Twitter, Instagram, Linkedin, LinkIcon, Share, MoreHorizontal, Eye } from 'lucide-react'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { toast } from '@dalim/core/hooks/use-toast'
 import Image from 'next/image'
+import { BlueTick } from '@dalim/core/components/logos'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@dalim/core/ui/dropdown-menu'
 
 type UserType = {
@@ -91,7 +92,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
             </div>
 
             {/* Profile Content */}
-            <div className="container relative z-10 mx-auto -mt-40 md:-mt-20 max-w-4xl px-6">
+            <div className="container relative z-10 mx-auto -mt-40 max-w-4xl px-6 md:-mt-20">
                 <div className="space-y-3">
                     {/* Profile Header */}
                     <Card className="border-0 shadow-xl">
@@ -100,7 +101,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                 {/* Avatar and Basic Info */}
                                 <div className="flex flex-col gap-3 sm:flex-row">
                                     <div className="flex-shrink-0">
-                                        <Avatar className="border-border/50 h-24 w-24 md:h-32 md:w-32 border-4">
+                                        <Avatar className="border-border/50 h-24 w-24 border-4 md:h-32 md:w-32">
                                             <AvatarImage src={user.image || '/placeholder.svg'} />
                                             <AvatarFallback className="text-2xl">{user.name?.charAt(0)?.toUpperCase() || user.username?.charAt(0)?.toUpperCase() || 'U'}</AvatarFallback>
                                         </Avatar>
@@ -109,7 +110,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                     <div className="">
                                         <div className="flex items-center gap-2">
                                             <h1 className="text-2xl font-bold md:text-3xl">{user.name || user.username}</h1>
-                                            {user.emailVerified && <CheckCircle className="h-6 w-6 text-blue-500" />}
+                                            {user.emailVerified && <BlueTick className="h-5 w-5" />}
                                         </div>
                                         <p className="text-muted-foreground text-lg">{user.username}</p>
                                         {user.bio && <p className="mt-2 max-w-2xl text-lg">{user.bio}</p>}
@@ -123,11 +124,11 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                     </div>
                                 </div>
 
-                                <div className="ml-auto flex flex-col justify-between items-end">
+                                <div className="ml-auto flex flex-col items-end justify-between">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
                                             <Button
-                                                variant="outline"
+                                                variant="ghost"
                                                 size="icon">
                                                 <MoreHorizontal className="h-4 w-4" />
                                             </Button>
@@ -170,7 +171,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                             </div>
                         </CardContent>
                     </Card>
-                    <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-3">
                         {/* Left Column */}
                         <div className="space-y-6 lg:col-span-2">
                             {/* Summary */}

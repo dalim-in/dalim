@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
+import type * as z from 'zod'
 import Image from 'next/image'
 import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@dalim/core/ui/card'
@@ -17,8 +17,9 @@ import { Badge } from '@dalim/core/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 import { toast } from '@dalim/core/hooks/use-toast'
 import { Shield, User, Link, Settings } from 'lucide-react'
-import { ProfileSettingsFormProps } from '@/src/types/user'
+import type { ProfileSettingsFormProps } from '@/src/types/user'
 import { profileSchema, securitySchema } from '@/src/types/zod'
+import { SendVerificationEmail } from './send-verification-email'
 
 export function ProfileSettingsForm({ user }: ProfileSettingsFormProps) {
     const [isLoading, setIsLoading] = useState(false)
@@ -279,7 +280,7 @@ export function ProfileSettingsForm({ user }: ProfileSettingsFormProps) {
                                     )}
                                 />
 
-                                <div className="bg-brand rounded-xl relative h-64 overflow-hidden md:h-80">
+                                <div className="bg-brand relative h-64 overflow-hidden rounded-xl md:h-80">
                                     {user.coverImage && (
                                         <Image
                                             src={user.coverImage || '/placeholder.svg'}
@@ -530,11 +531,21 @@ export function ProfileSettingsForm({ user }: ProfileSettingsFormProps) {
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                             <div>
                                 <label className="text-muted-foreground text-sm font-medium">Account ID</label>
-                                <p className="bg-muted rounded p-2 font-mono text-sm">{user.id}</p>
+                                <p className="bg-muted rounded-md p-2 pl-4 font-mono text-sm">{user.id}</p>
                             </div>
                             <div>
                                 <label className="text-muted-foreground text-sm font-medium">Email Verification</label>
-                                <div className="mt-1 flex items-center gap-2">{user.emailVerified ? <Badge variant="default">Verified</Badge> : <Badge variant="secondary">Not Verified</Badge>}</div>
+                                <div className="mt-1 flex items-center gap-2">
+                                    {user.emailVerified ? (
+                                        <Badge variant="default">Verified</Badge>
+                                    ) : (
+                                        <>
+                                            <Badge variant="secondary">Not Verified</Badge>
+                                            <SendVerificationEmail user={user} />
+                                        </>
+                                    )}
+                                </div>
+                                {!user.emailVerified && <p className="text-muted-foreground mt-1 text-xs">Click the verify button to receive a verification email at {user.email}</p>}
                             </div>
                         </div>
 

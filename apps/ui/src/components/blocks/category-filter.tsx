@@ -32,13 +32,13 @@ const CategoryFilter = () => {
       return
     }
 
-    router.push(`/blocks/categories/${value}?${searchParams.toString()}`)
+    router.push(`/blocks/category/${value}?${searchParams.toString()}`)
   }
 
   return (
     <div> 
       <Select value={category} onValueChange={handleSelect}>
-        <SelectTrigger className=" w-[180px]">
+        <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a category" />
         </SelectTrigger>
         <SelectContent>
