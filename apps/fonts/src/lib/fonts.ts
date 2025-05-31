@@ -6,7 +6,7 @@ import { FONTS_URL } from "@dalim/auth";
  */
 export async function getFonts() {
   try {
-    const response = await fetch("/api/fonts");
+    const response = await fetch(`${FONTS_URL}/api/fonts`);
     
     if (!response.ok) {
       throw new Error("Failed to fetch fonts");
@@ -144,3 +144,4 @@ export async function incrementFontDownloadCount(id: string) {
     return null;
   }
 }
+ 

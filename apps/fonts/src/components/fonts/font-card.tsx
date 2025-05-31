@@ -6,6 +6,7 @@ import { Button } from '@dalim/core/ui/button'
 import { Download, Eye, Files, Star } from 'lucide-react'
 import { FontQuickPreview } from './font-quick-preview'
 import { incrementFontDownloadCount } from '@/src/lib/fonts'
+import { useFontPreview } from '@/src/hooks/use-font-preview'
 
 interface FontCardProps {
     font: {
@@ -25,6 +26,7 @@ interface FontCardProps {
 }
 
 export function FontCard({ font }: FontCardProps) {
+    const { previewText, fontSize, textAlign, letterSpacing } = useFontPreview()
     const handleDownload = async () => {
         // Increment download count in the database
         await incrementFontDownloadCount(font.id)
@@ -39,12 +41,16 @@ export function FontCard({ font }: FontCardProps) {
                 <div className="relative p-2">
                     <Link href={`/${font.id}`}>
                         <FontQuickPreview
+                            previewText={previewText}
+                            textAlign={textAlign}
+                            letterSpacing={letterSpacing}
                             fontUrl={font.previewUrl}
                             fontName={font.name}
+                            fontSize={fontSize}
                         />
                     </Link>
-                    <div className="flex justify-between">
-                        <div className="flex items-center gap-6 px-4">
+                    <div className="flex items-start justify-between">
+                        <div className="grid md:flex items-center gap-3 md:gap-6 px-4">
                             <div className="flex items-center gap-2">
                                 <h3 className="truncate text-lg font-semibold">{font.name}</h3>
                                 {font.featured && (
@@ -88,7 +94,7 @@ export function FontCard({ font }: FontCardProps) {
                                         <Files className="ml-2 h-4 w-4" />
                                         <span>{font.fontFiles}</span>
                                     </>
-                                )} 
+                                )}
                             </div>
                         </div>
                         <div className="mr-2">

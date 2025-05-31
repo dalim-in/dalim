@@ -308,15 +308,15 @@ export function DalimFontsLogo() {
                 aria-label="Home">
                 <span className="sr-only">Dalim</span>
                 <Image
-                    src={FontsLogoDark}
+                    src={PhoneLogoDark}
                     alt="Dalim logo"
                     width={24}
-                    height={24}
+                    height={30}
                     className="dark:hidden"
                     priority
                 />
                 <Image
-                    src={FontsLogo}
+                    src={PhoneLogo}
                     alt="Dalim logo"
                     width={24}
                     height={30}

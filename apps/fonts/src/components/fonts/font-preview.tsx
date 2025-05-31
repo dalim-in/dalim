@@ -17,7 +17,7 @@ interface FontPreviewProps {
 export function FontPreview({ font, expanded = false }: FontPreviewProps) {
     const [fontLoaded, setFontLoaded] = useState(false)
     const [previewText, setPreviewText] = useState('')
-    const [fontSize, setFontSize] = useState(expanded ? 48 : 24)
+    const [fontSize, setFontSize] = useState(expanded ? 54 : 24)
     const fontFamily = `font-${font.name.replace(/\s+/g, '-').toLowerCase()}`
 
     useEffect(() => {
@@ -79,6 +79,7 @@ export function FontPreview({ font, expanded = false }: FontPreviewProps) {
                             style={{
                                 fontFamily: fontFamily,
                                 fontSize: `${fontSize}px`,
+                                
                                 lineHeight: 1.4,
                                 wordBreak: 'break-word',
                             }}

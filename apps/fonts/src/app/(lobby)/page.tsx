@@ -1,29 +1,29 @@
-import { Suspense } from "react";  
-import { PageHeader } from "@dalim/core/components/common/page-header"
+import { Suspense } from 'react'
+import { PageHeader } from '@dalim/core/components/common/page-header'
 
-import { FontsFilterBar } from "@/src/components/fonts/font-filter";
-import { FontsList } from "@/src/components/fonts/font-list";
+import { FontsList } from '@/src/components/fonts/font-list'
+import { MainFontPreviewControls } from '@/src/components/fonts/font-preview-controls'
 
 export const metadata = {
-  title: "Fonts Library",
-  description: "Browse, upload, and download high-quality fonts",
-};
+    title: 'Fonts Library',
+    description: 'Browse, upload, and download high-quality fonts',
+}
 
 export default function FontsPage() {
-  return (
-    <main className="">
-       <PageHeader
-               badge="Fonts"
-               className="-mx-6 -mt-14"
-               title={"Find a font for your Designs."}
-               subheading="Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats."
-             />
-      <div className="mx-auto max-w-6xl border-x px-6 py-6">
-        <FontsFilterBar /> 
-        <Suspense fallback={"Loading..."}>
-          <FontsList />
-        </Suspense>
-      </div>
-    </main>
-  );
+    return (
+        <main className="">
+            <PageHeader
+                badge="Fonts"
+                className="-mx-6 -mt-14"
+                title={'Find a font for your Designs.'}
+                subheading="Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats."
+            />
+            <div className="mx-auto max-w-6xl border-x px-6 py-6">
+                <MainFontPreviewControls />
+                <Suspense fallback={'Loading...'}>
+                    <FontsList />
+                </Suspense>
+            </div>
+        </main>
+    )
 }
