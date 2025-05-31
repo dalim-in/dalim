@@ -4,19 +4,8 @@ import { FontType, FontCategory, prisma } from "@dalim/db";
 import { cloudinary } from "@/src/lib/cloudinary";
 
 export async function GET() {
-  try {
-    const session = await auth();
-
-    if (!session?.user?.id) {
-      return (
-        NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-      );
-    }
-    
-    const fonts = await prisma.font.findMany({
-      where: {
-        userId: session.user.id,
-      },
+  try { 
+    const fonts = await prisma.font.findMany({ 
       orderBy: {
         createdAt: "desc",
       },

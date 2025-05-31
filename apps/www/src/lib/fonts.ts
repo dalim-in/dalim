@@ -15,6 +15,21 @@ export async function getFonts() {
   }
 }
 
+export async function getAdminFonts() {
+  try {
+    const response = await fetch(`${DALIM_URL}/api/admin/fonts`);
+    
+    if (!response.ok) {
+      throw new Error("Failed to fetch fonts");
+    }
+    
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching fonts:", error);
+    throw error;
+  }
+}
+
 /**
  * Get a font by ID
  */
