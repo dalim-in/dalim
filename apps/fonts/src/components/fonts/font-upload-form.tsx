@@ -325,7 +325,7 @@ export function FontUploadForm({ setPreviewFont }: FontUploadFormProps) {
                         <Card className="mt-1.5">
                             <CardHeader>
                                 <CardTitle className="text-base">Upload ZIP Package</CardTitle>
-                                <CardDescription>Upload a ZIP file with additional font (Max 5MB)</CardDescription>
+                                <CardDescription>Upload a ZIP file with additional font (Max 10MB)</CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <FormField

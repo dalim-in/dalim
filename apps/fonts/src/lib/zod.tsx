@@ -1,7 +1,7 @@
 import z from 'zod'
 
 export const MAX_FONT_FILE_SIZE = 2 * 1024 * 1024
-export const MAX_ZIP_FILE_SIZE = 5 * 1024 * 1024
+export const MAX_ZIP_FILE_SIZE = 10 * 1024 * 1024
 export const ACCEPTED_FONT_TYPES = ['.ttf', '.otf', '.woff', '.woff2']
 export const ACCEPTED_ZIP_TYPES = ['.zip']
 
