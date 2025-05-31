@@ -3,12 +3,19 @@ import { auth } from "@dalim/auth";
 import { FontType, FontCategory, prisma } from "@dalim/db";
 import { cloudinary } from "@/src/lib/cloudinary";
 
+// Add CORS headers to responses
+function withCORS(response: NextResponse) {
+  response.headers.set("Access-Control-Allow-Origin", "*"); // Use a specific origin in production
+  response.headers.set("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return response;
+}
+
+// Handle GET /api/fonts
 export async function GET() {
   try {
     const fonts = await prisma.font.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: { createdAt: "desc" },
       include: {
         user: {
           select: {
@@ -20,24 +27,23 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(fonts);
+    return withCORS(NextResponse.json(fonts));
   } catch (error) {
     console.error("Error fetching fonts:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch fonts" },
-      { status: 500 }
+    return withCORS(
+      NextResponse.json({ error: "Failed to fetch fonts" }, { status: 500 })
     );
   }
 }
 
+// Handle POST /api/fonts
 export async function POST(req: Request) {
   try {
     const session = await auth();
 
     if (!session?.user?.id) {
-      return NextResponse.json(
-        { error: "Unauthorized - user ID missing" },
-        { status: 401 }
+      return withCORS(
+        NextResponse.json({ error: "Unauthorized" }, { status: 401 })
       );
     }
 
@@ -55,30 +61,25 @@ export async function POST(req: Request) {
     const zipFile = formData.get("zipFile") as File | null;
 
     if (!fontFile) {
-      return NextResponse.json(
-        { error: "Font file is required" },
-        { status: 400 }
+      return withCORS(
+        NextResponse.json({ error: "Font file is required" }, { status: 400 })
       );
     }
 
-    // Validate font type
     const fontType = typeRaw.toUpperCase() as FontType;
     if (!Object.values(FontType).includes(fontType)) {
-      return NextResponse.json(
-        { error: `Invalid font type: ${typeRaw}` },
-        { status: 400 }
+      return withCORS(
+        NextResponse.json({ error: `Invalid font type: ${typeRaw}` }, { status: 400 })
       );
     }
 
     const fontCategory = categoryRaw.toUpperCase() as FontCategory;
     if (!Object.values(FontCategory).includes(fontCategory)) {
-      return NextResponse.json(
-        { error: `Invalid font type: ${categoryRaw}` },
-        { status: 400 }
+      return withCORS(
+        NextResponse.json({ error: `Invalid category: ${categoryRaw}` }, { status: 400 })
       );
     }
 
-    // Upload font file to Cloudinary
     const fontBuffer = await fontFile.arrayBuffer();
     const fontBase64 = Buffer.from(fontBuffer).toString("base64");
     const fontDataURI = `data:${fontFile.type};base64,${fontBase64}`;
@@ -102,7 +103,6 @@ export async function POST(req: Request) {
       });
     }
 
-    // Create font record in the database
     const font = await prisma.font.create({
       data: {
         name,
@@ -121,12 +121,16 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(font);
+    return withCORS(NextResponse.json(font));
   } catch (error) {
     console.error("Error creating font:", error);
-    return NextResponse.json(
-      { error: "Failed to create font" },
-      { status: 500 }
+    return withCORS(
+      NextResponse.json({ error: "Failed to create font" }, { status: 500 })
     );
   }
+}
+
+// Handle preflight CORS request
+export async function OPTIONS() {
+  return withCORS(new NextResponse(null, { status: 204 }));
 }
