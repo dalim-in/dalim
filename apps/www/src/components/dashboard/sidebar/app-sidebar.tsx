@@ -20,7 +20,7 @@ const data = {
             icon: PenTool,
             isActive: true,
             items: [
-                { title: 'Fonts', url: '#' },
+                { title: 'Fonts', url: '/dashboard/fonts' },
                 { title: 'Graphics', url: '#' },
                 { title: 'Assets', url: '#' },
             ],

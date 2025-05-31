@@ -1,8 +1,8 @@
-import { FONTS_URL } from "@dalim/auth";
+import { DALIM_URL } from "@dalim/auth";
 
 export async function getFonts() {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts`);
+    const response = await fetch(`${DALIM_URL}/api/fonts`);
     
     if (!response.ok) {
       throw new Error("Failed to fetch fonts");
@@ -20,7 +20,7 @@ export async function getFonts() {
  */
 export async function getFontById(id: string) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts/${id}`);
+    const response = await fetch(`${DALIM_URL}/api/fonts/${id}`);
     
     if (!response.ok) {
       throw new Error("Failed to fetch font");
@@ -38,7 +38,7 @@ export async function getFontById(id: string) {
  */
 export async function uploadFont(formData: FormData) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts`, {
+    const response = await fetch(`${DALIM_URL}/api/fonts`, {
       method: "POST",
       body: formData,
     });
@@ -60,7 +60,7 @@ export async function uploadFont(formData: FormData) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function updateFont(id: string, data: any) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts/${id}`, {
+    const response = await fetch(`${DALIM_URL}/api/fonts/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export async function updateFont(id: string, data: any) {
  */
 export async function deleteFont(id: string) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts/${id}`, {
+    const response = await fetch(`${DALIM_URL}/api/fonts/${id}`, {
       method: "DELETE",
     });
     
@@ -104,7 +104,7 @@ export async function deleteFont(id: string) {
  */
 export async function incrementFontViewCount(id: string) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts/${id}/view`, {
+    const response = await fetch(`${DALIM_URL}/api/fonts/${id}/view`, {
       method: "POST",
     });
     
@@ -125,7 +125,7 @@ export async function incrementFontViewCount(id: string) {
  */
 export async function incrementFontDownloadCount(id: string) {
   try {
-    const response = await fetch(`${FONTS_URL}/api/fonts/${id}/download`, {
+    const response = await fetch(`${DALIM_URL}/api/fonts/${id}/download`, {
       method: "POST",
     });
     
@@ -139,6 +139,5 @@ export async function incrementFontDownloadCount(id: string) {
     // Silently fail for download counts
     return null;
   }
-  
 }
  

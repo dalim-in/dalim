@@ -1,6 +1,6 @@
 'use client'
 
-import { useFontPreview } from '@/src/hooks/use-font-preview'
+import { useFontPreview } from '@dalim/core/hooks/use-font-preview'
 import { useEffect, useRef, useState } from 'react'
 
 interface FontQuickPreviewProps {

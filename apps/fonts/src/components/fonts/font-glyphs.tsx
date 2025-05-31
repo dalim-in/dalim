@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@dalim/core/ui/select";
 import { Search } from "lucide-react";
-import { useFontPreview } from "@/src/hooks/use-font-preview";
+import { useFontPreview } from "@dalim/core/hooks/use-font-preview";
 
 interface FontGlyphsProps {
   fontId: string;

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: FontDetailPageProps) {
     }
 
     return {
-        title: `${font.name} | Font Library`,
+        title: `${font.name} - Font - Dalim`,
         description: font.description || `Download ${font.name} font`,
     }
 }

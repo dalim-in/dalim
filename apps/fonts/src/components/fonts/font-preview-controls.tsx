@@ -6,7 +6,7 @@ import { Label } from "@dalim/core/ui/label"
 import { Button } from "@dalim/core/ui/button"
 import { ToggleGroup, ToggleGroupItem } from "@dalim/core/ui/toggle-group"
 import { Switch } from "@dalim/core/ui/switch"
-import { useFontPreview } from "@/src/hooks/use-font-preview"
+import { useFontPreview } from "@dalim/core/hooks/use-font-preview"
  
 import { AlignCenter, RotateCw, AlignLeft, AlignRight } from "lucide-react"
 import Link from "next/link"

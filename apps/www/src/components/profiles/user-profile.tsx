@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Button } from '@dalim/core/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@dalim/core/ui/card'
+import { Card, CardContent, } from '@dalim/core/ui/card'
 
 import { Calendar, Globe, Twitter, Instagram, Linkedin, LinkIcon, Share, MoreHorizontal, Eye } from 'lucide-react'
 import { format } from 'date-fns'
@@ -78,7 +78,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
     ].filter((link) => link.url)
 
     return (
-        <div className="mb-6">
+        <div className="mb-6 -mx-6">
             <div className="bg-brand relative h-64 overflow-hidden md:h-80">
                 {user.coverImage && (
                     <Image
@@ -171,24 +171,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                             </div>
                         </CardContent>
                     </Card>
-                    <div className="grid grid-cols-1 gap-3">
-                        {/* Left Column */}
-                        <div className="space-y-6 lg:col-span-2">
-                            {/* Summary */}
-                            {user.summary && (
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>About</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="whitespace-pre-wrap leading-relaxed">{user.summary}</p>
-                                    </CardContent>
-                                </Card>
-                            )}
-
-                            {/* Recent Activity */}
-                        </div>
-                    </div>
+                     
                 </div>
             </div>
         </div>

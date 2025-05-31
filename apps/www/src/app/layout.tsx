@@ -8,7 +8,7 @@ import { CookieConsent } from '@dalim/core/components/common/CookieConsent'
 import './globals.css'
 import { Header } from '@dalim/core/components/layout/header'
 import { Footer } from '@dalim/core/components/layout/footer'
-import Analytics from '../components/analytics'
+import Analytics from '../components/analytics' 
 import { Metadata } from 'next/types'
 import Providers from '../components/providers'
 import { Loader } from 'lucide-react'
@@ -48,7 +48,8 @@ export default function RootLayout({
                                             />
                                         </div>
                                     }>
-                                    <main className="grow">{children}</main>
+                                        <main className="grow">{children}</main>
+                                    
                                 </Suspense>
                                 <CookieConsent />
                                 <Footer />

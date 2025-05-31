@@ -6,7 +6,8 @@ import { Button } from '@dalim/core/ui/button'
 import { Download, Eye, Files, Star } from 'lucide-react'
 import { FontQuickPreview } from './font-quick-preview'
 import { incrementFontDownloadCount } from '@/src/lib/fonts'
-import { useFontPreview } from '@/src/hooks/use-font-preview'
+import { useFontPreview } from '@dalim/core/hooks/use-font-preview'
+import { FONTS_URL } from '@dalim/auth'
 
 interface FontCardProps {
     font: {
@@ -37,9 +38,9 @@ export function FontCard({ font }: FontCardProps) {
 
     return (
         <div>
-            <div className="bg-muted/40 overflow-hidden rounded-3xl">
+            <div className="bg-muted/50 dark:bg-muted/50 overflow-hidden rounded-3xl">
                 <div className="relative p-2">
-                    <Link href={`/${font.id}`}>
+                    <Link href={`${FONTS_URL}/${font.id}`}>
                         <FontQuickPreview
                             previewText={previewText}
                             textAlign={textAlign}
@@ -50,13 +51,13 @@ export function FontCard({ font }: FontCardProps) {
                         />
                     </Link>
                     <div className="flex items-start justify-between">
-                        <div className="grid md:flex items-center gap-3 md:gap-6 px-4">
+                        <div className="grid items-center gap-3 px-4 md:flex md:gap-6">
                             <div className="flex items-center gap-2">
                                 <h3 className="truncate text-lg font-semibold">{font.name}</h3>
                                 {font.featured && (
                                     <Badge
                                         variant="secondary"
-                                        className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-100">
+                                        className="bg-purple-500 text-white">
                                         <Star className="mr-1 h-3 w-3" />
                                         Featured
                                     </Badge>

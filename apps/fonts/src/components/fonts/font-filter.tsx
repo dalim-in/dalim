@@ -197,7 +197,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                         {availableTypes.map((type) => (
                                             <div
                                                 key={type}
-                                                className="flex items-center space-x-2">
+                                                className="flex mt-1 items-center space-x-2">
                                                 <Checkbox
                                                     id={`type-${type}`}
                                                     checked={filters.fontTypes.includes(type)}
@@ -219,7 +219,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                 <div className="space-y-2">
                                     <Label className="text-sm font-medium">Featured</Label>
                                     <div className="space-y-2">
-                                        <div className="flex items-center space-x-2">
+                                        <div className="flex mt-1 items-center space-x-2">
                                             <Checkbox
                                                 id="featured-only"
                                                 checked={filters.featured === true}
@@ -243,7 +243,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                         {availableTags.map((tag) => (
                                             <div
                                                 key={tag}
-                                                className="flex items-center space-x-2">
+                                                className="flex mt-1 items-center space-x-2">
                                                 <Checkbox
                                                     id={`tag-${tag}`}
                                                     checked={filters.tags.includes(tag)}
@@ -267,9 +267,9 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                     <Slider
                                         value={[filters.minDownloads]}
                                         onValueChange={([value]) => updateFilters({ minDownloads: value })}
-                                        max={1000}
-                                        step={10}
-                                        className="w-full"
+                                        max={100}
+                                        step={1}
+                                        className="w-full mt-2"
                                     />
                                 </div>
 
@@ -281,9 +281,9 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                     <Slider
                                         value={[filters.minViews]}
                                         onValueChange={([value]) => updateFilters({ minViews: value })}
-                                        max={5000}
-                                        step={50}
-                                        className="w-full"
+                                        max={500}
+                                        step={10}
+                                        className="w-full mt-2"
                                     />
                                 </div>
                             </div>

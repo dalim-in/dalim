@@ -4,7 +4,7 @@
 import { SessionProvider } from 'next-auth/react'
 import { ThemeProvider } from './theme-provider'
 import { TooltipProvider } from '@dalim/core/ui/tooltip' 
-import { FontPreviewProvider } from '../hooks/use-font-preview'
+import { FontPreviewProvider } from '@dalim/core/hooks/use-font-preview'
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (

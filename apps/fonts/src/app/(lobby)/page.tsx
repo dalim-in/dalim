@@ -3,12 +3,7 @@ import { PageHeader } from '@dalim/core/components/common/page-header'
 
 import { FontsList } from '@/src/components/fonts/font-list'
 import { MainFontPreviewControls } from '@/src/components/fonts/font-preview-controls'
-
-export const metadata = {
-    title: 'Fonts Library',
-    description: 'Browse, upload, and download high-quality fonts',
-}
-
+ 
 export default function FontsPage() {
     return (
         <main className="">

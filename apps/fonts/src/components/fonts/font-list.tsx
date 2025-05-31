@@ -132,7 +132,7 @@ export function FontsList() {
       <div className="py-3">
         {/* Filter bar skeleton */}
         <div className="space-y-4">
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <div className="flex-1 h-10 bg-muted animate-pulse rounded-md" />
             <div className="w-[180px] h-10 bg-muted animate-pulse rounded-md" />
             <div className="w-[100px] h-10 bg-muted animate-pulse rounded-md" />
@@ -175,3 +175,5 @@ export function FontsList() {
     </div>
   )
 }
+
+

@@ -134,8 +134,8 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                         <div className="flex items-center gap-1">
                             <User className="text-muted-foreground h-4 w-4" />
                             <span className="text-muted-foreground text-sm"> By </span>
-                            <Link href={`${DALIM_URL}/${font.user?.username}`}>
-                                <span className="text-brand text-sm hover:underline"> {font.user?.name || 'Unknown user'}</span>
+                            <Link href={`${DALIM_URL}/${font.user.username}`}>
+                                <span className="text-brand text-sm hover:underline"> {font.user.name || 'Unknown user'}</span>
                             </Link>
                         </div>
                         <div className="mb-6">
@@ -144,6 +144,12 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                                     <Button>Edit the Font</Button>
                                 </Link>
                             )}
+                        </div>
+                        <div className="flex items-center gap-1"> 
+                            <span className="text-muted-foreground text-sm"> Licence </span>
+                            <Link target='_blank' href={font.licenceUrl}>
+                                <span className="text-sm hover:underline"> Click here</span>
+                            </Link>
                         </div>
                         <div className="flex items-center">
                             <Calendar className="text-muted-foreground mr-2 h-4 w-4" />
