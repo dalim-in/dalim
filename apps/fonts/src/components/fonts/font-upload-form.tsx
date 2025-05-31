@@ -37,8 +37,7 @@ export function FontUploadForm({ setPreviewFont }: FontUploadFormProps) {
             fontFiles: 1,
             licenceUrl: '',
             category: 'SANS_SERIF',
-            tags: '',
-            featured: false,
+            tags: '', 
         },
     })
 
@@ -80,8 +79,7 @@ export function FontUploadForm({ setPreviewFont }: FontUploadFormProps) {
             formData.append('type', data.type)
             formData.append('category', data.category)
             formData.append('fontFiles', String(data.fontFiles ?? ''))
-            formData.append('licenceUrl', data.licenceUrl || '')
-            formData.append('featured', String(data.featured))
+            formData.append('licenceUrl', data.licenceUrl || '') 
             formData.append('tags', JSON.stringify(tags))
             formData.append('fontFile', data.fontFile)
 
@@ -234,7 +232,7 @@ export function FontUploadForm({ setPreviewFont }: FontUploadFormProps) {
                                 <FormControl>
                                     <Input
                                         className="w-full"
-                                        placeholder="Enter Source Url"
+                                        placeholder="Total Font Files"
                                         {...field}
                                     />
                                 </FormControl>

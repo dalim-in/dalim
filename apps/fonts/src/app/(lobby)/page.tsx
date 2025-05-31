@@ -16,7 +16,7 @@ export default function FontsPage() {
                 badge="Fonts"
                 className="-mx-6 -mt-14"
                 title={'Find a font for your Designs.'}
-                subheading="Tailwind CSS colors in HSL, RGB, HEX and OKLCH formats."
+                subheading="Discover beautifully crafted typefaces for every creative project — from modern displays to vintage-inspired lettering."
             />
             <div className="mx-auto max-w-6xl border-x px-6 py-6">
                 <MainFontPreviewControls />

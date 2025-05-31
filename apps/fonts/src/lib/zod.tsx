@@ -12,8 +12,7 @@ export const fontSchema = z.object({
     licenceUrl: z.string().url({ message: 'Must be a valid URL' }).optional().or(z.literal('')),
     type: z.enum(['TTF', 'OTF', 'WOFF', 'WOFF2', 'OTHER']),
     category: z.enum(['SANS_SERIF', 'SERIF', 'MONOSPACE', 'DISPLAY', 'HANDWRITING', 'SCRIPT', 'DECORATIVE', 'OTHER']),
-    tags: z.string().optional(),
-    featured: z.boolean().default(false),
+    tags: z.string().optional(), 
     fontFile: z
         .any()
         .refine((file) => file?.size <= MAX_FONT_FILE_SIZE, 'File size must be less than 10MB')
@@ -27,3 +26,15 @@ export const fontSchema = z.object({
 })
 
 export type FontFormValues = z.infer<typeof fontSchema>
+
+export const fontEditSchema = z.object({
+    name: z.string().min(2, { message: 'Font name must be at least 2 characters' }),
+    description: z.string().optional(),
+    fontFiles: z.coerce.number().optional(),
+    licenceUrl: z.string().url({ message: 'Must be a valid URL' }).optional().or(z.literal('')),
+    category: z.enum(['SANS_SERIF', 'SERIF', 'MONOSPACE', 'DISPLAY', 'HANDWRITING', 'SCRIPT', 'DECORATIVE', 'OTHER']),
+    type: z.enum(['TTF', 'OTF', 'WOFF', 'WOFF2', 'OTHER']),
+    
+})
+
+export type FontEditFormValues = z.infer<typeof fontEditSchema>

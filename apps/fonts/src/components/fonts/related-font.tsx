@@ -21,7 +21,7 @@ export function RelatedFonts({ fonts }: RelatedFontsProps) {
             <div className="grid gap-2">
                 {fonts.map((font) => (
                     // eslint-disable-next-line react/jsx-key
-                    <div>
+                    <div key={font.id}>
                         <FontCard font={font} />
                     </div>
                 ))}

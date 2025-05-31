@@ -9,8 +9,9 @@ import { format } from 'date-fns'
 import { incrementFontDownloadCount } from '@/src/lib/fonts'
 import Link from 'next/link'
 import { DALIM_URL } from '@dalim/auth'
-import { toSentenceCase } from '@/src/lib/utils' 
-import { FontGlyphs } from './font-glyphs' 
+import { useSession } from 'next-auth/react'
+import { toSentenceCase } from '@/src/lib/utils'
+import { FontGlyphs } from './font-glyphs'
 
 interface FontDetailViewProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,9 +19,10 @@ interface FontDetailViewProps {
 }
 
 export function FontDetailView({ font }: FontDetailViewProps) {
+    const { data: session } = useSession()
     const [downloadCount, setDownloadCount] = useState(font.downloadCount)
     const fontFamily = `font-${font.name.replace(/\s+/g, '-').toLowerCase()}`
-     
+
     const handleDownload = async () => {
         await incrementFontDownloadCount(font.id)
         setDownloadCount((prev: number) => prev + 1)
@@ -33,7 +35,6 @@ export function FontDetailView({ font }: FontDetailViewProps) {
         window.open(font.zipFileUrl, '_blank')
     }
 
-     
     return (
         <div>
             <div className="grid grid-cols-1 gap-3">
@@ -137,7 +138,13 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                                 <span className="text-brand text-sm hover:underline"> {font.user?.name || 'Unknown user'}</span>
                             </Link>
                         </div>
-
+                        <div className="mb-6">
+                            {session?.user?.id === font.user?.id && (
+                                <Link href={`/${font.id}/edit`}>
+                                    <Button>Edit the Font</Button>
+                                </Link>
+                            )}
+                        </div>
                         <div className="flex items-center">
                             <Calendar className="text-muted-foreground mr-2 h-4 w-4" />
                             <span className="text-muted-foreground text-sm">Uploaded on {format(new Date(font.createdAt), 'MMMM d, yyyy')}</span>
@@ -149,7 +156,6 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                 fontId={font.name}
                 fontFamily={fontFamily}
             />
-             
         </div>
     )
 }
