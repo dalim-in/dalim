@@ -1,0 +1,108 @@
+'use client'
+
+import Link from 'next/link'
+import { Badge } from '@dalim/core/ui/badge'
+import { Button } from '@dalim/core/ui/button'
+import { Download, Eye, Files, Star } from 'lucide-react'
+import { FontQuickPreview } from './font-quick-preview'
+import { incrementFontDownloadCount } from '@/src/lib/fonts'
+
+interface FontCardProps {
+    font: {
+        id: string
+        name: string
+        description?: string
+        type: string
+        previewUrl: string
+        downloadUrl: string
+        fontFiles: string
+        viewCount: number
+        downloadCount: number
+        featured: boolean
+        tags: string[]
+        createdAt: string
+    }
+}
+
+export function FontCard({ font }: FontCardProps) {
+    const handleDownload = async () => {
+        // Increment download count in the database
+        await incrementFontDownloadCount(font.id)
+
+        // Trigger download
+        window.open(font.downloadUrl, '_blank')
+    }
+
+    return (
+        <div>
+            <div className="bg-muted/40 overflow-hidden rounded-3xl">
+                <div className="relative p-2">
+                    <Link href={`/${font.id}`}>
+                        <FontQuickPreview
+                            fontUrl={font.previewUrl}
+                            fontName={font.name}
+                        />
+                    </Link>
+                    <div className="flex justify-between">
+                        <div className="flex items-center gap-6 px-4">
+                            <div className="flex items-center gap-2">
+                                <h3 className="truncate text-lg font-semibold">{font.name}</h3>
+                                {font.featured && (
+                                    <Badge
+                                        variant="secondary"
+                                        className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-100">
+                                        <Star className="mr-1 h-3 w-3" />
+                                        Featured
+                                    </Badge>
+                                )}
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                <Badge
+                                    variant="outline"
+                                    className="text-xs">
+                                    {font.type.toUpperCase()}
+                                </Badge>
+                                {font.tags.slice(0, 2).map((tag) => (
+                                    <Badge
+                                        key={tag}
+                                        variant="outline"
+                                        className="text-xs">
+                                        {tag}
+                                    </Badge>
+                                ))}
+                                {font.tags.length > 2 && (
+                                    <Badge
+                                        variant="outline"
+                                        className="text-xs">
+                                        +{font.tags.length - 2}
+                                    </Badge>
+                                )}
+                            </div>
+                            <div className="text-muted-foreground flex items-center space-x-2 text-sm">
+                                <Eye className="h-4 w-4" />
+                                <span>{font.viewCount}</span>
+                                <Download className="ml-2 h-4 w-4" />
+                                <span>{font.downloadCount}</span>
+                                {font.fontFiles && (
+                                    <>
+                                        <Files className="ml-2 h-4 w-4" />
+                                        <span>{font.fontFiles}</span>
+                                    </>
+                                )} 
+                            </div>
+                        </div>
+                        <div className="mr-2">
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={handleDownload}>
+                                <Download className="h-4 w-4" />
+                                Download
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

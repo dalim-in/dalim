@@ -8,6 +8,8 @@ cloudinary.config({
   secure: true,
 });
 
+export { cloudinary }
+
 export async function getFestiveImages() {
   return await cloudinary.search
     .expression('folder:Dalim/Works/Creatives/festive/*')

@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL, FONTS_URL, LEARN_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, DALIM_URL, FONTS_URL, LEARN_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -140,10 +140,38 @@ export function MenuAgency() {
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link
-                            href="/#pricing"
+                            href={`${DALIM_URL}/pricing`}
                             legacyBehavior
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Pricing</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
+    )
+}
+
+
+export function MenuFonts() {
+    return (
+        <div className="hidden pr-20 md:block">
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`/`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Fonts</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`#`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphics</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>

@@ -21,3 +21,10 @@ export const formatComponentName = (category: string, variant: string): string =
         .join('')
     return `${categoryFormatted}${variantFormatted}`
 }
+
+export function toSentenceCase(str: string) {
+  if (!str) return "";
+  // Replace underscores with spaces, lowercase the rest, then uppercase first letter
+  const lower = str.toLowerCase().replace(/_/g, " ");
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
