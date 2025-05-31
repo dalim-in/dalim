@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@dalim/auth";
 
-export { auth as middleware } from "@dalim/auth";
-
-export default async function middleware(req: NextRequest) {
-  const session = await auth(); // ✅ Get session manually
+// Auth & Redirect Logic
+async function authMiddleware(req: NextRequest): Promise<NextResponse | void> {
+  const session = await auth();
   const isAuthenticated = !!session;
 
   const pathname = req.nextUrl.pathname;
@@ -18,15 +17,33 @@ export default async function middleware(req: NextRequest) {
   if (!isAuthenticated && !isHomePage && !isLoginPage) {
     return NextResponse.redirect(new URL("/", req.nextUrl));
   }
+}
+
+// Cache Header Logic
+function cacheControlMiddleware(req: NextRequest): NextResponse | void {
+  if (req.nextUrl.pathname.startsWith("/")) {
+    const res = NextResponse.next();
+    res.headers.set("Cache-Control", "public, max-age=3600, s-maxage=86400");
+    res.headers.set("CDN-Cache-Control", "public, max-age=3600");
+    return res;
+  }
+}
+
+export async function middleware(req: NextRequest) {
+  const cacheResponse = cacheControlMiddleware(req);
+  if (cacheResponse) return cacheResponse;
+
+  const authResponse = await authMiddleware(req);
+  if (authResponse) return authResponse;
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    "/login", 
+  matcher: [ 
+    "/login",
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
     "/((?!_next|api|[\\w-]+\\.\\w+).*)"
   ],
-  runtime: "nodejs", // avoids Edge runtime issues like MessageChannel errors
+  runtime: "nodejs",
 };
