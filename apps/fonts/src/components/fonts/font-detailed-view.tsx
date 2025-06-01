@@ -145,12 +145,17 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                                 </Link>
                             )}
                         </div>
-                        <div className="flex items-center gap-1"> 
-                            <span className="text-muted-foreground text-sm"> Licence </span>
-                            <Link target='_blank' href={font.licenceUrl}>
-                                <span className="text-sm hover:underline"> Click here</span>
-                            </Link>
-                        </div>
+                        {font.licenceUrl && (
+                            <div className="flex items-center gap-1">
+                                <span className="text-muted-foreground text-sm">Licence</span>
+                                <Link
+                                    target="_blank"
+                                    href={font.licenceUrl}>
+                                    <span className="text-sm hover:underline">Click here</span>
+                                </Link>
+                            </div>
+                        )}
+
                         <div className="flex items-center">
                             <Calendar className="text-muted-foreground mr-2 h-4 w-4" />
                             <span className="text-muted-foreground text-sm">Uploaded on {format(new Date(font.createdAt), 'MMMM d, yyyy')}</span>

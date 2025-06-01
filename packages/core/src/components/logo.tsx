@@ -290,7 +290,7 @@ export function DalimFontsLogo() {
                     alt="Dalim logo"
                     height={24} // fixed height
                     width={0} // width auto-adjusts with "w-auto"
-                    className="h-7.5 mt-1 w-auto object-contain dark:hidden"
+                    className="h-6 w-auto object-contain dark:hidden"
                     priority
                 />
                 <Image
@@ -298,7 +298,7 @@ export function DalimFontsLogo() {
                     alt="Dalim logo"
                     height={24}
                     width={0}
-                    className="h-7.5 mt-1 hidden w-auto object-contain dark:block"
+                    className="h-6 hidden w-auto object-contain dark:block"
                     priority
                 />
             </Link>

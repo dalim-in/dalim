@@ -94,6 +94,28 @@ export async function updateFont(id: string, data: any) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function updateFontAdmin(id: string, data: any) {
+  try {
+    const response = await fetch(`${DALIM_URL}/api/admin/fonts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    
+    if (!response.ok) {
+      throw new Error("Failed to update font");
+    }
+    
+    return response.json();
+  } catch (error) {
+    console.error(`Error updating font with ID ${id}:`, error);
+    throw error;
+  }
+}
+
 /**
  * Delete a font
  */

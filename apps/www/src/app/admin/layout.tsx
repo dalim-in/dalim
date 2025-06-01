@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { Metadata } from 'next/types'
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@dalim/core/ui/sidebar'
 
-import { AppSidebar } from '@/src/components/dashboard/sidebar/app-sidebar'
+import { AppSidebarAdmin } from '@/src/components/dashboard/sidebar/app-sidebar-admin'
 
 import { Separator } from '@dalim/core/ui/separator'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@dalim/core/ui/breadcrumb'
@@ -44,7 +44,7 @@ export default async function BlocksLayout({ children }: { children: React.React
     return (
             <div className="relative -mx-6 -mt-14 h-[950px]">
                 <SidebarProvider className="relative flex h-full">
-                    <AppSidebar user={user} className="relative h-[950px] border-l" />
+                    <AppSidebarAdmin user={user} className="relative h-[950px] border-l" />
                     <SidebarInset className="">
                         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
                             <div className="flex items-center gap-2 px-4">
