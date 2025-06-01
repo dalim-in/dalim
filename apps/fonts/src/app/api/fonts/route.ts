@@ -10,7 +10,7 @@ function withCORS(response: NextResponse) {
   response.headers.set("Access-Control-Allow-Headers", "Content-Type");
   return response;
 }
-
+ 
 // Handle GET /api/fonts
 export async function GET() {
   try {

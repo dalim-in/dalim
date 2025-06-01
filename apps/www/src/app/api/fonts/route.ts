@@ -3,6 +3,13 @@ import { auth } from "@dalim/auth";
 import { FontType, FontCategory, prisma } from "@dalim/db";
 import { cloudinary } from "@/src/lib/cloudinary";
 
+function withCORS(response: NextResponse) {
+  response.headers.set("Access-Control-Allow-Origin", "*"); // Use a specific origin in production
+  response.headers.set("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return response;
+}
+
 export async function GET() {
   try {
     const session = await auth();
@@ -31,12 +38,11 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(fonts);
+    return withCORS(NextResponse.json(fonts));
   } catch (error) {
     console.error("Error fetching fonts:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch fonts" },
-      { status: 500 }
+    return withCORS(
+      NextResponse.json({ error: "Failed to fetch fonts" }, { status: 500 })
     );
   }
 }
@@ -46,9 +52,8 @@ export async function POST(req: Request) {
     const session = await auth();
 
     if (!session?.user?.id) {
-      return NextResponse.json(
-        { error: "Unauthorized - user ID missing" },
-        { status: 401 }
+      return withCORS(
+        NextResponse.json({ error: "Unauthorized" }, { status: 401 })
       );
     }
 
@@ -65,27 +70,23 @@ export async function POST(req: Request) {
     const fontFile = formData.get("fontFile") as File;
     const zipFile = formData.get("zipFile") as File | null;
 
-    if (!fontFile) {
-      return NextResponse.json(
-        { error: "Font file is required" },
-        { status: 400 }
+     if (!fontFile) {
+      return withCORS(
+        NextResponse.json({ error: "Font file is required" }, { status: 400 })
       );
     }
 
-    // Validate font type
     const fontType = typeRaw.toUpperCase() as FontType;
     if (!Object.values(FontType).includes(fontType)) {
-      return NextResponse.json(
-        { error: `Invalid font type: ${typeRaw}` },
-        { status: 400 }
+      return withCORS(
+        NextResponse.json({ error: `Invalid font type: ${typeRaw}` }, { status: 400 })
       );
     }
 
     const fontCategory = categoryRaw.toUpperCase() as FontCategory;
     if (!Object.values(FontCategory).includes(fontCategory)) {
-      return NextResponse.json(
-        { error: `Invalid font type: ${categoryRaw}` },
-        { status: 400 }
+      return withCORS(
+        NextResponse.json({ error: `Invalid category: ${categoryRaw}` }, { status: 400 })
       );
     }
 
@@ -132,12 +133,15 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(font);
+    return withCORS(NextResponse.json(font));
   } catch (error) {
     console.error("Error creating font:", error);
-    return NextResponse.json(
-      { error: "Failed to create font" },
-      { status: 500 }
+    return withCORS(
+      NextResponse.json({ error: "Failed to create font" }, { status: 500 })
     );
   }
+}
+
+export async function OPTIONS() {
+  return withCORS(new NextResponse(null, { status: 204 }));
 }
