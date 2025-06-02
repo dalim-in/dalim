@@ -8,24 +8,15 @@ import { redirect } from "next/navigation"
 async function getDashboardData(userId: string) {
   const [fonts, totalViews, totalDownloads] = await Promise.all([
     prisma.font.findMany({
-      where: { userId },
-      include: {
-        user: {
-          select: {
-            id: true,
-            name: true,
-            image: true,
-          },
-        },
-      },
+      where: { userId }, // Filter by current user ID
       orderBy: { createdAt: "desc" },
     }),
     prisma.font.aggregate({
-      where: { userId },
+      where: { userId }, // Filter by current user ID
       _sum: { viewCount: true },
     }),
     prisma.font.aggregate({
-      where: { userId },
+      where: { userId }, // Filter by current user ID
       _sum: { downloadCount: true },
     }),
   ])
