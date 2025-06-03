@@ -119,7 +119,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
     return (
         <div className="my-3">
             {/* Search and Sort Row */}
-            <div className="flex flex-col gap-2 sm:flex-row">
+            <div className="grid md:flex gap-2">
                 <div className="relative flex-1">
                     <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
                     <Input
@@ -133,7 +133,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                     </div>
                 </div>
 
-                <div className="flex justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-2">
                     <Select
                         value={`${filters.sortBy}-${filters.sortOrder}`}
                         onValueChange={(value) => {
@@ -167,7 +167,7 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                                 {activeFiltersCount > 0 && (
                                     <Badge
                                         variant="secondary"
-                                        className="ml-2 h-5 w-5 rounded-full p-0 text-xs">
+                                        className="h-5 w-5 px-2 text-center rounded-full text-xs">
                                         {activeFiltersCount}
                                     </Badge>
                                 )}

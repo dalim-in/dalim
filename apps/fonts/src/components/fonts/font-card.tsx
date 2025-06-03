@@ -50,7 +50,7 @@ export function FontCard({ font }: FontCardProps) {
                             fontSize={fontSize}
                         />
                     </Link>
-                    <div className="flex items-start justify-between">
+                    <div className="md:flex grid gap-2 items-start justify-between">
                         <div className="grid items-center gap-3 px-4 md:flex md:gap-6">
                             <div className="flex items-center gap-2">
                                 <h3 className="truncate text-lg font-semibold">{font.name}</h3>
@@ -98,7 +98,7 @@ export function FontCard({ font }: FontCardProps) {
                                 )}
                             </div>
                         </div>
-                        <div className="mr-2">
+                        <div className="px-3 pb-3 md:pb-0">
                             <Button
                                 variant="outline"
                                 size="sm"

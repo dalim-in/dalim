@@ -3,6 +3,7 @@ import { Badge } from "@dalim/core/ui/badge"
 import { Button } from "@dalim/core/ui/button"
 import { Eye, Download, Calendar } from "lucide-react"
 import Link from "next/link"
+import { FONTS_URL } from "@dalim/auth"
 
 interface Font {
   id: string
@@ -31,7 +32,7 @@ export function RecentFonts({ fonts }: RecentFontsProps) {
           <div className="text-center py-8">
             <p className="text-muted-foreground mb-4">No fonts uploaded yet</p>
             <Button asChild>
-              <Link href="/upload">Upload Your First Font</Link>
+              <Link href={`${FONTS_URL}/upload`}>Upload Your First Font</Link>
             </Button>
           </div>
         </CardContent>
