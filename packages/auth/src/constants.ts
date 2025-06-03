@@ -12,6 +12,8 @@ export const LEARN_URL = isProduction ? 'https://works.dalim.in' : 'http://local
 
 export const FONTS_URL = isProduction ? 'https://fonts.dalim.in' : 'http://localhost:3005'
 
-export const TRUSTED_ORIGINS = [APP_URL, AGENCY_URL, UI_URL, WORKS_URL, LEARN_URL, FONTS_URL]
+export const GRAPHIC_URL = isProduction ? 'https://graphic.dalim.in' : 'http://localhost:3006'
+
+export const TRUSTED_ORIGINS = [APP_URL, AGENCY_URL, UI_URL, WORKS_URL, LEARN_URL, FONTS_URL, GRAPHIC_URL]
 
 export const DALIM_URL = APP_URL

@@ -38,11 +38,11 @@ const OPTIONS = [
         },
     },
     {
-        value: 'learn',
-        label: 'Learn', 
+        value: 'graphic',
+        label: 'Graphic', 
         urls: {
-            prod: 'https://learn.dalim.in',
-            dev: 'http://localhost:3004',
+            prod: 'https://graphic.dalim.in',
+            dev: 'http://localhost:3006',
         },
     },
     {
@@ -54,23 +54,32 @@ const OPTIONS = [
         },
     },
     {
+        value: 'learn',
+        label: 'Learn', 
+        urls: {
+            prod: 'https://learn.dalim.in',
+            dev: 'http://localhost:3004',
+        },
+    },
+    {
+        value: 'icons',
+        label: 'Icons',
+        disabled: true,
+        urls: {
+            prod: 'https://icons.dalim.in',
+            dev: 'http://localhost:3007',
+        },
+    },
+    {
         value: 'ali',
         label: 'Ali',
         disabled: true,
         urls: {
             prod: 'https://ali.dalim.in',
-            dev: 'http://localhost:3000/ali',
+            dev: 'http://localhost:3008',
         },
     },
-    {
-        value: 'graphic',
-        label: 'Graphic',
-        disabled: true,
-        urls: {
-            prod: 'https://graphic.dalim.in',
-            dev: 'http://localhost:3006',
-        },
-    },
+    
 ]
 
 export function LinkSelect() {

@@ -15,6 +15,39 @@ enum UserRole {
   USER
 }
 
+enum FontType {
+  TTF
+  OTF
+  WOFF
+  WOFF2
+  OTHER
+}
+
+enum FontCategory {
+  SANS_SERIF
+  SERIF
+  MONOSPACE
+  DISPLAY
+  HANDWRITING
+  SCRIPT
+  DECORATIVE
+  OTHER
+}
+
+enum GraphicCategory {
+  LOGO
+  ILLUSTRATION
+  ICON
+  BANNER
+  POSTER
+  INFOGRAPHIC
+  TEMPLATE
+  MOCKUP
+  PATTERN
+  TEXTURE
+  OTHER
+}
+
 model Account {
   id                String   @id @default(cuid())
   userId            String
@@ -73,6 +106,7 @@ model User {
   accounts Account[]
   sessions Session[]
   fonts    Font[]
+  graphics Graphic[]
 
   stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
@@ -109,25 +143,6 @@ model ResetPasswordToken {
   @@unique([email, token])
 }
 
-enum FontType {
-  TTF
-  OTF
-  WOFF
-  WOFF2
-  OTHER
-}
-
-enum FontCategory {
-  SANS_SERIF
-  SERIF
-  MONOSPACE
-  DISPLAY
-  HANDWRITING
-  SCRIPT
-  DECORATIVE
-  OTHER
-}
-
 model Font {
   id             String   @id @default(cuid())
   name           String
@@ -151,4 +166,27 @@ model Font {
 
   @@index([userId])
   @@map(name: "fonts")
+}
+
+model Graphic {
+  id            String          @id @default(cuid())
+  title         String
+  description   String?         @db.Text
+  category      GraphicCategory
+  images        String[]        @default([])
+  imagePublicIds String[]       @default([])
+  link          String?
+  tags          String[]        @default([])
+  viewCount     Int             @default(0)
+  downloadCount Int             @default(0)
+  featured      Boolean         @default(false)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  userId        String
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([category])
+  @@index([featured])
+  @@map(name: "graphics")
 }

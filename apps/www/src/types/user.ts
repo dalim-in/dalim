@@ -52,3 +52,26 @@ type UserTypeDashboard = {
 export interface ProfileSettingsFormProps {
   user: UserTypeDashboard
 }
+
+export type User = {
+  id: string
+  name: string | null
+  username: string | null
+  bio: string | null
+  summary: string | null
+  image: string | null
+  coverImage: string | null
+  website: string | null
+  twitter: string | null
+  instagram: string | null
+  linkedin: string | null
+  createdAt: Date
+  role: 'USER' | 'ADMIN'
+  fonts: Font[] // ✅ Include this
+}
+
+type Font = {
+  id: string
+  name: string
+  previewUrl: string
+}

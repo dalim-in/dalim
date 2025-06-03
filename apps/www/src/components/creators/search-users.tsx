@@ -5,22 +5,7 @@ import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
 import { UserCard } from './user-card'
 import { Search, Users } from 'lucide-react'
-
-type User = {
-    id: string
-    name: string | null
-    username: string | null
-    bio: string | null
-    summary: string | null
-    image: string | null
-    coverImage: string | null
-    website: string | null
-    twitter: string | null
-    instagram: string | null
-    linkedin: string | null
-    createdAt: Date
-    role: 'USER' | 'ADMIN'
-}
+import { User } from '@/src/types/user'
 
 interface SearchUsersProps {
     users: User[]
@@ -96,7 +81,7 @@ export function SearchUsers({ users }: SearchUsersProps) {
 
             {/* Users Grid */}
             {filteredAndSortedUsers.length > 0 ? (
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
                     {filteredAndSortedUsers.map((user) => (
                         <UserCard
                             key={user.id}
