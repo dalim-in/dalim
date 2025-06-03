@@ -9,10 +9,19 @@ import { Input } from "@dalim/core/ui/input"
 import { useToast } from "@dalim/core/hooks/use-toast"
 import { getAdminFonts } from "@/src/lib/fonts"
 import { FontEditDialog } from "./edit-dialog"
-import { Search, Eye, Download, Star, RefreshCw } from 'lucide-react'
+import { Search, Eye, Download, Star, RefreshCw } from "lucide-react"
 import { format } from "date-fns"
 import type { Font } from "@/src/types/font"
 import { FONTS_URL } from "@dalim/auth"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@dalim/core/ui/pagination"
 
 export function FontsAdmin() {
   const router = useRouter()
@@ -21,6 +30,8 @@ export function FontsAdmin() {
   const [searchQuery, setSearchQuery] = useState("")
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage] = useState(10) // You can make this configurable if needed
 
   const loadFonts = async (showRefreshToast = false) => {
     try {
@@ -51,19 +62,19 @@ export function FontsAdmin() {
   }, [])
 
   const handleFontUpdate = (updatedFont: Font) => {
-    setFonts(prevFonts => 
-      prevFonts.map(font => 
-        font.id === updatedFont.id ? updatedFont : font
-      )
-    )
+    setFonts((prevFonts) => prevFonts.map((font) => (font.id === updatedFont.id ? updatedFont : font)))
   }
 
   const handleFontDelete = (fontId: string) => {
-    setFonts(prevFonts => prevFonts.filter(font => font.id !== fontId))
+    setFonts((prevFonts) => prevFonts.filter((font) => font.id !== fontId))
   }
 
   const handleRefresh = () => {
     loadFonts(true)
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
   }
 
   const filteredFonts = fonts.filter(
@@ -72,6 +83,11 @@ export function FontsAdmin() {
       font.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
       font.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase())),
   )
+
+  const totalPages = Math.ceil(filteredFonts.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedFonts = filteredFonts.slice(startIndex, endIndex)
 
   if (loading) {
     return (
@@ -90,22 +106,21 @@ export function FontsAdmin() {
 
   return (
     <div className="py-6">
-      <div className="mb-6 flex gap-4">
+      <div className="mb-3 flex gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search fonts by name, type, or tags..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value)
+              setCurrentPage(1)
+            }}
             className="pl-9"
           />
         </div>
-        <Button 
-          variant="outline" 
-          onClick={handleRefresh}
-          disabled={refreshing}
-        >
-          <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+        <Button variant="outline" onClick={handleRefresh} disabled={refreshing}>
+          <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? "animate-spin" : ""}`} />
           Refresh
         </Button>
       </div>
@@ -123,7 +138,7 @@ export function FontsAdmin() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredFonts.map((font) => (
+            {paginatedFonts.map((font) => (
               <TableRow key={font.id}>
                 <TableCell className="font-medium">
                   <div className="flex items-center gap-2">
@@ -174,16 +189,12 @@ export function FontsAdmin() {
                       <Eye className="h-4 w-4 mr-1" />
                       View
                     </Button>
-                    <FontEditDialog 
-                      font={font} 
-                      onUpdate={handleFontUpdate} 
-                      onDelete={handleFontDelete} 
-                    />
+                    <FontEditDialog font={font} onUpdate={handleFontUpdate} onDelete={handleFontDelete} />
                   </div>
                 </TableCell>
               </TableRow>
             ))}
-            {filteredFonts.length === 0 && (
+            {paginatedFonts.length === 0 && (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-8">
                   <div className="text-muted-foreground">
@@ -197,8 +208,118 @@ export function FontsAdmin() {
       </div>
 
       {filteredFonts.length > 0 && (
-        <div className="mt-4 text-sm text-muted-foreground">
-          Showing {filteredFonts.length} of {fonts.length} fonts
+        <div className="mt-6 flex items-center justify-between">
+          <div className="text-sm text-muted-foreground">
+            Showing {startIndex + 1} to {Math.min(endIndex, filteredFonts.length)} of {filteredFonts.length} fonts
+          </div>
+          {totalPages > 1 && (
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (currentPage > 1) handlePageChange(currentPage - 1)
+                    }}
+                    className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}
+                  />
+                </PaginationItem>
+
+                {/* First page */}
+                {currentPage > 2 && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handlePageChange(1)
+                      }}
+                    >
+                      1
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+
+                {/* Ellipsis before current page */}
+                {currentPage > 3 && (
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                )}
+
+                {/* Previous page */}
+                {currentPage > 1 && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handlePageChange(currentPage - 1)
+                      }}
+                    >
+                      {currentPage - 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+
+                {/* Current page */}
+                <PaginationItem>
+                  <PaginationLink href="#" isActive>
+                    {currentPage}
+                  </PaginationLink>
+                </PaginationItem>
+
+                {/* Next page */}
+                {currentPage < totalPages && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handlePageChange(currentPage + 1)
+                      }}
+                    >
+                      {currentPage + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+
+                {/* Ellipsis after current page */}
+                {currentPage < totalPages - 2 && (
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                )}
+
+                {/* Last page */}
+                {currentPage < totalPages - 1 && (
+                  <PaginationItem>
+                    <PaginationLink
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handlePageChange(totalPages)
+                      }}
+                    >
+                      {totalPages}
+                    </PaginationLink>
+                  </PaginationItem>
+                )}
+
+                <PaginationItem>
+                  <PaginationNext
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (currentPage < totalPages) handlePageChange(currentPage + 1)
+                    }}
+                    className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          )}
         </div>
       )}
     </div>

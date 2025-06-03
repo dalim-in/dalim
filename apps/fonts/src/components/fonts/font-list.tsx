@@ -21,6 +21,8 @@ export function FontsList() {
     minViews: 0,
   })
 
+  const [visibleCount, setVisibleCount] = useState(3)
+
   const { toast } = useToast()
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export function FontsList() {
       try {
         const fontData = await getFonts()
         setAllFonts(fontData)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         toast({
           title: "Error",
@@ -43,7 +45,11 @@ export function FontsList() {
     loadFonts()
   }, [toast])
 
-  // Extract unique tags and types from all fonts
+  // Reset visibleCount when filters change
+  useEffect(() => {
+    setVisibleCount(3)
+  }, [filters])
+
   const { availableTags, availableTypes } = useMemo(() => {
     const tags = new Set<string>()
     const types = new Set<string>()
@@ -63,11 +69,9 @@ export function FontsList() {
     }
   }, [allFonts])
 
-  // Filter and sort fonts based on current filters
   const filteredFonts = useMemo(() => {
     let filtered = [...allFonts]
 
-    // Text search
     if (filters.searchText) {
       const searchLower = filters.searchText.toLowerCase()
       filtered = filtered.filter(
@@ -77,32 +81,26 @@ export function FontsList() {
       )
     }
 
-    // Font types
     if (filters.fontTypes.length > 0) {
       filtered = filtered.filter((font) => filters.fontTypes.includes(font.type))
     }
 
-    // Tags
     if (filters.tags.length > 0) {
       filtered = filtered.filter((font) => font.tags && filters.tags.some((tag: string) => font.tags.includes(tag)))
     }
 
-    // Featured
     if (filters.featured !== null) {
       filtered = filtered.filter((font) => font.featured === filters.featured)
     }
 
-    // Download count
     if (filters.minDownloads > 0) {
       filtered = filtered.filter((font) => font.downloadCount >= filters.minDownloads)
     }
 
-    // View count
     if (filters.minViews > 0) {
       filtered = filtered.filter((font) => font.viewCount >= filters.minViews)
     }
 
-    // Sort
     filtered.sort((a, b) => {
       let comparison = 0
 
@@ -126,6 +124,23 @@ export function FontsList() {
 
     return filtered
   }, [allFonts, filters])
+
+  // Infinite scroll effect MUST be after filteredFonts is defined
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.scrollY
+      const threshold = document.body.offsetHeight - 300
+
+      if (scrollPosition >= threshold && visibleCount < filteredFonts.length) {
+        setVisibleCount((count) => Math.min(count + 3, filteredFonts.length))
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [visibleCount, filteredFonts.length])
+
+  const visibleFonts = filteredFonts.slice(0, visibleCount)
 
   if (loading) {
     return (
@@ -164,16 +179,12 @@ export function FontsList() {
           <p className="text-muted-foreground mb-6">Try adjusting your filters or search terms</p>
         </div>
       ) : (
-        <div className="">
-          <div className="grid gap-2">
-            {filteredFonts.map((font) => (
-              <FontCard key={font.id} font={font} />
-            ))}
-          </div>
+        <div className="grid gap-2">
+          {visibleFonts.map((font) => (
+            <FontCard key={font.id} font={font} />
+          ))}
         </div>
       )}
     </div>
   )
 }
-
-
