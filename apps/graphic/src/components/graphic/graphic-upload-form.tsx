@@ -13,9 +13,9 @@ import { Badge } from '@dalim/core/ui/badge'
 import { X, Upload, ArrowLeft } from 'lucide-react'
 import { uploadGraphic } from '@/src/actions/graphic'
 import { toast } from '@dalim/core/hooks/use-toast'
-import Image from 'next/image'
+import { CldImage } from '@dalim/core/components/common/gallery'
 
-const categories = ['LOGO', 'ILLUSTRATION', 'ICON', 'BANNER', 'POSTER', 'INFOGRAPHIC', 'TEMPLATE', 'MOCKUP', 'PATTERN', 'TEXTURE', 'OTHER']
+const categories = ['ILLUSTRATION', 'ICON', 'TEMPLATE', 'MOCKUP', 'MODEL', 'BACKGROUND', 'OTHER']
 
 export function GraphicUploadForm() {
     const router = useRouter()
@@ -126,7 +126,7 @@ export function GraphicUploadForm() {
                     <div className="space-y-3">
                         <div className="space-y-3">
                             <Label>Images (Max 5)</Label>
-                            <div className="mt-3 border-muted-foreground/25 rounded-lg border-2 border-dashed p-6">
+                            <div className="border-muted-foreground/25 mt-3 rounded-lg border-2 border-dashed p-6">
                                 <div className="text-center">
                                     <Upload className="text-muted-foreground mx-auto h-12 w-12" />
                                     <div className="mt-4">
@@ -152,7 +152,7 @@ export function GraphicUploadForm() {
                                         <div
                                             key={index}
                                             className="group relative">
-                                            <Image
+                                            <CldImage
                                                 width={100}
                                                 height={100}
                                                 src={preview || '/placeholder.svg'}

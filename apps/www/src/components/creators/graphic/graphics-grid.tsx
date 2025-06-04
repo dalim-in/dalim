@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import { CldImage } from '@dalim/core/components/common/gallery'
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Button } from '@dalim/core/ui/button'
@@ -136,7 +136,7 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
                             href={`${GRAPHIC_URL}/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
                             <div className={`relative overflow-hidden ${viewMode === 'list' ? 'h-[350px] w-full rounded-lg' : 'h-[250px] rounded-t-lg'}`}>
-                                <Image
+                                <CldImage
                                     src={graphic.images[0] || '/placeholder.svg?height=200&width=300'}
                                     alt={graphic.title}
                                     fill
@@ -162,7 +162,6 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
                                         {graphic.downloadCount}
                                     </div>
                                 </div>
-                               
                             </div>
                         </div>
                     </div>

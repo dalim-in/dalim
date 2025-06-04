@@ -1,9 +1,9 @@
 'use client'
-
-import Image from 'next/image'
+ 
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Eye, Download } from 'lucide-react'
+import { CldImage } from '@dalim/core/components/common/gallery'
 
 interface RelatedGraphicsProps {
     graphics: Array<{
@@ -41,7 +41,7 @@ export function RelatedGraphics({ graphics }: RelatedGraphicsProps) {
                             <div className="p-0">
                                 <Link href={`/${graphic.id}`}>
                                     <div className="relative overflow-hidden rounded-t-lg">
-                                        <Image
+                                        <CldImage
                                             src={graphic.images[0] || '/placeholder.svg'}
                                             alt={graphic.title}
                                             width={500}

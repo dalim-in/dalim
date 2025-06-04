@@ -12,19 +12,16 @@ import { DALIM_URL } from '@dalim/auth'
 import { useSession } from 'next-auth/react'
 
 const categories = [
-    { value: '', label: 'All Categories' },
-    { value: 'LOGO', label: 'Logo' },
-    { value: 'ILLUSTRATION', label: 'Illustration' },
-    { value: 'ICON', label: 'Icon' },
-    { value: 'BANNER', label: 'Banner' },
-    { value: 'POSTER', label: 'Poster' },
-    { value: 'INFOGRAPHIC', label: 'Infographic' },
-    { value: 'TEMPLATE', label: 'Template' },
-    { value: 'MOCKUP', label: 'Mockup' },
-    { value: 'PATTERN', label: 'Pattern' },
-    { value: 'TEXTURE', label: 'Texture' },
-    { value: 'OTHER', label: 'Other' },
+  { value: '', label: 'All Categories' },
+  { value: 'ILLUSTRATION', label: 'Illustration' },
+  { value: 'ICON', label: 'Icon' },
+  { value: 'TEMPLATE', label: 'Template' },
+  { value: 'MOCKUP', label: 'Mockup' },
+  { value: 'MODEL', label: 'Model' },
+  { value: 'BACKGROUND', label: 'Background' },
+  { value: 'OTHER', label: 'Other' },
 ]
+
 
 export function GraphicsFilters() {
     const { data: session } = useSession()

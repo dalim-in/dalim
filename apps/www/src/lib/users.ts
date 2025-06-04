@@ -19,9 +19,12 @@ export async function getUsers() {
                 role: true,
                 fonts: {
                     select: {
-                        id: true,
-                        name: true,
-                        previewUrl: true,
+                        id: true, 
+                    },
+                },
+                graphics: {
+                    select: {
+                        id: true, 
                     },
                 },
             }, 

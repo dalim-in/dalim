@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import Image from 'next/image'
+import { useRouter, useSearchParams } from 'next/navigation' 
 import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
 import { Input } from '@dalim/core/ui/input'
@@ -18,6 +17,7 @@ import { adminDeleteGraphic, adminBulkDeleteGraphics, toggleFeaturedGraphic } fr
 import { toast } from '@dalim/core/hooks/use-toast'
 import { Switch } from '@dalim/core/ui/switch'
 import { GRAPHIC_URL } from '@dalim/auth'
+import { CldImage } from '@dalim/core/components/common/gallery'
 
 const categories = [
     { value: '', label: 'All Categories' },
@@ -363,7 +363,7 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                                             <TableCell>
                                                 <div className="flex items-center gap-3">
                                                     <div className="relative h-12 w-12 overflow-hidden rounded-lg">
-                                                        <Image
+                                                        <CldImage
                                                             src={graphic.images[0] || '/placeholder.svg'}
                                                             alt={graphic.title}
                                                             fill

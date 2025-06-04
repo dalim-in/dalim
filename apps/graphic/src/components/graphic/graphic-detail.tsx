@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
@@ -13,8 +12,10 @@ import { format } from 'date-fns'
 import { Separator } from '@dalim/core/ui/separator'
 import { DALIM_URL } from '@dalim/auth'
 import { ShareButton } from '@dalim/core/components/common/share-button'
+import { CldImage } from '@dalim/core/components/common/gallery'
+import { trackDownload } from '@/src/actions/downloads' 
 
-interface GraphicDetailProps {
+interface GraphicDetailProps { 
     graphic: {
         id: string
         title: string
@@ -37,14 +38,20 @@ interface GraphicDetailProps {
 
 export function GraphicDetail({ graphic }: GraphicDetailProps) {
     const { data: session } = useSession()
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0) 
 
     const handleVisitLink = async () => {
         if (graphic.link) {
             await incrementDownloadCount(graphic.id)
+ 
+            if (session?.user) {
+                await trackDownload(graphic.id, 'GRAPHIC', graphic.title, graphic.images[0], graphic.link)
+            }
+
             window.open(graphic.link, '_blank', 'noopener,noreferrer')
         }
     }
+ 
 
     const nextImage = () => {
         setCurrentImageIndex((prev) => (prev === graphic.images.length - 1 ? 0 : prev + 1))
@@ -64,7 +71,7 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                     <div>
                         <div className="p-0">
                             <div className="relative aspect-video">
-                                <Image
+                                <CldImage
                                     src={graphic.images[currentImageIndex] || '/placeholder.svg'}
                                     alt={graphic.title}
                                     width={700}
@@ -172,7 +179,7 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                     <div className="grid gap-3 md:grid-cols-2">
                         {graphic.images?.length > 1 ? (
                             graphic.images.slice(1).map((imgSrc, index) => (
-                                <Image
+                                <CldImage
                                     key={index}
                                     src={imgSrc || '/placeholder.svg'}
                                     alt={`${graphic.title} image ${index + 2}`} // +2 because we're skipping the first

@@ -19,9 +19,10 @@ import {
 } from "../../ui/dialog"
 import { Input } from "../../ui/input"
 import { Label } from "../../ui/label" 
-import { Share2, Copy, Facebook, Twitter, Linkedin, Mail, MessageCircle, QrCode, Check } from 'lucide-react'
+import { Share2, Copy, Mail, QrCode, Check } from 'lucide-react'
 import { toast } from "../../hooks/use-toast"
-import { QRCodeSVG } from "qrcode.react"
+import { QRCodeSVG } from "qrcode.react"  
+import { XformerlyTwitter,  LinkedIn, Facebook, Pinterest, WhatsApp } from "../logos"
 
 interface ShareButtonProps {
   url: string
@@ -176,26 +177,23 @@ export function ShareButton({
 
         {/* Social Media Shares */}
         <DropdownMenuItem onClick={() => handleSocialShare("facebook")}>
-          <Facebook className="h-4 w-4 text-blue-600" />
+          <Facebook className="h-4 w-4" />
           Facebook
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={() => handleSocialShare("twitter")}>
-          <Twitter className="h-4 w-4 text-blue-400" />
+          <XformerlyTwitter className="h-4 w-4" />
           Twitter
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={() => handleSocialShare("linkedin")}>
-          <Linkedin className="h-4 w-4 text-blue-700" />
+          <LinkedIn className="h-4 w-4" />
           LinkedIn
         </DropdownMenuItem>
-
-        {/* Pinterest (only if image is available) */}
+ 
         {fullImageUrl && (
           <DropdownMenuItem onClick={() => handleSocialShare("pinterest")}>
-            <div className="h-4 w-4 bg-red-600 rounded-full flex items-center justify-center">
-              <span className="text-white text-xs font-bold">P</span>
-            </div>
+             <Pinterest className="h-4 w-4" />
             Pinterest
           </DropdownMenuItem>
         )}
@@ -204,7 +202,7 @@ export function ShareButton({
 
         {/* Messaging Apps */}
         <DropdownMenuItem onClick={() => handleSocialShare("whatsapp")}>
-          <MessageCircle className="h-4 w-4 text-green-500" />
+          <WhatsApp className="h-4 w-4" />
           WhatsApp
         </DropdownMenuItem>
  

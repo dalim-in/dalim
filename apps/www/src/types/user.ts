@@ -68,10 +68,13 @@ export type User = {
   createdAt: Date
   role: 'USER' | 'ADMIN'
   fonts: Font[] // ✅ Include this
+  graphics: Graphic[]
 }
 
 type Font = {
-  id: string
-  name: string
-  previewUrl: string
+  id: string 
+}
+
+type Graphic = {
+  id: string 
 }

@@ -8,6 +8,7 @@ import { buttonVariants } from '@dalim/core/ui/button'
 import { Separator } from '@dalim/core/ui/separator'
 import { Skills } from './skills'
 import { NumbersCount } from './numbers'
+import { WhatsApp } from '@dalim/core/components/logos'
 
 const AboutME = () => {
     return (
@@ -68,6 +69,7 @@ const AboutME = () => {
                                         size: 'lg',
                                     })
                                 )}>
+                                <WhatsApp className="h-4 w-4" />
                                 <span className="flex gap-2 px-1">Join Whatsapp</span>
                             </Link>
                         </div>

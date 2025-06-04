@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import Image from 'next/image'
+import { useRouter, useSearchParams } from 'next/navigation' 
 import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
 import { Input } from '@dalim/core/ui/input'
@@ -17,21 +16,19 @@ import { deleteGraphic, bulkDeleteGraphics } from '../../../../../graphic/src/ac
 import { toast } from '@dalim/core/hooks/use-toast'
 import { format } from 'date-fns'
 import { GRAPHIC_URL } from '@dalim/auth'
+import { CldImage } from '@dalim/core/components/common/gallery'
 
 const categories = [
-    { value: '', label: 'All Categories' },
-    { value: 'LOGO', label: 'Logo' },
-    { value: 'ILLUSTRATION', label: 'Illustration' },
-    { value: 'ICON', label: 'Icon' },
-    { value: 'BANNER', label: 'Banner' },
-    { value: 'POSTER', label: 'Poster' },
-    { value: 'INFOGRAPHIC', label: 'Infographic' },
-    { value: 'TEMPLATE', label: 'Template' },
-    { value: 'MOCKUP', label: 'Mockup' },
-    { value: 'PATTERN', label: 'Pattern' },
-    { value: 'TEXTURE', label: 'Texture' },
-    { value: 'OTHER', label: 'Other' },
+  { value: '', label: 'All Categories' },
+  { value: 'ILLUSTRATION', label: 'Illustration' },
+  { value: 'ICON', label: 'Icon' },
+  { value: 'TEMPLATE', label: 'Template' },
+  { value: 'MOCKUP', label: 'Mockup' },
+  { value: 'MODEL', label: 'Model' },
+  { value: 'BACKGROUND', label: 'Background' },
+  { value: 'OTHER', label: 'Other' },
 ]
+
 
 interface GraphicsDashboardProps {
     graphics: Array<{
@@ -297,7 +294,8 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                                             <TableCell>
                                                 <div className="flex items-center gap-3">
                                                     <div className="relative h-12 w-12 overflow-hidden rounded">
-                                                        <Image
+                                                       
+                                                        <CldImage
                                                             src={graphic.images[0] || '/placeholder.svg'}
                                                             alt={graphic.title}
                                                             fill

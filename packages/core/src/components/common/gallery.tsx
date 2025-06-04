@@ -13,6 +13,8 @@ type ImageType = {
   id?: string;
 };
 
+export { CldImage }
+
 
 export function Grid2({ images }: { images: ImageType[] }) {
   return (

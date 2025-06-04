@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL, DALIM_URL, FONTS_URL, GRAPHIC_URL, LEARN_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, DALIM_URL, FONTS_URL, GRAPHIC_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -56,9 +56,9 @@ export function Menu() {
                                         World's Top Designers profile list. Download the Assets from users.
                                     </ListItem>
                                     <ListItem
-                                        href={`${LEARN_URL}`}
-                                        title="Learn">
-                                        Learn Without Limits. Get agency-level designs without the agency price.
+                                        href={`${GRAPHIC_URL}`}
+                                        title="Graphics">
+                                        Discover beautifully crafted typefaces for every creative project.
                                     </ListItem>
                                     <ListItem
                                         href={`${WORKS_URL}`}
@@ -191,6 +191,14 @@ export function MenuGraphic() {
                             legacyBehavior
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphic</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                     <NavigationMenuItem>
+                        <Link
+                            href={`/backgrounds`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Backgrounds</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>

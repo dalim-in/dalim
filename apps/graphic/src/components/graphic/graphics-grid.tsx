@@ -1,6 +1,5 @@
 'use client'
-
-import Image from 'next/image'
+ 
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
@@ -9,6 +8,7 @@ import { Eye, Download, Grid, Table, Search, Loader2, Star } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { ShareButton } from '@dalim/core/components/common/share-button'
+import { CldImage } from '@dalim/core/components/common/gallery'
 
 interface GraphicsGridProps {
     graphics: Array<{
@@ -147,7 +147,7 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                             href={`/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
                             <div className={`relative overflow-hidden ${viewMode === 'list' ? 'h-full w-full rounded-lg md:h-[400px]' : 'h-[250px] w-full rounded-t-lg md:h-[290px]'}`}>
-                                <Image
+                                <CldImage 
                                     src={graphic.images[0] || '/placeholder.svg?height=200&width=300'}
                                     alt={graphic.title}
                                     height={200}

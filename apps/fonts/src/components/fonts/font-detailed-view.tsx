@@ -13,6 +13,7 @@ import { useSession } from 'next-auth/react'
 import { toSentenceCase } from '@/src/lib/utils'
 import { FontGlyphs } from './font-glyphs'
 import { ShareButton } from '@dalim/core/components/common/share-button'
+import { trackDownload } from '@/src/actions/downloads'
 
 interface FontDetailViewProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,12 +26,18 @@ export function FontDetailView({ font }: FontDetailViewProps) {
     const fontFamily = `font-${font.name.replace(/\s+/g, '-').toLowerCase()}`
 
     const handleDownload = async () => {
+        if (session?.user) {
+            await trackDownload(font.id, 'FONT', font.title, font.link)
+        }
         await incrementFontDownloadCount(font.id)
         setDownloadCount((prev: number) => prev + 1)
         window.open(font.downloadUrl, '_blank')
     }
 
     const handleZipDownload = async () => {
+        if (session?.user) {
+            await trackDownload(font.id, 'FONT', font.title, font.link)
+        }
         await incrementFontDownloadCount(font.id)
         setDownloadCount((prev: number) => prev + 1)
         window.open(font.zipFileUrl, '_blank')
@@ -151,7 +158,7 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                                 description={font.description}
                                 image={''}
                                 type="font"
-                                variant="outline" 
+                                variant="outline"
                                 showText={true}
                             />
                         </div>

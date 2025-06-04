@@ -27,8 +27,8 @@ export function UserCard({ user }: UserCardProps) {
 
     return (
         <div className="group h-full overflow-hidden rounded-3xl border p-3 transition-all duration-200 hover:shadow-lg dark:hover:bg-neutral-900">
-            <div className="relative flex md:items-center justify-between gap-3">
-                <div className="grid md:flex items-center gap-3">
+            <div className="relative flex justify-between gap-3 md:items-center">
+                <div className="grid items-center gap-3 md:flex">
                     <div className="">
                         <Avatar className="border-primary/20 h-20 w-20 rounded-lg border">
                             <AvatarImage
@@ -76,11 +76,20 @@ export function UserCard({ user }: UserCardProps) {
             <div>
                 <Separator className="my-3" />
                 <div className="flex items-center justify-between">
-                    <div className="flex flex-wrap items-center gap-1 text-xs">
-                        Fonts:<span className="text-sm font-semibold">{user.fonts.length}</span>
+                    <div className="flex flex-wrap items-center gap-3 text-xs">
+                        <div> 
+                            Fonts: <span className="text-sm text-brand font-semibold">{user.fonts.length}</span>
+                        </div>
+                         <div> 
+                            Graphic: <span className="text-sm text-brand font-semibold">{user.graphics.length}</span>
+                        </div>
                     </div>
                     <Link href={`/${user.username || user.id}`}>
-                        <Button variant={"outline"} size={'sm'}>View Creator</Button>
+                        <Button
+                            variant={'outline'}
+                            size={'sm'}>
+                            View Creator
+                        </Button>
                     </Link>
                 </div>
             </div>

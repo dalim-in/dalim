@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider     = "postgresql"
-  url          = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 enum UserRole {
@@ -35,17 +35,18 @@ enum FontCategory {
 }
 
 enum GraphicCategory {
-  LOGO
   ILLUSTRATION
   ICON
-  BANNER
-  POSTER
-  INFOGRAPHIC
   TEMPLATE
   MOCKUP
-  PATTERN
-  TEXTURE
+  MODEL
+  BACKGROUND
   OTHER
+}
+
+enum DownloadType {
+  GRAPHIC
+  FONT
 }
 
 model Account {
@@ -83,30 +84,31 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  username      String?   @unique
-  password      String?
-  email         String?   @unique
-  emailVerified DateTime?
-  bio           String?
-  summary       String?
-  image         String?
-  coverImage    String?
-  website       String?
-  twitter       String?
-  instagram     String?
-  linkedin      String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
-  role          UserRole  @default(USER)
+  id                     String    @id @default(cuid())
+  name                   String?
+  username               String?   @unique
+  password               String?
+  email                  String?   @unique
+  emailVerified          DateTime?
+  bio                    String?
+  summary                String?
+  image                  String?
+  coverImage             String?
+  website                String?
+  twitter                String?
+  instagram              String?
+  linkedin               String?
+  createdAt              DateTime  @default(now()) @map(name: "created_at")
+  updatedAt              DateTime  @default(now()) @map(name: "updated_at")
+  role                   UserRole  @default(USER)
   isTwoFactorAuthEnabled Boolean   @default(false)
   twoFactorAuthVerified  DateTime?
 
-  accounts Account[]
-  sessions Session[]
-  fonts    Font[]
-  graphics Graphic[]
+  accounts  Account[]
+  sessions  Session[]
+  fonts     Font[]
+  graphics  Graphic[]
+  downloads Download[]
 
   stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
@@ -144,49 +146,70 @@ model ResetPasswordToken {
 }
 
 model Font {
-  id             String   @id @default(cuid())
-  name           String
-  description    String?  @db.Text
-  type           FontType
-  category       FontCategory?
-  fontFiles      String?
-  previewUrl     String
-  downloadUrl    String
-  zipFileUrl     String?
-  licenceUrl     String?   
-  viewCount      Int      @default(0)
-  downloadCount  Int      @default(0)
-  featured       Boolean  @default(false)
-  tags           String[] @default([])
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  userId         String
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  publicId       String?  
+  id            String        @id @default(cuid())
+  name          String
+  description   String?       @db.Text
+  type          FontType
+  category      FontCategory?
+  fontFiles     String?
+  previewUrl    String
+  downloadUrl   String
+  zipFileUrl    String?
+  licenceUrl    String?
+  viewCount     Int           @default(0)
+  downloadCount Int           @default(0)
+  featured      Boolean       @default(false)
+  tags          String[]      @default([])
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  userId        String
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  publicId      String?
 
   @@index([userId])
   @@map(name: "fonts")
 }
 
 model Graphic {
-  id            String          @id @default(cuid())
-  title         String
-  description   String?         @db.Text
-  category      GraphicCategory
-  images        String[]        @default([])
-  imagePublicIds String[]       @default([])
-  link          String?
-  tags          String[]        @default([])
-  viewCount     Int             @default(0)
-  downloadCount Int             @default(0)
-  featured      Boolean         @default(false)
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
-  userId        String
-  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String          @id @default(cuid())
+  title          String
+  description    String?         @db.Text
+  category       GraphicCategory
+  images         String[]        @default([])
+  imagePublicIds String[]        @default([])
+  link           String?
+  tags           String[]        @default([])
+  viewCount      Int             @default(0)
+  downloadCount  Int             @default(0)
+  featured       Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  userId         String
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([category])
   @@index([featured])
   @@map(name: "graphics")
+}
+
+model Download {
+  id              String       @id @default(cuid())
+  userId          String
+  itemId          String // ID of the graphic or font
+  itemType        DownloadType
+  itemTitle       String // Title of the downloaded item
+  itemImage       String? // Preview image/thumbnail
+  downloadUrl     String? // The actual download URL used
+  firstDownloadAt DateTime     @default(now()) // When first downloaded
+  lastDownloadAt  DateTime     @default(now()) // When last downloaded
+  downloadCount   Int          @default(1) // How many times downloaded
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, itemId, itemType]) // Prevent duplicate entries
+  @@index([userId])
+  @@index([itemType])
+  @@index([lastDownloadAt])
+  @@map(name: "downloads")
 }

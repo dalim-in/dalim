@@ -9,4 +9,14 @@ cloudinary.config({
 });
 
 export { cloudinary }
+
+
+export async function getBackgroundsNeonImages() {
+  return await cloudinary.search
+    .expression('folder:Dalim/Graphic/Backgrounds/Neon/*')
+    .sort_by('created_at', 'desc')
+    .max_results(400)
+    .execute();
+}
+ 
  
