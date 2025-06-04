@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Button } from '@dalim/core/ui/button'
-import { Eye, Download, Grid, Rows4, Search, Loader2 } from 'lucide-react'
+import { Eye, Download, Grid, Table, Search, Loader2 } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { GRAPHIC_URL } from '@dalim/auth'
@@ -119,7 +119,7 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
                         variant={viewMode === 'list' ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setViewMode('list')}>
-                        <Rows4
+                        <Table
                             strokeWidth={1}
                             className="h-4 w-4"
                         />
@@ -131,11 +131,11 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
                 {graphics.map((graphic) => (
                     <div
                         key={graphic.id}
-                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2 md:flex' : ''}`}>
+                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2' : ''}`}>
                         <Link
                             href={`${GRAPHIC_URL}/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
-                            <div className={`relative overflow-hidden ${viewMode === 'list' ? 'aspect-video h-40 w-full rounded-lg' : 'aspect-video rounded-t-lg'}`}>
+                            <div className={`relative overflow-hidden ${viewMode === 'list' ? 'h-[350px] w-full rounded-lg' : 'h-[250px] rounded-t-lg'}`}>
                                 <Image
                                     src={graphic.images[0] || '/placeholder.svg?height=200&width=300'}
                                     alt={graphic.title}
@@ -148,11 +148,11 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
 
                         <div className={`flex flex-col space-y-3 p-3 ${viewMode === 'list' ? 'flex-1' : 'p-4'}`}>
                             {/* Top content: Title, Category, Tags */}
-                            <div className="space-y-3">
+                            <div className="flex justify-between">
                                 <Link href={`${GRAPHIC_URL}/${graphic.id}`}>
                                     <h3 className="hover:text-primary line-clamp-2 font-semibold transition-colors">{graphic.title}</h3>
                                 </Link>
-                                <div className="text-muted-foreground mt-6 flex items-center gap-3 text-xs">
+                                <div className="text-muted-foreground flex items-center gap-3 text-xs">
                                     <div className="flex items-center gap-1">
                                         <Eye className="h-3 w-3" />
                                         {graphic.viewCount}
@@ -162,11 +162,7 @@ export function GraphicsGrid({ graphics }: GraphicsGridProps) {
                                         {graphic.downloadCount}
                                     </div>
                                 </div>
-                                <Badge
-                                    variant="secondary"
-                                    className="mt-2 w-auto text-xs">
-                                    {graphic.category.replace('_', ' ')}
-                                </Badge>
+                               
                             </div>
                         </div>
                     </div>

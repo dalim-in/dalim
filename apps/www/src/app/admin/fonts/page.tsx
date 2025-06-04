@@ -10,8 +10,8 @@ export default async function FontDashboardPage() {
   }
  
   return (
-    <div className="">
-      <h1 className="text-3xl font-semibold">Font Dashboard</h1>
+    <div className="mt-3">
+      
       <FontsAdmin  />
     </div>
   );

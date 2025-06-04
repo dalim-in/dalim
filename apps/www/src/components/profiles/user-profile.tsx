@@ -1,18 +1,33 @@
 'use client'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
-import { Button } from '@dalim/core/ui/button'
-import { Card, CardContent, } from '@dalim/core/ui/card'
+import { Card, CardContent } from '@dalim/core/ui/card'
 
-import { Calendar, Globe, Twitter, Instagram, Linkedin, LinkIcon, Share, MoreHorizontal, Eye } from 'lucide-react'
+import { Calendar, Globe, Twitter, Instagram, Linkedin } from 'lucide-react'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import { toast } from '@dalim/core/hooks/use-toast'
 import Image from 'next/image'
 import { BlueTick } from '@dalim/core/components/logos'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@dalim/core/ui/dropdown-menu'
+import { Separator } from '@dalim/core/ui/separator'
+import { ShareButton } from '@dalim/core/components/common/share-button'
+
+interface FontType {
+    id: string
+    viewCount: number
+    downloadCount: number
+    userId: string
+}
+
+interface GraphicType {
+    id: string
+    viewCount: number
+    downloadCount: number
+    userId: string
+}
 
 type UserType = {
+    graphics: GraphicType[]
+    fonts: FontType[]
     id: string
     name: string | null
     username: string | null
@@ -33,27 +48,6 @@ interface DetailedUserProfileProps {
 }
 
 export function UserProfile({ user }: DetailedUserProfileProps) {
-    const handleShare = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: `${user.name || user.username}'s Profile`,
-                    text: user.bio || `Check out ${user.name || user.username}'s profile`,
-                    url: window.location.href,
-                })
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            } catch (error) {
-                // User cancelled sharing
-            }
-        } else {
-            await navigator.clipboard.writeText(window.location.href)
-            toast({
-                title: 'Link copied',
-                description: 'Profile link has been copied to clipboard.',
-            })
-        }
-    }
-
     const socialLinks = [
         {
             name: 'Website',
@@ -78,7 +72,7 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
     ].filter((link) => link.url)
 
     return (
-        <div className="mb-6 -mx-6">
+        <div className="-mx-6 mb-6">
             <div className="bg-brand relative h-64 overflow-hidden md:h-80">
                 {user.coverImage && (
                     <Image
@@ -91,10 +85,8 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                 )}
             </div>
 
-            {/* Profile Content */}
-            <div className="container relative z-10 mx-auto -mt-40 max-w-4xl px-6 md:-mt-20">
+            <div className="relative z-10 mx-auto -mt-40 max-w-4xl px-6 md:-mt-20">
                 <div className="space-y-3">
-                    {/* Profile Header */}
                     <Card className="border-0 shadow-xl">
                         <CardContent className="">
                             <div className="flex gap-3">
@@ -125,29 +117,16 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                 </div>
 
                                 <div className="ml-auto flex flex-col items-end justify-between">
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button
-                                                variant="ghost"
-                                                size="icon">
-                                                <MoreHorizontal className="h-4 w-4" />
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end">
-                                            <DropdownMenuItem onClick={handleShare}>
-                                                <Share className="mr-2 h-4 w-4" />
-                                                Share Profile
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem>
-                                                <LinkIcon className="mr-2 h-4 w-4" />
-                                                Copy Link
-                                            </DropdownMenuItem>
-                                            <DropdownMenuItem>
-                                                <Eye className="mr-2 h-4 w-4" />
-                                                View Analytics
-                                            </DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
+                                    <ShareButton
+                                            url={`/${user.username}`}
+                                            title={`${user.name || user.username}'s Profile`}
+                                            description={user.bio || `Check out ${user.name || user.username}'s amazing work!`}
+                                            image={user.image || undefined}
+                                            type="profile"
+                                            variant="ghost"
+                                            size='icon'
+                                            showText={false}
+                                        />
                                     <div className="items-end">
                                         {socialLinks.length > 0 && (
                                             <div className="flex items-center">
@@ -169,9 +148,19 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                     </div>
                                 </div>
                             </div>
+                            <Separator className="mb-4 mt-6" />
+                            <div className="flex justify-between">
+                                <div className="flex items-center gap-1">
+                                    <p className="text-primary/60 text-sm">Fonts</p>
+                                    <h1 className="text-brand font-semibold">{user.fonts.length}</h1>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <p className="text-primary/60 text-sm">Graphic</p>
+                                    <h1 className="text-brand font-semibold">{user.graphics.length}</h1>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
-                     
                 </div>
             </div>
         </div>

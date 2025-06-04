@@ -22,7 +22,7 @@ const data = {
             items: [
                 { title: 'Fonts', url: '/admin/fonts' },
                 { title: 'Graphics', url: '/admin/graphic' },
-                { title: 'Assets', url: '#' },
+                { title: 'Users', url: '/admin/users' },
             ],
         },
         {

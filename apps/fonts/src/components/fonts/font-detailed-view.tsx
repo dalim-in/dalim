@@ -12,6 +12,7 @@ import { DALIM_URL } from '@dalim/auth'
 import { useSession } from 'next-auth/react'
 import { toSentenceCase } from '@/src/lib/utils'
 import { FontGlyphs } from './font-glyphs'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 
 interface FontDetailViewProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -138,12 +139,21 @@ export function FontDetailView({ font }: FontDetailViewProps) {
                                 <span className="text-brand text-sm hover:underline"> {font.user.name || 'Unknown user'}</span>
                             </Link>
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6 flex gap-2">
                             {session?.user?.id === font.user?.id && (
                                 <Link href={`/${font.id}/edit`}>
                                     <Button>Edit the Font</Button>
                                 </Link>
                             )}
+                            <ShareButton
+                                url={`/${font.id}`}
+                                title={font.name}
+                                description={font.description}
+                                image={''}
+                                type="font"
+                                variant="outline" 
+                                showText={true}
+                            />
                         </div>
                         {font.licenceUrl && (
                             <div className="flex items-center gap-1">

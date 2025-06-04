@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@dalim/core/ui/table'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@dalim/core/ui/alert-dialog'
 import { Checkbox } from '@dalim/core/ui/checkbox'
-import { Eye, Download, Edit, Trash2, Search, Plus, ExternalLink } from 'lucide-react'
+import { Eye, Download, Edit, Trash2, Search, Plus } from 'lucide-react'
 import { deleteGraphic, bulkDeleteGraphics } from '../../../../../graphic/src/actions/graphic'
 import { toast } from '@dalim/core/hooks/use-toast'
 import { format } from 'date-fns'
@@ -169,10 +169,10 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
     return (
         <div className="space-y-3">
             {/* Header Actions */}
-            <div className="flex flex-col justify-between gap-4 sm:flex-row">
-                <div className="flex flex-1 flex-col gap-4 sm:flex-row">
+            <div className="grid lg:flex gap-3">
+                <div className="grid lg:flex w-full gap-2">
                     {/* Search */}
-                    <div className="flex max-w-md flex-1 gap-2">
+                    <div className="flex w-full gap-2">
                         <Input
                             placeholder="Search graphics..."
                             value={search}
@@ -180,7 +180,7 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                             onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                         />
                         <Button
-                            size="icon"
+                            size="icon"  
                             onClick={handleSearch}>
                             <Search className="h-4 w-4" />
                         </Button>
@@ -190,7 +190,7 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                     <Select
                         value={category}
                         onValueChange={handleCategoryChange}>
-                        <SelectTrigger className="w-full sm:w-48">
+                        <SelectTrigger className="w-60">
                             <SelectValue placeholder="Select category" />
                         </SelectTrigger>
                         <SelectContent>
@@ -207,45 +207,18 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                     </Select>
                 </div>
 
-                <div className="flex gap-2">
-                    {selectedGraphics.length > 0 && (
-                        <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                                <Button
-                                    variant="destructive"
-                                    disabled={isBulkDeleting}>
-                                    <Trash2 className="mr-2 h-4 w-4" />
-                                    Delete Selected ({selectedGraphics.length})
-                                </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                                <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Selected Graphics</AlertDialogTitle>
-                                    <AlertDialogDescription>Are you sure you want to delete {selectedGraphics.length} selected graphics? This action cannot be undone.</AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction
-                                        onClick={handleBulkDelete}
-                                        disabled={isBulkDeleting}>
-                                        {isBulkDeleting ? 'Deleting...' : 'Delete'}
-                                    </AlertDialogAction>
-                                </AlertDialogFooter>
-                            </AlertDialogContent>
-                        </AlertDialog>
-                    )}
-
-                    <Button asChild>
-                        <Link href={`${GRAPHIC_URL}/upload`}>
-                            <Plus className="mr-2 h-4 w-4" />
-                            Upload New
-                        </Link>
-                    </Button>
-                </div>
+                <Button asChild>
+                    <Link href={`${GRAPHIC_URL}/upload`}>
+                        <Plus className="h-4 w-4" />
+                        Upload New
+                    </Link>
+                </Button>
             </div>
 
+            
+
             {/* Stats */}
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 <Card>
                     <CardHeader className="pb-2">
                         <CardTitle className="text-sm font-medium">Total Graphics</CardTitle>
@@ -359,15 +332,15 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                                                 <div className="flex items-center justify-end gap-2">
                                                     <Button
                                                         variant="ghost"
-                                                        size="sm"
+                                                        size={"icon"}
                                                         asChild>
                                                         <Link href={`${GRAPHIC_URL}/${graphic.id}`}>
-                                                            <ExternalLink className="h-4 w-4" />
+                                                            <Eye className="h-4 w-4" />
                                                         </Link>
                                                     </Button>
                                                     <Button
                                                         variant="ghost"
-                                                        size="sm"
+                                                        size={"icon"}
                                                         asChild>
                                                         <Link href={`${GRAPHIC_URL}/${graphic.id}/edit`}>
                                                             <Edit className="h-4 w-4" />
@@ -377,7 +350,7 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                                                         <AlertDialogTrigger asChild>
                                                             <Button
                                                                 variant="ghost"
-                                                                size="sm"
+                                                                size={"icon"}
                                                                 disabled={isDeleting}>
                                                                 <Trash2 className="h-4 w-4" />
                                                             </Button>
@@ -438,6 +411,34 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                     )}
                 </CardContent>
             </Card>
+            <div className="flex gap-2">
+                {selectedGraphics.length > 0 && (
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button
+                                variant="destructive"
+                                disabled={isBulkDeleting}>
+                                <Trash2 className="mr-2 h-4 w-4" />
+                                Delete Selected ({selectedGraphics.length})
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Delete Selected Graphics</AlertDialogTitle>
+                                <AlertDialogDescription>Are you sure you want to delete {selectedGraphics.length} selected graphics? This action cannot be undone.</AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction
+                                    onClick={handleBulkDelete}
+                                    disabled={isBulkDeleting}>
+                                    {isBulkDeleting ? 'Deleting...' : 'Delete'}
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+                )}
+            </div>
         </div>
     )
 }

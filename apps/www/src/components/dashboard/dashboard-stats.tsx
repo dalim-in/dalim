@@ -3,11 +3,14 @@ import { FileText, Eye, Download } from "lucide-react"
 
 interface DashboardStatsProps {
   totalFonts: number
-  totalViews: number
-  totalDownloads: number 
+  totalFontViews: number
+  totalFontDownloads: number 
+  totalGraphics: number
+  totalGraphicViews: number
+  totalGraphicDownloads: number 
 }
 
-export function DashboardStats({ totalFonts, totalViews, totalDownloads }: DashboardStatsProps) {
+export function DashboardStats({ totalFonts, totalFontViews, totalFontDownloads, totalGraphics, totalGraphicViews, totalGraphicDownloads }: DashboardStatsProps) {
   const stats = [
     {
       title: "Total Fonts",
@@ -16,14 +19,32 @@ export function DashboardStats({ totalFonts, totalViews, totalDownloads }: Dashb
       description: "Fonts in your collection",
     },
     {
-      title: "Total Views",
-      value: totalViews,
+      title: "Total Font Views",
+      value: totalFontViews,
       icon: Eye,
       description: "Times your fonts were viewed",
     },
     {
-      title: "Total Downloads",
-      value: totalDownloads,
+      title: "Total Font Downloads",
+      value: totalFontDownloads,
+      icon: Download,
+      description: "Times your fonts were downloaded",
+    },
+    {
+      title: "Total Graphics",
+      value: totalGraphics,
+      icon: FileText,
+      description: "Fonts in your collection",
+    },
+    {
+      title: "Total Graphic Views",
+      value: totalGraphicViews,
+      icon: Eye,
+      description: "Times your fonts were viewed",
+    },
+    {
+      title: "Total Graphic Downloads",
+      value: totalGraphicDownloads,
       icon: Download,
       description: "Times your fonts were downloaded",
     },

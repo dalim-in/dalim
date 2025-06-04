@@ -30,12 +30,8 @@ export default async function DashboardGraphicsPage({ searchParams }: DashboardG
   })
 
   return (
-    <div className="">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">My Graphics</h1>
-        <p className="text-muted-foreground">Manage your uploaded graphics</p>
-      </div>
-
+    <div className="mt-3">
+      
       <GraphicsDashboard graphics={graphics} total={total} pages={pages} currentPage={currentPage} />
     </div>
   )

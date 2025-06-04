@@ -6,11 +6,13 @@ import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
-import { Eye, Download, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Eye, Download, ChevronLeft, ChevronRight } from 'lucide-react'
 import { incrementDownloadCount } from '@/src/actions/graphic'
 import { useSession } from 'next-auth/react'
 import { format } from 'date-fns'
 import { Separator } from '@dalim/core/ui/separator'
+import { DALIM_URL } from '@dalim/auth'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 
 interface GraphicDetailProps {
     graphic: {
@@ -65,27 +67,30 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                                 <Image
                                     src={graphic.images[currentImageIndex] || '/placeholder.svg'}
                                     alt={graphic.title}
-                                    fill
-                                    className="rounded-lg object-cover"
+                                    width={700}
+                                    height={500}
+                                    className="h-auto w-full rounded-lg object-cover"
                                 />
-                                {graphic.images.length > 1 && (
-                                    <>
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            className="bg-background/80 absolute left-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
-                                            onClick={prevImage}>
-                                            <ChevronLeft className="h-4 w-4" />
-                                        </Button>
-                                        <Button
-                                            variant="outline"
-                                            size="icon"
-                                            className="bg-background/80 absolute right-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
-                                            onClick={nextImage}>
-                                            <ChevronRight className="h-4 w-4" />
-                                        </Button>
-                                    </>
-                                )}
+                                <div className="hidden md:block">
+                                    {graphic.images.length > 1 && (
+                                        <>
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                className="bg-background/80 absolute left-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
+                                                onClick={prevImage}>
+                                                <ChevronLeft className="h-4 w-4" />
+                                            </Button>
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                className="bg-background/80 absolute right-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
+                                                onClick={nextImage}>
+                                                <ChevronRight className="h-4 w-4" />
+                                            </Button>
+                                        </>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,11 +130,20 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                             </div>
                         </div>
                         <div className="flex justify-center gap-3 pt-6">
+                            <ShareButton
+                                url={`/${graphic.id}`}
+                                title={graphic.title}
+                                description={graphic.description || `Check out this amazing ${graphic.category.toLowerCase().replace('_', ' ')} graphic!`}
+                                image={graphic.images[0]}
+                                type="graphic"
+                                variant="outline"
+                                showText={true}
+                            />
                             {graphic.link && (
                                 <Button
                                     onClick={handleVisitLink}
                                     className="">
-                                    <ExternalLink className="h-4 w-4" />
+                                    <Download className="h-4 w-4" />
                                     Download
                                 </Button>
                             )}
@@ -162,9 +176,9 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                                     key={index}
                                     src={imgSrc || '/placeholder.svg'}
                                     alt={`${graphic.title} image ${index + 2}`} // +2 because we're skipping the first
-                                    width={800}
-                                    height={800}
-                                    className="aspect-video w-full rounded-lg object-cover"
+                                    width={500}
+                                    height={300}
+                                    className="h-full w-full rounded-lg object-cover"
                                 />
                             ))
                         ) : (
@@ -172,15 +186,17 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                         )}
                     </div>
 
-                    <div className="flex items-center gap-3">
-                        <Avatar>
-                            <AvatarImage src={graphic.user.image || ''} />
-                            <AvatarFallback>{graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}</AvatarFallback>
-                        </Avatar>
-                        <div>
+                    <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                            <Link href={`${DALIM_URL}/${graphic.user.username}`}>
+                                <Avatar>
+                                    <AvatarImage src={graphic.user.image || ''} />
+                                    <AvatarFallback>{graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}</AvatarFallback>
+                                </Avatar>
+                            </Link>
                             <p className="font-medium">{graphic.user.name || graphic.user.username}</p>
-                            <p className="text-muted-foreground text-sm">Uploaded on {format(new Date(graphic.createdAt), 'MMMM d, yyyy')}</p>
                         </div>
+                        <p className="text-muted-foreground text-sm">Uploaded on {format(new Date(graphic.createdAt), 'MMMM d, yyyy')}</p>
                     </div>
                 </div>
             </div>

@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Button } from '@dalim/core/ui/button'
-import { Eye, Download, Grid, Rows4, Search, Loader2, Star } from 'lucide-react'
+import { Eye, Download, Grid, Table, Search, Loader2, Star } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 
 interface GraphicsGridProps {
     graphics: Array<{
@@ -128,7 +129,7 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         variant={viewMode === 'list' ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setViewMode('list')}>
-                        <Rows4
+                        <Table
                             strokeWidth={1}
                             className="h-4 w-4"
                         />
@@ -137,77 +138,46 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
             </div>
 
             {/* Graphics Display */}
-            <div className={viewMode === 'grid' ? 'grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3' : 'grid gap-3 lg:grid-cols-2'}>
+            <div className={viewMode === 'grid' ? 'grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3' : 'grid gap-3 md:grid-cols-2'}>
                 {graphics.map((graphic) => (
                     <div
                         key={graphic.id}
-                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2 md:flex' : ''}`}>
+                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2' : ''}`}>
                         <Link
                             href={`/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
-                            <div className={`relative overflow-hidden ${viewMode === 'list' ? 'aspect-video h-40 w-full rounded-lg' : 'aspect-video rounded-t-lg'}`}>
+                            <div className={`relative overflow-hidden ${viewMode === 'list' ? 'h-full w-full rounded-lg md:h-[400px]' : 'h-[250px] w-full rounded-t-lg md:h-[290px]'}`}>
                                 <Image
                                     src={graphic.images[0] || '/placeholder.svg?height=200&width=300'}
                                     alt={graphic.title}
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                    height={200}
+                                    width={200}
+                                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
                                 {graphic.images.length > 1 && <Badge className="bg-background/80 text-foreground absolute right-2 top-2 text-xs">+{graphic.images.length - 1}</Badge>}
+                                {graphic.featured && (
+                                    <Badge
+                                        variant="secondary"
+                                        className="absolute left-2 top-2 bg-purple-500 text-white">
+                                        <Star className="mr-1 h-3 w-3" />
+                                        Featured
+                                    </Badge>
+                                )}
                             </div>
                         </Link>
 
-                        <div className={`flex flex-col space-y-3 p-3 ${viewMode === 'list' ? 'flex-1' : 'p-4'}`}>
+                        <div className={`flex flex-col space-y-3 p-3 ${viewMode === 'list' ? 'flex-1' : ''}`}>
                             {/* Top content: Title, Category, Tags */}
-                            <div className="space-y-3">
-                                <Link href={`/${graphic.id}`}>
-                                    <h3 className="hover:text-primary line-clamp-2 font-semibold transition-colors">{graphic.title}</h3>
-                                </Link>
-                                <div className="space-x-2">
-                                    {graphic.featured && (
-                                        <Badge
-                                            variant="secondary"
-                                            className="bg-purple-500 text-white">
-                                            <Star className="mr-1 h-3 w-3" />
-                                            Featured
-                                        </Badge>
-                                    )}
-                                    <Badge
-                                        variant="secondary"
-                                        className="mt-2 w-auto text-xs md:mt-6">
-                                        {graphic.category.replace('_', ' ')}
-                                    </Badge>
-                                </div>
-                                {graphic.tags.length > 0 && (
-                                    <div className="flex flex-wrap gap-1">
-                                        {graphic.tags.slice(0, 3).map((tag) => (
-                                            <Badge
-                                                key={tag}
-                                                variant="outline"
-                                                className="text-xs">
-                                                {tag}
-                                            </Badge>
-                                        ))}
-                                        {graphic.tags.length > 3 && (
-                                            <Badge
-                                                variant="outline"
-                                                className="text-xs">
-                                                +{graphic.tags.length - 3}
-                                            </Badge>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Bottom meta: Avatar and Counts */}
-                            <div className="mt-auto flex items-center justify-between pt-2">
-                                <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-between">
+                                <div className="flex gap-2">
                                     <Avatar className="h-6 w-6 border">
                                         <AvatarImage src={graphic.user.image || ''} />
                                         <AvatarFallback className="text-xs">{graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}</AvatarFallback>
                                     </Avatar>
-                                    <span className="text-muted-foreground truncate text-xs">{graphic.user.name || graphic.user.username}</span>
+                                    <div className="flex max-w-40 md:max-w-60">
+                                        <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">{graphic.title}</h3>
+                                    </div>
                                 </div>
-
                                 <div className="text-muted-foreground flex items-center gap-3 text-xs">
                                     <div className="flex items-center gap-1">
                                         <Eye className="h-3 w-3" />
@@ -217,6 +187,16 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                                         <Download className="h-3 w-3" />
                                         {graphic.downloadCount}
                                     </div>
+                                    <ShareButton
+                                        url={`/${graphic.id}`}
+                                        title={graphic.title}
+                                        description={graphic.description || `Check out this ${graphic.category.toLowerCase().replace('_', ' ')} graphic!`}
+                                        image={graphic.images[0]}
+                                        type="graphic"
+                                        variant="ghost"
+                                        size="icon"
+                                        showText={false}
+                                    />
                                 </div>
                             </div>
                         </div>

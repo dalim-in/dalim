@@ -31,21 +31,22 @@ export function RelatedGraphics({ graphics }: RelatedGraphicsProps) {
             <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
 
             <div className="">
-                <h2 className="py-6 text-2xl text-center font-bold">Related Graphics</h2>
+                <h2 className="py-6 text-center text-2xl font-bold">Related Graphics</h2>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
                     {graphics.map((graphic) => (
                         <div
                             key={graphic.id}
                             className="group rounded-xl border transition-shadow hover:shadow-lg">
                             <div className="p-0">
                                 <Link href={`/${graphic.id}`}>
-                                    <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                                    <div className="relative overflow-hidden rounded-t-lg">
                                         <Image
                                             src={graphic.images[0] || '/placeholder.svg'}
                                             alt={graphic.title}
-                                            fill
-                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            width={500}
+                                            height={300}
+                                            className="h-[275px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                                         />
                                         {graphic.images.length > 1 && <Badge className="bg-background/80 text-foreground absolute right-2 top-2">+{graphic.images.length - 1}</Badge>}
                                     </div>

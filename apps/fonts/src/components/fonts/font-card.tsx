@@ -8,6 +8,7 @@ import { FontQuickPreview } from './font-quick-preview'
 import { incrementFontDownloadCount } from '@/src/lib/fonts'
 import { useFontPreview } from '@dalim/core/hooks/use-font-preview'
 import { FONTS_URL } from '@dalim/auth'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 
 interface FontCardProps {
     font: {
@@ -50,7 +51,7 @@ export function FontCard({ font }: FontCardProps) {
                             fontSize={fontSize}
                         />
                     </Link>
-                    <div className="md:flex grid gap-2 items-start justify-between">
+                    <div className="grid items-start justify-between gap-2 md:flex">
                         <div className="grid items-center gap-3 px-4 md:flex md:gap-6">
                             <div className="flex items-center gap-2">
                                 <h3 className="truncate text-lg font-semibold">{font.name}</h3>
@@ -98,7 +99,7 @@ export function FontCard({ font }: FontCardProps) {
                                 )}
                             </div>
                         </div>
-                        <div className="px-3 pb-3 md:pb-0">
+                        <div className="px-3 space-x-2 pb-3 md:pb-0">
                             <Button
                                 variant="outline"
                                 size="sm"
@@ -106,6 +107,16 @@ export function FontCard({ font }: FontCardProps) {
                                 <Download className="h-4 w-4" />
                                 Download
                             </Button>
+                            <ShareButton
+                                url={`/${font.id}`}
+                                title={font.name}
+                                description={font.description}
+                                image={""}
+                                type="font"
+                                variant="ghost"
+                                size="icon"
+                                showText={false}
+                            />
                         </div>
                     </div>
                 </div>

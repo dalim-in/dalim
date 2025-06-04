@@ -13,9 +13,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@dalim/core/ui/alert-dialog'
 import { Checkbox } from '@dalim/core/ui/checkbox'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
-import { Eye, Download, Trash2, Search, ExternalLink, Shield, AlertTriangle } from 'lucide-react'
+import { Eye, Download, Trash2, Search, AlertTriangle } from 'lucide-react'
 import { adminDeleteGraphic, adminBulkDeleteGraphics, toggleFeaturedGraphic } from '../../../../../graphic/src/actions/graphic'
 import { toast } from '@dalim/core/hooks/use-toast'
+import { Switch } from '@dalim/core/ui/switch'
+import { GRAPHIC_URL } from '@dalim/auth'
 
 const categories = [
     { value: '', label: 'All Categories' },
@@ -69,6 +71,8 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
     const [category, setCategory] = useState(searchParams.get('category') || '')
     const [userFilter, setUserFilter] = useState(searchParams.get('user') || '')
 
+    const [loadingId, setLoadingId] = useState<string | null>(null)
+
     const updateURL = (newParams: Record<string, string>) => {
         const params = new URLSearchParams(searchParams.toString())
 
@@ -80,7 +84,7 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
             }
         })
 
-        router.push(`/admin/graphics?${params.toString()}`)
+        router.push(`/admin/graphic?${params.toString()}`)
     }
 
     const handleSearch = () => {
@@ -174,6 +178,7 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
     }
 
     const handleToggleFeatured = async (graphicId: string, featured: boolean) => {
+        setLoadingId(graphicId)
         try {
             const result = await toggleFeaturedGraphic(graphicId, !featured)
             if (result.success) {
@@ -196,21 +201,47 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                 description: 'Something went wrong. Please try again.',
                 variant: 'destructive',
             })
+        } finally {
+            setLoadingId(null)
         }
     }
 
     return (
-        <div className="space-y-6">
-            {/* Admin Warning */}
-            <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4">
-                <div className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-yellow-600" />
-                    <h3 className="font-medium text-yellow-800">Admin Access</h3>
-                </div>
-                <p className="mt-1 text-sm text-yellow-700">You have administrative privileges. Use caution when deleting graphics as this action cannot be undone.</p>
+        <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium">Total Graphics</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{total}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium">Total Views</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{graphics.reduce((sum, g) => sum + g.viewCount, 0)}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{graphics.reduce((sum, g) => sum + g.downloadCount, 0)}</div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium">Featured</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">{graphics.filter((g) => g.featured).length}</div>
+                    </CardContent>
+                </Card>
             </div>
-
-            {/* Filters */}
             <div className="flex flex-col justify-between gap-4 sm:flex-row">
                 <div className="flex flex-1 flex-col gap-4 sm:flex-row">
                     {/* Search */}
@@ -290,42 +321,6 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                 )}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-                <Card>
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium">Total Graphics</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{total}</div>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium">Total Views</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{graphics.reduce((sum, g) => sum + g.viewCount, 0)}</div>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium">Total Downloads</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{graphics.reduce((sum, g) => sum + g.downloadCount, 0)}</div>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium">Featured</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{graphics.filter((g) => g.featured).length}</div>
-                    </CardContent>
-                </Card>
-            </div>
-
             {/* Graphics Table */}
             <Card>
                 <CardHeader>
@@ -377,7 +372,6 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                                                     </div>
                                                     <div>
                                                         <div className="line-clamp-1 font-medium">{graphic.title}</div>
-                                                        {graphic.description && <div className="text-muted-foreground line-clamp-1 text-sm">{graphic.description}</div>}
                                                     </div>
                                                 </div>
                                             </TableCell>
@@ -409,14 +403,13 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                                                 </div>
                                             </TableCell>
                                             <TableCell>
-                                                <div className="flex gap-2">
-                                                    {graphic.featured && <Badge variant="default">Featured</Badge>}
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() => handleToggleFeatured(graphic.id, graphic.featured)}>
-                                                        {graphic.featured ? 'Unfeature' : 'Feature'}
-                                                    </Button>
+                                                <div className="flex items-center gap-2">
+                                                    <Switch
+                                                        id={`featured-${graphic.id}`}
+                                                        checked={graphic.featured}
+                                                        onCheckedChange={() => handleToggleFeatured(graphic.id, graphic.featured)}
+                                                        disabled={loadingId === graphic.id}
+                                                    />
                                                 </div>
                                             </TableCell>
                                             <TableCell>
@@ -428,8 +421,8 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                                                         variant="ghost"
                                                         size="sm"
                                                         asChild>
-                                                        <Link href={`/graphics/${graphic.id}`}>
-                                                            <ExternalLink className="h-4 w-4" />
+                                                        <Link href={`${GRAPHIC_URL}/${graphic.id}`}>
+                                                            <Eye className="h-4 w-4" />
                                                         </Link>
                                                     </Button>
                                                     <AlertDialog>

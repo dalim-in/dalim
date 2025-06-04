@@ -127,9 +127,9 @@ export function FontEditDialog({ font, onUpdate, onDelete }: FontEditDialogProps
     <>
       <Dialog open={open} onOpenChange={handleOpenChange}>
         <DialogTrigger asChild>
-          <Button variant="outline" size="sm">
+          <Button variant="ghost" size="icon">
             <Edit className="h-4 w-4 mr-1" />
-            Edit
+            
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
