@@ -1,14 +1,15 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Button } from '@dalim/core/ui/button'
 import { Input } from '@dalim/core/ui/input'
-import { Label } from '@dalim/core/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
 import { Badge } from '@dalim/core/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@dalim/core/ui/card'
-import { Search, X } from 'lucide-react'
+import { Search, X, Loader2 } from 'lucide-react'
+import Link from 'next/link'
+import { DALIM_URL } from '@dalim/auth'
+import { useSession } from 'next-auth/react'
 
 const categories = [
     { value: '', label: 'All Categories' },
@@ -26,6 +27,7 @@ const categories = [
 ]
 
 export function GraphicsFilters() {
+    const { data: session } = useSession()
     const router = useRouter()
     const searchParams = useSearchParams()
 
@@ -33,32 +35,64 @@ export function GraphicsFilters() {
     const [category, setCategory] = useState(searchParams.get('category') || '')
     const [tags, setTags] = useState<string[]>(searchParams.get('tags')?.split(',').filter(Boolean) || [])
     const [currentTag, setCurrentTag] = useState('')
+    const [isSearching, setIsSearching] = useState(false)
 
-    const updateURL = (newParams: Record<string, string | string[]>) => {
-        const params = new URLSearchParams()
+    const updateURL = useCallback(
+        (newParams: Record<string, string | string[]>) => {
+            const params = new URLSearchParams()
 
-        Object.entries(newParams).forEach(([key, value]) => {
-            if (value) {
-                if (Array.isArray(value)) {
-                    if (value.length > 0) {
-                        params.set(key, value.join(','))
-                    }
-                } else {
+            // Add existing search params first, then override with new ones
+            searchParams.forEach((value, key) => {
+                if (key !== 'page') {
+                    // Always reset page when filters change
                     params.set(key, value)
                 }
-            }
-        })
+            })
 
-        router.push(`/graphics?${params.toString()}`)
-    }
+            // Update with new params
+            Object.entries(newParams).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    if (Array.isArray(value)) {
+                        if (value.length > 0) {
+                            params.set(key, value.join(','))
+                        } else {
+                            params.delete(key)
+                        }
+                    } else if (value.toString().trim()) {
+                        params.set(key, value.toString())
+                    } else {
+                        params.delete(key)
+                    }
+                } else {
+                    params.delete(key)
+                }
+            })
 
-    const handleSearch = () => {
-        updateURL({ search, category, tags })
-    }
+            const queryString = params.toString()
+            const url = queryString ? `/?${queryString}` : '/'
+
+            setIsSearching(true)
+            router.push(url)
+
+            // Reset searching state after a short delay
+            setTimeout(() => setIsSearching(false), 500)
+        },
+        [router, searchParams]
+    )
+
+    // Auto search with debounce
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            updateURL({ search, category, tags })
+        }, 300) // 300ms delay
+
+        return () => clearTimeout(timeoutId)
+    }, [search, updateURL, category, tags])
 
     const handleCategoryChange = (newCategory: string) => {
-        setCategory(newCategory)
-        updateURL({ search, category: newCategory, tags })
+        const categoryValue = newCategory === '' ? '' : newCategory
+        setCategory(categoryValue)
+        // Category change is immediate, no debounce needed
     }
 
     const addTag = () => {
@@ -66,14 +100,14 @@ export function GraphicsFilters() {
             const newTags = [...tags, currentTag.trim()]
             setTags(newTags)
             setCurrentTag('')
-            updateURL({ search, category, tags: newTags })
+            // Tags update is immediate
         }
     }
 
     const removeTag = (tagToRemove: string) => {
         const newTags = tags.filter((tag) => tag !== tagToRemove)
         setTags(newTags)
-        updateURL({ search, category, tags: newTags })
+        // Tag removal is immediate
     }
 
     const clearFilters = () => {
@@ -83,96 +117,98 @@ export function GraphicsFilters() {
         router.push('/graphics')
     }
 
+    const hasActiveFilters = search || category || tags.length > 0
+
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Filters</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-                {/* Search */}
+        <div className="flex justify-center">
+            <div className="flex flex-wrap justify-center gap-2">
                 <div className="space-y-2">
-                    <Label>Search</Label>
-                    <div className="flex gap-2">
+                    <div className="relative">
                         <Input
+                            id="search"
                             placeholder="Search graphics..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                            className="pr-10"
                         />
-                        <Button
-                            size="icon"
-                            onClick={handleSearch}>
-                            <Search className="h-4 w-4" />
-                        </Button>
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">{isSearching ? <Loader2 className="text-muted-foreground h-4 w-4 animate-spin" /> : <Search className="text-muted-foreground h-4 w-4" />}</div>
                     </div>
                 </div>
 
                 {/* Category */}
                 <div className="space-y-2">
-                    <Label>Category</Label>
                     <Select
                         value={category}
                         onValueChange={handleCategoryChange}>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-40">
                             <SelectValue placeholder="Select category" />
                         </SelectTrigger>
                         <SelectContent>
-                            {categories
-                                .filter((cat) => cat.value !== '')
-                                .map((cat) => (
-                                    <SelectItem
-                                        key={cat.value}
-                                        value={cat.value}>
-                                        {cat.label}
-                                    </SelectItem>
-                                ))}
+                            {categories.map((cat) => (
+                                <SelectItem
+                                    key={cat.value || 'all'}
+                                    value={cat.value || 'all'} // Ensure fallback is a non-empty string
+                                >
+                                    {cat.label}
+                                </SelectItem>
+                            ))}
                         </SelectContent>
                     </Select>
                 </div>
 
-                {/* Tags */}
                 <div className="space-y-2">
-                    <Label>Tags</Label>
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2">
                         <Input
+                            id="tags"
                             placeholder="Add tag..."
                             value={currentTag}
                             onChange={(e) => setCurrentTag(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault()
+                                    addTag()
+                                }
+                            }}
                         />
                         <Button
                             size="icon"
                             onClick={addTag}
-                            variant="outline">
+                            className="w-10"
+                            variant="outline"
+                            disabled={!currentTag.trim()}>
                             +
                         </Button>
-                    </div>
-                    {tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {tags.map((tag) => (
-                                <Badge
-                                    key={tag}
-                                    variant="secondary"
-                                    className="cursor-pointer">
-                                    {tag}
-                                    <X
-                                        className="ml-1 h-3 w-3"
-                                        onClick={() => removeTag(tag)}
-                                    />
-                                </Badge>
-                            ))}
+                        <div className="flex items-center gap-2">
+                            {tags.length > 0 && (
+                                <div className="mt-2 flex flex-wrap gap-2">
+                                    {tags.map((tag) => (
+                                        <Badge
+                                            key={tag}
+                                            variant="secondary"
+                                            className="hover:bg-destructive hover:text-destructive-foreground cursor-pointer transition-colors">
+                                            {tag}
+                                            <X
+                                                className="hover:text-destructive-foreground ml-1 h-3 w-3"
+                                                onClick={() => removeTag(tag)}
+                                            />
+                                        </Badge>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    )}
+                    </div>
                 </div>
-
-                {/* Clear Filters */}
-                <Button
-                    variant="outline"
-                    onClick={clearFilters}
-                    className="w-full">
-                    Clear All Filters
-                </Button>
-            </CardContent>
-        </Card>
+                {hasActiveFilters && (
+                    <Button
+                        variant="outline"
+                        onClick={clearFilters}>
+                        Clear All Filters
+                    </Button>
+                )}
+                <Link href={session ? '/upload' : `${DALIM_URL}/login`}>
+                    <Button>{session ? 'Submit a graphic' : 'Submit a graphic'}</Button>
+                </Link>
+            </div>
+        </div>
     )
 }

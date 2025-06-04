@@ -16,18 +16,18 @@ const data = {
     navMain: [
         {
             title: 'Designs',
-            url: '#',
+            url: '',
             icon: PenTool,
             isActive: true,
             items: [
                 { title: 'Fonts', url: '/dashboard/fonts' },
-                { title: 'Graphics', url: '#' },
+                { title: 'Graphic', url: '/dashboard/graphic' },
                 { title: 'Assets', url: '#' },
             ],
         },
         {
             title: 'Settings',
-            url: '#',
+            url: '',
             icon: Settings2,
             items: [
                 { title: 'General', url: '/dashboard/settings' },

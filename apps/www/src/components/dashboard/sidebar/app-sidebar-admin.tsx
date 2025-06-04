@@ -16,12 +16,12 @@ const data = {
     navMain: [
         {
             title: 'Designs',
-            url: '#',
+            url: '',
             icon: PenTool,
             isActive: true,
             items: [
                 { title: 'Fonts', url: '/admin/fonts' },
-                { title: 'Graphics', url: '#' },
+                { title: 'Graphics', url: '/admin/graphic' },
                 { title: 'Assets', url: '#' },
             ],
         },

@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Button } from '@dalim/core/ui/button'
-import { Eye, Download, Grid, Rows4, Search, Loader2, Star } from 'lucide-react'
+import { Eye, Download, Grid, Rows4, Search, Loader2 } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { GRAPHIC_URL } from '@dalim/auth'
 
 interface GraphicsGridProps {
     graphics: Array<{
@@ -17,7 +17,6 @@ interface GraphicsGridProps {
         category: string
         images: string[]
         tags: string[]
-        featured: boolean
         viewCount: number
         downloadCount: number
         createdAt: Date
@@ -28,11 +27,9 @@ interface GraphicsGridProps {
             image: string | null
         }
     }>
-    pages: number
-    currentPage: number
 }
 
-export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps) {
+export function GraphicsGrid({ graphics }: GraphicsGridProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
@@ -44,12 +41,6 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
         const timer = setTimeout(() => setIsLoading(false), 200)
         return () => clearTimeout(timer)
     }, [searchParams])
-
-    const handlePageChange = (page: number) => {
-        const params = new URLSearchParams(searchParams.toString())
-        params.set('page', page.toString())
-        router.push(`/graphics?${params.toString()}`)
-    }
 
     if (isLoading) {
         return (
@@ -93,11 +84,11 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         </div>
                     </div>
                     <h3 className="mb-2 text-lg font-semibold">No graphics found</h3>
-                    <p className="text-muted-foreground mb-4">{hasFilters ? 'Try adjusting your search criteria or browse all graphics.' : 'No graphics available at the moment.'}</p>
+                    <p className="text-muted-foreground mb-4">{hasFilters ? 'Try adjusting your search criteria or browse all graphics.' : "This user hasn't uploaded any graphics yet."}</p>
                     {hasFilters && (
                         <Button
                             variant="outline"
-                            onClick={() => router.push('/graphics')}>
+                            onClick={() => router.push(`${GRAPHIC_URL}/graphics`)}>
                             Clear Filters
                         </Button>
                     )}
@@ -136,14 +127,13 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                 </div>
             </div>
 
-            {/* Graphics Display */}
             <div className={viewMode === 'grid' ? 'grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3' : 'grid gap-3 lg:grid-cols-2'}>
                 {graphics.map((graphic) => (
                     <div
                         key={graphic.id}
                         className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2 md:flex' : ''}`}>
                         <Link
-                            href={`/${graphic.id}`}
+                            href={`${GRAPHIC_URL}/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
                             <div className={`relative overflow-hidden ${viewMode === 'list' ? 'aspect-video h-40 w-full rounded-lg' : 'aspect-video rounded-t-lg'}`}>
                                 <Image
@@ -159,56 +149,10 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         <div className={`flex flex-col space-y-3 p-3 ${viewMode === 'list' ? 'flex-1' : 'p-4'}`}>
                             {/* Top content: Title, Category, Tags */}
                             <div className="space-y-3">
-                                <Link href={`/${graphic.id}`}>
+                                <Link href={`${GRAPHIC_URL}/${graphic.id}`}>
                                     <h3 className="hover:text-primary line-clamp-2 font-semibold transition-colors">{graphic.title}</h3>
                                 </Link>
-                                <div className="space-x-2">
-                                    {graphic.featured && (
-                                        <Badge
-                                            variant="secondary"
-                                            className="bg-purple-500 text-white">
-                                            <Star className="mr-1 h-3 w-3" />
-                                            Featured
-                                        </Badge>
-                                    )}
-                                    <Badge
-                                        variant="secondary"
-                                        className="mt-2 w-auto text-xs md:mt-6">
-                                        {graphic.category.replace('_', ' ')}
-                                    </Badge>
-                                </div>
-                                {graphic.tags.length > 0 && (
-                                    <div className="flex flex-wrap gap-1">
-                                        {graphic.tags.slice(0, 3).map((tag) => (
-                                            <Badge
-                                                key={tag}
-                                                variant="outline"
-                                                className="text-xs">
-                                                {tag}
-                                            </Badge>
-                                        ))}
-                                        {graphic.tags.length > 3 && (
-                                            <Badge
-                                                variant="outline"
-                                                className="text-xs">
-                                                +{graphic.tags.length - 3}
-                                            </Badge>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Bottom meta: Avatar and Counts */}
-                            <div className="mt-auto flex items-center justify-between pt-2">
-                                <div className="flex items-center gap-2">
-                                    <Avatar className="h-6 w-6 border">
-                                        <AvatarImage src={graphic.user.image || ''} />
-                                        <AvatarFallback className="text-xs">{graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}</AvatarFallback>
-                                    </Avatar>
-                                    <span className="text-muted-foreground truncate text-xs">{graphic.user.name || graphic.user.username}</span>
-                                </div>
-
-                                <div className="text-muted-foreground flex items-center gap-3 text-xs">
+                                <div className="text-muted-foreground mt-6 flex items-center gap-3 text-xs">
                                     <div className="flex items-center gap-1">
                                         <Eye className="h-3 w-3" />
                                         {graphic.viewCount}
@@ -218,55 +162,16 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                                         {graphic.downloadCount}
                                     </div>
                                 </div>
+                                <Badge
+                                    variant="secondary"
+                                    className="mt-2 w-auto text-xs">
+                                    {graphic.category.replace('_', ' ')}
+                                </Badge>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-
-            {/* Pagination */}
-            {pages > 1 && (
-                <div className="flex items-center justify-center gap-2 pt-6">
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}>
-                        Previous
-                    </Button>
-
-                    <div className="flex gap-1">
-                        {Array.from({ length: Math.min(5, pages) }, (_, i) => {
-                            let page: number
-                            if (pages <= 5) {
-                                page = i + 1
-                            } else if (currentPage <= 3) {
-                                page = i + 1
-                            } else if (currentPage >= pages - 2) {
-                                page = pages - 4 + i
-                            } else {
-                                page = currentPage - 2 + i
-                            }
-
-                            return (
-                                <Button
-                                    key={page}
-                                    variant={currentPage === page ? 'default' : 'outline'}
-                                    size="sm"
-                                    onClick={() => handlePageChange(page)}>
-                                    {page}
-                                </Button>
-                            )
-                        })}
-                    </div>
-
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === pages}>
-                        Next
-                    </Button>
-                </div>
-            )}
         </div>
     )
 }

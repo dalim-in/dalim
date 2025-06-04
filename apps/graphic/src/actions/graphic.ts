@@ -2,7 +2,7 @@
 "use server"
 
 import { auth } from "@dalim/auth"
-import { prisma } from "@dalim/db"
+import { GraphicCategory, prisma } from "@dalim/db"
 import { cloudinary } from "@/src/lib/cloudinary"
 import { revalidatePath } from "next/cache"
 
@@ -327,5 +327,325 @@ export async function deleteGraphic(id: string) {
   } catch (error) {
     console.error("Delete error:", error)
     return { success: false, error: "Failed to delete graphic" }
+  }
+}
+
+export async function getRelatedGraphics(graphicId: string, category: string, tags: string[], limit = 6) {
+  try {
+    // Get related graphics based on category and tags
+    const relatedGraphics = await prisma.graphic.findMany({
+      where: {
+        AND: [
+          { id: { not: graphicId } }, // Exclude current graphic
+          {
+            OR: [
+              { category: category as GraphicCategory }, // Same category
+              { tags: { hasSome: tags } }, // Has some matching tags
+            ],
+          },
+        ],
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            username: true,
+            image: true,
+          },
+        },
+      },
+      orderBy: [{ featured: "desc" }, { viewCount: "desc" }, { createdAt: "desc" }],
+      take: limit,
+    })
+
+    return relatedGraphics
+  } catch (error) {
+    console.error("Get related graphics error:", error)
+    return []
+  }
+}
+
+
+export async function getUserGraphics(
+  userId: string,
+  params?: {
+    search?: string
+    category?: string
+    page?: number
+    limit?: number
+  },
+) {
+  try {
+    const { search = "", category, page = 1, limit = 10 } = params || {}
+
+    const skip = (page - 1) * limit
+
+    const where: any = {
+      userId,
+    }
+
+    if (search) {
+      where.OR = [
+        { title: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+      ]
+    }
+
+    if (category && category !== "") {
+      where.category = category
+    }
+
+    const [graphics, total] = await Promise.all([
+      prisma.graphic.findMany({
+        where,
+        orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
+        skip,
+        take: limit,
+      }),
+      prisma.graphic.count({ where }),
+    ])
+
+    return {
+      graphics,
+      total,
+      pages: Math.ceil(total / limit),
+      currentPage: page,
+    }
+  } catch (error) {
+    console.error("Get user graphics error:", error)
+    return {
+      graphics: [],
+      total: 0,
+      pages: 0,
+      currentPage: 1,
+    }
+  }
+}
+
+export async function bulkDeleteGraphics(graphicIds: string[]) {
+  try {
+    const session = await auth()
+    if (!session?.user?.id) {
+      return { success: false, error: "Unauthorized" }
+    }
+
+    // Get graphics to verify ownership and get public IDs
+    const graphics = await prisma.graphic.findMany({
+      where: {
+        id: { in: graphicIds },
+        userId: session.user.id,
+      },
+      select: { id: true, imagePublicIds: true },
+    })
+
+    if (graphics.length !== graphicIds.length) {
+      return { success: false, error: "Some graphics not found or unauthorized" }
+    }
+
+    // Delete images from Cloudinary
+    for (const graphic of graphics) {
+      for (const publicId of graphic.imagePublicIds) {
+        try {
+          await cloudinary.uploader.destroy(publicId)
+        } catch (error) {
+          console.error("Error deleting image:", error)
+        }
+      }
+    }
+
+    // Delete graphics from database
+    await prisma.graphic.deleteMany({
+      where: {
+        id: { in: graphicIds },
+        userId: session.user.id,
+      },
+    })
+
+    revalidatePath("/dashboard/graphics")
+    revalidatePath("/graphics")
+    return { success: true }
+  } catch (error) {
+    console.error("Bulk delete error:", error)
+    return { success: false, error: "Failed to delete graphics" }
+  }
+}
+
+export async function adminDeleteGraphic(id: string) {
+  try {
+    const session = await auth()
+    if (!session?.user || session.user.role !== "ADMIN") {
+      return { success: false, error: "Unauthorized" }
+    }
+
+    // Get graphic and its images
+    const graphic = await prisma.graphic.findUnique({
+      where: { id },
+      select: { imagePublicIds: true },
+    })
+
+    if (!graphic) {
+      return { success: false, error: "Graphic not found" }
+    }
+
+    // Delete images from Cloudinary
+    for (const publicId of graphic.imagePublicIds) {
+      try {
+        await cloudinary.uploader.destroy(publicId)
+      } catch (error) {
+        console.error("Error deleting image:", error)
+      }
+    }
+
+    // Delete graphic from database
+    await prisma.graphic.delete({
+      where: { id },
+    })
+
+    revalidatePath("/admin/graphics")
+    revalidatePath("/graphics")
+    return { success: true }
+  } catch (error) {
+    console.error("Admin delete error:", error)
+    return { success: false, error: "Failed to delete graphic" }
+  }
+}
+
+export async function adminBulkDeleteGraphics(graphicIds: string[]) {
+  try {
+    const session = await auth()
+    if (!session?.user || session.user.role !== "ADMIN") {
+      return { success: false, error: "Unauthorized" }
+    }
+
+    // Get graphics and their images
+    const graphics = await prisma.graphic.findMany({
+      where: { id: { in: graphicIds } },
+      select: { id: true, imagePublicIds: true },
+    })
+
+    // Delete images from Cloudinary
+    for (const graphic of graphics) {
+      for (const publicId of graphic.imagePublicIds) {
+        try {
+          await cloudinary.uploader.destroy(publicId)
+        } catch (error) {
+          console.error("Error deleting image:", error)
+        }
+      }
+    }
+
+    // Delete graphics from database
+    await prisma.graphic.deleteMany({
+      where: { id: { in: graphicIds } },
+    })
+
+    revalidatePath("/admin/graphics")
+    revalidatePath("/graphics")
+    return { success: true }
+  } catch (error) {
+    console.error("Admin bulk delete error:", error)
+    return { success: false, error: "Failed to delete graphics" }
+  }
+}
+
+export async function toggleFeaturedGraphic(id: string, featured: boolean) {
+  try {
+    const session = await auth()
+    if (!session?.user || session.user.role !== "ADMIN") {
+      return { success: false, error: "Unauthorized" }
+    }
+
+    await prisma.graphic.update({
+      where: { id },
+      data: { featured },
+    })
+
+    revalidatePath("/admin/graphics")
+    revalidatePath("/graphics")
+    return { success: true }
+  } catch (error) {
+    console.error("Toggle featured error:", error)
+    return { success: false, error: "Failed to update graphic" }
+  }
+}
+
+
+// Admin-only functions
+export async function getAllGraphicsForAdmin(params?: {
+  search?: string
+  category?: string
+  user?: string
+  page?: number
+  limit?: number
+}) {
+  try {
+    const session = await auth()
+    if (!session?.user || session.user.role !== "ADMIN") {
+      return { graphics: [], total: 0, pages: 0, currentPage: 1 }
+    }
+
+    const { search = "", category, user = "", page = 1, limit = 15 } = params || {}
+
+    const skip = (page - 1) * limit
+
+    const where: any = {}
+
+    if (search) {
+      where.OR = [
+        { title: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+      ]
+    }
+
+    if (category && category !== "") {
+      where.category = category
+    }
+
+    if (user) {
+      where.user = {
+        OR: [
+          { name: { contains: user, mode: "insensitive" } },
+          { username: { contains: user, mode: "insensitive" } },
+          { email: { contains: user, mode: "insensitive" } },
+        ],
+      }
+    }
+
+    const [graphics, total] = await Promise.all([
+      prisma.graphic.findMany({
+        where,
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              username: true,
+              image: true,
+              email: true,
+            },
+          },
+        },
+        orderBy: [{ createdAt: "desc" }],
+        skip,
+        take: limit,
+      }),
+      prisma.graphic.count({ where }),
+    ])
+
+    return {
+      graphics,
+      total,
+      pages: Math.ceil(total / limit),
+      currentPage: page,
+    }
+  } catch (error) {
+    console.error("Get admin graphics error:", error)
+    return {
+      graphics: [],
+      total: 0,
+      pages: 0,
+      currentPage: 1,
+    }
   }
 }
