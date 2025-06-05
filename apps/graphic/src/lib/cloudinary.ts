@@ -18,5 +18,30 @@ export async function getBackgroundsNeonImages() {
     .max_results(400)
     .execute();
 }
+
+export async function getBackgroundsNoiseImages() {
+  return await cloudinary.search
+    .expression('folder:Dalim/Graphic/Backgrounds/Noise/*')
+    .sort_by('created_at', 'desc')
+    .max_results(400)
+    .execute();
+}
+ 
+export async function getBackgroundsOilPaintImages() {
+  return await cloudinary.search
+    .expression('folder:Dalim/Graphic/Backgrounds/OilPaint/*')
+    .sort_by('created_at', 'desc')
+    .max_results(400)
+    .execute();
+}
+ 
+export async function getBackgroundsSolarizeImages() {
+  return await cloudinary.search
+    .expression('folder:Dalim/Graphic/Backgrounds/Solarize/*')
+    .sort_by('created_at', 'desc')
+    .max_results(400)
+    .execute();
+}
+ 
  
  

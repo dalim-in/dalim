@@ -2,7 +2,7 @@ import ThemeToggle from '../../../ui/theme-toggle'
 
 import { Menu, MenuAgency, MenuFonts, MenuGraphic, MenuUI } from './navmenu'
 import { LinkSelect } from './link-select'
-import { MobileWWW } from './mobile-menu'
+import { MobileWWW, MobileGraphic, MobileFonts, MobileUI, MobileAgency, MobileWorks } from './mobile-menu'
 import { LoginButton, MobileLoginButton } from './auth-buttons'
 import { ClientOnly } from './client-only'
 import { DalimLogo, DalimUILogo, DalimFontsLogo, DalimAgencyLogo, DalimWorksLogo, DalimGraphicLogo } from '../../logo'
@@ -51,11 +51,11 @@ export function HeaderUI() {
                             <DalimUILogo />
                             </div>
                             <MenuUI />
-                            <MobileWWW>
+                            <MobileUI>
                                 <ClientOnly>
                                     <MobileLoginButton />
                                 </ClientOnly>
-                            </MobileWWW>
+                            </MobileUI>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -84,11 +84,11 @@ export function HeaderAgency() {
                                 <DalimAgencyLogo />
                             </div>
                             <MenuAgency />
-                            <MobileWWW>
+                            <MobileAgency>
                                 <ClientOnly>
                                     <MobileLoginButton />
                                 </ClientOnly>
-                            </MobileWWW>
+                            </MobileAgency>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -116,11 +116,11 @@ export function HeaderWorks() {
                             <div className="w-60">
                             <DalimWorksLogo />
                             </div>
-                            <MobileWWW>
+                            <MobileWorks>
                                 <ClientOnly>
                                     <MobileLoginButton />
                                 </ClientOnly>
-                            </MobileWWW>
+                            </MobileWorks>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -149,11 +149,11 @@ export function HeaderFonts() {
                             <DalimFontsLogo />
                             </div>
                             <MenuFonts />
-                            <MobileWWW>
+                            <MobileFonts>
                                 <ClientOnly>
                                     <MobileLoginButton />
                                 </ClientOnly>
-                            </MobileWWW>
+                            </MobileFonts>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />
@@ -183,11 +183,11 @@ export function HeaderGraphic() {
                             <DalimGraphicLogo />
                             </div>
                             <MenuGraphic />
-                            <MobileWWW>
+                            <MobileGraphic>
                                 <ClientOnly>
                                     <MobileLoginButton />
                                 </ClientOnly>
-                            </MobileWWW>
+                            </MobileGraphic>
                             <div className="hidden items-center md:flex">
                                 <div className="flex items-center gap-1">
                                     <ThemeToggle />

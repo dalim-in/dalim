@@ -1,18 +1,18 @@
 'use client'
 
 import * as React from 'react'
-import { Frame, SquareLibrary, PenTool, Settings2, SquareCode } from 'lucide-react'
+import { Frame, Images, SquareLibrary, PenTool, Settings2, SquareCode, AArrowUpIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { NavMain } from './nav-main'
 import { NavProjects } from './nav-projects'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar } from '@dalim/core/ui/sidebar'
-import { AGENCY_URL, UI_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, FONTS_URL, GRAPHIC_URL, UI_URL, WORKS_URL } from '@dalim/auth'
 import { PublicUser } from '@/src/types/user'
 import { SidebarOptInForm } from './sidebar-opt-in-form'
 import Link from 'next/link'
 
-const data = { 
+const data = {
     navMain: [
         {
             title: 'Designs',
@@ -31,12 +31,14 @@ const data = {
             icon: Settings2,
             items: [
                 { title: 'General', url: '/dashboard/settings' },
-                { title: 'Team', url: '#' },
+                { title: 'Team', url: '#'},
                 { title: 'Billing', url: '#' },
             ],
         },
     ],
     projects: [
+        { name: 'Fonts', url: FONTS_URL, icon: AArrowUpIcon },
+        { name: 'Graphic', url: GRAPHIC_URL, icon: Images },
         { name: 'Agency', url: AGENCY_URL, icon: Frame },
         { name: 'UI', url: UI_URL, icon: SquareCode },
         { name: 'Works', url: WORKS_URL, icon: SquareLibrary },
@@ -88,13 +90,13 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
                                 <div className="pl-2">
                                     {state !== 'collapsed' && (
                                         <div className="space-y-1">
-                                            <div className='flex items-center gap-2'>
+                                            <div className="flex items-center gap-2">
                                                 <p className="text-xs">Username:</p>
                                                 <Link href={`/${user.username}`}>
                                                     <span className="text-md text-brand cursor-pointer hover:underline">{user.username}</span>
                                                 </Link>
                                             </div>
-                                           <div className='flex items-center gap-2'>
+                                            <div className="flex items-center gap-2">
                                                 <p className="text-xs">Bio:</p>
                                                 <span className="text-md">{user.bio || ' '}</span>
                                             </div>

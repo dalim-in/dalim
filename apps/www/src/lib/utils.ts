@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge" 
 import { siteConfig } from "../config/site"; 
-import { Metadata } from "next/types";
+import { Metadata } from "next/types"; 
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -35,7 +35,7 @@ export function formatDate(input: string | number): string {
     day: "numeric",
     year: "numeric",
   });
-}
+} 
 
 export const getBlurDataURL = async (url: string | null) => {
   if (!url) {

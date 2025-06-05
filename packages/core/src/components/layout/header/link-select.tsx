@@ -54,6 +54,14 @@ const OPTIONS = [
         },
     },
     {
+        value: 'icons',
+        label: 'Icons', 
+        urls: {
+            prod: 'https://icons.dalim.in',
+            dev: 'http://localhost:3007',
+        },
+    },
+    {
         value: 'learn',
         label: 'Learn', 
         urls: {
@@ -62,12 +70,12 @@ const OPTIONS = [
         },
     },
     {
-        value: 'icons',
-        label: 'Icons',
+        value: 'pro',
+        label: 'Pro',
         disabled: true,
         urls: {
-            prod: 'https://icons.dalim.in',
-            dev: 'http://localhost:3007',
+            prod: 'https://pro.dalim.in',
+            dev: 'http://localhost:3008',
         },
     },
     {

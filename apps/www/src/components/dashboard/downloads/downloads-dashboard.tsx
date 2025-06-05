@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,8 +16,20 @@ import { Checkbox } from '@dalim/core/ui/checkbox'
 import { Download, Search, Trash2, ExternalLink, Calendar, RotateCcw, FileImage, Type, Eye } from 'lucide-react'
 import { deleteDownload, bulkDeleteDownloads, clearAllDownloads } from '@/src/actions/downloads'
 import { toast } from '@dalim/core/hooks/use-toast'
-import { formatDistanceToNow } from 'date-fns'
+import { format, formatDistanceToNow } from 'date-fns'
 import { CldImage } from '@dalim/core/components/common/gallery'
+import { FONTS_URL, GRAPHIC_URL } from '@dalim/auth'
+
+function RelativeDate({ date }: { date: string | Date }) {
+    const [relative, setRelative] = useState('')
+
+    useEffect(() => {
+        const parsedDate = typeof date === 'string' ? new Date(date) : date
+        setRelative(formatDistanceToNow(parsedDate, { addSuffix: true }))
+    }, [date])
+
+    return <span className='text-primary/60'>{relative}</span>
+}
 
 const downloadTypes = [
     { value: '', label: 'All Types' },
@@ -394,8 +406,8 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                             </TableCell>
                                             <TableCell>
                                                 <div className="text-sm">
-                                                    <div>{new Date(download.lastDownloadAt).toLocaleDateString()}</div>
-                                                    <div className="text-muted-foreground">{formatDistanceToNow(new Date(download.lastDownloadAt), { addSuffix: true })}</div>
+                                                    <div> {format(new Date(download.lastDownloadAt), 'MMM d, yyyy')} </div>
+                                                    <RelativeDate date={download.lastDownloadAt} />
                                                 </div>
                                             </TableCell>
                                             <TableCell className="text-right">
@@ -410,7 +422,7 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                                         variant="ghost"
                                                         size="icon"
                                                         asChild>
-                                                        <Link href={download.itemType === 'GRAPHIC' ? `/${download.itemId}` : `/${download.itemId}`}>
+                                                        <Link href={download.itemType === 'GRAPHIC' ? `${GRAPHIC_URL}/${download.itemId}` : `${FONTS_URL}/${download.itemId}`}>
                                                             <Eye className="h-4 w-4" />
                                                         </Link>
                                                     </Button>

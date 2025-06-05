@@ -1,0 +1,65 @@
+{
+  "name": "dalim-icons",
+  "description": "A react icons library of Dalim",
+  "version": "0.1.0",
+  "keywords": [
+    "dalim",
+    "shapes",
+    "abstract",
+    "svg",
+    "vector",
+    "avatar",
+    "illustration",
+    "graphics",
+    "placeholder"
+  ],
+  "scripts": {
+    "build": "tsup --clean",
+    "clean": "rm -rf .turbo dist node_modules",
+    "format": "prettier --write --check . --ignore-path ./.gitignore",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "author": "Dalim <contact@dalim.in> (https://dalim.in)",
+  "main": "dist/cjs/icons.js",
+  "main:umd": "dist/umd/icons.js",
+  "module": "dist/esm/icons.js",
+  "unpkg": "dist/umd/icons.js",
+  "typings": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalim-in/dalim.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "tsup": "^8.3.6",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "react-svg": "^16.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dalim-in/dalim/issues"
+  },
+  "homepage": "https://github.com/dalim-in/dalim#readme"
+}

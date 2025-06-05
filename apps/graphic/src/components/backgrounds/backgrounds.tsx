@@ -1,14 +1,14 @@
 import { ScrollArea, ScrollBar } from '@dalim/core/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 
-import { NeonBackgrounds } from './bg'
+import { NeonBackgrounds, NoiseBackgrounds, OilPaintBackgrounds, SolarizeBackgrounds } from './bg'
 
 export function Backgrounds() {
     return (
         <Tabs
             defaultValue="1"
             className="mb-6 items-center justify-center text-center">
-            <TabsList className="sticky top-24 z-20 items-center justify-center text-center shadow-xl w-auto">
+            <TabsList className="sticky top-24 z-20 w-auto items-center justify-center text-center shadow-xl">
                 <ScrollArea className="whitespace-nowrap">
                     <div className="space-x-2">
                         <TabsTrigger
@@ -21,6 +21,16 @@ export function Backgrounds() {
                             className="px-6">
                             Noise
                         </TabsTrigger>
+                        <TabsTrigger
+                            value="3"
+                            className="px-6">
+                            Oil Paint
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="4"
+                            className="px-6">
+                            Solarize
+                        </TabsTrigger>
                     </div>
                     <ScrollBar
                         className="hidden"
@@ -32,7 +42,15 @@ export function Backgrounds() {
                 <TabsContent value="1">
                     <NeonBackgrounds />
                 </TabsContent>
-                <TabsContent value="2">Noise Coming Soon</TabsContent>
+                <TabsContent value="2">
+                    <NoiseBackgrounds />
+                </TabsContent>
+                <TabsContent value="3">
+                    <OilPaintBackgrounds />
+                </TabsContent>
+                <TabsContent value="4">
+                    <SolarizeBackgrounds />
+                </TabsContent>
             </div>
         </Tabs>
     )
