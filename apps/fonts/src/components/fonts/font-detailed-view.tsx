@@ -16,8 +16,28 @@ import { ShareButton } from '@dalim/core/components/common/share-button'
 import { trackDownload } from '@/src/actions/downloads'
 
 interface FontDetailViewProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    font: any
+  font: {
+    id: string
+    name: string
+    title?: string
+    description?: string
+    type: string
+    category: string
+    previewUrl: string
+    downloadUrl: string
+    zipFileUrl?: string
+    licenceUrl?: string
+    viewCount: number
+    downloadCount: number
+    fontFiles?: number
+    tags?: string[]
+    createdAt: string
+    user: {
+      id: string
+      name?: string
+      username?: string
+    }
+  }
 }
 
 export function FontDetailView({ font }: FontDetailViewProps) {
@@ -26,22 +46,22 @@ export function FontDetailView({ font }: FontDetailViewProps) {
     const fontFamily = `font-${font.name.replace(/\s+/g, '-').toLowerCase()}`
 
     const handleDownload = async () => {
-        if (session?.user) {
-            await trackDownload(font.id, 'FONT', font.title, font.link)
-        }
-        await incrementFontDownloadCount(font.id)
-        setDownloadCount((prev: number) => prev + 1)
-        window.open(font.downloadUrl, '_blank')
+    if (session?.user) {
+      await trackDownload(font.id, "FONT", font.name, font.previewUrl, font.downloadUrl)
     }
+    await incrementFontDownloadCount(font.id)
+    setDownloadCount((prev: number) => prev + 1)
+    window.open(font.downloadUrl, "_blank")
+  }
 
-    const handleZipDownload = async () => {
-        if (session?.user) {
-            await trackDownload(font.id, 'FONT', font.title, font.link)
-        }
-        await incrementFontDownloadCount(font.id)
-        setDownloadCount((prev: number) => prev + 1)
-        window.open(font.zipFileUrl, '_blank')
+  const handleZipDownload = async () => {
+    if (session?.user) {
+      await trackDownload(font.id, "FONT", `${font.name} Package`, font.previewUrl, font.zipFileUrl)
     }
+    await incrementFontDownloadCount(font.id)
+    setDownloadCount((prev: number) => prev + 1)
+    window.open(font.zipFileUrl, "_blank")
+  }
 
     return (
         <div>

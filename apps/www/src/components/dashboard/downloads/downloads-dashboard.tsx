@@ -200,7 +200,7 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
     }
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-3">
             {/* Filters */}
             <div className="flex flex-col justify-between gap-4 sm:flex-row">
                 <div className="flex flex-1 flex-col gap-4 sm:flex-row">
@@ -267,38 +267,11 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                             </AlertDialogContent>
                         </AlertDialog>
                     )}
-
-                    {total > 0 && (
-                        <AlertDialog>
-                            <AlertDialogTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    disabled={isClearing}>
-                                    <Trash2 className="mr-2 h-4 w-4" />
-                                    Clear All
-                                </Button>
-                            </AlertDialogTrigger>
-                            <AlertDialogContent>
-                                <AlertDialogHeader>
-                                    <AlertDialogTitle>Clear All Downloads</AlertDialogTitle>
-                                    <AlertDialogDescription>Are you sure you want to clear your entire download history? This will remove all {total} download records. This action cannot be undone.</AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction
-                                        onClick={handleClearAll}
-                                        disabled={isClearing}>
-                                        {isClearing ? 'Clearing...' : 'Clear All'}
-                                    </AlertDialogAction>
-                                </AlertDialogFooter>
-                            </AlertDialogContent>
-                        </AlertDialog>
-                    )}
                 </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 <Card>
                     <CardHeader className="pb-2">
                         <CardTitle className="flex items-center gap-2 text-sm font-medium">
@@ -371,7 +344,6 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                         <TableHead>Item</TableHead>
                                         <TableHead>Type</TableHead>
                                         <TableHead>Downloads</TableHead>
-                                        <TableHead>First Downloaded</TableHead>
                                         <TableHead>Last Downloaded</TableHead>
                                         <TableHead className="text-right">Actions</TableHead>
                                     </TableRow>
@@ -388,16 +360,18 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                             <TableCell>
                                                 <div className="flex items-center gap-3">
                                                     <div className="bg-muted relative h-12 w-12 overflow-hidden rounded-lg">
-                                                        {download.itemImage ? (
+                                                        {download.itemType === 'GRAPHIC' && download.itemImage ? (
                                                             <CldImage
-                                                                src={download.itemImage || '/placeholder.svg'}
+                                                                src={download.itemImage}
                                                                 alt={download.itemTitle}
                                                                 fill
                                                                 className="object-cover"
                                                             />
-                                                        ) : (
-                                                            <div className="flex h-full w-full items-center justify-center">{download.itemType === 'GRAPHIC' ? <FileImage className="text-muted-foreground h-6 w-6" /> : <Type className="text-muted-foreground h-6 w-6" />}</div>
-                                                        )}
+                                                        ) : download.itemType === 'GRAPHIC' ? (
+                                                            <div className="flex h-full w-full items-center justify-center">
+                                                                <FileImage className="text-muted-foreground h-6 w-6" />
+                                                            </div>
+                                                        ) : null}
                                                     </div>
                                                     <div>
                                                         <div className="line-clamp-1 font-medium">{download.itemTitle}</div>
@@ -420,12 +394,6 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                             </TableCell>
                                             <TableCell>
                                                 <div className="text-sm">
-                                                    <div>{new Date(download.firstDownloadAt).toLocaleDateString()}</div>
-                                                    <div className="text-muted-foreground">{formatDistanceToNow(new Date(download.firstDownloadAt), { addSuffix: true })}</div>
-                                                </div>
-                                            </TableCell>
-                                            <TableCell>
-                                                <div className="text-sm">
                                                     <div>{new Date(download.lastDownloadAt).toLocaleDateString()}</div>
                                                     <div className="text-muted-foreground">{formatDistanceToNow(new Date(download.lastDownloadAt), { addSuffix: true })}</div>
                                                 </div>
@@ -434,9 +402,9 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                                 <div className="flex items-center justify-end gap-2">
                                                     <Button
                                                         variant="ghost"
-                                                         size="icon"
+                                                        size="icon"
                                                         onClick={() => handleRedownload(download.downloadUrl, download.itemType, download.itemId)}>
-                                                        <RotateCcw className="h-4 w-4" />
+                                                        <Download className="h-4 w-4" />
                                                     </Button>
                                                     <Button
                                                         variant="ghost"
@@ -450,7 +418,7 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                                         <AlertDialogTrigger asChild>
                                                             <Button
                                                                 variant="ghost"
-                                                                 size="icon"
+                                                                size="icon"
                                                                 disabled={isDeleting}>
                                                                 <Trash2 className="h-4 w-4" />
                                                             </Button>
