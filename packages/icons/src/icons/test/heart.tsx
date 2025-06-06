@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { AccessIconHandle, AccessIconProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const accessMetadata: IconMetadata = {
-  name: "Access",
-  category: "Security",
-  tags: ["key", "lock", "security", "access", "authentication", "permission"],
+export const heartMetadata: IconMetadata = {
+  name: "Heart",
+  category: "health",
+  tags: ["health", "love", "romantic", "beautiful"],
   description: "An icon representing access control or authentication with a key and access cards",
   author: "Dalim Icons",
   created: "2023-05-15",
   variants: ["stroke", "solid", "duotone", "twotone", "bulk"]
 }
 
-export const Access = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'miter', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Heart = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'miter', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -67,7 +67,7 @@ export const Access = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEn
                     <>
                         {/* Key part - animated with keyVariants */}
                         <motion.path
-                            d="M4.92,19.43c0,.42.17.82.46,1.12l1.22,1.22c.31.31.81,.31,1.12,0l1.68-1.68c.31-.31.31-.81,0-1.12l-.56-.56c-.31-.31-.31-.81,0-1.12l.56-.56c.31-.31.31-.81,0-1.12l-.56-.56c-.31-.31-.31-.81,0-1.12l.1-.1c.3-.3.46-.7.46-1.12v-.91c2.56-1.24,3.64-4.32,2.4-6.88-1.24-2.56-4.32-3.64-6.88-2.4-2.56,1.24-3.64,4.32-2.4,6.88.51,1.05,1.35,1.89,2.4,2.4v7.64Z"
+                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -77,41 +77,7 @@ export const Access = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEn
                             custom={{ loop, animation }}
                             variants={pathVariants}
                         />
-                        <motion.path
-                            d="M7.16,7m-0.4,0a0.4,0.4 0 1,0 0.8,0a0.4,0.4 0 1,0 -0.8,0"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-
-                        {/* Access cards - animated with cardVariants */}
-                        <motion.path
-                            d="M13,14h6c.93,0,1.4,0,1.77.15.49.2.88.59,1.08,1.08.15.37.15.83.15,1.77s0,1.4-.15,1.77c-.2.49-.59.88-1.08,1.08-.37.15-.83.15-1.77.15h-6"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.path
-                            d="M15,5h4c.93,0,1.4,0,1.77.15.49.2.88.59,1.08,1.08.15.37.15.83.15,1.77s0,1.4-.15,1.77c-.2.49-.59.88-1.08,1.08-.37.15-.83.15-1.77.15h-4"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
+                        
                     </>
                 )
             case 'solid':
@@ -273,4 +239,4 @@ export const Access = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEn
     )
 })
 
-Access.displayName = 'Access'
+Heart.displayName = 'Heart'
