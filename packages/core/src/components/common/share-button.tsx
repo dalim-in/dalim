@@ -155,7 +155,7 @@ export function ShareButton({
           {showText && size !== "icon" && <span className="">Share</span>}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="start" className="w-42">
         {/* Native Share (if supported) */}
         {typeof window !== "undefined" && !navigator.share && (
           <>

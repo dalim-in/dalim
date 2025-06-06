@@ -250,7 +250,7 @@ export function MenuIcons() {
                             href={`${GRAPHIC_URL}`}
                             legacyBehavior
                             passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphic</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>

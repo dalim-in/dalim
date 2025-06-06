@@ -5,13 +5,17 @@ import { Switch } from '@dalim/core/ui/switch'
 import { Label } from '@dalim/core/ui/label'
 import { CodeIconDetails, IconDetails } from './icon-details'
 import { Button, buttonVariants } from '@dalim/core/ui/button'
-import { Copy, Download, RotateCw, Code } from 'lucide-react'
+import { Copy, Download, RotateCw, Code, Expand } from 'lucide-react'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 import { CodeBlock } from '@dalim/core/components/common/code-block'
 import Link from 'next/link'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@dalim/core/ui/dialog'
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@dalim/core/ui/dialog'
 import { JSX, useState } from 'react'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
 import { CliCommands } from '@dalim/core/components/common/cli-commands'
+import { Badge } from '@dalim/core/ui/badge'
+import { getAllIcons } from 'dalim-icons'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@dalim/core/ui/dropdown-menu'
 
 export function ControlIcon({
     iconSize,
@@ -48,6 +52,13 @@ export function ControlIcon({
         setAnimation(false) // 🎯 default animation
         setLoop(false) // 🎯 default loop
     }
+
+    const allIcons = getAllIcons()
+    const icon = allIcons.find((i) => i.name === selectedIcon)
+    const isDefaultSize = iconSize[0] === 24
+    const isDefaultStroke = strokeWidth[0] === 1
+    const isDefaultColor = iconColor === 'currentColor'
+
     return (
         <div className="top-35 sticky border-b pb-6 md:h-screen md:border-b-0 md:border-r md:pr-6">
             <div className="-mt-3 space-y-4">
@@ -62,20 +73,60 @@ export function ControlIcon({
                 />
                 <Dialog>
                     {selectedIcon && (
-                        <div className="flex justify-center gap-2">
-                            <Button size={'icon'}>
-                                <Download />
-                            </Button>
-                            <Link href={''}>
-                                <Button
-                                    variant={'outline'}
-                                    size={'icon'}>
+                        <div className="grid grid-cols-4 justify-center gap-2">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger className={buttonVariants({ size: 'icon', className: 'h-9 w-9' })}>
+                                    {' '}
+                                    <Download />
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="start">
+                                    <DropdownMenuItem className="flex justify-between">
+                                        SVG <Download />
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="flex justify-between">
+                                        PNG <Download />
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="flex justify-between">
+                                        JPG <Download />
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
                                     <Copy />
-                                </Button>
-                            </Link>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="start">
+                                    <DropdownMenuItem className="flex justify-between">
+                                        SVG <Copy />
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="flex justify-between">
+                                        PNG <Copy />
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem className="flex justify-between">
+                                        React <Copy />
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                             <DialogTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
                                 <Code className="h-4 w-4" />
                             </DialogTrigger>
+                            <Link href={`/${selectedIcon}`}>
+                                <Button
+                                    variant={'outline'}
+                                    size={'icon'}>
+                                    <Expand />
+                                </Button>
+                            </Link>
+                            <ShareButton
+                                url={`/${selectedIcon}`}
+                                title={selectedIcon}
+                                description={selectedIcon || `Check out this ${selectedIcon.toLowerCase().replace('_', ' ')} graphic!`}
+                                image={selectedIcon}
+                                type="graphic"
+                                variant="outline"
+                                size="icon"
+                                showText={false}
+                            />
                             <Button
                                 variant="outline"
                                 onClick={handleReset}
@@ -86,13 +137,17 @@ export function ControlIcon({
                         </div>
                     )}
 
-                    <DialogContent className="w-auto max-w-[95vw] p-6 md:max-w-[1200px]">
-                        <DialogHeader>
-                            <DialogTitle>{selectedIcon} Icon</DialogTitle>
-                            <DialogDescription>Here's how to use this icon:</DialogDescription>
-                        </DialogHeader> 
+                    <DialogContent className="hidden w-auto max-w-[80vw] justify-center p-6 md:grid md:max-w-[1400px]">
+                        <DialogTitle className='hidden'></DialogTitle>
                         <div className="relative flex gap-3">
                             <div className="space-y-3">
+                                <div className="flex justify-center">
+                                    <Link href={`/${selectedIcon}`}>
+                                        <Button className="w-40">
+                                            See in Action <Expand />
+                                        </Button>
+                                    </Link>
+                                </div>
                                 <CodeIconDetails
                                     iconSize={iconSize}
                                     iconVariant={iconVariant}
@@ -102,32 +157,45 @@ export function ControlIcon({
                                     loop={loop}
                                     selectedIcon={selectedIcon}
                                 />
-                                <div className="bg-muted/20 flex h-auto w-full items-center rounded-lg p-3">
-                                    <Button>Ok</Button>
+                                <div className="bg-muted/20 h-35 flex w-40 rounded-lg p-3">
+                                    <div className="space-y-2">
+                                        <Badge
+                                            variant="secondary"
+                                            className="text-xs">
+                                            {icon?.category || 'Uncategorized'}
+                                        </Badge>
+                                        <div className="flex flex-wrap gap-1">
+                                            {icon?.tags?.slice(0, 2).map((tag) => (
+                                                <Badge
+                                                    key={tag}
+                                                    variant="outline"
+                                                    className="text-xs">
+                                                    {tag}
+                                                </Badge>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <CodeBlock
-                                code={`import { ${selectedIcon} } from 'dalim-icons';
+                            <div className="">
+                                <CodeBlock
+                                    code={`import { ${selectedIcon} } from 'dalim-icons';
 
 const App = () => {
   return (
-    <${selectedIcon} 
-      size={${iconSize}} 
-      color="${iconColor}"
-      strokeWidth={${strokeWidth}} 
-      loop={${loop}}
-      animation={${animation}}
+    <${selectedIcon}${!isDefaultSize ? `\n      size={${iconSize[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconColor}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''} 
     />
   );
 }
   
 export default App;`}
-                                lang="tsx"
-                                preHighlighted={highlightedCode}
-                            />
-                            <CopyButton
-                                className="absolute right-2 top-2"
-                                componentSource={`import { ${selectedIcon} } from 'dalim-icons';
+                                    lang="tsx"
+                                    preHighlighted={highlightedCode}
+                                />
+
+                                <CopyButton
+                                    className="absolute right-2 top-2"
+                                    componentSource={`import { ${selectedIcon} } from 'dalim-icons';
 
 const App = () => {
   return (
@@ -140,9 +208,12 @@ const App = () => {
 }
   
 export default App;`}
-                            />
+                                />
+                            </div>
                         </div>
-                         <CliCommands name={'dalim-icons'} />
+                        <div className="-mt-1">
+                            <CliCommands name={'dalim-icons'} />
+                        </div>
                     </DialogContent>
                 </Dialog>
                 {selectedIcon && (

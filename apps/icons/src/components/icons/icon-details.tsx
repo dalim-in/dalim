@@ -31,7 +31,7 @@ export function IconDetails({ iconSize, iconVariant, iconColor, strokeWidth, ani
                     {selectedIconData && (
                         <div className="space-y-4">
                             <div className="bg-muted/20 mt-3 flex aspect-square items-center justify-center border p-8">
-                                <div className="scale-150">
+                                <div className="scale-150 cursor-pointer">
                                     <IconComponent iconName={selectedIconData.name} />
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ export function CodeIconDetails({ iconSize, iconVariant, iconColor, strokeWidth,
     return (
         <div className="">
             {selectedIconData && (
-                <div className="bg-muted/20 rounded-lg flex aspect-square w-60 items-center justify-center border p-8">
+                <div className="bg-muted/20 rounded-lg flex aspect-square w-40 items-center justify-center border p-8">
                     <IconComponent iconName={selectedIconData.name} />
                 </div>
             )}

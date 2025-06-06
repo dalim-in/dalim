@@ -58,6 +58,7 @@
     "NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME",
     "FONTS_URL",
     "AUTH_URL",
-    "GRAPHIC_URL"
+    "GRAPHIC_URL",
+    "ICONS_URL"
   ]
 }
