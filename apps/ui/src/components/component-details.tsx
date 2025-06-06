@@ -159,7 +159,7 @@ export default function ComponentDetails({
                         No UI code available.
                       </p>
                     ) : (
-                      files
+                      files 
                         .filter((file) => file.label === "UI Code")
                         .map((file, idx) => (
                           <div key={`ui-${idx}`} className="space-y-2">
