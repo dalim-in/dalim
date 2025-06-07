@@ -142,16 +142,16 @@ function Footer() {
                     <div className="flex flex-col items-center justify-between gap-3 py-4 text-center md:flex-row">
                         <p className="text-muted-foreground text-sm">© 2025 Dalim. All rights reserved.</p>
                         <nav className="flex gap-4 text-sm">
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            <Link
+                                href="/docs/legal/privacy"
+                                className="text-primary/50 hover:text-primary">
                                 Privacy Policy
-                            </a>
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            </Link>
+                            <Link
+                                href="/docs/legal/terms"
+                                className="text-primary/50 hover:text-primary">
                                 Terms of Service
-                            </a>
+                            </Link>
                         </nav>
                     </div>
                 </div>
@@ -268,16 +268,16 @@ function FooterAgency() {
                     <div className="flex flex-col items-center justify-between gap-3 py-4 text-center md:flex-row">
                         <p className="text-muted-foreground text-sm">© 2025 Dalim. All rights reserved.</p>
                         <nav className="flex gap-4 text-sm">
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            <Link
+                                href="/docs/legal/privacy"
+                                className="text-primary/50 hover:text-primary">
                                 Privacy Policy
-                            </a>
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            </Link>
+                            <Link
+                                href="/docs/legal/terms"
+                                className="text-primary/50 hover:text-primary">
                                 Terms of Service
-                            </a>
+                            </Link>
                         </nav>
                     </div>
                 </div>
@@ -394,16 +394,16 @@ function FooterUI() {
                     <div className="flex flex-col items-center justify-between gap-3 py-4 text-center md:flex-row">
                         <p className="text-muted-foreground text-sm">© 2025 Dalim. All rights reserved.</p>
                         <nav className="flex gap-4 text-sm">
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            <Link
+                                href="/docs/legal/privacy"
+                                className="text-primary/50 hover:text-primary">
                                 Privacy Policy
-                            </a>
-                            <a
-                                href="#"
-                                className="text-white/40 transition-colors hover:text-white dark:text-black/60 dark:hover:text-black">
+                            </Link>
+                            <Link
+                                href="/docs/legal/terms"
+                                className="text-primary/50 hover:text-primary">
                                 Terms of Service
-                            </a>
+                            </Link>
                         </nav>
                     </div>
                 </div>

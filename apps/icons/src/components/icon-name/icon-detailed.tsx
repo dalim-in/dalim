@@ -1,38 +1,55 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
-import { useRef, useState } from 'react'
+import { JSX, useRef, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { ArrowLeft, Copy, Check, Download } from 'lucide-react'
-import { Button } from '@dalim/core/ui/button'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@dalim/core/ui/card'
- import { Badge } from '@dalim/core/ui/badge'
+import { ArrowLeft, Copy, Check, Download, RotateCw, Share2, Film } from 'lucide-react'
+import { Button, buttonVariants } from '@dalim/core/ui/button'
+import { Badge } from '@dalim/core/ui/badge'
+import { ShareButton } from '@dalim/core/components/common/share-button'
 import { Slider } from '@dalim/core/ui/slider'
 import { Switch } from '@dalim/core/ui/switch'
+import { GridPattern } from '@dalim/core/components/backgrunds/grid'
 import { Label } from '@dalim/core/ui/label'
 import { Input } from '@dalim/core/ui/input'
+import { Dialog, DialogContent, DialogTitle } from '@dalim/core/ui/dialog'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@dalim/core/ui/dropdown-menu'
+import { toast } from '@dalim/core/hooks/use-toast'
 import { getIconByName } from 'dalim-icons'
-import { Access } from 'dalim-icons'
-import { ExportModal } from '@/src/components/icons/export-modal' 
+import * as Icons from 'dalim-icons'
+import { createRoot } from 'react-dom/client'
+import GIF from 'gif.js'
+import { CodeBlock } from '@dalim/core/components/common/code-block'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 
 export function IconDetailed() {
     const router = useRouter()
     const params = useParams()
     const iconName = params.name as string
+    const [highlightedCode] = useState<JSX.Element | null>(null)
 
     // Icon customization controls
     const [size, setSize] = useState([48])
     const [variant, setVariant] = useState<'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'>('stroke')
-    const [color, setColor] = useState('#000000')
+    const [color, setColor] = useState('currentColor')
     const [strokeWidth, setStrokeWidth] = useState([1.5])
     const [animation, setAnimation] = useState(false)
     const [loop, setLoop] = useState(false)
-    const [copied, setCopied] = useState(false) 
+    const [copied, setCopied] = useState(false)
+
+    // Export states
+    const [showAnimationExport, setShowAnimationExport] = useState(false)
+    const [exportProgress, setExportProgress] = useState(0)
+    const [exportFormat, setExportFormat] = useState<'gif' | 'mp4'>('gif')
+    const [gifQuality, setGifQuality] = useState(10)
+    const [gifFrameRate, setGifFrameRate] = useState(30)
+
+    const canvasRef = useRef<HTMLCanvasElement>(null)
+    const iconRef = useRef<HTMLDivElement>(null)
 
     // Get icon metadata
     const iconData = getIconByName(iconName.charAt(0).toUpperCase() + iconName.slice(1))
-
-    const iconRef = useRef<HTMLDivElement>(null)
 
     if (!iconData) {
         return (
@@ -41,254 +58,802 @@ export function IconDetailed() {
                 <Button
                     onClick={() => router.push('/')}
                     variant="outline">
-                    <ArrowLeft className="mr-2 h-4 w-4" /> Back to Icons
+                    <ArrowLeft className="h-4 w-4" /> Back to Icons
                 </Button>
             </div>
         )
     }
 
+    const handleReset = () => {
+        setSize([48])
+        setColor('currentColor')
+        setStrokeWidth([1.5])
+        setAnimation(false)
+        setLoop(false)
+    }
+
+    // Generate SVG string for the selected icon
+    const generateSVG = async (iconSize: number = size[0]): Promise<string> => {
+        const Icon = (Icons as Record<string, any>)[iconData.name]
+        if (!Icon) return ''
+
+        const tempContainer = document.createElement('div')
+        tempContainer.style.position = 'absolute'
+        tempContainer.style.left = '-9999px'
+        tempContainer.style.top = '-9999px'
+        document.body.appendChild(tempContainer)
+
+        try {
+            const root = createRoot(tempContainer)
+
+            return new Promise((resolve) => {
+                root.render(
+                    <Icon
+                        size={iconSize}
+                        variant={variant}
+                        color={color}
+                        strokeWidth={strokeWidth[0]}
+                        animation={false}
+                        loop={false}
+                    />
+                )
+
+                setTimeout(() => {
+                    const svgElement = tempContainer.querySelector('svg')
+                    if (svgElement) {
+                        const clonedSvg = svgElement.cloneNode(true) as SVGElement
+                        const svgString = clonedSvg.outerHTML
+                        root.unmount()
+                        document.body.removeChild(tempContainer)
+                        resolve(svgString)
+                    } else {
+                        const fallbackSvg = `<svg width="${iconSize}" height="${iconSize}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <text x="12" y="12" textAnchor="middle" fill="${color}" fontSize="8">${iconData.name}</text>
+                        </svg>`
+                        root.unmount()
+                        document.body.removeChild(tempContainer)
+                        resolve(fallbackSvg)
+                    }
+                }, 100)
+            })
+        } catch (error) {
+            document.body.removeChild(tempContainer)
+            console.error('Error generating SVG:', error)
+            return `<svg width="${iconSize}" height="${iconSize}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="12" y="12" textAnchor="middle" fill="${color}" fontSize="8">${iconData.name}</text>
+            </svg>`
+        }
+    }
+
+    // Convert SVG to Canvas for PNG/JPG export
+    const svgToCanvas = async (format: 'png' | 'jpg', iconSize = 512): Promise<string> => {
+        const svgString = await generateSVG(iconSize)
+
+        return new Promise<string>((resolve, reject) => {
+            const canvas = canvasRef.current || document.createElement('canvas')
+            const ctx = canvas.getContext('2d')!
+
+            canvas.width = iconSize
+            canvas.height = iconSize
+
+            if (format === 'jpg') {
+                ctx.fillStyle = 'white'
+                ctx.fillRect(0, 0, iconSize, iconSize)
+            }
+
+            const img = new Image()
+            img.crossOrigin = 'anonymous'
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, iconSize, iconSize)
+                const dataUrl = canvas.toDataURL(`image/${format}`, 0.9)
+                resolve(dataUrl)
+            }
+            img.onerror = () => {
+                reject(new Error(`Failed to load ${format} image`))
+            }
+
+            const blob = new Blob([svgString], { type: 'image/svg+xml' })
+            const url = URL.createObjectURL(blob)
+            img.src = url
+        })
+    }
+
+    // Create animated GIF
+    const createGIF = async (iconSize = 256, duration = 3000): Promise<Blob> => {
+        return new Promise((resolve, reject) => {
+            try {
+                const container = document.createElement('div')
+                container.style.position = 'absolute'
+                container.style.left = '-9999px'
+                container.style.top = '-9999px'
+                document.body.appendChild(container)
+
+                const canvas = document.createElement('canvas')
+                canvas.width = iconSize
+                canvas.height = iconSize
+                const ctx = canvas.getContext('2d')!
+
+                const gif = new GIF({
+                    workers: 2,
+                    quality: gifQuality,
+                    width: iconSize,
+                    height: iconSize,
+                })
+
+                const root = createRoot(container)
+                const Icon = (Icons as Record<string, any>)[iconData.name]
+
+                root.render(
+                    <Icon
+                        size={iconSize}
+                        variant={variant}
+                        color={color}
+                        strokeWidth={strokeWidth[0]}
+                        animation={true}
+                        loop={true}
+                    />
+                )
+
+                setTimeout(() => {
+                    const svgElement = container.querySelector('svg')
+                    if (!svgElement) {
+                        root.unmount()
+                        document.body.removeChild(container)
+                        reject(new Error('Failed to render icon'))
+                        return
+                    }
+
+                    const totalFrames = Math.floor((gifFrameRate * duration) / 1000)
+                    const frameDelay = 1000 / gifFrameRate
+                    let framesProcessed = 0
+
+                    const captureFrame = () => {
+                        const svgData = new XMLSerializer().serializeToString(svgElement)
+                        const img = new Image()
+                        img.onload = () => {
+                            ctx.clearRect(0, 0, iconSize, iconSize)
+                            ctx.drawImage(img, 0, 0, iconSize, iconSize)
+                            gif.addFrame(canvas, { copy: true, delay: frameDelay })
+                            framesProcessed++
+
+                            setExportProgress(Math.floor((framesProcessed / totalFrames) * 100))
+
+                            if (framesProcessed < totalFrames) {
+                                setTimeout(captureFrame, 10)
+                            } else {
+                                gif.on('finished', (blob) => {
+                                    root.unmount()
+                                    document.body.removeChild(container)
+                                    setExportProgress(100)
+                                    resolve(blob)
+                                })
+                                gif.render()
+                            }
+                        }
+
+                        const blob = new Blob([svgData], { type: 'image/svg+xml' })
+                        const url = URL.createObjectURL(blob)
+                        img.src = url
+                    }
+
+                    captureFrame()
+                }, 100)
+            } catch (error) {
+                setExportProgress(0)
+                reject(error)
+            }
+        })
+    }
+
+    // Download functions
+    const downloadSVG = async () => {
+        try {
+            const svgContent = await generateSVG()
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' })
+            const url = URL.createObjectURL(blob)
+
+            const a = document.createElement('a')
+            a.href = url
+            a.download = `${iconData.name}.svg`
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            URL.revokeObjectURL(url)
+
+            toast({
+                title: 'Downloaded!',
+                description: `${iconData.name}.svg has been downloaded.`,
+            })
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: 'Failed to download SVG file.',
+                variant: 'destructive',
+            })
+        }
+    }
+
+    const downloadPNG = async () => {
+        try {
+            const dataUrl = await svgToCanvas('png', 512)
+            const a = document.createElement('a')
+            a.href = dataUrl
+            a.download = `${iconData.name}.png`
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+
+            toast({
+                title: 'Downloaded!',
+                description: `${iconData.name}.png has been downloaded.`,
+            })
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: 'Failed to download PNG file.',
+                variant: 'destructive',
+            })
+        }
+    }
+
+    const downloadJPG = async () => {
+        try {
+            const dataUrl = await svgToCanvas('jpg', 512)
+            const a = document.createElement('a')
+            a.href = dataUrl
+            a.download = `${iconData.name}.jpg`
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+
+            toast({
+                title: 'Downloaded!',
+                description: `${iconData.name}.jpg has been downloaded.`,
+            })
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: 'Failed to download JPG file.',
+                variant: 'destructive',
+            })
+        }
+    }
+
+    const downloadGIF = async () => {
+        try {
+            setExportProgress(0)
+            setShowAnimationExport(true)
+            setExportFormat('gif')
+
+            const wasAnimated = animation
+            const wasLooped = loop
+            setAnimation(true)
+            setLoop(true)
+
+            const gifBlob = await createGIF(256, 3000)
+
+            if (!wasAnimated) setAnimation(false)
+            if (!wasLooped) setLoop(false)
+
+            const url = URL.createObjectURL(gifBlob)
+            const a = document.createElement('a')
+            a.href = url
+            a.download = `${iconData.name}-animated.gif`
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            URL.revokeObjectURL(url)
+
+            toast({
+                title: 'Downloaded!',
+                description: `${iconData.name}-animated.gif has been downloaded.`,
+            })
+
+            setShowAnimationExport(false)
+        } catch (error) {
+            console.error('GIF export error:', error)
+            toast({
+                title: 'Error',
+                description: 'Failed to create animated GIF.',
+                variant: 'destructive',
+            })
+            setShowAnimationExport(false)
+        }
+    }
+
+    // Copy functions
+    const copySVG = async () => {
+        try {
+            const svgContent = await generateSVG()
+            await navigator.clipboard.writeText(svgContent)
+            toast({
+                title: 'Copied!',
+                description: 'SVG code copied to clipboard.',
+            })
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: 'Failed to copy SVG code.',
+                variant: 'destructive',
+            })
+        }
+    }
+
+    const copyPNG = async () => {
+        try {
+            const dataUrl = await svgToCanvas('png', 512)
+            const response = await fetch(dataUrl)
+            const blob = await response.blob()
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+
+            toast({
+                title: 'Copied!',
+                description: 'PNG image copied to clipboard.',
+            })
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: 'Failed to copy PNG image.',
+                variant: 'destructive',
+            })
+        }
+    }
+
     const handleCopyCode = async () => {
+        const isDefaultSize = size[0] === 48
+        const isDefaultStroke = strokeWidth[0] === 1.5
+        const isDefaultColor = color === 'currentColor'
+
         const importCode = `import { ${iconData.name} } from 'dalim-icons'
 
-<${iconData.name}
-  size={${size[0]}}
-  variant="${variant}"
-  color="${color}"
-  strokeWidth={${strokeWidth[0]}}
-  animation={${animation}}
-  loop={${loop}}
+<${iconData.name}${!isDefaultSize ? `\n  size={${size[0]}}` : ''}${!isDefaultColor ? `\n  color="${color}"` : ''}${!isDefaultStroke ? `\n  strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n  animation' : ''}${loop ? '\n  loop' : ''}${variant !== 'stroke' ? `\n  variant="${variant}"` : ''} 
 />`
 
         await navigator.clipboard.writeText(importCode)
         setCopied(true)
         setTimeout(() => setCopied(false), 2000)
+
+        toast({
+            title: 'Copied!',
+            description: 'React code copied to clipboard.',
+        })
     }
 
-    return (
-        <div className="">
-            <Button
-                onClick={() => router.push('/')}
-                variant="ghost"
-                className="mb-6">
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Icons
-            </Button>
+    const shareIcon = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: `${iconData.name} Icon`,
+                    text: `Check out this ${iconData.name} icon from Dalim Icons`,
+                    url: window.location.href,
+                })
+            } catch (error) {
+                // Fallback to clipboard
+                await navigator.clipboard.writeText(window.location.href)
+                toast({
+                    title: 'Link copied!',
+                    description: 'Icon link copied to clipboard.',
+                })
+            }
+        } else {
+            await navigator.clipboard.writeText(window.location.href)
+            toast({
+                title: 'Link copied!',
+                description: 'Icon link copied to clipboard.',
+            })
+        }
+    }
 
-            <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-                
-                <div className="lg:col-span-2">
-                    <Card className="mb-6">
-                        <CardHeader>
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl">{iconData.name}</CardTitle>
-                                <Badge variant="outline">{iconData.category}</Badge>
+    const isDefaultSize = size[0] === 48
+    const isDefaultStroke = strokeWidth[0] === 1.5
+    const isDefaultColor = color === 'currentColor'
+
+    return (
+        <div className="mt-6">
+            <Dialog
+                open={showAnimationExport}
+                onOpenChange={setShowAnimationExport}>
+                <DialogContent className="sm:max-w-md">
+                    <DialogTitle>Exporting {exportFormat === 'gif' ? 'GIF' : 'Video'}</DialogTitle>
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-center p-4">
+                            <div className="flex h-32 w-32 items-center justify-center">
+                                {(() => {
+                                    const Icon = (Icons as Record<string, any>)[iconData.name]
+                                    return Icon ? (
+                                        <Icon
+                                            size={128}
+                                            variant={variant}
+                                            color={color}
+                                            strokeWidth={strokeWidth[0]}
+                                            animation={true}
+                                            loop={true}
+                                        />
+                                    ) : null
+                                })()}
                             </div>
-                            <CardDescription>{iconData.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                             <div className="flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-8 dark:bg-gray-900">
-                                        <div ref={iconRef}>
-                                            <Access
-                                                size={size[0]}
-                                                variant={variant}
-                                                color={color}
-                                                strokeWidth={strokeWidth[0]}
-                                                animation={animation}
-                                                loop={loop}
-                                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label>Export Progress</Label>
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                                <div
+                                    className="h-full bg-blue-600 transition-all duration-300"
+                                    style={{ width: `${exportProgress}%` }}
+                                />
+                            </div>
+                            <p className="text-center text-sm">{exportProgress}%</p>
+                        </div>
+
+                        <p className="text-muted-foreground text-center text-sm">{exportFormat === 'gif' ? 'Creating animated GIF. This may take a moment...' : 'Recording animation. This may take a moment...'}</p>
+                    </div>
+                </DialogContent>
+            </Dialog>
+            <div className="">
+                <div className="grid gap-3 md:grid-cols-[20%_80%] lg:grid-cols-[17%_83%]">
+                    <div className="-mt-6 border-r pr-6">
+                        <div className="my-6 flex items-center gap-2">
+                            <Button
+                                onClick={() => router.push('/')}
+                                variant="outline"
+                                className="">
+                                <ArrowLeft className="h-4 w-4" />
+                                All Icons
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={handleReset}>
+                                <RotateCw className="h-4 w-4" />
+                            </Button>
+                        </div>
+                        <div className="mb-6">
+                            <div className="space-y-4">
+                                <div>
+                                    <Label className="text-sm font-medium">Size: {size[0]}px</Label>
+                                    <Slider
+                                        value={size}
+                                        onValueChange={setSize}
+                                        max={128}
+                                        min={16}
+                                        step={4}
+                                        className="mt-2"
+                                    />
+                                </div>
+                                <div>
+                                    <Label className="text-sm font-medium">Color</Label>
+                                    <div className="mt-2 flex items-center gap-2">
+                                        <input
+                                            type="color"
+                                            value={color}
+                                            onChange={(e) => setColor(e.target.value)}
+                                            className="absolute h-8 w-8 rounded-full border p-3"
+                                        />
+                                        <div
+                                            className="h-8 w-8 rounded-full border"
+                                            style={{ backgroundColor: color }}
+                                        />
+                                        <Input
+                                            value={color}
+                                            onChange={(e) => setColor(e.target.value)}
+                                            className="flex-1"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <Label className="text-sm font-medium">Stroke Width: {strokeWidth[0]}</Label>
+                                    <Slider
+                                        value={strokeWidth}
+                                        onValueChange={setStrokeWidth}
+                                        max={4}
+                                        min={0.5}
+                                        step={0.1}
+                                        className="mt-2"
+                                    />
+                                </div>
+
+                                <div className="flex items-center justify-between">
+                                    <Label
+                                        htmlFor="animation-detail"
+                                        className="text-sm font-medium">
+                                        Animation
+                                    </Label>
+                                    <Switch
+                                        id="animation-detail"
+                                        checked={animation}
+                                        onCheckedChange={setAnimation}
+                                    />
+                                </div>
+
+                                <div className="flex items-center justify-between">
+                                    <Label
+                                        htmlFor="loop"
+                                        className="text-sm font-medium">
+                                        Loop
+                                    </Label>
+                                    <Switch
+                                        id="loop"
+                                        checked={loop}
+                                        onCheckedChange={setLoop}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="space-y-4">
+                                <div>
+                                    <Label className="text-sm font-medium">GIF Quality: {gifQuality}</Label>
+                                    <Slider
+                                        value={[gifQuality]}
+                                        onValueChange={(value) => setGifQuality(value[0])}
+                                        max={30}
+                                        min={1}
+                                        step={1}
+                                        className="mt-2"
+                                    />
+                                    <p className="text-muted-foreground mt-1 text-xs">Lower values = better quality, larger file</p>
+                                </div>
+
+                                <div>
+                                    <Label className="text-sm font-medium">Frame Rate: {gifFrameRate} fps</Label>
+                                    <Slider
+                                        value={[gifFrameRate]}
+                                        onValueChange={(value) => setGifFrameRate(value[0])}
+                                        max={60}
+                                        min={10}
+                                        step={5}
+                                        className="mt-2"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+                        <h1 className="mt-4 text-xs opacity-60">All Categories</h1>
+                        <p className="text-md mt-2 opacity-80">Coming Soon!</p>
+                    </div>
+
+                    <div className="">
+                        <div className="px-3">
+                            <div className="">
+                                <div className="text-3xl font-semibold">{iconData.name}</div>
+                                <div className="mt-2 opacity-60">{iconData.description}</div>
+                                <div className="mt-3 flex items-center gap-1">
+                                    <Badge
+                                        variant="outline"
+                                        className="text-sm">
+                                        {iconData.category}
+                                    </Badge>
+                                    <div>
+                                        <div className="flex flex-wrap gap-1">
+                                            {iconData.tags.map((tag) => (
+                                                <Badge
+                                                    key={tag}
+                                                    variant="secondary"
+                                                    className="text-xs">
+                                                    {tag}
+                                                </Badge>
+                                            ))}
                                         </div>
                                     </div>
-                            <div className="relative">
-                                        <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 dark:bg-gray-900">
-                                            <code className="text-sm">
-                                                {`import { ${iconData.name} } from 'dalim-icons'
+                                </div>
+                            </div>
 
-<${iconData.name}
-  size={${size[0]}}
-  variant="${variant}"
-  color="${color}"
-  strokeWidth={${strokeWidth[0]}}
-  animation={${animation}}
-  loop={${loop}}
-/>`}
-                                            </code>
-                                        </pre>
-                                        <Button
-                                            size="sm"
-                                            className="absolute right-2 top-2"
-                                            onClick={handleCopyCode}>
-                                            {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                                        </Button>
-                                    </div>
-                        </CardContent>
-                    </Card>
+                            <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
 
-                    {/* Variants */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Available Variants</CardTitle>
-                            <CardDescription>This icon is available in {iconData.variants.length} variants</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-                                {iconData.variants.map((v) => (
-                                    <Card
-                                        key={v}
-                                        className={`cursor-pointer ${variant === v ? 'ring-primary ring-2' : ''}`}
-                                        onClick={() => setVariant(v as any)}>
-                                        <CardContent className="flex flex-col items-center justify-center p-4">
-                                            <div className="flex h-16 items-center justify-center">
-                                                <Access
-                                                    size={40}
-                                                    variant={v as any}
-                                                    color={color}
-                                                    strokeWidth={strokeWidth[0]}
-                                                />
+                            <div className="mt-6 grid gap-3 pr-3">
+                                <div className="grid gap-3 md:grid-cols-[38%_62%]">
+                                    <div>
+                                        <div className="relative flex aspect-square h-auto w-full items-center justify-center rounded-xl border">
+                                            <GridPattern
+                                                width={5}
+                                                height={5}
+                                                className="w-full rounded-xl opacity-30"
+                                            />
+                                            <div ref={iconRef}>
+                                                {(() => {
+                                                    const Icon = (Icons as Record<string, any>)[iconData.name]
+                                                    return Icon ? (
+                                                        <Icon
+                                                            size={size[0] * 2} // Display larger in preview
+                                                            variant={variant}
+                                                            color={color}
+                                                            strokeWidth={strokeWidth[0]}
+                                                            animation={animation}
+                                                            loop={loop}
+                                                        />
+                                                    ) : (
+                                                        <div className="flex h-24 w-24 items-center justify-center text-gray-400">Icon not found</div>
+                                                    )
+                                                })()}
                                             </div>
-                                            <p className="mt-2 text-xs font-medium capitalize">{v}</p>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
+                                        </div>
+                                        <div className="mt-3 flex h-auto flex-wrap justify-center gap-3">
+                                            {iconData.variants.map((v) => (
+                                                <div
+                                                    className="text-center"
+                                                    key={v}>
+                                                    <div
+                                                        key={v}
+                                                        className={`flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-xl ${variant === v ? 'ring-brand border ring-2' : ''}`}
+                                                        onClick={() => setVariant(v as any)}>
+                                                        <div className="flex h-16 w-16 items-center justify-center rounded-xl border">
+                                                            {(() => {
+                                                                const Icon = (Icons as Record<string, any>)[iconData.name]
+                                                                return Icon ? (
+                                                                    <Icon
+                                                                        size={24}
+                                                                        variant={v as any}
+                                                                        color={color}
+                                                                        strokeWidth={strokeWidth[0]}
+                                                                    />
+                                                                ) : (
+                                                                    <div className="flex h-10 w-10 items-center justify-center text-xs text-gray-400">?</div>
+                                                                )
+                                                            })()}
+                                                        </div>
+                                                    </div>
+                                                    <p className="mt-2 text-xs font-medium capitalize">{v}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
 
-                {/* Sidebar */}
-                <div className="lg:col-span-1">
-                    {/* Customization */}
-                    <Card className="mb-6">
-                        <CardHeader>
-                            <CardTitle>Customize</CardTitle>
-                            <CardDescription>Adjust the icon properties</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div>
-                                <Label className="text-sm font-medium">Size: {size[0]}px</Label>
-                                <Slider
-                                    value={size}
-                                    onValueChange={setSize}
-                                    max={128}
-                                    min={16}
-                                    step={4}
-                                    className="mt-2"
-                                />
-                            </div>
+                                    <div className="space-y-3">
+                                        <div className="flex flex-wrap gap-2">
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger className={buttonVariants({ size: 'sm' })}>
+                                                    <Download className="h-4 w-4" />
+                                                    Download
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent align="start">
+                                                    <DropdownMenuItem
+                                                        onClick={downloadSVG}
+                                                        className="flex cursor-pointer justify-between">
+                                                        SVG <Download className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuItem
+                                                        onClick={downloadPNG}
+                                                        className="flex cursor-pointer justify-between">
+                                                        PNG <Download className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuItem
+                                                        onClick={downloadJPG}
+                                                        className="flex cursor-pointer justify-between">
+                                                        JPG <Download className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuSeparator />
+                                                    <DropdownMenuItem
+                                                        onClick={downloadGIF}
+                                                        className="flex cursor-pointer justify-between">
+                                                        Animated GIF <Film className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
 
-                            <div>
-                                <Label className="text-sm font-medium">Color</Label>
-                                <div className="mt-2 flex items-center gap-2">
-                                    <input
-                                        type="color"
-                                        value={color}
-                                        onChange={(e) => setColor(e.target.value)}
-                                        className="h-8 w-8 rounded border"
-                                    />
-                                    <Input
-                                        value={color}
-                                        onChange={(e) => setColor(e.target.value)}
-                                        className="flex-1"
-                                    />
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+                                                    <Copy className="h-4 w-4" />
+                                                    Copy
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent align="start">
+                                                    <DropdownMenuItem
+                                                        onClick={copySVG}
+                                                        className="flex cursor-pointer justify-between">
+                                                        SVG <Copy className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuItem
+                                                        onClick={copyPNG}
+                                                        className="flex cursor-pointer justify-between">
+                                                        PNG <Copy className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuItem
+                                                        onClick={handleCopyCode}
+                                                        className="flex cursor-pointer justify-between">
+                                                        React Code <Copy className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+
+                                            <ShareButton
+                                                url={`/${iconData.name}`}
+                                                title={iconData.name}
+                                                description={iconData.name || `Check out this ${iconData.name.toLowerCase().replace('_', ' ')} graphic!`}
+                                                image={iconData.name}
+                                                type="graphic"
+                                                variant="outline"
+                                                size="sm"
+                                            />
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={handleReset}>
+                                                <RotateCw className="h-4 w-4" />
+                                                Reset
+                                            </Button>
+                                        </div>
+                                        <Tabs
+                                            defaultValue="react"
+                                            className="w-full">
+                                            <TabsList>
+                                                <TabsTrigger value="react">React</TabsTrigger>
+                                                <TabsTrigger value="vue">Vue</TabsTrigger>
+                                            </TabsList>
+                                            <TabsContent value="react">
+                                                <div className="relative overflow-x-auto">
+                                                    <CodeBlock
+                                                        code={`import { ${iconData.name} } from 'dalim-icons';
+    
+const App = () => {
+  return (
+    <${iconData.name}${!isDefaultSize ? `\n      size={${iconData.name[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconData.name}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''}
+    />
+  );
+}
+
+export default App;`}
+                                                        lang="tsx"
+                                                        preHighlighted={highlightedCode}
+                                                    />
+
+                                                    <Button
+                                                        size="icon"
+                                                        variant={'ghost'}
+                                                        className="absolute right-2 top-2 z-10 text-white"
+                                                        onClick={handleCopyCode}>
+                                                        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                                                    </Button>
+                                                </div>
+                                            </TabsContent>
+                                            <TabsContent value="vue">
+                                                <div className="relative overflow-x-auto">
+                                                    <CodeBlock
+                                                        code={`Coming Soon!`}
+                                                        lang="tsx"
+                                                        preHighlighted={highlightedCode}
+                                                    />
+
+                                                    <Button
+                                                        size="icon"
+                                                        className="absolute right-2 top-2 z-10"
+                                                        onClick={handleCopyCode}>
+                                                        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                                                    </Button>
+                                                </div>
+                                            </TabsContent>
+                                        </Tabs>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div>
-                                <Label className="text-sm font-medium">Stroke Width: {strokeWidth[0]}</Label>
-                                <Slider
-                                    value={strokeWidth}
-                                    onValueChange={setStrokeWidth}
-                                    max={4}
-                                    min={0.5}
-                                    step={0.5}
-                                    className="mt-2"
-                                />
-                            </div>
+                        <div className="relative pb-6 before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
 
-                            <div className="flex items-center justify-between">
-                                <Label
-                                    htmlFor="animation-detail"
-                                    className="text-sm font-medium">
-                                    Animation
-                                </Label>
-                                <Switch
-                                    id="animation-detail"
-                                    checked={animation}
-                                    onCheckedChange={setAnimation}
-                                />
-                            </div>
+                        <div className="my-3 overflow-hidden px-3">
+                            <div className="flex justify-between gap-3">
+                                {iconData.author && (
+                                    <div>
+                                        <Label className="text-muted-foreground text-xs">Author</Label>
+                                        <p className="font-medium">{iconData.author}</p>
+                                    </div>
+                                )}
 
-                            <div className="flex items-center justify-between">
-                                <Label
-                                    htmlFor="loop-detail"
-                                    className="text-sm font-medium">
-                                    Loop
-                                </Label>
-                                <Switch
-                                    id="loop-detail"
-                                    checked={loop}
-                                    onCheckedChange={setLoop}
-                                />
-                            </div>
-                        </CardContent>
-                    </Card>
+                                {iconData.created && (
+                                    <div>
+                                        <Label className="text-muted-foreground text-xs">Created</Label>
+                                        <p className="font-medium">{iconData.created}</p>
+                                    </div>
+                                )}
 
-                    {/* Metadata */}
-                    <Card className="mb-6">
-                        <CardHeader>
-                            <CardTitle>Metadata</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div>
-                                <Label className="text-muted-foreground text-xs">Category</Label>
-                                <p className="font-medium">{iconData.category}</p>
-                            </div>
-
-                            <div>
-                                <Label className="text-muted-foreground text-xs">Tags</Label>
-                                <div className="mt-1 flex flex-wrap gap-1">
-                                    {iconData.tags.map((tag) => (
-                                        <Badge
-                                            key={tag}
-                                            variant="secondary"
-                                            className="text-xs">
-                                            {tag}
-                                        </Badge>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {iconData.author && (
                                 <div>
-                                    <Label className="text-muted-foreground text-xs">Author</Label>
-                                    <p className="font-medium">{iconData.author}</p>
+                                    <Label className="text-muted-foreground text-xs">Variants</Label>
+                                    <p className="font-medium">{iconData.variants.length} available</p>
                                 </div>
-                            )}
-
-                            {iconData.created && (
-                                <div>
-                                    <Label className="text-muted-foreground text-xs">Created</Label>
-                                    <p className="font-medium">{iconData.created}</p>
-                                </div>
-                            )}
-                        </CardContent>
-                    </Card>
-
-                    {/* Actions */}
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Actions</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-2">
-                             
-                            <ExportModal
-                                iconElement={iconRef.current}
-                                iconName={iconData.name}
-                                isAnimated={animation}>
-                                <Button className="w-full">
-                                    <Download className="mr-2 h-4 w-4" /> Export Icon
-                                </Button>
-                            </ExportModal>
-                        </CardContent>
-                    </Card>
+                            </div>
+                        </div>
+                        <div className="bg-primary/10 my-3 h-[400px] rounded-xl py-20 text-center">More Coming Soon</div>
+                    </div>
                 </div>
             </div>
         </div>

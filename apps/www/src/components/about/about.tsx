@@ -31,7 +31,7 @@ export function About() {
                         />
                         <ImageZoom>
                             <Image
-                                src="/ali.jpg"
+                                src="/ai.JPEG"
                                 alt="Your Image"
                                 height={700}
                                 width={700}

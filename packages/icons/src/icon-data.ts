@@ -9,7 +9,7 @@ export const iconDatabase: Record<string, IconMetadata> = {
     category: "Security",
     tags: ["security", "password", "protection", "private", "lock", "padlock"],
     description: "A lock icon representing security and protection",
-    author: "Dalim Icons",
+    author: "Ali Imam",
     created: "2023-05-10",
     variants: ["stroke", "solid", "duotone"]
   },
@@ -18,7 +18,7 @@ export const iconDatabase: Record<string, IconMetadata> = {
     category: "Security",
     tags: ["security", "protection", "defense", "guard", "shield"],
     description: "A shield icon representing protection and security",
-    author: "Dalim Icons",
+    author: "Ali Imam",
     created: "2023-05-12",
     variants: ["stroke", "solid", "duotone", "twotone"]
   }

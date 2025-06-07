@@ -11,7 +11,7 @@ export const heartMetadata: IconMetadata = {
   category: "health",
   tags: ["health", "love", "romantic", "beautiful"],
   description: "An icon representing access control or authentication with a key and access cards",
-  author: "Dalim Icons",
+  author: "Ali Imam",
   created: "2023-05-15",
   variants: ["stroke", "solid", "duotone", "twotone", "bulk"]
 }

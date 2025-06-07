@@ -30,7 +30,7 @@ export function MainIcons() {
                     setIconVariant={setIconVariant}
                     selectedIcon={selectedIcon}
                 />
-                <div className="grid gap-3 md:grid-cols-[20%_80%] lg:grid-cols-[15%_85%]">
+                <div className="grid gap-3 md:grid-cols-[20%_80%] lg:grid-cols-[17%_83%]">
                     <div className="">
                         <ControlIcon
                             iconSize={iconSize}

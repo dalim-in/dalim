@@ -33,6 +33,9 @@ export function Hero() {
                     <Button size={'lg'}>Let's Go</Button>
                 </Link>
             </div>
+            <canvas
+                                className="bg-skin-base pointer-events-none absolute inset-0 mx-auto"
+                                id="canvas"></canvas>
         </div>
     )
 }

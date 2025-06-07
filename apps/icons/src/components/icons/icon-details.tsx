@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
+import { GridPattern } from '@dalim/core/components/backgrunds/grid'
 import * as Icons from 'dalim-icons'
 import { getAllIcons } from 'dalim-icons'
 
@@ -30,12 +31,17 @@ export function IconDetails({ iconSize, iconVariant, iconColor, strokeWidth, ani
                 <div className="pt-6">
                     {selectedIconData && (
                         <div className="space-y-4">
-                            <div className="bg-muted/20 mt-3 flex aspect-square items-center justify-center border p-8">
+                            <div className="bg-muted/20 relative mt-3 flex aspect-square items-center justify-center border p-8">
+                                <GridPattern
+                                    width={5}
+                                    height={5}
+                                    className="w-full opacity-30"
+                                />
                                 <div className="scale-150 cursor-pointer">
                                     <IconComponent iconName={selectedIconData.name} />
                                 </div>
                             </div>
-                            <h1 className="text-brand text-center">{selectedIconData?.name || ''}</h1>
+                            <h1 className="text-brand">{selectedIconData?.name || ''}</h1>
                         </div>
                     )}
                 </div>
@@ -68,7 +74,7 @@ export function CodeIconDetails({ iconSize, iconVariant, iconColor, strokeWidth,
     return (
         <div className="">
             {selectedIconData && (
-                <div className="bg-muted/20 rounded-lg flex aspect-square w-40 items-center justify-center border p-8">
+                <div className="bg-muted/20 flex aspect-square w-40 items-center justify-center rounded-lg border p-8">
                     <IconComponent iconName={selectedIconData.name} />
                 </div>
             )}
