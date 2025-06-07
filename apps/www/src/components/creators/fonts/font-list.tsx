@@ -6,7 +6,11 @@ import { type FilterOptions } from '../../../../../fonts/src/components/fonts/fo
 import { getFonts } from '@/src/lib/fonts'
 import { useToast } from '@dalim/core/hooks/use-toast'
 
-export function FontsList() {
+interface FontsListProps {
+  userId?: string
+}
+
+export function FontsList({ userId }: FontsListProps) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [allFonts, setAllFonts] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
@@ -26,7 +30,7 @@ export function FontsList() {
     useEffect(() => {
         const loadFonts = async () => {
             try {
-                const fontData = await getFonts()
+                const fontData = await getFonts(userId)
                 setAllFonts(fontData)
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error) {
@@ -41,7 +45,7 @@ export function FontsList() {
         }
 
         loadFonts()
-    }, [toast])
+    }, [toast, userId])
 
     const filteredFonts = useMemo(() => {
         let filtered = [...allFonts]
@@ -132,7 +136,9 @@ export function FontsList() {
             {filteredFonts.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                     <h3 className="mb-4 text-2xl font-semibold">No fonts found</h3>
-                    <p className="text-muted-foreground mb-6">Try adjusting your filters or search terms</p>
+                    <p className="text-muted-foreground mb-6">
+                        {userId ? "This user hasn't uploaded any fonts yet" : "Try adjusting your filters or search terms"}
+                    </p>
                 </div>
             ) : (
                 <div className="">

@@ -103,7 +103,7 @@ export function FontsDashboard() {
             <div className="mb-3 grid grid-cols-2 gap-3 md:grid-cols-4">
                 <Card>
                     <CardHeader className="pb-2">
-                        <CardTitle className="text-sm font-medium">Total Graphics</CardTitle>
+                        <CardTitle className="text-sm font-medium">Total Fonts</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">{fonts.length}</div>

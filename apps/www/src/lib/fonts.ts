@@ -1,17 +1,19 @@
 import { DALIM_URL } from "@dalim/auth";
 
-export async function getFonts() {
+export async function getFonts(userId?: string) {
   try {
-    const response = await fetch(`${DALIM_URL}/api/fonts`);
-    
+    const url = userId ? `${DALIM_URL}/api/fonts?userId=${userId}` : `${DALIM_URL}/api/fonts`
+
+    const response = await fetch(url)
+
     if (!response.ok) {
-      throw new Error("Failed to fetch fonts");
+      throw new Error("Failed to fetch fonts")
     }
-    
-    return response.json();
+
+    return response.json()
   } catch (error) {
-    console.error("Error fetching fonts:", error);
-    throw error;
+    console.error("Error fetching fonts:", error)
+    throw error
   }
 }
 
