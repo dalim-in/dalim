@@ -4,5 +4,6 @@ import docs__indexMdx from './docs__index.mdx.json' assert { type: 'json' }
 import docs__legal__contactMdx from './docs__legal__contact.mdx.json' assert { type: 'json' }
 import docs__legal__privacyMdx from './docs__legal__privacy.mdx.json' assert { type: 'json' }
 import docs__legal__termsMdx from './docs__legal__terms.mdx.json' assert { type: 'json' }
+import docs__icons__introductionMdx from './docs__icons__introduction.mdx.json' assert { type: 'json' }
 
-export const allDocs = [docs__indexMdx, docs__legal__contactMdx, docs__legal__privacyMdx, docs__legal__termsMdx]
+export const allDocs = [docs__indexMdx, docs__legal__contactMdx, docs__legal__privacyMdx, docs__legal__termsMdx, docs__icons__introductionMdx]

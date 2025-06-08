@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export function BlogCard() {
     return (
-        <div className="w-full h-full mt-6">
+        <div className="mt-6 h-full w-full">
             <CardStack items={CARDS} />
         </div>
     )
@@ -13,38 +13,69 @@ const CARDS = [
     {
         id: 0,
         content: (
-            <Image
-                src="/images/blogs/gradient/cover.jpg"
-                alt="header"
-                width={800}
-                height={800}
-                className="h-full w-full rounded-xl object-cover"
-            />
+            <div>
+                <>
+                <Image
+                    src="/images/thumbs/button.svg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="h-[200px] w-full rounded-xl object-cover dark:hidden"
+                />
+                <Image
+                    src="/images/thumbs/button-dark.svg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="hidden h-[200px] w-full rounded-xl object-cover dark:block"
+                />
+            </>
+            </div>
         ),
     },
     {
         id: 1,
         content: (
-            <Image
-                src="/images/blogs/portfolio/cover.jpg"
-                alt="header"
-                width={800}
-                height={800}
-                 className="h-full w-full rounded-xl object-cover"
-            />
+            <div>
+                <>
+                <Image
+                    src="/images/thumbs/accordion.svg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="h-[200px] w-full rounded-xl object-cover dark:hidden"
+                />
+                <Image
+                    src="/images/thumbs/accordion-dark.svg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="hidden h-[200px] w-full rounded-xl object-cover dark:block"
+                />
+            </>
+            </div>
         ),
     },
     {
         id: 2,
         content: (
             <div>
+                <>
                 <Image
-                    src="/images/blogs/gradient/cover.jpg"
+                    src="/images/thumbs/pagination.svg"
                     alt="header"
                     width={800}
                     height={800}
-                     className="h-full w-full rounded-xl object-cover"
+                    className="h-[200px] w-full rounded-xl object-cover dark:hidden"
                 />
+                <Image
+                    src="/images/thumbs/pagination-dark.svg"
+                    alt="header"
+                    width={800}
+                    height={800}
+                    className="hidden h-[200px] w-full rounded-xl object-cover dark:block"
+                />
+            </>
             </div>
         ),
     },

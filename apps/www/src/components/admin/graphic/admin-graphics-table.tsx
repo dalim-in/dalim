@@ -362,7 +362,7 @@ export function AdminGraphicsTable({ graphics, total, pages, currentPage }: Admi
                                             </TableCell>
                                             <TableCell>
                                                 <div className="flex items-center gap-3">
-                                                    <div className="relative h-12 w-12 overflow-hidden rounded-lg">
+                                                    <div className="relative h-12 w-12 overflow-hidden rounded">
                                                         <CldImage
                                                             src={graphic.images[0] || '/placeholder.svg'}
                                                             alt={graphic.title}

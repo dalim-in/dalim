@@ -36,14 +36,8 @@ export default async function SettingsPage() {
   }
 
   return (
-    <div className="">
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold">Settings</h1>
-          <p className="text-muted-foreground">Manage your account settings and preferences.</p>
-        </div> 
-        <ProfileSettingsForm user={user} />
-      </div>
+    <div className="mt-3">
+      <ProfileSettingsForm user={user} />
     </div>
   )
 }

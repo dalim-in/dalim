@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type * as z from 'zod'
+import { ScrollArea, ScrollBar } from '@dalim/core/ui/scroll-area'
 import Image from 'next/image'
 import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@dalim/core/ui/card'
@@ -119,32 +120,40 @@ export function ProfileSettingsForm({ user }: ProfileSettingsFormProps) {
     return (
         <Tabs
             defaultValue="profile"
-            className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger
-                    value="profile"
-                    className="flex items-center gap-2">
-                    <User className="h-4 w-4" />
-                    Profile
-                </TabsTrigger>
-                <TabsTrigger
-                    value="social"
-                    className="flex items-center gap-2">
-                    <Link className="h-4 w-4" />
-                    Social
-                </TabsTrigger>
-                <TabsTrigger
-                    value="security"
-                    className="flex items-center gap-2">
-                    <Shield className="h-4 w-4" />
-                    Security
-                </TabsTrigger>
-                <TabsTrigger
-                    value="account"
-                    className="flex items-center gap-2">
-                    <Settings className="h-4 w-4" />
-                    Account
-                </TabsTrigger>
+           className="mb-6">
+            <TabsList className=" w-full md:w-auto items-center justify-center text-center shadow-xl overflow-hidden">
+                <ScrollArea className="overflow-auto whitespace-nowrap">
+                    <div className="space-x-2 flex gap-1">
+                        <TabsTrigger
+                            value="profile"
+                            className="flex items-center gap-2">
+                            <User className="h-4 w-4" />
+                            Profile
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="social"
+                            className="flex items-center gap-2">
+                            <Link className="h-4 w-4" />
+                            Social
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="security"
+                            className="flex items-center gap-2">
+                            <Shield className="h-4 w-4" />
+                            Security
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="account"
+                            className="flex items-center gap-2">
+                            <Settings className="h-4 w-4" />
+                            Account
+                        </TabsTrigger>
+                    </div>
+                    <ScrollBar
+                        className="hidden"
+                        orientation="horizontal"
+                    />
+                </ScrollArea>
             </TabsList>
 
             <TabsContent

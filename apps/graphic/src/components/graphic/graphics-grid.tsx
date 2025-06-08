@@ -348,3 +348,211 @@ export function GraphicsGrid({
         </div>
     )
 }
+
+
+
+export function GraphicsGridWWW({ 
+    initialGraphics, 
+    initialTotal, 
+    initialPage 
+}: GraphicsGridInfiniteProps) { 
+    const searchParams = useSearchParams()
+     
+    const [graphics, setGraphics] = useState<Graphic[]>(initialGraphics)
+    const [isLoading, setIsLoading] = useState(false)
+    const [isLoadingMore, setIsLoadingMore] = useState(false)
+    const [hasMore, setHasMore] = useState(initialGraphics.length < initialTotal)
+    const [currentPage, setCurrentPage] = useState(initialPage)
+     
+    
+    const observerRef = useRef<IntersectionObserver | null>(null)
+    const loadMoreRef = useRef<HTMLDivElement | null>(null)
+
+    // Get current search parameters
+    const search = searchParams.get('search') || ''
+    const category = searchParams.get('category') || ''
+     
+
+    // Reset graphics when search params change
+    useEffect(() => {
+        setIsLoading(true)
+        setGraphics(initialGraphics)
+        setCurrentPage(initialPage)
+        setHasMore(initialGraphics.length < initialTotal)
+        
+        
+        const timer = setTimeout(() => setIsLoading(false), 200)
+        return () => clearTimeout(timer)
+    }, [searchParams, initialGraphics, initialTotal, initialPage])
+
+    // Load more graphics
+    const loadMore = useCallback(async () => {
+        if (isLoadingMore || !hasMore) return
+
+        setIsLoadingMore(true)
+         
+
+        try {
+            const nextPage = currentPage + 1
+            const result = await fetchGraphics({
+                search,
+                category, 
+                page: nextPage,
+                limit: 12
+            })
+
+            if (result.graphics.length === 0) {
+                setHasMore(false)
+            } else {
+                setGraphics(prev => [...prev, ...result.graphics])
+                setCurrentPage(nextPage)
+                setHasMore(result.graphics.length === 12) // Assuming limit is 12
+            }
+        } catch (err) { 
+            console.error('Error loading more graphics:', err)
+        } finally {
+            setIsLoadingMore(false)
+        }
+    }, [isLoadingMore, hasMore, currentPage, search, category])
+
+    // Set up intersection observer
+    useEffect(() => {
+        if (observerRef.current) {
+            observerRef.current.disconnect()
+        }
+
+        observerRef.current = new IntersectionObserver(
+            (entries) => {
+                const target = entries[0]
+                if (target.isIntersecting && hasMore && !isLoadingMore) {
+                    loadMore()
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '100px'
+            }
+        )
+
+        if (loadMoreRef.current) {
+            observerRef.current.observe(loadMoreRef.current)
+        }
+
+        return () => {
+            if (observerRef.current) {
+                observerRef.current.disconnect()
+            }
+        }
+    }, [loadMore, hasMore, isLoadingMore])
+
+    if (isLoading) {
+        return (
+            <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Loading graphics...
+                    </div>
+                </div>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                        <div
+                            key={i}
+                            className="animate-pulse overflow-hidden rounded-lg border">
+                            <div className="bg-muted aspect-video" />
+                            <div className="space-y-3 p-4">
+                                <div className="bg-muted h-4 w-3/4 rounded" />
+                                <div className="bg-muted h-3 w-1/2 rounded" />
+                                <div className="flex justify-between">
+                                    <div className="bg-muted h-6 w-6 rounded-full" />
+                                    <div className="bg-muted h-3 w-16 rounded" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+     
+    return (
+        <div className="mt-6"> 
+            <div className={'grid grid-cols-1 gap-3 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'}>
+                {graphics.slice(0, 6).map((graphic) => (
+                    <div
+                        key={graphic.id}
+                        className={` relative rounded-xl border transition-all duration-200 hover:shadow-lg grid gap-3 p-2`}>
+                         
+                        <Link
+                            href={`/${graphic.id}`}
+                            className={'relative'}>
+                            <div className={`relative overflow-hidden h-[250px] w-full rounded-lg md:h-[290px]`}>
+                                <CldImage 
+                                    src={graphic.images[0] || '/placeholder.svg?height=200&width=300'}
+                                    alt={graphic.title}
+                                    height={200}
+                                    width={200}
+                                    className="h-full w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                {graphic.images.length > 1 && (
+                                    <Badge className="bg-background/80 text-foreground absolute right-2 top-2 text-xs">
+                                        +{graphic.images.length - 1}
+                                    </Badge>
+                                )}
+                                {graphic.featured && (
+                                    <Badge
+                                        variant="secondary"
+                                        className="absolute left-2 top-2 bg-purple-500 text-white">
+                                        <Star className="mr-1 h-3 w-3" />
+                                        Featured
+                                    </Badge>
+                                )}
+                            </div>
+                        </Link>
+
+                        <div className={`flex flex-col space-y-3 p-3 `}>
+                            <div className="flex items-center justify-between">
+                                <div className="flex gap-2">
+                                    <Avatar className="h-6 w-6 border">
+                                        <AvatarImage src={graphic.user.image || ''} />
+                                        <AvatarFallback className="text-xs">
+                                            {graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div className="flex w-40">
+                                        <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">
+                                            {graphic.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div className="text-muted-foreground flex items-center gap-3 text-xs">
+                                    <div className="flex items-center gap-1">
+                                        <Eye className="h-3 w-3" />
+                                        {graphic.viewCount}
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <Download className="h-3 w-3" />
+                                        {graphic.downloadCount}
+                                    </div>
+                                    <ShareButton
+                                        url={`/${graphic.id}`}
+                                        title={graphic.title}
+                                        description={graphic.description || `Check out this ${graphic.category.toLowerCase().replace('_', ' ')} graphic!`}
+                                        image={graphic.images[0]}
+                                        type="graphic"
+                                        variant="ghost"
+                                        size="icon"
+                                        showText={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+ 
+             
+        </div>
+    )
+}

@@ -28,19 +28,18 @@ export const docsConfig: DocsConfig = {
         }, 
       ],
     },
-      
     {
-      title: "Components",
+      title: "Dalim Icons",
       items: [ 
         {
-          title: "Book",
+          title: "Introduction",
           label: "New",
-          href: "/docs", 
+          href: "/docs/icons/introduction", 
           items: [],
         },
         
       ],
-    },
+    },  
     {
       title: "Legal",
       label: "",

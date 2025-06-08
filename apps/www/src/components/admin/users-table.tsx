@@ -408,10 +408,7 @@ export function AdminUsersTable({ users, total, pages, currentPage }: AdminUsers
                                                             {user.role === 'ADMIN' ? <Crown className="mr-1 h-3 w-3" /> : <User className="mr-1 h-3 w-3" />}
                                                             {user.role}
                                                         </Badge>
-                                                        <Switch
-                                                            checked={user.role === 'ADMIN'}
-                                                            onCheckedChange={(checked) => handleUpdateRole(user.id, checked ? 'ADMIN' : 'USER')}
-                                                        />
+                                                         
                                                     </div>
                                                 </div>
                                             </TableCell>

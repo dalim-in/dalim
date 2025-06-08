@@ -39,7 +39,7 @@ export function SearchUsers({ users }: SearchUsersProps) {
     }, [users, searchTerm, sortBy])
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-3">
             {/* Search and Filter Controls */}
             <div className="flex flex-col gap-2 sm:flex-row">
                 <div className="relative flex-1">

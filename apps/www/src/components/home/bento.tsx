@@ -3,10 +3,12 @@ import { cn, getTimeOfDayGreeting } from '@/src/lib/utils'
 import { BlogCard } from './blog-stacks'
 import { AboutMe } from './about-me'
 import { AgencyList } from './lists'
-import { AGENCY_URL, FONTS_URL } from '@dalim/auth'
+import { AGENCY_URL, UI_URL } from '@dalim/auth'
 import { PhotoGallery } from './work-images'
 import Link from 'next/link'
 import { PageHeader } from '@dalim/core/components/common/page-header'
+import { Graphics } from './bento/graphic-grid'
+import { FontsListWWW } from '../../../../fonts/src/components/fonts/font-list'
 
 export function ProductBento() {
     const timeOfDayGreeting = getTimeOfDayGreeting()
@@ -15,29 +17,44 @@ export function ProductBento() {
             id: 'about',
             title: 'Ali Imam',
             description: `${timeOfDayGreeting} I am Ali, an experienced Design Engineer. Learn more about me.`,
-            skeleton: <SkeletonOne />,
+            skeleton: <SkeletonAbout />,
             className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b md:border-r dark:border-neutral-800',
         },
         {
-            id: 'fonts',
-            title: 'Fonts',
+            id: 'ui',
+            title: 'UI',
             description: 'Discover beautifully crafted typefaces for every creative project — from modern displays to.',
-            skeleton: <SkeletonTwo />,
+            skeleton: <SkeletonFonts />,
             className: 'col-span-1 md:col-span-3 lg:col-span-2 border-b lg:border-r dark:border-neutral-800',
         },
         {
             id: 'agency',
             title: 'Agency',
             description: 'Get agency-level designs without the agency price. A flat monthly rate for all your design needs.',
-            skeleton: <SkeletonThree />,
-            className: 'col-span-1 md:col-span-3 md:border-r md:border-b lg:border-r-0 lg:col-span-2 border-b dark:border-neutral-800',
+            skeleton: <SkeletonAgency />,
+            className: 'col-span-1 md:col-span-6 md:border-b lg:border-r-0 lg:col-span-2 border-b dark:border-neutral-800',
         },
+        {
+            id: 'fonts',
+            title: '',
+            description: '',
+            skeleton: <FontLists />,
+            className: 'col-span-1 md:col-span-6 lg:col-span-6 border-b lg:border-r-0 dark:border-neutral-800',
+        },
+        {
+            id: 'graphic',
+            title: '',
+            description: '',
+            skeleton: <SkeletonGraphic />,
+            className: 'col-span-1 border-b md:col-span-6 lg:col-span-6',
+        },
+
         {
             id: 'works-header',
             title: '',
             description: '',
             skeleton: <SkeletonFour />,
-            className: 'col-span-1 md:border-b md:col-span-3 lg:col-span-6 md:border-none',
+            className: 'col-span-1 md:border-b md:col-span-6 lg:col-span-6 md:border-none',
         },
         {
             id: 'works-gallery',
@@ -86,53 +103,49 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
     return <p className={cn('text-left text-sm md:text-base', 'text-center font-normal text-neutral-500 dark:text-neutral-300', 'mx-0 my-2 max-w-sm text-left md:text-sm')}>{children}</p>
 }
 
-export const SkeletonOne = () => {
+export const SkeletonAbout = () => {
+    return <AboutMe linkTo={'/about'} />
+}
+
+export const SkeletonAgency = () => {
+    return <AgencyList linkUrl={AGENCY_URL} />
+}
+
+export const SkeletonGraphic = () => {
     return (
-        <div className="">
-            <AboutMe linkTo={'/about'} />
+        <div className="-mt-6">
+           <Graphics />
         </div>
     )
 }
 
-export const SkeletonThree = () => {
+export const FontLists = () => {
     return (
-        <div className=" ">
-            <AgencyList linkUrl={AGENCY_URL} />
+        <div className="-mt-3">
+            <FontsListWWW />
         </div>
     )
 }
 
-export const SkeletonTwo = () => {
+export const SkeletonFonts = () => {
     return (
-        <div className=" ">
-            <Link href={`${FONTS_URL}`}>
-                <BlogCard />
-            </Link>
-        </div>
+        <Link href={`${UI_URL}`}>
+            <BlogCard />
+        </Link>
     )
 }
 
 export const SkeletonFour = () => {
     return (
-        <div className="">
-            <div className=" ">
-                <PageHeader
-                    badge="Works"
-                    className="-mx-8 -mb-8 -mt-10"
-                    title={'Designs That Speak'}
-                    subheading="A curated collection of graphic design work—from branding and print to digital media—crafted to communicate, inspire, and leave a lasting impression."
-                />
-            </div>
-        </div>
+        <PageHeader
+            badge="Works"
+            className="-mx-8 -mb-8 -mt-10"
+            title={'Designs That Speak'}
+            subheading="A curated collection of graphic design work—from branding and print to digital media—crafted to communicate, inspire, and leave a lasting impression."
+        />
     )
 }
 
 export const SkeletonFive = () => {
-    return (
-        <div className="">
-            <div className=" ">
-                <PhotoGallery />
-            </div>
-        </div>
-    )
+    return <PhotoGallery />
 }
