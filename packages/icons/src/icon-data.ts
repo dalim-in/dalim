@@ -1,9 +1,10 @@
 import { IconMetadata } from "./types";
-import { accessMetadata, heartMetadata } from "./icons";
+import { accessMetadata, cheveronrightMetadata, heartMetadata } from "./icons";
 
 export const iconDatabase: Record<string, IconMetadata> = {
   "Access": accessMetadata,
   "Heart": heartMetadata,
+  "ChevronRight": cheveronrightMetadata,
   "Lock": {
     name: "Lock",
     category: "Security",

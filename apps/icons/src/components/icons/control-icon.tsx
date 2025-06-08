@@ -7,7 +7,7 @@ import { Switch } from '@dalim/core/ui/switch'
 import { Label } from '@dalim/core/ui/label'
 import { CodeIconDetails, IconDetails } from './icon-details'
 import { Button, buttonVariants } from '@dalim/core/ui/button'
-import { Copy, Download, RotateCw, Code, Expand, Film, Play } from 'lucide-react'
+import { Copy, Download, RotateCw, Code, Expand, Film, Play, ChevronDown } from 'lucide-react'
 import { ShareButton } from '@dalim/core/components/common/share-button'
 import { CodeBlock } from '@dalim/core/components/common/code-block'
 import Link from 'next/link'
@@ -26,6 +26,7 @@ import { createRoot } from 'react-dom/client'
 // Note: You'll need to install this package: npm install gif.js
 import GIF from 'gif.js'
 import React from 'react'
+import { ToggleGroup, ToggleGroupItem } from '@dalim/core/ui/toggle-group'
 
 export function ControlIcon({
     iconSize,
@@ -35,6 +36,10 @@ export function ControlIcon({
     setIconColor,
     strokeWidth,
     setStrokeWidth,
+    strokeLinecap,
+    setStrokeLinecap,
+    strokeLinejoin,
+    setStrokeLinejoin,
     animation,
     setAnimation,
     loop,
@@ -46,6 +51,10 @@ export function ControlIcon({
     setIconSize: (val: number[]) => void
     iconColor: string
     setIconColor: (val: string) => void
+    strokeLinecap: 'butt' | 'round' | 'square'
+    setStrokeLinecap: (val: 'butt' | 'round' | 'square') => void
+    strokeLinejoin: 'round' | 'miter' | 'bevel'
+    setStrokeLinejoin: (val: 'round' | 'miter' | 'bevel') => void
     strokeWidth: number[]
     setStrokeWidth: (val: number[]) => void
     animation: boolean
@@ -56,11 +65,11 @@ export function ControlIcon({
 }) {
     const [highlightedCode] = useState<JSX.Element | null>(null)
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const videoRef = useRef<HTMLVideoElement>(null) 
-    const animationContainerRef = useRef<HTMLDivElement>(null) 
+    const videoRef = useRef<HTMLVideoElement>(null)
+    const animationContainerRef = useRef<HTMLDivElement>(null)
     const [showAnimationExport, setShowAnimationExport] = useState(false)
     const [gifQuality, setGifQuality] = useState(10) // 1-30, lower is better quality but larger file
-    const [gifFrameRate, setGifFrameRate] = useState(30) // Frames per second 
+    const [gifFrameRate, setGifFrameRate] = useState(30) // Frames per second
     const [exportProgress, setExportProgress] = useState(0)
     const [exportFormat, setExportFormat] = useState<'gif' | 'mp4'>('gif')
 
@@ -68,6 +77,8 @@ export function ControlIcon({
         setIconSize([24])
         setIconColor('currentColor')
         setStrokeWidth([1])
+        setStrokeLinecap('round')
+        setStrokeLinejoin('round')
         setAnimation(false)
         setLoop(false)
     }
@@ -97,6 +108,8 @@ export function ControlIcon({
                         variant={iconVariant}
                         color={iconColor}
                         strokeWidth={strokeWidth[0]}
+                        strokeLinecap={strokeLinecap}
+                        strokeLinejoin={strokeLinejoin}
                         animation={false} // Disable animation for static export
                         loop={false}
                     />
@@ -430,8 +443,6 @@ export function ControlIcon({
         }
     }
 
-     
-
     // Copy functions
     const copySVG = async () => {
         if (!selectedIcon) return
@@ -483,12 +494,14 @@ export function ControlIcon({
         const isDefaultSize = iconSize[0] === 24
         const isDefaultStroke = strokeWidth[0] === 1
         const isDefaultColor = iconColor === 'currentColor'
+        const isDefaultLinecap = strokeLinecap === 'round'
+        const isDefaultLinejoin = strokeLinejoin === 'round'
 
         const reactCode = `import { ${selectedIcon} } from 'dalim-icons';
 
 const App = () => {
   return (
-    <${selectedIcon}${!isDefaultSize ? `\n      size={${iconSize[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconColor}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''} 
+    <${selectedIcon}${!isDefaultSize ? `\n      size={${iconSize[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconColor}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${!isDefaultLinecap ? `\n      strokeLinecap="${strokeLinecap}"` : ''}${!isDefaultLinejoin ? `\n      strokeLinejoin="${strokeLinejoin}"` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''} 
     />
   );
 }
@@ -578,6 +591,8 @@ export default App;`
                     animation={animation}
                     loop={loop}
                     selectedIcon={selectedIcon}
+                    strokeLinecap={strokeLinecap}
+                    strokeLinejoin={strokeLinejoin}
                 />
                 <Dialog>
                     {selectedIcon && (
@@ -601,13 +616,13 @@ export default App;`
                                         onClick={downloadJPG}
                                         className="flex cursor-pointer justify-between">
                                         JPG <Download className="h-4 w-4" />
-                                    </DropdownMenuItem> 
+                                    </DropdownMenuItem>
                                     <DropdownMenuSeparator />
                                     <DropdownMenuItem
                                         onClick={downloadGIF}
                                         className="flex cursor-pointer justify-between">
                                         GIF <Film className="h-4 w-4" />
-                                    </DropdownMenuItem> 
+                                    </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                             <DropdownMenu>
@@ -786,6 +801,65 @@ export default App;`}
                         className="mt-2"
                     />
                 </div>
+
+               <div>
+                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linecap</Label>
+                                    <ToggleGroup
+                                        type="single"
+                                        value={strokeLinecap}
+                                        onValueChange={(value) => {
+                                            if (value === 'butt' || value === 'round' || value === 'square') {
+                                                setStrokeLinecap(value)
+                                            }
+                                        }}
+                                        className="mt-1 border rounded-lg">
+                                        <ToggleGroupItem
+                                            value="butt"
+                                            className="border-r capitalize">
+                                            butt
+                                        </ToggleGroupItem>
+
+                                        <ToggleGroupItem
+                                            value="round"
+                                            className="capitalize">
+                                            round
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="square"
+                                            className="border-l capitalize">
+                                            square
+                                        </ToggleGroupItem>
+                                    </ToggleGroup>
+                                </div>
+
+                                <div>
+                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linejoin</Label>
+                                    <ToggleGroup
+                                        type="single"
+                                        value={strokeLinejoin}
+                                        onValueChange={(value) => {
+                                            if (value === 'round' || value === 'miter' || value === 'bevel') {
+                                                setStrokeLinejoin(value)
+                                            }
+                                        }}
+                                        className="mt-1 border rounded-lg"> 
+                                        <ToggleGroupItem
+                                            value="round"
+                                            className="border-r capitalize">
+                                            round
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="miter"
+                                            className="capitalize">
+                                            miter
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="bevel"
+                                            className="border-l capitalize">
+                                            bevel
+                                        </ToggleGroupItem> 
+                                    </ToggleGroup>
+                                </div>
 
                 <div className="flex items-center justify-between">
                     <Label

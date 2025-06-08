@@ -8,8 +8,34 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim
 import { Label } from '@dalim/core/ui/label'
 import { RadioGroup, RadioGroupItem } from '@dalim/core/ui/radio-group'
 
-export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, selectedCategory, selectedTag, iconVariant, iconColor, strokeWidth, animation, loop }: { searchTerm: string; selectedCategory: string; selectedTag: string; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; iconColor: string; strokeWidth: number[]; animation: boolean; loop: boolean, selectedIcon: string, setSelectedIcon: any }) {
-    const allIcons = getAllIcons() 
+export function IconShowcase({
+  searchTerm,
+  selectedIcon,
+  setSelectedIcon,
+  selectedCategory,
+  selectedTag,
+  strokeLinecap,
+  strokeLinejoin,
+  iconVariant,
+  iconColor,
+  strokeWidth,
+  animation,
+  loop,
+}: {
+  searchTerm: string
+  selectedCategory: string
+  selectedTag: string
+  iconVariant: "stroke" | "solid" | "duotone" | "twotone" | "bulk"
+  iconColor: string
+  strokeWidth: number[]
+  animation: boolean
+  strokeLinecap: "butt" | "round" | "square"
+  strokeLinejoin: "round" | "miter" | "bevel"
+  loop: boolean
+  selectedIcon: string
+  setSelectedIcon: any
+}) {
+    const allIcons = getAllIcons()
 
     const filteredIcons = useMemo(() => {
         return allIcons.filter((icon) => {
@@ -31,6 +57,8 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
                 size={32}
                 variant={iconVariant}
                 color={iconColor}
+                strokeLinecap={strokeLinecap}
+                strokeLinejoin={strokeLinejoin}
                 strokeWidth={strokeWidth[0]}
                 animation={animation}
                 loop={loop}
@@ -46,7 +74,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
         <div className="my-3">
             <RadioGroup
                 value={selectedIcon}
-                className=''
+                className=""
                 onValueChange={setSelectedIcon}>
                 <div className="flex flex-wrap gap-2">
                     {filteredIcons.map((icon) => (
@@ -65,7 +93,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                             <div
-                                                className={`hover:bg-muted/60 dark:hover:bg-muted/20 flex h-20 w-20 cursor-pointer items-center justify-center rounded-md bg-muted dark:bg-muted/20 transition ${selectedIcon === icon.name ? 'ring-primary bg-muted/40 border' : ''}`}
+                                                className={`hover:bg-muted/60 dark:hover:bg-muted/20 bg-muted dark:bg-muted/20 flex h-20 w-20 cursor-pointer items-center justify-center rounded-md transition ${selectedIcon === icon.name ? 'ring-primary bg-muted/40 border' : ''}`}
                                                 onClick={() => handleIconClick(icon.name)}>
                                                 <IconComponent iconName={icon.name} />
                                             </div>

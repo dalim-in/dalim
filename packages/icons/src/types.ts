@@ -18,7 +18,15 @@ export interface IconMetadata {
   variants: ("stroke" | "solid" | "duotone" | "twotone" | "bulk")[];
 }
 
-export type IconStyle = "rounded" | "sharp" | "default" 
+export interface IconStyle {
+  fill?: string
+  stroke?: string
+  strokeWidth?: number
+  strokeLinecap?: "butt" | "round" | "square"
+  strokeLinejoin?: "round" | "miter" | "bevel"
+  strokeDasharray?: string
+  opacity?: number
+}
 
 export interface AccessIconProps extends HTMLMotionProps<"div"> {
   size?: number

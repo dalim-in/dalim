@@ -10,6 +10,9 @@ export function MainIcons() {
     const [selectedTag, setSelectedTag] = useState('all')
     const [selectedIcon, setSelectedIcon] = useState<string>('')
 
+    const [strokeLinecap, setStrokeLinecap] = useState<'butt' | 'round' | 'square'>('round')
+    const [strokeLinejoin, setStrokeLinejoin] = useState<'round' | 'miter' | 'bevel'>('round')
+
     const [iconSize, setIconSize] = useState([32])
     const [iconVariant, setIconVariant] = useState<'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'>('stroke')
     const [iconColor, setIconColor] = useState('currentColor')
@@ -45,6 +48,10 @@ export function MainIcons() {
                             loop={loop}
                             setLoop={setLoop}
                             selectedIcon={selectedIcon}
+                            strokeLinecap={strokeLinecap}
+                            setStrokeLinecap={setStrokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            setStrokeLinejoin={setStrokeLinejoin}
                         />
                     </div>
 
@@ -56,6 +63,8 @@ export function MainIcons() {
                         iconColor={iconColor}
                         strokeWidth={strokeWidth}
                         animation={animation}
+                        strokeLinecap={strokeLinecap} 
+                        strokeLinejoin={strokeLinejoin} 
                         loop={loop}
                         selectedIcon={selectedIcon}
                         setSelectedIcon={setSelectedIcon}

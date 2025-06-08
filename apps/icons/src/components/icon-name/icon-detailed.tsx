@@ -4,9 +4,10 @@
 
 import { JSX, useRef, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { ArrowLeft, Copy, Check, Download, RotateCw, Share2, Film } from 'lucide-react'
+import { ArrowLeft, Copy, Check, Download, RotateCw, Share2, Film, ChevronDown } from 'lucide-react'
 import { Button, buttonVariants } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
+import { ToggleGroup, ToggleGroupItem } from '@dalim/core/ui/toggle-group'
 import { ShareButton } from '@dalim/core/components/common/share-button'
 import { Slider } from '@dalim/core/ui/slider'
 import { Switch } from '@dalim/core/ui/switch'
@@ -30,13 +31,16 @@ export function IconDetailed() {
     const [highlightedCode] = useState<JSX.Element | null>(null)
 
     // Icon customization controls
-    const [size, setSize] = useState([48])
+    const [size, setSize] = useState([92])
     const [variant, setVariant] = useState<'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'>('stroke')
     const [color, setColor] = useState('currentColor')
-    const [strokeWidth, setStrokeWidth] = useState([1.5])
+    const [strokeWidth, setStrokeWidth] = useState([2])
     const [animation, setAnimation] = useState(false)
     const [loop, setLoop] = useState(false)
     const [copied, setCopied] = useState(false)
+
+    const [strokeLinecap, setStrokeLinecap] = useState<'butt' | 'round' | 'square'>('square')
+    const [strokeLinejoin, setStrokeLinejoin] = useState<'round' | 'miter' | 'bevel'>('miter')
 
     // Export states
     const [showAnimationExport, setShowAnimationExport] = useState(false)
@@ -65,9 +69,11 @@ export function IconDetailed() {
     }
 
     const handleReset = () => {
-        setSize([48])
+        setSize([92])
         setColor('currentColor')
-        setStrokeWidth([1.5])
+        setStrokeLinecap('round')
+        setStrokeLinejoin('round')
+        setStrokeWidth([2])
         setAnimation(false)
         setLoop(false)
     }
@@ -92,6 +98,8 @@ export function IconDetailed() {
                         size={iconSize}
                         variant={variant}
                         color={color}
+                        strokeLinecap={strokeLinecap}
+                        strokeLinejoin={strokeLinejoin}
                         strokeWidth={strokeWidth[0]}
                         animation={false}
                         loop={false}
@@ -188,6 +196,8 @@ export function IconDetailed() {
                         size={iconSize}
                         variant={variant}
                         color={color}
+                        strokeLinecap={strokeLinecap}
+                        strokeLinejoin={strokeLinejoin}
                         strokeWidth={strokeWidth[0]}
                         animation={true}
                         loop={true}
@@ -465,6 +475,8 @@ export function IconDetailed() {
                                             size={128}
                                             variant={variant}
                                             color={color}
+                                            strokeLinecap={strokeLinecap}
+                                            strokeLinejoin={strokeLinejoin}
                                             strokeWidth={strokeWidth[0]}
                                             animation={true}
                                             loop={true}
@@ -551,6 +563,65 @@ export function IconDetailed() {
                                         step={0.1}
                                         className="mt-2"
                                     />
+                                </div>
+
+                                <div>
+                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linecap</Label>
+                                    <ToggleGroup
+                                        type="single"
+                                        value={strokeLinecap}
+                                        onValueChange={(value) => {
+                                            if (value === 'butt' || value === 'round' || value === 'square') {
+                                                setStrokeLinecap(value)
+                                            }
+                                        }}
+                                        className="mt-1 border rounded-lg">
+                                        <ToggleGroupItem
+                                            value="butt"
+                                            className="border-r capitalize">
+                                            butt
+                                        </ToggleGroupItem>
+
+                                        <ToggleGroupItem
+                                            value="round"
+                                            className="capitalize">
+                                            round
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="square"
+                                            className="border-l capitalize">
+                                            square
+                                        </ToggleGroupItem>
+                                    </ToggleGroup>
+                                </div>
+
+                                <div>
+                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linejoin</Label>
+                                    <ToggleGroup
+                                        type="single"
+                                        value={strokeLinejoin}
+                                        onValueChange={(value) => {
+                                            if (value === 'round' || value === 'miter' || value === 'bevel') {
+                                                setStrokeLinejoin(value)
+                                            }
+                                        }}
+                                        className="mt-1 border rounded-lg"> 
+                                        <ToggleGroupItem
+                                            value="round"
+                                            className="border-r capitalize">
+                                            round
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="miter"
+                                            className="capitalize">
+                                            miter
+                                        </ToggleGroupItem>
+                                        <ToggleGroupItem
+                                            value="bevel"
+                                            className="border-l capitalize">
+                                            bevel
+                                        </ToggleGroupItem> 
+                                    </ToggleGroup>
                                 </div>
 
                                 <div className="flex items-center justify-between">
@@ -659,6 +730,8 @@ export function IconDetailed() {
                                                             size={size[0] * 2} // Display larger in preview
                                                             variant={variant}
                                                             color={color}
+                                                            strokeLinecap={strokeLinecap}
+                                                            strokeLinejoin={strokeLinejoin}
                                                             strokeWidth={strokeWidth[0]}
                                                             animation={animation}
                                                             loop={loop}

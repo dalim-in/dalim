@@ -72,8 +72,8 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                 </Select>
                 {selectedIcon && (
                     <div>
-                        <h1 className="flex h-9 w-40 justify-between items-center text-nowrap rounded-md border font-mono">
-                            <span className="pl-4">{`<${selectedIcon} />`}</span>
+                        <h1 className="flex h-9  justify-between items-center text-nowrap rounded-md border font-mono">
+                            <span className="px-4 overflow-hidden w-40">{`<${selectedIcon} />`}</span>
                             <CopyButton componentSource={`<${selectedIcon} />`} />
                         </h1>
                     </div>
