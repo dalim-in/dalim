@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useMemo } from "react"
-import { FontCard } from "@/src/components/fonts/font-card"
+import { FontCard } from "./font-card"
 import { AdvancedFilterBar, type FilterOptions } from "./font-filter"
 import { getFonts } from "@/src/lib/fonts"
 import { useToast } from "@dalim/core/hooks/use-toast"
