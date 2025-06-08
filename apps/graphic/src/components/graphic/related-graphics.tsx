@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Eye, Download } from 'lucide-react'
 import { CldImage } from '@dalim/core/components/common/gallery'
+import { Button } from '@dalim/core/ui/button'
 
 interface RelatedGraphicsProps {
     graphics: Array<{
@@ -77,9 +78,9 @@ export function RelatedGraphics({ graphics }: RelatedGraphicsProps) {
                 {graphics.length === 6 && (
                     <div className="mt-6 text-center">
                         <Link
-                            href="/"
-                            className="text-primary font-medium hover:underline">
-                            View more graphics
+                            href="/" >
+                            <Button> View more graphics</Button>
+                           
                         </Link>
                     </div>
                 )}

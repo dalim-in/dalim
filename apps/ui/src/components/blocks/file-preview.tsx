@@ -11,8 +11,8 @@ import { useBlockContext } from "./block-provider"
 
 export function FilePreview() {
   const [code, setCode] = useState<string>("")
-  const { activeFile } = useBlockContext()
-  const { block } = useParams()
+  const { activeFile } = useBlockContext() 
+  const { block } = useParams()  
   const { copyToClipboard, isCopied } = useCopyToClipboard()
 
   useEffect(() => {

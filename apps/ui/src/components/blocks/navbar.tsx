@@ -26,7 +26,7 @@ export default function CategoryNavbar() {
         defaultValue="all"
         value={current}
         onValueChange={handleChange}
-        className="items-center  justify-center px-6 w-auto text-center"
+        className="items-center justify-center px-6 w-full md:w-auto text-center"
       >
         <ScrollableTabs />
       </Tabs>

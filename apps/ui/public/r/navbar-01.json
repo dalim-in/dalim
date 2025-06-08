@@ -17,19 +17,19 @@
       "path": "registry/default/blocks/navbar/navbar-01/page.tsx",
       "content": "import { Button } from \"@/registry/default/ui/button\"; \nimport { NavMenu } from \"./nav-menu\";\nimport { NavigationSheet } from \"./navigation-sheet\";\nimport { DalimLogo } from \"@dalim/core/components/logo\";\n\nconst Navbar01Page = () => {\n  return (\n    <div className=\"min-h-screen bg-muted\">\n      <nav className=\"h-16 bg-background border-b\">\n        <div className=\"h-full flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8\">\n          <DalimLogo />\n\n          {/* Desktop Menu */}\n          <NavMenu className=\"hidden md:block\" />\n\n          <div className=\"flex items-center gap-3\">\n            <Button variant=\"outline\" className=\"hidden sm:inline-flex\">\n              Sign In\n            </Button>\n            <Button>Get Started</Button>\n\n            {/* Mobile Menu */}\n            <div className=\"md:hidden\">\n              <NavigationSheet />\n            </div>\n          </div>\n        </div>\n      </nav>\n    </div>\n  );\n};\n\nexport default Navbar01Page;",
       "type": "registry:block",
-      "target": "components/navbar-01/navbar-01.tsx"
+      "target": "app/navbar-01.tsx"
     },
     {
       "path": "registry/default/blocks/navbar/navbar-01/nav-menu.tsx",
       "content": "import {\n  NavigationMenu,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n} from \"@/registry/default/ui/navigation-menu\";\nimport { NavigationMenuProps } from \"@radix-ui/react-navigation-menu\";\nimport Link from \"next/link\";\n\nexport const NavMenu = (props: NavigationMenuProps) => (\n  <NavigationMenu {...props}>\n    <NavigationMenuList className=\"gap-6 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start\">\n      <NavigationMenuItem>\n        <NavigationMenuLink asChild>\n          <Link href=\"#\">Home</Link>\n        </NavigationMenuLink>\n      </NavigationMenuItem>\n      <NavigationMenuItem>\n        <NavigationMenuLink asChild>\n          <Link href=\"#\">Blog</Link>\n        </NavigationMenuLink>\n      </NavigationMenuItem>\n      <NavigationMenuItem>\n        <NavigationMenuLink asChild>\n          <Link href=\"#\">About</Link>\n        </NavigationMenuLink>\n      </NavigationMenuItem>\n      <NavigationMenuItem>\n        <NavigationMenuLink asChild>\n          <Link href=\"#\">Contact Us</Link>\n        </NavigationMenuLink>\n      </NavigationMenuItem>\n    </NavigationMenuList>\n  </NavigationMenu>\n);",
       "type": "registry:component",
-      "target": "components/navbar-01/nav-menu.tsx"
+      "target": "components/nav-menu.tsx"
     },
     {
       "path": "registry/default/blocks/navbar/navbar-01/navigation-sheet.tsx",
       "content": "import { Button } from \"@/registry/default/ui/button\";\nimport { Sheet, SheetContent, SheetTrigger } from \"@dalim/core/ui/sheet\";\nimport { Menu } from \"lucide-react\"; \nimport { NavMenu } from \"./nav-menu\";\nimport { DalimLogo } from \"@dalim/core/components/logo\";\n\nexport const NavigationSheet = () => {\n  return (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\" size=\"icon\">\n          <Menu />\n        </Button>\n      </SheetTrigger>\n      <SheetContent>\n        <DalimLogo />\n        <NavMenu orientation=\"vertical\" className=\"mt-12\" />\n      </SheetContent>\n    </Sheet>\n  );\n};",
       "type": "registry:component",
-      "target": "components/navbar-01/navigation-sheet.tsx"
+      "target": "components/navigation-sheet.tsx"
     }
   ]
 }

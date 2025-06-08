@@ -1,32 +1,42 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@dalim/core/ui/accordion'
-import Image from 'next/image'
+ 
 
 export function FAQs() {
     const faqItems = [
         {
             id: 'item-1',
-            question: 'How long does shipping take?',
-            answer: 'Standard shipping takes 3-5 business days, depending on your location. Express shipping options are available at checkout for 1-2 business day delivery.',
+            question: 'Can I switch plans later?',
+            answer: 'Absolutely. You can upgrade or downgrade your plan at any time from your dashboard.',
         },
         {
             id: 'item-2',
-            question: 'What payment methods do you accept?',
-            answer: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay. For enterprise customers, we also offer invoicing options.',
+            question: 'Do I need a credit card to start?',
+            answer: 'No credit card is required for the Free plan. Youll only need one when upgrading to Startup or Pro.',
         },
         {
             id: 'item-3',
-            question: 'Can I change or cancel my order?',
-            answer: 'You can modify or cancel your order within 1 hour of placing it. After this window, please contact our customer support team who will assist you with any changes.',
+            question: 'Does the Pro plan support teams?',
+            answer: 'Yes! The Pro plan is built for teams and agencies with collaboration features, access control, and shared asset libraries.',
         },
         {
             id: 'item-4',
-            question: 'Do you ship internationally?',
-            answer: "Yes, we ship to over 50 countries worldwide. International shipping typically takes 7-14 business days. Additional customs fees may apply depending on your country's import regulations.",
+            question: 'What does “Unlimited Design Requests” mean?',
+            answer: "You can queue as many design tasks as you want. In the Startup plan, one task is handled at a time. In Pro, multiple requests can run simultaneously.",
         },
         {
             id: 'item-5',
-            question: 'What is your return policy?',
-            answer: 'We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Some specialty items may have different return terms, which will be noted on the product page.',
+            question: 'Can I upload my own assets?',
+            answer: 'Yes! Font and graphic uploads are available on all tiers, but Free has limited capacity (5 each), while Startup and Pro are unlimited.',
+        },
+        {
+            id: 'item-6',
+            question: 'Do I get a license for everything?',
+            answer: 'Yes. All assets you download or create are licensed for personal and commercial use with no attribution required on paid plans.',
+        },
+        {
+            id: 'item-7',
+            question: 'What’s the difference between Startup and Pro?',
+            answer: 'Startup is built for solo users who want design help but don’t need team collaboration or insights. Pro is for teams with more advanced needs like analytics, roles, and faster delivery.',
         },
     ]
     return (
@@ -35,7 +45,7 @@ export function FAQs() {
             <div>
                 <h1 className="mx-auto mb-10 max-w-xs px-6 text-center text-xl font-thin md:max-w-full md:text-3xl">Frequently asked questions?</h1>
             </div>
-            <div className="grid items-stretch gap-3 md:grid-cols-2">
+            <div className="grid items-stretch">
                 <div className="h-full w-full">
                     <Accordion
                     defaultValue="item-1"
@@ -60,30 +70,7 @@ export function FAQs() {
                     </Accordion>
                 </div>
 
-                <div className="relative h-[350px] md:h-full w-full">
-                    {/* Floating Image (centered) */}
-                    <Image
-                        src="/brand/logo-icon.svg"
-                        alt="Your Image"
-                        width={150}
-                        height={150}
-                        className="animate-float absolute left-1/2 top-1/3 z-10  -translate-x-1/2 -translate-y-1/2 "
-                    />
-
-                    {/* Background Image */}
-                    <Image
-                        src="/images/1.jpeg"
-                        alt="Your Image"
-                        fill
-                        className="rounded-xl object-cover"
-                    />
-
-                    {/* Gradient Overlay + Text */}
-                    <div className="absolute bottom-0 left-0 w-full rounded-b-xl bg-gradient-to-t from-black/90 to-transparent p-8 pt-16">
-                        <h1 className="text-2xl text-white">Subscribe</h1>
-                        <p className="text-white/80">Subscribe to a plan & request as many designs as you'd like.</p>
-                    </div>
-                </div>
+                 
             </div>
         </div>
     )

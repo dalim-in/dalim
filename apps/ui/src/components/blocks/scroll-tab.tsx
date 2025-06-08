@@ -61,7 +61,7 @@ export function ScrollableTabs() {
   }
 
   return (
-    <TabsList className="bg-background sticky top-24 z-20 flex h-12 w-auto items-center rounded-lg border px-4 shadow-xl">
+    <TabsList className="bg-background sticky top-24 z-20 flex h-12 w-auto max-w-72 md:max-w-full overflow-hidden items-center rounded-lg border px-4 shadow-xl">
       {canScrollLeft && (
         <button
           onClick={() => scroll(-150)}

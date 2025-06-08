@@ -1,26 +1,29 @@
+'use client'
+
 import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@dalim/core/ui/card'
-import { Check } from 'lucide-react'  
+import { Check } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 
 export function Pricing() {
+    const { data: session } = useSession()
     return (
         <section className="mx-auto max-w-6xl border-x">
             <div className="py-10">
-                
-                <div className="mt-8 grid md:mt-20 md:grid-cols-3">
+                <div className="grid md:grid-cols-3">
                     <Card className="flex flex-col rounded-none border-x-0 shadow-none">
                         <CardHeader>
                             <CardTitle className="text-3xl font-bold">Free</CardTitle>
                             <span className="my-3 block text-2xl font-semibold">$0 / mo</span>
-                            <CardDescription className="text-sm">Per editor</CardDescription>
+                            <CardDescription className="text-sm">Individual</CardDescription>
                         </CardHeader>
 
                         <CardContent className="space-y-4">
                             <hr className="border-dashed" />
 
                             <ul className="list-outside space-y-3 text-sm">
-                                {['Basic Analytics Dashboard', '5GB Cloud Storage', 'Email and Chat Support'].map((item, index) => (
+                                {['Access to free UI components', 'Free graphics (unlimited collection)', 'Free fonts (unlimited selection)', 'Use of dashboard', 'Unlimited uploads', 'Use free icons'].map((item, index) => (
                                     <li
                                         key={index}
                                         className="flex items-center gap-2">
@@ -32,13 +35,16 @@ export function Pricing() {
                         </CardContent>
 
                         <CardFooter className="mt-auto">
-                            <Button
-                                asChild
-                                size={"lg"}
-                                variant="outline"
-                                className="w-full">
-                                <Link href="">Get Started</Link>
-                            </Button>
+                            <Link
+                                className="w-full"
+                                href={session ? '/dashboard' : `/login`}>
+                                <Button
+                                    size={'lg'}
+                                    variant="outline"
+                                    className="w-full">
+                                    {session ? 'Dashboard' : 'Login'}
+                                </Button>
+                            </Link>
                         </CardFooter>
                     </Card>
 
@@ -47,15 +53,15 @@ export function Pricing() {
 
                         <div className="flex flex-col">
                             <CardHeader>
-                              <CardTitle className="text-3xl font-bold">Pro</CardTitle>
+                                <CardTitle className="text-3xl font-bold">Pro</CardTitle>
                                 <span className="my-3 block text-2xl font-semibold">$9 / mo</span>
-                                <CardDescription className="text-sm pb-6">Per editor</CardDescription>
+                                <CardDescription className="pb-6 text-sm">Team</CardDescription>
                             </CardHeader>
 
                             <CardContent className="space-y-4">
                                 <hr className="border-dashed" />
                                 <ul className="list-outside space-y-3 text-sm">
-                                    {['Everything in Free Plan', '5GB Cloud Storage', 'Email and Chat Support', 'Access to Community Forum', 'Single User Access', 'Access to Basic Templates', 'Mobile App Access', '1 Custom Report Per Month', 'Monthly Product Updates', 'Standard Security Features'].map((item, index) => (
+                                    {['Everything in Free Plan', 'Unlimited downloads', 'Premium assets & templates', 'Lifetime commercial license', 'Advanced dashboard with analytics', 'Unlimited uploads', 'Team support', 'Monthly Product Updates', 'Cancel any time'].map((item, index) => (
                                         <li
                                             key={index}
                                             className="flex items-center gap-2">
@@ -67,28 +73,32 @@ export function Pricing() {
                             </CardContent>
 
                             <CardFooter>
-                                <Button
-                                    asChild
-                                     size={"lg"}
-                                    className="mt-6 w-full">
-                                    <Link href="">Get Started</Link>
-                                </Button>
+                                <Link
+                                    className="w-full mt-6"
+                                    href={'https://cal.com/dalim/15min'}
+                                    target="_blank">
+                                    <Button
+                                        size={'lg'} 
+                                        className="w-full">
+                                        Get Started
+                                    </Button>
+                                </Link>
                             </CardFooter>
                         </div>
                     </Card>
 
                     <Card className="flex flex-col rounded-none border-x-0 shadow-none">
                         <CardHeader>
-                          <CardTitle className="text-3xl font-bold">Startup</CardTitle>
+                            <CardTitle className="text-3xl font-bold">Startup</CardTitle>
                             <span className="my-3 block text-2xl font-semibold">$999 / mo</span>
-                            <CardDescription className="text-sm">Per editor</CardDescription>
+                            <CardDescription className="text-sm">Retainer</CardDescription>
                         </CardHeader>
 
                         <CardContent className="space-y-4">
                             <hr className="border-dashed" />
 
                             <ul className="list-outside space-y-3 text-sm">
-                                {['Everything in Pro Plan', '5GB Cloud Storage', 'Email and Chat Support'].map((item, index) => (
+                                {['Everything in Pro Plan', 'Any custom design', '1 Active request at a time', 'Unlimited brands', 'Updates every 48 hours', 'Unlimited design requests', 'Dedicated support', 'Cancel any time'].map((item, index) => (
                                     <li
                                         key={index}
                                         className="flex items-center gap-2">
@@ -100,13 +110,17 @@ export function Pricing() {
                         </CardContent>
 
                         <CardFooter className="mt-auto">
-                            <Button
-                                asChild
-                                 size={"lg"}
-                                variant="outline"
-                                className="w-full">
-                                <Link href="">Get Started</Link>
-                            </Button>
+                            <Link
+                                className="w-full"
+                                href={'https://cal.com/dalim/15min'}
+                                target="_blank">
+                                <Button
+                                    size={'lg'}
+                                    variant="outline"
+                                    className="w-full">
+                                    Book a call
+                                </Button>
+                            </Link>
                         </CardFooter>
                     </Card>
                 </div>

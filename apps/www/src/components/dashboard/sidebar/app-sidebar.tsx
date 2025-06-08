@@ -8,8 +8,7 @@ import { NavMain } from './nav-main'
 import { NavProjects } from './nav-projects'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar } from '@dalim/core/ui/sidebar'
 import { AGENCY_URL, FONTS_URL, GRAPHIC_URL, UI_URL, WORKS_URL } from '@dalim/auth'
-import { PublicUser } from '@/src/types/user'
-import { SidebarOptInForm } from './sidebar-opt-in-form'
+import { PublicUser } from '@/src/types/user' 
 import Link from 'next/link'
 
 const data = {
@@ -111,7 +110,7 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
                 <NavProjects projects={data.projects} />
             </SidebarContent>
             <SidebarFooter>
-                <div className="p-1">{state !== 'collapsed' && <SidebarOptInForm />}</div>
+                <div className="p-1 opacity-50">{state !== 'collapsed' && "More Coming Soon!"}</div>
             </SidebarFooter>
             <SidebarRail />
         </Sidebar>

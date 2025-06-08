@@ -1,6 +1,6 @@
 // app/blocks/category/[category]/page.tsx
 import { notFound } from "next/navigation"
-import {BlockPreview} from "@/src/components/blocks/block-preview"
+import { BlockPreview } from "@/src/components/blocks/block-preview"
 import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar" 
 import FileExplorer from "@/src/components/blocks/file-explorer"

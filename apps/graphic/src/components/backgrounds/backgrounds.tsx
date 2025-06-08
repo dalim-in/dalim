@@ -8,8 +8,8 @@ export function Backgrounds() {
         <Tabs
             defaultValue="1"
             className="mb-6 items-center justify-center text-center">
-            <TabsList className="sticky top-24 z-20 w-auto items-center justify-center text-center shadow-xl">
-                <ScrollArea className="whitespace-nowrap">
+            <TabsList className="sticky top-24 z-20 w-full overflow-hidden md:w-auto items-center justify-center text-center shadow-xl">
+                <ScrollArea className="whitespace-nowrap overflow-auto">
                     <div className="space-x-2">
                         <TabsTrigger
                             value="1"

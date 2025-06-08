@@ -6,6 +6,43 @@ import { GraphicCategory, prisma } from "@dalim/db"
 import { cloudinary } from "@/src/lib/cloudinary"
 import { revalidatePath } from "next/cache"
 
+export async function getAllTags() {
+  try {
+    // Get all graphics with their tags
+    const graphics = await prisma.graphic.findMany({
+      select: {
+        tags: true,
+      },
+    })
+
+    // Count tag occurrences
+    const tagCounts = new Map<string, number>()
+    
+    graphics.forEach((graphic) => {
+      graphic.tags.forEach((tag) => {
+        const normalizedTag = tag.toLowerCase().trim()
+        if (normalizedTag) {
+          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+        }
+      })
+    })
+
+    // Convert to array and sort by count (descending)
+    const tags = Array.from(tagCounts.entries())
+      .map(([name, count]) => ({
+        id: name, // Using the tag name as ID since we don't have separate tag records
+        name,
+        count,
+      }))
+      .sort((a, b) => b.count - a.count)
+
+    return tags
+  } catch (error) {
+    console.error("Get all tags error:", error)
+    return []
+  }
+}
+
 export async function uploadGraphic(formData: FormData) {
   try {
     const session = await auth()

@@ -29,10 +29,7 @@ export const BlockProvider = ({
   }
 
   const { files } = blockDetails;
-  const [activeFile, setActiveFile] = useState<BlockFile>({
-    path: files[0].path.replace(`registry/default/blocks/${block}/`, ""),
-     
-  });
+  const [activeFile, setActiveFile] = useState<BlockFile>(files[0]);
   const [screenSize, setScreenSize] = useState<BlockScreenSizeUnion>("desktop");
 
   return (

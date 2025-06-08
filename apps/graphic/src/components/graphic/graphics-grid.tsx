@@ -1,56 +1,160 @@
 'use client'
- 
+
 import Link from 'next/link'
 import { Badge } from '@dalim/core/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Button } from '@dalim/core/ui/button'
 import { Eye, Download, Grid, Table, Search, Loader2, Star } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { ShareButton } from '@dalim/core/components/common/share-button'
 import { CldImage } from '@dalim/core/components/common/gallery'
 
-interface GraphicsGridProps {
-    graphics: Array<{
+interface Graphic {
+    id: string
+    title: string
+    description: string | null
+    category: string
+    images: string[]
+    tags: string[]
+    featured: boolean
+    viewCount: number
+    downloadCount: number
+    createdAt: Date
+    user: {
         id: string
-        title: string
-        description: string | null
-        category: string
-        images: string[]
-        tags: string[]
-        featured: boolean
-        viewCount: number
-        downloadCount: number
-        createdAt: Date
-        user: {
-            id: string
-            name: string | null
-            username: string | null
-            image: string | null
-        }
-    }>
-    pages: number
-    currentPage: number
+        name: string | null
+        username: string | null
+        image: string | null
+    }
 }
 
-export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps) {
+interface GraphicsGridInfiniteProps {
+    initialGraphics: Graphic[]
+    initialTotal: number
+    initialPage: number
+}
+
+// Client-side function to fetch more graphics
+async function fetchGraphics(params: {
+    search?: string
+    category?: string
+    tags?: string[]
+    page: number
+    limit?: number
+}) {
+    const searchParams = new URLSearchParams()
+    
+    if (params.search) searchParams.set('search', params.search)
+    if (params.category) searchParams.set('category', params.category)
+    if (params.tags && params.tags.length > 0) searchParams.set('tags', params.tags.join(','))
+    searchParams.set('page', params.page.toString())
+    searchParams.set('limit', (params.limit || 12).toString())
+
+    const response = await fetch(`/api/graphic?${searchParams.toString()}`)
+    if (!response.ok) {
+        throw new Error('Failed to fetch graphics')
+    }
+    
+    return response.json()
+}
+
+export function GraphicsGrid({ 
+    initialGraphics, 
+    initialTotal, 
+    initialPage 
+}: GraphicsGridInfiniteProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+    const [graphics, setGraphics] = useState<Graphic[]>(initialGraphics)
     const [isLoading, setIsLoading] = useState(false)
+    const [isLoadingMore, setIsLoadingMore] = useState(false)
+    const [hasMore, setHasMore] = useState(initialGraphics.length < initialTotal)
+    const [currentPage, setCurrentPage] = useState(initialPage)
+    const [error, setError] = useState<string | null>(null)
+    
+    const observerRef = useRef<IntersectionObserver | null>(null)
+    const loadMoreRef = useRef<HTMLDivElement | null>(null)
 
-    // Show loading state briefly when search params change
+    // Get current search parameters
+    const search = searchParams.get('search') || ''
+    const category = searchParams.get('category') || ''
+    const tags = searchParams.get('tags')?.split(',').filter(Boolean) || []
+
+    // Reset graphics when search params change
     useEffect(() => {
         setIsLoading(true)
+        setGraphics(initialGraphics)
+        setCurrentPage(initialPage)
+        setHasMore(initialGraphics.length < initialTotal)
+        setError(null)
+        
         const timer = setTimeout(() => setIsLoading(false), 200)
         return () => clearTimeout(timer)
-    }, [searchParams])
+    }, [searchParams, initialGraphics, initialTotal, initialPage])
 
-    const handlePageChange = (page: number) => {
-        const params = new URLSearchParams(searchParams.toString())
-        params.set('page', page.toString())
-        router.push(`/graphics?${params.toString()}`)
-    }
+    // Load more graphics
+    const loadMore = useCallback(async () => {
+        if (isLoadingMore || !hasMore) return
+
+        setIsLoadingMore(true)
+        setError(null)
+
+        try {
+            const nextPage = currentPage + 1
+            const result = await fetchGraphics({
+                search,
+                category,
+                tags,
+                page: nextPage,
+                limit: 12
+            })
+
+            if (result.graphics.length === 0) {
+                setHasMore(false)
+            } else {
+                setGraphics(prev => [...prev, ...result.graphics])
+                setCurrentPage(nextPage)
+                setHasMore(result.graphics.length === 12) // Assuming limit is 12
+            }
+        } catch (err) {
+            setError('Failed to load more graphics')
+            console.error('Error loading more graphics:', err)
+        } finally {
+            setIsLoadingMore(false)
+        }
+    }, [isLoadingMore, hasMore, currentPage, search, category, tags])
+
+    // Set up intersection observer
+    useEffect(() => {
+        if (observerRef.current) {
+            observerRef.current.disconnect()
+        }
+
+        observerRef.current = new IntersectionObserver(
+            (entries) => {
+                const target = entries[0]
+                if (target.isIntersecting && hasMore && !isLoadingMore) {
+                    loadMore()
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '100px'
+            }
+        )
+
+        if (loadMoreRef.current) {
+            observerRef.current.observe(loadMoreRef.current)
+        }
+
+        return () => {
+            if (observerRef.current) {
+                observerRef.current.disconnect()
+            }
+        }
+    }, [loadMore, hasMore, isLoadingMore])
 
     if (isLoading) {
         return (
@@ -94,7 +198,9 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         </div>
                     </div>
                     <h3 className="mb-2 text-lg font-semibold">No graphics found</h3>
-                    <p className="text-muted-foreground mb-4">{hasFilters ? 'Try adjusting your search criteria or browse all graphics.' : 'No graphics available at the moment.'}</p>
+                    <p className="text-muted-foreground mb-4">
+                        {hasFilters ? 'Try adjusting your search criteria or browse all graphics.' : 'No graphics available at the moment.'}
+                    </p>
                     {hasFilters && (
                         <Button
                             variant="outline"
@@ -120,19 +226,13 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         variant={viewMode === 'grid' ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setViewMode('grid')}>
-                        <Grid
-                            strokeWidth={1}
-                            className="h-4 w-4"
-                        />
+                        <Grid strokeWidth={1} className="h-4 w-4" />
                     </Button>
                     <Button
                         variant={viewMode === 'list' ? 'default' : 'outline'}
                         size="sm"
                         onClick={() => setViewMode('list')}>
-                        <Table
-                            strokeWidth={1}
-                            className="h-4 w-4"
-                        />
+                        <Table strokeWidth={1} className="h-4 w-4" />
                     </Button>
                 </div>
             </div>
@@ -154,7 +254,11 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                                     width={200}
                                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
-                                {graphic.images.length > 1 && <Badge className="bg-background/80 text-foreground absolute right-2 top-2 text-xs">+{graphic.images.length - 1}</Badge>}
+                                {graphic.images.length > 1 && (
+                                    <Badge className="bg-background/80 text-foreground absolute right-2 top-2 text-xs">
+                                        +{graphic.images.length - 1}
+                                    </Badge>
+                                )}
                                 {graphic.featured && (
                                     <Badge
                                         variant="secondary"
@@ -167,15 +271,18 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                         </Link>
 
                         <div className={`flex flex-col space-y-3 p-3 ${viewMode === 'list' ? 'flex-1' : ''}`}>
-                            {/* Top content: Title, Category, Tags */}
                             <div className="flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <Avatar className="h-6 w-6 border">
                                         <AvatarImage src={graphic.user.image || ''} />
-                                        <AvatarFallback className="text-xs">{graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}</AvatarFallback>
+                                        <AvatarFallback className="text-xs">
+                                            {graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}
+                                        </AvatarFallback>
                                     </Avatar>
                                     <div className="flex max-w-40 md:max-w-60">
-                                        <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">{graphic.title}</h3>
+                                        <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">
+                                            {graphic.title}
+                                        </h3>
                                     </div>
                                 </div>
                                 <div className="text-muted-foreground flex items-center gap-3 text-xs">
@@ -204,47 +311,38 @@ export function GraphicsGrid({ graphics, pages, currentPage }: GraphicsGridProps
                 ))}
             </div>
 
-            {/* Pagination */}
-            {pages > 1 && (
-                <div className="flex items-center justify-center gap-2 pt-6">
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}>
-                        Previous
-                    </Button>
+            {/* Loading More Indicator */}
+            {hasMore && (
+                <div ref={loadMoreRef} className="flex justify-center py-8">
+                    {isLoadingMore ? (
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Loading more graphics...
+                        </div>
+                    ) : (
+                        <Button
+                            variant="outline"
+                            onClick={loadMore}
+                            className="px-8">
+                            Load More
+                        </Button>
+                    )}
+                </div>
+            )}
 
-                    <div className="flex gap-1">
-                        {Array.from({ length: Math.min(5, pages) }, (_, i) => {
-                            let page: number
-                            if (pages <= 5) {
-                                page = i + 1
-                            } else if (currentPage <= 3) {
-                                page = i + 1
-                            } else if (currentPage >= pages - 2) {
-                                page = pages - 4 + i
-                            } else {
-                                page = currentPage - 2 + i
-                            }
+            {/* Error Message */}
+            {error && (
+                <div className="flex justify-center py-4">
+                    <div className="text-red-500 text-sm">{error}</div>
+                </div>
+            )}
 
-                            return (
-                                <Button
-                                    key={page}
-                                    variant={currentPage === page ? 'default' : 'outline'}
-                                    size="sm"
-                                    onClick={() => handlePageChange(page)}>
-                                    {page}
-                                </Button>
-                            )
-                        })}
+            {/* End Message */}
+            {!hasMore && graphics.length > 0 && (
+                <div className="flex justify-center py-8">
+                    <div className="text-muted-foreground text-sm">
+                        You've reached the end of the graphics
                     </div>
-
-                    <Button
-                        variant="outline"
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === pages}>
-                        Next
-                    </Button>
                 </div>
             )}
         </div>

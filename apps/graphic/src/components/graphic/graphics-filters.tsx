@@ -34,6 +34,8 @@ export function GraphicsFilters() {
     const [currentTag, setCurrentTag] = useState('')
     const [isSearching, setIsSearching] = useState(false)
 
+    
+
     const updateURL = useCallback(
         (newParams: Record<string, string | string[]>) => {
             const params = new URLSearchParams()

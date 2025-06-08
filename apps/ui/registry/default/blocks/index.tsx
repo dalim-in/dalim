@@ -10,48 +10,48 @@ export const blocks: Record<string, Block> = {
     component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-01/page")),
     files: [
       {
-        path: "page.tsx",
-        target: "app/dashboard-01/page.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/page.tsx",
+        target: "app/page.tsx",
       },
       { 
-        path: "app-sidebar.tsx",
-        target: "app/dashboard-01/app-sidebar.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/app-sidebar.tsx",
+        target: "components/app-sidebar.tsx",
       },
       {
-        path: "chart-area-interactive.tsx",
-        target: "app/dashboard-01/chart-area-interactive.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/chart-area-interactive.tsx",
+        target: "components/chart-area-interactive.tsx",
       },
       {
-        path: "data-table.tsx",
-        target: "app/dashboard-01/data-table.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/data-table.tsx",
+        target: "components/data-table.tsx",
       },
       {
-        path: "nav-documents.tsx",
-        target: "app/dashboard-01/nav-documents.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/nav-documents.tsx",
+        target: "components/nav-documents.tsx",
       },
       {
-        path: "nav-main.tsx",
-        target: "app/dashboard-01/nav-main.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/nav-main.tsx",
+        target: "components/nav-main.tsx",
       },
       {
-        path: "nav-secondary.tsx",
-        target: "app/dashboard-01/nav-secondary.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/nav-secondary.tsx",
+        target: "components/nav-secondary.tsx",
       },
       {
-        path: "nav-user.tsx",
-        target: "app/dashboard-01/nav-user.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/nav-user.tsx",
+        target: "components/nav-user.tsx",
       },
        {
-        path: "section-cards.tsx",
-        target: "app/dashboard-01/section-cards.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/section-cards.tsx",
+        target: "components/section-cards.tsx",
       },
        {
-        path: "site-header.tsx",
-        target: "app/dashboard-01/site-header.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-01/site-header.tsx",
+        target: "components/site-header.tsx",
       },
        {
-        path: "data.json",
-        target: "app/dashboard-01/data.json",
+        path: "registry/default/blocks/dashboard/dashboard-01/data.json",
+        target: "data/data.json",
       },
     ], 
   },
@@ -62,12 +62,12 @@ export const blocks: Record<string, Block> = {
     component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-02/page")),
     files: [
       {
-        path: "page.tsx",
-        target: "app/dashboard-02/page.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-02/page.tsx",
+        target: "app/page.tsx",
       },
       { 
-        path: "app-sidebar.tsx",
-        target: "app/dashboard-02/app-sidebar.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-02/app-sidebar.tsx",
+        target: "components/app-sidebar.tsx",
       }, 
     ], 
   },
@@ -78,28 +78,28 @@ export const blocks: Record<string, Block> = {
     component: React.lazy(() => import("@/registry/default/blocks/dashboard/dashboard-03/page")),
     files: [
       {
-        path: "page.tsx",
-        target: "app/dashboard-03/page.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-03/page.tsx",
+        target: "app/page.tsx",
       },
       { 
-        path: "app-header.tsx",
-        target: "app/dashboard-03/app-header.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-03/app-header.tsx",
+        target: "components/app-header.tsx",
       }, 
       { 
-        path: "app-sidebar.tsx",
-        target: "app/dashboard-03/app-sidebar.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-03/app-sidebar.tsx",
+        target: "components/app-sidebar.tsx",
       }, 
       { 
-        path: "data.tsx",
-        target: "app/dashboard-03/data.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-03/data.tsx",
+        target: "data/data.tsx",
       }, 
       { 
-        path: "home-content.tsx",
-        target: "app/dashboard-03/home-content.tsx",
+        path: "registry/default/blocks/dashboard/dashboard-03/home-content.tsx",
+        target: "components/home-content.tsx",
       }, 
       { 
-        path: "types.ts",
-        target: "app/dashboard-03/types.ts",
+        path: "registry/default/blocks/dashboard/dashboard-03/types.ts",
+        target: "types/types.ts",
       }, 
     ], 
   },
@@ -134,8 +134,8 @@ export const blocks: Record<string, Block> = {
     component: React.lazy(() => import("@/registry/default/blocks/login/login-01/page")),
     files: [
       {
-        path: "page.tsx",
-        target: "app/login-01/page.tsx",
+        path: "registry/default/blocks/login/login-01/page.tsx",
+        target: "app/page.tsx",
       }
     ], 
   },
@@ -146,12 +146,12 @@ export const blocks: Record<string, Block> = {
     component: React.lazy(() => import("@/registry/default/blocks/login/login-02/page")),
     files: [
       {
-        path: "page.tsx",
-        target: "app/login-02/page.tsx",
+        path: "registry/default/blocks/login/login-02/page.tsx",
+        target: "app/page.tsx",
       },
       { 
-        path: "login-form.tsx",
-        target: "app/login-02/login-form.tsx",
+        path: "registry/default/blocks/login/login-02/login-form.tsx",
+        target: "components/login-form.tsx",
       }, 
     ], 
   },

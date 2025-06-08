@@ -3,7 +3,7 @@
 
 import type React from 'react'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@dalim/core/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@dalim/core/ui/card'
@@ -13,22 +13,20 @@ import { Textarea } from '@dalim/core/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
 import { Badge } from '@dalim/core/ui/badge'
 import { Checkbox } from '@dalim/core/ui/checkbox'
-import { X, Upload, Trash2 } from 'lucide-react'
-import { updateGraphic, deleteGraphic } from '@/src/actions/graphic'
+import { X, Upload, Trash2, Search } from 'lucide-react'
+import { updateGraphic, deleteGraphic, getAllTags } from '@/src/actions/graphic'
 import { toast } from '@dalim/core/hooks/use-toast'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@dalim/core/ui/alert-dialog'
 import { CldImage } from '@dalim/core/components/common/gallery'
+import { ScrollArea } from '@dalim/core/ui/scroll-area'
 
+const categories = ['ILLUSTRATION', 'ICON', 'TEMPLATE', 'MOCKUP', 'MODEL', 'BACKGROUND', 'OTHER']
 
-const categories = [
-  'ILLUSTRATION',
-  'ICON',
-  'TEMPLATE',
-  'MOCKUP',
-  'MODEL',
-  'BACKGROUND',
-  'OTHER',
-]
+interface Tag {
+    id: string
+    name: string
+    count?: number
+}
 
 interface GraphicEditFormProps {
     graphic: {
@@ -51,6 +49,46 @@ export function GraphicEditForm({ graphic }: GraphicEditFormProps) {
     const [tags, setTags] = useState<string[]>(graphic.tags)
     const [currentTag, setCurrentTag] = useState('')
     const [keepExistingImages, setKeepExistingImages] = useState(true)
+    const [availableTags, setAvailableTags] = useState<Tag[]>([])
+    const [selectedTags, setSelectedTags] = useState<string[]>([])
+    const [tagSearchQuery, setTagSearchQuery] = useState('')
+    const [isLoadingTags, setIsLoadingTags] = useState(true)
+
+    const addTag = () => {
+        if (currentTag.trim() && !tags.includes(currentTag.trim()) && !selectedTags.includes(currentTag.trim()) && tags.length + selectedTags.length < 10) {
+            setTags([...tags, currentTag.trim()])
+            setCurrentTag('')
+        }
+    }
+
+    const removeTag = (tagToRemove: string) => {
+        setTags(tags.filter((tag) => tag !== tagToRemove))
+    }
+
+    // Fetch available tags on component mount
+    useEffect(() => {
+        const fetchTags = async () => {
+            try {
+                setIsLoadingTags(true)
+                const tags = await getAllTags()
+                setAvailableTags(tags)
+            } catch (error) {
+                console.error('Failed to fetch tags:', error)
+                toast({
+                    title: 'Warning',
+                    description: 'Failed to load existing tags',
+                    variant: 'destructive',
+                })
+            } finally {
+                setIsLoadingTags(false)
+            }
+        }
+
+        fetchTags()
+    }, [])
+
+    // Filter tags based on search query
+    const filteredTags = availableTags.filter((tag) => tag.name.toLowerCase().includes(tagSearchQuery.toLowerCase()))
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || [])
@@ -88,15 +126,20 @@ export function GraphicEditForm({ graphic }: GraphicEditFormProps) {
         setNewImagePreviews(updatedPreviews)
     }
 
-    const addTag = () => {
-        if (currentTag.trim() && !tags.includes(currentTag.trim()) && tags.length < 10) {
-            setTags([...tags, currentTag.trim()])
-            setCurrentTag('')
-        }
+    const handleTagToggle = (tagName: string) => {
+        setSelectedTags((prev) => {
+            if (prev.includes(tagName)) {
+                return prev.filter((tag) => tag !== tagName)
+            } else if (prev.length < 10) {
+                // Max 10 tags
+                return [...prev, tagName]
+            }
+            return prev
+        })
     }
 
-    const removeTag = (tagToRemove: string) => {
-        setTags(tags.filter((tag) => tag !== tagToRemove))
+    const removeSelectedTag = (tagToRemove: string) => {
+        setSelectedTags((prev) => prev.filter((tag) => tag !== tagToRemove))
     }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -110,10 +153,11 @@ export function GraphicEditForm({ graphic }: GraphicEditFormProps) {
             newImages.forEach((image, index) => {
                 formData.append(`image-${index}`, image)
             })
-
-            // Add other data
-            formData.append('tags', JSON.stringify(tags))
+ 
             formData.append('keepExistingImages', keepExistingImages.toString())
+
+            const allTags = [...new Set([...tags, ...selectedTags])]
+            formData.append('tags', JSON.stringify(allTags))
 
             const result = await updateGraphic(graphic.id, formData)
 
@@ -358,6 +402,71 @@ export function GraphicEditForm({ graphic }: GraphicEditFormProps) {
                                     ))}
                                 </div>
                             )}
+                        </div>
+                        <div className="space-y-2">
+                            {/* Selected Tags Display */}
+                            {selectedTags.length > 0 && (
+                                <div className="flex flex-wrap gap-2">
+                                    {selectedTags.map((tag) => (
+                                        <Badge
+                                            key={tag}
+                                            variant="secondary">
+                                            {tag}
+                                            <X
+                                                className="ml-1 h-3 w-3"
+                                                onClick={() => removeSelectedTag(tag)}
+                                            />
+                                        </Badge>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Tag Search */}
+
+                            {/* Available Tags */}
+                            <div className="rounded-lg border">
+                                <div className="relative">
+                                    <Search className="text-muted-foreground absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform" />
+                                    <Input
+                                        placeholder="Search tags..."
+                                        value={tagSearchQuery}
+                                        onChange={(e) => setTagSearchQuery(e.target.value)}
+                                        className="pl-10"
+                                    />
+                                </div>
+                                <ScrollArea className="h-48">
+                                    <div className="space-y-2 p-3">
+                                        {isLoadingTags ? (
+                                            <div className="text-muted-foreground py-4 text-center">Loading tags...</div>
+                                        ) : filteredTags.length === 0 ? (
+                                            <div className="text-muted-foreground py-4 text-center">{tagSearchQuery ? 'No tags found matching your search' : 'No tags available'}</div>
+                                        ) : (
+                                            filteredTags.map((tag) => (
+                                                <div
+                                                    key={tag.id}
+                                                    className="flex items-center space-x-2">
+                                                    <Checkbox
+                                                        id={`tag-${tag.id}`}
+                                                        checked={selectedTags.includes(tag.name)}
+                                                        onCheckedChange={() => handleTagToggle(tag.name)}
+                                                        disabled={!selectedTags.includes(tag.name) && selectedTags.length >= 10}
+                                                    />
+                                                    <Label
+                                                        htmlFor={`tag-${tag.id}`}
+                                                        className="flex flex-1 cursor-pointer items-center justify-between">
+                                                        <span>{tag.name}</span>
+                                                        {tag.count && <span className="text-muted-foreground text-xs">({tag.count})</span>}
+                                                    </Label>
+                                                </div>
+                                            ))
+                                        )}
+                                    </div>
+                                </ScrollArea>
+                            </div>
+
+                            <div className="text-muted-foreground text-xs">
+                                {tags.length + selectedTags.length}/10 tags selected (Custom: {tags.length}, Selected: {selectedTags.length})
+                            </div>
                         </div>
 
                         <div className="flex gap-4">

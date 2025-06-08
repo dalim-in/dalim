@@ -47,7 +47,7 @@ export function FontsList() {
 
   // Reset visibleCount when filters change
   useEffect(() => {
-    setVisibleCount(3)
+    setVisibleCount(6)
   }, [filters])
 
   const { availableTags, availableTypes } = useMemo(() => {
@@ -132,7 +132,7 @@ export function FontsList() {
       const threshold = document.body.offsetHeight - 300
 
       if (scrollPosition >= threshold && visibleCount < filteredFonts.length) {
-        setVisibleCount((count) => Math.min(count + 3, filteredFonts.length))
+        setVisibleCount((count) => Math.min(count + 6, filteredFonts.length))
       }
     }
 

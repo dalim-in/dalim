@@ -22,8 +22,14 @@ export const getNumberOfFilesInsideDirectory = async (
 };
 
 export const getFileContent = async (filePath: string) => {
-  const joinedPath = path.relative(process.cwd(), filePath);
-  const content = fs.readFileSync(joinedPath, "utf8");
-
-  return content;
+  try {
+    const resolvedPath = path.join(process.cwd(), filePath);
+    if (!fs.existsSync(resolvedPath)) {
+      throw new Error(`File not found: ${resolvedPath}`);
+    }
+    return fs.readFileSync(resolvedPath, "utf8");
+  } catch (error) {
+    console.error("Error reading file:", error);
+    return "// File not found or error reading file.";
+  }
 };
