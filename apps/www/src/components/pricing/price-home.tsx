@@ -7,7 +7,7 @@ import { Check } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 
 export function Pricing() {
-    const { data: session } = useSession()
+    const session = useSession()
     return (
         <section className="mx-auto max-w-6xl border-x">
             <div className="py-10">
