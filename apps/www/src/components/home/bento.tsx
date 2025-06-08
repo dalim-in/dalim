@@ -8,7 +8,7 @@ import { PhotoGallery } from './work-images'
 import Link from 'next/link'
 import { PageHeader } from '@dalim/core/components/common/page-header'
 import { Graphics } from './bento/graphic-grid'
-import { FontsListWWW } from '../../../../fonts/src/components/fonts/font-list'
+import { FontsListWWW } from './bento/font-list'
 
 export function ProductBento() {
     const timeOfDayGreeting = getTimeOfDayGreeting()
