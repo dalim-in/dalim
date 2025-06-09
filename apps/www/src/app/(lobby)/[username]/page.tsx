@@ -54,7 +54,16 @@ async function getUser(username: string) {
 }
 
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
-  const user = await getUser(params.username)
+  const user = await prisma.user.findUnique({
+    where: { username: params.username },
+    select: {
+      name: true,
+      username: true,
+      bio: true,
+      image: true,
+    },
+  })
+
 
   if (!user) {
     return {
@@ -90,7 +99,8 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   const { graphics } = await getUserGraphics(user.id, { limit: 50 })
 
   // Transform graphics data to include user info for each graphic
-  const graphicsWithUser = graphics.map((graphic) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const graphicsWithUser = graphics.map((graphic: any) => ({
     ...graphic,
     user: {
       id: user.id,

@@ -1,13 +1,13 @@
 'use client'
 
 import * as React from 'react'
-import { Frame, Images, SquareLibrary, PenTool, Settings2, SquareCode, AArrowUpIcon } from 'lucide-react'
+import { Frame, Images, SquareLibrary, Shapes, PenTool, Settings2, SquareCode, AArrowUpIcon } from 'lucide-react'
 import Image from 'next/image'
 
 import { NavMain } from './nav-main'
 import { NavProjects } from './nav-projects'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar } from '@dalim/core/ui/sidebar'
-import { AGENCY_URL, FONTS_URL, GRAPHIC_URL, UI_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, FONTS_URL, GRAPHIC_URL, ICONS_URL, UI_URL, WORKS_URL } from '@dalim/auth'
 import { PublicUser } from '@/src/types/user' 
 import Link from 'next/link'
 
@@ -39,6 +39,7 @@ const data = {
     projects: [
         { name: 'Fonts', url: FONTS_URL, icon: AArrowUpIcon },
         { name: 'Graphic', url: GRAPHIC_URL, icon: Images },
+        { name: 'Icons', url: ICONS_URL, icon: Shapes },
         { name: 'Agency', url: AGENCY_URL, icon: Frame },
         { name: 'UI', url: UI_URL, icon: SquareCode },
         { name: 'Works', url: WORKS_URL, icon: SquareLibrary },

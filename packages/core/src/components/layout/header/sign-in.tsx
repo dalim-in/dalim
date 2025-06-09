@@ -1,6 +1,6 @@
 'use client'
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '../../../ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut,   DropdownMenuTrigger } from '../../../ui/dropdown-menu'
 import { DALIM_URL } from '@dalim/auth'
 import type { User } from 'next-auth'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/avatar'
@@ -27,8 +27,8 @@ export function SignIn({ user }: UserAccountNavProps) {
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-                side="left"
-                className="mt-5 w-56">
+                align="end"
+                className="w-56">
                 <DropdownMenuLabel className="pb-0 text-xl">{user.name && <p className="font-medium">{user.name}</p>}</DropdownMenuLabel>
                 <DropdownMenuLabel className="text-primary/60 pt-0 text-sm font-light"> {user.email && <span className="text-muted-foreground w-[200px] truncate text-sm">{user.email}</span>}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
@@ -58,26 +58,27 @@ export function SignIn({ user }: UserAccountNavProps) {
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
-                    <DropdownMenuSub>
-                        <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-                        <DropdownMenuPortal>
-                            <DropdownMenuSubContent>
-                                <DropdownMenuItem>Email</DropdownMenuItem>
-                                <DropdownMenuItem>Message</DropdownMenuItem>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>More...</DropdownMenuItem>
-                            </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                    </DropdownMenuSub>
-                    <DropdownMenuItem>
-                        New Team
-                        <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+                    <DropdownMenuItem asChild>
+                        <Link href={`${DALIM_URL}/dashboard/chats`}>
+                            Chats
+                            <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href={`${DALIM_URL}/dashboard/fonts`}>
+                            Fonts
+                            <DropdownMenuShortcut>⌘F</DropdownMenuShortcut>
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href={`${DALIM_URL}/dashboard/graphic`}>
+                            Graphic
+                            <DropdownMenuShortcut>⌘G</DropdownMenuShortcut>
+                        </Link>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem disabled>Support</DropdownMenuItem>
-                <DropdownMenuItem disabled>API</DropdownMenuItem>
+                <DropdownMenuItem disabled>Upgrade to Pro</DropdownMenuItem> 
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                     className="cursor-pointer"

@@ -5,7 +5,6 @@ import { cloudinary } from "@/src/lib/cloudinary"
 import type { CreateMessageData, CreateConversationData, User, Conversation, Message } from "@/src/types/chat"
 
 
-
 export class ChatService {
   static async getCurrentUser(): Promise<User | null> {
     const session = await auth()
@@ -167,8 +166,7 @@ export class ChatService {
             },
             attachments: true,
           },
-          orderBy: { createdAt: "desc" },
-          take: 1, // This is intentional - we only need the last message for the conversation list
+          orderBy: { createdAt: "asc" }
         },
         _count: {
           select: {
@@ -384,13 +382,13 @@ export class ChatService {
     referenceType?: string
     data?: any
   }) {
-    return await prisma.notification.create({
+    return await prisma.ping.create({
       data,
     })
   }
 
   static async getUserNotifications(userId: string) {
-    return await prisma.notification.findMany({
+    return await prisma.ping.findMany({
       where: { userId },
       orderBy: { createdAt: "desc" },
       take: 50,
@@ -398,7 +396,7 @@ export class ChatService {
   }
 
   static async markNotificationAsRead(notificationId: string, userId: string) {
-    return await prisma.notification.updateMany({
+    return await prisma.ping.updateMany({
       where: {
         id: notificationId,
         userId,
@@ -410,7 +408,7 @@ export class ChatService {
   }
 
   static async getUnreadNotificationCount(userId: string): Promise<number> {
-    return await prisma.notification.count({
+    return await prisma.ping.count({
       where: {
         userId,
         isRead: false,
@@ -733,7 +731,7 @@ export class ChatService {
       return false
     }
   }
-  
+
   static async deleteMessage(messageId: string, userId: string): Promise<boolean> {
     try {
       // Check if user is the sender of the message
@@ -826,5 +824,4 @@ export class ChatService {
 
     return { deleted, failed }
   }
-
 }

@@ -24,7 +24,7 @@ const categories = [
 
 
 export function GraphicsFilters() {
-    const { data: session } = useSession()
+    const session = useSession()
     const router = useRouter()
     const searchParams = useSearchParams()
 

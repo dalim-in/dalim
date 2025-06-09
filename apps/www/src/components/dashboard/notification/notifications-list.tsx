@@ -100,7 +100,7 @@ export function NotificationsList() {
         <div className="flex items-center justify-between">
           <Badge variant="secondary">{unreadCount} unread notifications</Badge>
           <Button variant="outline" size="sm" onClick={markAllAsRead}>
-            <CheckCheck className="h-4 w-4 mr-2" />
+            <CheckCheck className="h-4 w-4" />
             Mark all as read
           </Button>
         </div>
@@ -115,7 +115,7 @@ export function NotificationsList() {
               <Card
                 key={notification.id}
                 className={`cursor-pointer transition-colors hover:bg-muted/50 ${
-                  !notification.isRead ? "bg-blue-50 border-blue-200" : ""
+                  !notification.isRead ? "bg-blue-50 border-blue-200 dark:bg-blue-950 dark:border-blue-800" : ""
                 }`}
                 onClick={() => handleNotificationClick(notification)}
               >

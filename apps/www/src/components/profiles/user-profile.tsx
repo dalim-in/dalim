@@ -10,6 +10,8 @@ import Image from 'next/image'
 import { BlueTick } from '@dalim/core/components/logos'
 import { Separator } from '@dalim/core/ui/separator'
 import { ShareButton } from '@dalim/core/components/common/share-button'
+import { Button } from '@dalim/core/ui/button'
+import { useSession } from 'next-auth/react'
 
 interface FontType {
     id: string
@@ -48,6 +50,7 @@ interface DetailedUserProfileProps {
 }
 
 export function UserProfile({ user }: DetailedUserProfileProps) {
+    const session = useSession()
     const socialLinks = [
         {
             name: 'Website',
@@ -117,16 +120,21 @@ export function UserProfile({ user }: DetailedUserProfileProps) {
                                 </div>
 
                                 <div className="ml-auto flex flex-col items-end justify-between">
-                                    <ShareButton
+                                    <div className='flex gap-2 items-center'>
+                                        <Link href={session ? '/dashboard/chats' : `/login`}>
+                                            <Button>{session ? 'Message' : 'Message'}</Button>
+                                        </Link>
+                                        <ShareButton
                                             url={`/${user.username}`}
                                             title={`${user.name || user.username}'s Profile`}
                                             description={user.bio || `Check out ${user.name || user.username}'s amazing work!`}
                                             image={user.image || undefined}
                                             type="profile"
                                             variant="ghost"
-                                            size='icon'
+                                            size="icon"
                                             showText={false}
                                         />
+                                    </div>
                                     <div className="items-end">
                                         {socialLinks.length > 0 && (
                                             <div className="flex items-center">
