@@ -82,9 +82,9 @@ export function NotificationBell() {
 
     // Handle navigation based on notification type
     if (notification.type === "NEW_MESSAGE" && notification.data?.conversationId) {
-      router.push(`/dashboard/chat?conversationId=${notification.data.conversationId}`)
+      router.push(`/dashboard/chats?conversationId=${notification.data.conversationId}`)
     } else if (notification.type === "CONVERSATION_STATUS_CHANGED" && notification.data?.conversationId) {
-      router.push(`/dashboard/chat?conversationId=${notification.data.conversationId}`)
+      router.push(`/dashboard/chats?conversationId=${notification.data.conversationId}`)
     }
 
     setIsOpen(false)
@@ -114,13 +114,13 @@ export function NotificationBell() {
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative">
+      <DropdownMenuTrigger className="ml-1" asChild>
+        <Button variant="outline" size="icon" className="relative">
           <Bell className="h-5 w-5" />
           {unreadCount > 0 && (
             <Badge
               variant="destructive"
-              className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
+              className="absolute text-white -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
             >
               {unreadCount > 99 ? "99+" : unreadCount}
             </Badge>

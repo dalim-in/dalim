@@ -106,10 +106,10 @@ export function NotificationsList() {
         </div>
       )}
 
-      <ScrollArea className="h-[600px]">
+      <ScrollArea className="h-[794px]">
         <div className="space-y-2">
           {notifications.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">No notifications yet</div>
+            <div className="p-2 text-center text-muted-foreground">No notifications yet</div>
           ) : (
             notifications.map((notification) => (
               <Card
@@ -119,7 +119,7 @@ export function NotificationsList() {
                 }`}
                 onClick={() => handleNotificationClick(notification)}
               >
-                <CardContent className="p-4">
+                <CardContent className="">
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 mt-1">{getNotificationIcon(notification.type)}</div>
 

@@ -32,7 +32,7 @@ const data = {
             items: [
                 { title: 'General', url: '/dashboard/settings' },
                 { title: 'Billing', url: '/dashboard/settings/billing' },
-                { title: 'Team', url: '#'},
+                { title: 'Notifications', url: '/dashboard/notifications'},
             ],
         },
     ],
