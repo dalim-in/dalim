@@ -19,6 +19,7 @@ const data = {
             icon: PenTool,
             isActive: true,
             items: [
+                { title: 'Chats', url: '/dashboard/chats' },
                 { title: 'Fonts', url: '/dashboard/fonts' },
                 { title: 'Graphic', url: '/dashboard/graphic' },
                 { title: 'Downloads', url: '/dashboard/downloads' },

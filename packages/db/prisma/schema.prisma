@@ -49,6 +49,18 @@ enum DownloadType {
   FONT
 }
 
+enum MessageStatus {
+  SENT
+  DELIVERED
+  READ
+}
+
+enum ConversationStatus {
+  ACTIVE
+  CLOSED
+  ARCHIVED
+}
+
 model Account {
   id                String   @id @default(cuid())
   userId            String
@@ -109,6 +121,12 @@ model User {
   fonts     Font[]
   graphics  Graphic[]
   downloads Download[]
+  
+  // Chat related fields
+  sentMessages        Message[]        @relation("SentMessages")
+  receivedMessages    Message[]        @relation("ReceivedMessages")
+  conversations       ConversationParticipant[]
+  notifications       Notification[]
 
   stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
@@ -196,20 +214,114 @@ model Graphic {
 model Download {
   id              String       @id @default(cuid())
   userId          String
-  itemId          String // ID of the graphic or font
+  itemId          String
   itemType        DownloadType
-  itemTitle       String // Title of the downloaded item
-  itemImage       String? // Preview image/thumbnail
-  downloadUrl     String? // The actual download URL used
-  firstDownloadAt DateTime     @default(now()) // When first downloaded
-  lastDownloadAt  DateTime     @default(now()) // When last downloaded
-  downloadCount   Int          @default(1) // How many times downloaded
+  itemTitle       String
+  itemImage       String?
+  downloadUrl     String?
+  firstDownloadAt DateTime     @default(now())
+  lastDownloadAt  DateTime     @default(now())
+  downloadCount   Int          @default(1)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, itemId, itemType]) // Prevent duplicate entries
+  @@unique([userId, itemId, itemType])
   @@index([userId])
   @@index([itemType])
   @@index([lastDownloadAt])
   @@map(name: "downloads")
+}
+
+// Chat Models
+model Conversation {
+  id          String             @id @default(cuid())
+  title       String?
+  status      ConversationStatus @default(ACTIVE)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  lastMessageAt DateTime?
+  
+  participants ConversationParticipant[]
+  messages     Message[]
+
+  @@map(name: "conversations")
+}
+
+model ConversationParticipant {
+  id             String   @id @default(cuid())
+  conversationId String
+  userId         String
+  joinedAt       DateTime @default(now())
+  lastReadAt     DateTime?
+  
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@index([conversationId])
+  @@index([userId])
+  @@map(name: "conversation_participants")
+}
+
+model Message {
+  id             String        @id @default(cuid())
+  content        String?       @db.Text
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  status         MessageStatus @default(SENT)
+  readAt         DateTime?
+  
+  senderId       String
+  sender         User          @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  
+  recipientId    String?
+  recipient      User?         @relation("ReceivedMessages", fields: [recipientId], references: [id], onDelete: SetNull)
+  
+  conversationId String
+  conversation   Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  attachments    Attachment[]
+
+  @@index([senderId])
+  @@index([recipientId])
+  @@index([conversationId])
+  @@index([createdAt])
+  @@map(name: "messages")
+}
+
+model Attachment {
+  id        String   @id @default(cuid())
+  fileName  String
+  fileType  String
+  fileSize  Int
+  fileUrl   String
+  publicId  String?
+  createdAt DateTime @default(now())
+  
+  messageId String
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@index([messageId])
+  @@map(name: "attachments")
+}
+
+model Notification {
+  id            String   @id @default(cuid())
+  type          String
+  title         String
+  content       String?  @db.Text
+  isRead        Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  referenceId   String?
+  referenceType String?
+  data          Json?
+
+  @@index([userId])
+  @@index([isRead])
+  @@index([createdAt])
+  @@map(name: "notifications")
 }

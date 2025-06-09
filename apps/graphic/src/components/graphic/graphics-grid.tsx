@@ -9,6 +9,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { ShareButton } from '@dalim/core/components/common/share-button'
 import { CldImage } from '@dalim/core/components/common/gallery'
+import { GRAPHIC_URL } from '@dalim/auth'
 
 interface Graphic {
     id: string
@@ -485,7 +486,7 @@ export function GraphicsGridWWW({
                         className={` relative rounded-xl border transition-all duration-200 hover:shadow-lg grid gap-3 p-2`}>
                          
                         <Link
-                            href={`/${graphic.id}`}
+                            href={`${GRAPHIC_URL}/${graphic.id}`}
                             className={'relative'}>
                             <div className={`relative overflow-hidden h-[250px] w-full rounded-lg md:h-[290px]`}>
                                 <CldImage 
@@ -536,7 +537,7 @@ export function GraphicsGridWWW({
                                         {graphic.downloadCount}
                                     </div>
                                     <ShareButton
-                                        url={`/${graphic.id}`}
+                                        url={`${GRAPHIC_URL}/${graphic.id}`}
                                         title={graphic.title}
                                         description={graphic.description || `Check out this ${graphic.category.toLowerCase().replace('_', ' ')} graphic!`}
                                         image={graphic.images[0]}
