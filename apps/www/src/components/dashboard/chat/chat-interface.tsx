@@ -21,7 +21,7 @@ import Link from 'next/link'
 interface ChatInterfaceProps {
     conversationId?: string
     className?: string
-}
+} 
 
 export function ChatInterface({ conversationId, className }: ChatInterfaceProps) {
     const { data: session } = useSession()
