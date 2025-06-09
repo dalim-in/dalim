@@ -1,17 +1,13 @@
-"use client" 
-import { ChatInterface } from "./chat-interface"  
+import { ChatInterface } from './chat-interface'
 
 interface EnhancedChatInterfaceProps {
-  conversationId?: string 
-  
+    conversationId?: string
 }
 
-export function EnhancedChatInterface({ conversationId}: EnhancedChatInterfaceProps) {
-
-     
-  return (
-    <div>
-      <ChatInterface conversationId={conversationId}/>
-    </div>
-  )
+export function EnhancedChatInterface({ conversationId }: EnhancedChatInterfaceProps) {
+    return (
+        <div>
+            <ChatInterface conversationId={conversationId} />
+        </div>
+    )
 }
