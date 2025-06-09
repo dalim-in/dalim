@@ -2,9 +2,7 @@ import Link from 'next/link'
 
 import { DALIM_URL, getCurrentUser } from '@dalim/auth'
 import { Button } from '../../../ui/button'
-import { DropdownMenu } from '../../../ui/dropdown-menu'
-import { NotificationBell } from '../../../../../../apps/www/src/components/dashboard/notification/notification-bell'
-
+import { DropdownMenu } from '../../../ui/dropdown-menu' 
 import { SignIn } from './sign-in'
 import { UserPhone } from './user-phone'
 
@@ -16,7 +14,7 @@ export async function LoginButton() {
                 <div>
                     {user ? (
                         <div className="flex items-center gap-1">
-                            <NotificationBell />
+                            
                             <SignIn user={user} />
                         </div>
                     ) : (
