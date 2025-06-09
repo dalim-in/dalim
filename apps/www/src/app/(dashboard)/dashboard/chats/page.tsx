@@ -10,7 +10,7 @@ interface ChatPageProps {
 
 export default function ChatPage({}: ChatPageProps) {
     return (
-        <div className="mt-3">
+        <div className="mt-2">
             <Suspense fallback={<div className="p-8 text-center">Loading chat...</div>}>
                 <EnhancedChatInterface />
             </Suspense>
