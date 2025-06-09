@@ -1,3 +1,4 @@
+"use client" 
 import { Suspense } from 'react'
 import { EnhancedChatInterface } from '@/src/components/dashboard/chat/enhanced-chat-interface'
 
