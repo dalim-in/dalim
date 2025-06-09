@@ -40,8 +40,8 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
         fontTypes: [],
         tags: [],
         featured: null,
-        sortBy: 'name',
-        sortOrder: 'asc',
+        sortBy: 'date',
+        sortOrder: 'desc',
         minDownloads: 0,
         minViews: 0,
     })
@@ -74,8 +74,8 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
             fontTypes: [],
             tags: [],
             featured: null,
-            sortBy: 'name',
-            sortOrder: 'asc',
+            sortBy: 'date',
+            sortOrder: 'desc',
             minDownloads: 0,
             minViews: 0,
         })
@@ -144,13 +144,13 @@ export function AdvancedFilterBar({ onFiltersChange, availableTags, availableTyp
                             <SelectValue placeholder="Sort by" />
                         </SelectTrigger>
                         <SelectContent>
+                            <SelectItem value="date-desc">Newest First</SelectItem>
                             <SelectItem value="name-asc">Name A-Z</SelectItem>
                             <SelectItem value="name-desc">Name Z-A</SelectItem>
                             <SelectItem value="downloads-desc">Most Downloads</SelectItem>
                             <SelectItem value="downloads-asc">Least Downloads</SelectItem>
                             <SelectItem value="views-desc">Most Views</SelectItem>
                             <SelectItem value="views-asc">Least Views</SelectItem>
-                            <SelectItem value="date-desc">Newest First</SelectItem>
                             <SelectItem value="date-asc">Oldest First</SelectItem>
                         </SelectContent>
                     </Select>

@@ -21,10 +21,11 @@ import Link from 'next/link'
 interface ChatInterfaceProps {
     conversationId?: string
     className?: string
-} 
+}
 
 export function ChatInterface({ conversationId, className }: ChatInterfaceProps) {
-    const { data: session } = useSession()
+    const { data: session } = useSession() ?? {}
+
     const [conversations, setConversations] = useState<Conversation[]>([])
     const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null)
     const [message, setMessage] = useState('')
@@ -464,7 +465,6 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                     </div>
                                 </div>
 
-                                 
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button
@@ -478,7 +478,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                         <DropdownMenuItem>
                                             <Link
                                                 className="flex items-center gap-2"
-                                                href={`/${getOtherParticipant(selectedConversation)?.username || 'creators'}`}>
+                                                href={`/${getOtherParticipant(selectedConversation)?.username}`}>
                                                 <UserCircle className="h-4 w-4" />
                                                 Profile
                                             </Link>

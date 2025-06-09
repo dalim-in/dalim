@@ -69,7 +69,7 @@ export function GraphicsGrid({
     const searchParams = useSearchParams()
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
     const [graphics, setGraphics] = useState<Graphic[]>(initialGraphics)
-    const [isLoading, setIsLoading] = useState(false)
+    const [, setIsLoading] = useState(false)
     const [isLoadingMore, setIsLoadingMore] = useState(false)
     const [hasMore, setHasMore] = useState(initialGraphics.length < initialTotal)
     const [currentPage, setCurrentPage] = useState(initialPage)
@@ -81,6 +81,7 @@ export function GraphicsGrid({
     // Get current search parameters
     const search = searchParams.get('search') || ''
     const category = searchParams.get('category') || ''
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const tags = searchParams.get('tags')?.split(',').filter(Boolean) || []
 
     // Reset graphics when search params change
@@ -157,35 +158,7 @@ export function GraphicsGrid({
         }
     }, [loadMore, hasMore, isLoadingMore])
 
-    if (isLoading) {
-        return (
-            <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Loading graphics...
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className="animate-pulse overflow-hidden rounded-lg border">
-                            <div className="bg-muted aspect-video" />
-                            <div className="space-y-3 p-4">
-                                <div className="bg-muted h-4 w-3/4 rounded" />
-                                <div className="bg-muted h-3 w-1/2 rounded" />
-                                <div className="flex justify-between">
-                                    <div className="bg-muted h-6 w-6 rounded-full" />
-                                    <div className="bg-muted h-3 w-16 rounded" />
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )
-    }
+     
 
     if (graphics.length === 0) {
         const hasFilters = searchParams.get('search') || searchParams.get('category') || searchParams.get('tags')
@@ -205,7 +178,7 @@ export function GraphicsGrid({
                     {hasFilters && (
                         <Button
                             variant="outline"
-                            onClick={() => router.push('/graphics')}>
+                            onClick={() => router.push('/')}>
                             Clear Filters
                         </Button>
                     )}

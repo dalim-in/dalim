@@ -5,8 +5,8 @@ import { useState, useCallback, useEffect } from 'react'
 import { Button } from '@dalim/core/ui/button'
 import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
-import { Badge } from '@dalim/core/ui/badge'
-import { Search, X, Loader2 } from 'lucide-react'
+ 
+import { Search,  Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { DALIM_URL } from '@dalim/auth'
 import { useSession } from 'next-auth/react'
@@ -31,7 +31,7 @@ export function GraphicsFilters() {
     const [search, setSearch] = useState(searchParams.get('search') || '')
     const [category, setCategory] = useState(searchParams.get('category') || '')
     const [tags, setTags] = useState<string[]>(searchParams.get('tags')?.split(',').filter(Boolean) || [])
-    const [currentTag, setCurrentTag] = useState('')
+     
     const [isSearching, setIsSearching] = useState(false)
 
     
@@ -68,7 +68,7 @@ export function GraphicsFilters() {
             })
 
             const queryString = params.toString()
-            const url = queryString ? `/?${queryString}` : '/'
+            const url = queryString ? `/graphic?${queryString}` : '/'
 
             setIsSearching(true)
             router.push(url)
@@ -93,21 +93,7 @@ export function GraphicsFilters() {
         setCategory(categoryValue)
         // Category change is immediate, no debounce needed
     }
-
-    const addTag = () => {
-        if (currentTag.trim() && !tags.includes(currentTag.trim())) {
-            const newTags = [...tags, currentTag.trim()]
-            setTags(newTags)
-            setCurrentTag('')
-            // Tags update is immediate
-        }
-    }
-
-    const removeTag = (tagToRemove: string) => {
-        const newTags = tags.filter((tag) => tag !== tagToRemove)
-        setTags(newTags)
-        // Tag removal is immediate
-    }
+ 
 
     const clearFilters = () => {
         setSearch('')
@@ -155,48 +141,7 @@ export function GraphicsFilters() {
                     </Select>
                 </div>
 
-                <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                        <Input
-                            id="tags"
-                            placeholder="Add tag..."
-                            value={currentTag}
-                            onChange={(e) => setCurrentTag(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault()
-                                    addTag()
-                                }
-                            }}
-                        />
-                        <Button
-                            size="icon"
-                            onClick={addTag}
-                            className="w-10"
-                            variant="outline"
-                            disabled={!currentTag.trim()}>
-                            +
-                        </Button>
-                        <div className="flex items-center gap-2">
-                            {tags.length > 0 && (
-                                <div className="mt-2 flex flex-wrap gap-2">
-                                    {tags.map((tag) => (
-                                        <Badge
-                                            key={tag}
-                                            variant="secondary"
-                                            className="hover:bg-destructive hover:text-destructive-foreground cursor-pointer transition-colors">
-                                            {tag}
-                                            <X
-                                                className="hover:text-destructive-foreground ml-1 h-3 w-3"
-                                                onClick={() => removeTag(tag)}
-                                            />
-                                        </Badge>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
+                 
                 {hasActiveFilters && (
                     <Button
                         variant="outline"
