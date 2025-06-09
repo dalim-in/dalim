@@ -1,28 +1,32 @@
 import { IconMetadata } from "./types";
-import { accessMetadata, cheveronrightMetadata, heartMetadata } from "./icons";
+import { 
+  ArrowBigDownMetadata, 
+  ArrowBigDownDashMetadata, 
+  ArrowBigUpDashMetadata, 
+  ArrowBigUpMetadata, 
+  ArrowBigRightDashMetadata, 
+  ArrowBigRightMetadata, 
+  ArrowBigLeftDashMetadata, 
+  ArrowDownMetadata,
+  ArrowDown01Metadata,
+  ArrowDown10Metadata,
+  ArrowDownAZMetadata,
+  ArrowBigLeftMetadata 
+} from "./icons";
 
-export const iconDatabase: Record<string, IconMetadata> = {
-  "Access": accessMetadata,
-  "Heart": heartMetadata,
-  "ChevronRight": cheveronrightMetadata,
-  "Lock": {
-    name: "Lock",
-    category: "Security",
-    tags: ["security", "password", "protection", "private", "lock", "padlock"],
-    description: "A lock icon representing security and protection",
-    author: "Ali Imam",
-    created: "2023-05-10",
-    variants: ["stroke", "solid", "duotone"]
-  },
-  "Shield": {
-    name: "Shield",
-    category: "Security",
-    tags: ["security", "protection", "defense", "guard", "shield"],
-    description: "A shield icon representing protection and security",
-    author: "Ali Imam",
-    created: "2023-05-12",
-    variants: ["stroke", "solid", "duotone", "twotone"]
-  }
+export const iconDatabase: Record<string, IconMetadata> = { 
+  "ArrowBigDown": ArrowBigDownMetadata,
+  "ArrowBigDownDash": ArrowBigDownDashMetadata,
+  "ArrowBigLeft": ArrowBigLeftMetadata,
+  "ArrowBigLeftDash": ArrowBigLeftDashMetadata,
+  "ArrowBigRight": ArrowBigRightMetadata,
+  "ArrowBigRightDash": ArrowBigRightDashMetadata,
+  "ArrowBigUp": ArrowBigUpMetadata,
+  "ArrowBigUpDash": ArrowBigUpDashMetadata,
+  "ArrowDown": ArrowDownMetadata,
+  "ArrowDown01": ArrowDown01Metadata,
+  "ArrowDown10": ArrowDown10Metadata,
+  "ArrowDownAZ": ArrowDownAZMetadata
 };
 
 // Get all icons

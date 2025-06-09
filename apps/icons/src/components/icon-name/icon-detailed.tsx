@@ -4,7 +4,7 @@
 
 import { JSX, useRef, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { ArrowLeft, Copy, Check, Download, RotateCw, Share2, Film, ChevronDown } from 'lucide-react'
+import { ArrowLeft, Copy, Check, Download, RotateCw, Share2, Film, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button, buttonVariants } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
 import { ToggleGroup, ToggleGroupItem } from '@dalim/core/ui/toggle-group'
@@ -17,7 +17,7 @@ import { Input } from '@dalim/core/ui/input'
 import { Dialog, DialogContent, DialogTitle } from '@dalim/core/ui/dialog'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@dalim/core/ui/dropdown-menu'
 import { toast } from '@dalim/core/hooks/use-toast'
-import { getIconByName } from 'dalim-icons'
+import { getAllIcons, getIconByName } from 'dalim-icons'
 import * as Icons from 'dalim-icons'
 import { createRoot } from 'react-dom/client'
 import GIF from 'gif.js'
@@ -39,8 +39,8 @@ export function IconDetailed() {
     const [loop, setLoop] = useState(false)
     const [copied, setCopied] = useState(false)
 
-    const [strokeLinecap, setStrokeLinecap] = useState<'butt' | 'round' | 'square'>('square')
-    const [strokeLinejoin, setStrokeLinejoin] = useState<'round' | 'miter' | 'bevel'>('miter')
+    const [strokeLinecap, setStrokeLinecap] = useState<'butt' | 'round' | 'square'>('round')
+    const [strokeLinejoin, setStrokeLinejoin] = useState<'round' | 'miter' | 'bevel'>('round')
 
     // Export states
     const [showAnimationExport, setShowAnimationExport] = useState(false)
@@ -51,6 +51,23 @@ export function IconDetailed() {
 
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const iconRef = useRef<HTMLDivElement>(null)
+
+    const allIcons = getAllIcons()
+    const currentIndex = allIcons.findIndex((icon) => icon.name.toLowerCase() === iconName.toLowerCase())
+
+    function goToPrevious() {
+        if (currentIndex > 0) {
+            const prevIcon = allIcons[currentIndex - 1]
+            router.push(`/${prevIcon.name}`)
+        }
+    }
+
+    function goToNext() {
+        if (currentIndex < allIcons.length - 1) {
+            const nextIcon = allIcons[currentIndex + 1]
+            router.push(`/${nextIcon.name}`)
+        }
+    }
 
     // Get icon metadata
     const iconData = getIconByName(iconName.charAt(0).toUpperCase() + iconName.slice(1))
@@ -490,7 +507,7 @@ export function IconDetailed() {
                             <Label>Export Progress</Label>
                             <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
                                 <div
-                                    className="h-full bg-blue-600 transition-all duration-300"
+                                    className="h-full bg-purple-600 transition-all duration-300"
                                     style={{ width: `${exportProgress}%` }}
                                 />
                             </div>
@@ -526,8 +543,8 @@ export function IconDetailed() {
                                     <Slider
                                         value={size}
                                         onValueChange={setSize}
-                                        max={128}
-                                        min={16}
+                                        max={150}
+                                        min={18}
                                         step={4}
                                         className="mt-2"
                                     />
@@ -558,7 +575,7 @@ export function IconDetailed() {
                                     <Slider
                                         value={strokeWidth}
                                         onValueChange={setStrokeWidth}
-                                        max={4}
+                                        max={3}
                                         min={0.5}
                                         step={0.1}
                                         className="mt-2"
@@ -566,7 +583,7 @@ export function IconDetailed() {
                                 </div>
 
                                 <div>
-                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linecap</Label>
+                                    <Label className="text-primary/60 text-xs font-medium">Stroke Linecap</Label>
                                     <ToggleGroup
                                         type="single"
                                         value={strokeLinecap}
@@ -575,7 +592,7 @@ export function IconDetailed() {
                                                 setStrokeLinecap(value)
                                             }
                                         }}
-                                        className="mt-1 border rounded-lg">
+                                        className="mt-1 rounded-lg border">
                                         <ToggleGroupItem
                                             value="butt"
                                             className="border-r capitalize">
@@ -596,7 +613,7 @@ export function IconDetailed() {
                                 </div>
 
                                 <div>
-                                    <Label className="text-xs text-primary/60 font-medium">Stroke Linejoin</Label>
+                                    <Label className="text-primary/60 text-xs font-medium">Stroke Linejoin</Label>
                                     <ToggleGroup
                                         type="single"
                                         value={strokeLinejoin}
@@ -605,7 +622,7 @@ export function IconDetailed() {
                                                 setStrokeLinejoin(value)
                                             }
                                         }}
-                                        className="mt-1 border rounded-lg"> 
+                                        className="mt-1 rounded-lg border">
                                         <ToggleGroupItem
                                             value="round"
                                             className="border-r capitalize">
@@ -620,7 +637,7 @@ export function IconDetailed() {
                                             value="bevel"
                                             className="border-l capitalize">
                                             bevel
-                                        </ToggleGroupItem> 
+                                        </ToggleGroupItem>
                                     </ToggleGroup>
                                 </div>
 
@@ -687,27 +704,45 @@ export function IconDetailed() {
 
                     <div className="">
                         <div className="px-3">
-                            <div className="">
-                                <div className="text-3xl font-semibold">{iconData.name}</div>
-                                <div className="mt-2 opacity-60">{iconData.description}</div>
-                                <div className="mt-3 flex items-center gap-1">
-                                    <Badge
-                                        variant="outline"
-                                        className="text-sm">
-                                        {iconData.category}
-                                    </Badge>
-                                    <div>
-                                        <div className="flex flex-wrap gap-1">
-                                            {iconData.tags.map((tag) => (
-                                                <Badge
-                                                    key={tag}
-                                                    variant="secondary"
-                                                    className="text-xs">
-                                                    {tag}
-                                                </Badge>
-                                            ))}
+                            <div className="flex items-start justify-between">
+                                <div>
+                                    <div className="text-3xl font-semibold">{iconData.name}</div>
+                                    <div className="mt-2 opacity-60">{iconData.description}</div>
+                                    <div className="mt-3 flex items-center gap-1">
+                                        <Badge
+                                            variant="outline"
+                                            className="text-sm">
+                                            {iconData.category}
+                                        </Badge>
+                                        <div>
+                                            <div className="flex flex-wrap gap-1">
+                                                {iconData.tags.map((tag) => (
+                                                    <Badge
+                                                        key={tag}
+                                                        variant="secondary"
+                                                        className="text-xs">
+                                                        {tag}
+                                                    </Badge>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="flex items-center justify-between gap-2">
+                                    <Button
+                                        size={'icon'}
+                                        variant={'outline'}
+                                        onClick={goToPrevious}
+                                        disabled={currentIndex <= 0}>
+                                        <ChevronLeft />
+                                    </Button>
+                                    <Button
+                                        size={'icon'}
+                                         variant={'outline'}
+                                        onClick={goToNext}
+                                        disabled={currentIndex >= allIcons.length - 1}>
+                                        <ChevronRight />
+                                    </Button>
                                 </div>
                             </div>
 

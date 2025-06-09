@@ -253,7 +253,7 @@ export function GraphicsGrid({
                                             {graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}
                                         </AvatarFallback>
                                     </Avatar>
-                                    <div className="flex w-24">
+                                    <div className="flex w-24 md:w-40">
                                         <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">
                                             {graphic.title}
                                         </h3>
@@ -494,7 +494,7 @@ export function GraphicsGridWWW({
                                             {graphic.user.name?.[0] || graphic.user.username?.[0] || 'U'}
                                         </AvatarFallback>
                                     </Avatar>
-                                    <div className="flex w-24">
+                                    <div className="flex w-24 md:w-40">
                                         <h3 className="hover:text-primary overflow-hidden truncate whitespace-nowrap font-semibold transition-colors">
                                             {graphic.title}
                                         </h3>

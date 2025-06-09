@@ -247,6 +247,14 @@ export function MenuIcons() {
                     </NavigationMenuItem> 
                     <NavigationMenuItem>
                         <Link
+                            href={`/logos`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Logos</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
                             href={`${GRAPHIC_URL}`}
                             legacyBehavior
                             passHref>

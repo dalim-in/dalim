@@ -1,2 +1,12 @@
-export * from "./cheveron-right";  
- 
+export * from "./arrow-big-down";  
+export * from "./arrow-big-down-dash";  
+export * from "./arrow-big-left";  
+export * from "./arrow-big-left-dash"; 
+export * from "./arrow-big-right"; 
+export * from "./arrow-big-right-dash"; 
+export * from "./arrow-big-up"; 
+export * from "./arrow-big-up-dash"; 
+export * from "./arrow-down"; 
+export * from "./arrow-down-0-1"; 
+export * from "./arrow-down-1-0"; 
+export * from "./arrow-down-a-z"; 

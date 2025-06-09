@@ -71,16 +71,16 @@ export function IconShowcase({
     }
 
     return (
-        <div className="my-3">
+        <div className="my-4 mx-1">
             <RadioGroup
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center md:justify-between gap-2">
                     {filteredIcons.map((icon) => (
                         <div
                             key={icon.name}
-                            className="flex items-center space-x-2">
+                            className="flex items-center">
                             <RadioGroupItem
                                 value={icon.name}
                                 id={icon.name}

@@ -105,6 +105,26 @@ export const cardVariants: Variants = {
   },
 }
 
+export const topVariants: Variants = {
+  normal: { opacity: 1, x: 0 },
+  animate: (custom) => {
+    const { loop, animation } = typeof custom === "object" ? custom : { loop: custom, animation: true }
+    return {
+      opacity: [0, 1],
+      y: [-5, 0],
+      transition: {
+        duration: 0.3,
+        delay: 0.3,
+        repeat: loop ? Number.POSITIVE_INFINITY : 0,
+        repeatType: "reverse",
+        repeatDelay: loop ? 0.7 : 0,
+      },
+    }
+  },
+}
+
+
+
 export interface ExportOptions {
   format: ExportFormat
   size: number
