@@ -42,6 +42,12 @@ function Preview() {
                     </MatterBody>
                     <MatterBody
                         matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
+                        x="35%"
+                        y="10%">
+                        <div className="[#E794DA] rounded-full bg-[#ff0099] px-4 py-2 text-sm text-white hover:cursor-grab md:px-8 md:py-4 md:text-xl">Icons</div>
+                    </MatterBody>
+                    <MatterBody
+                        matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
                         x="50%"
                         y="10%">
                         <div className="[#E794DA] rounded-full bg-[#0015ff] px-4 py-2 text-sm text-white hover:cursor-grab md:px-8 md:py-4 md:text-xl">UI</div>
@@ -50,7 +56,7 @@ function Preview() {
                         matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
                         x="35%"
                         y="10%">
-                        <div className="bg-brand rounded-full px-4 py-2 text-sm text-white hover:cursor-pointer md:px-8 md:py-4 md:text-xl">Ali</div>
+                        <div className="bg-brand rounded-full px-4 py-2 dark:text-black text-sm text-white hover:cursor-pointer md:px-8 md:py-4 md:text-xl">Ali</div>
                     </MatterBody>
                     <MatterBody
                         matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}

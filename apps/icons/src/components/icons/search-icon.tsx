@@ -5,6 +5,8 @@ import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
 import { getAllCategories, getAllTags, getAllIcons } from 'dalim-icons'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
+import { Button } from '@dalim/core/ui/button'
+import Link from 'next/link'
 
 export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCategory, setSelectedCategory, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; selectedIcon: string; setIconVariant: (val: any) => void }) {
     const allCategories = getAllCategories()
@@ -80,6 +82,9 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                         </h1>
                     </div>
                 )}
+                <Link  href="mailto:contact@dalim.in">
+                    <Button>Submit an Icon</Button>
+                </Link>
             </div>
         </div>
     )

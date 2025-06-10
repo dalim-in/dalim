@@ -35,7 +35,19 @@ import {
   FenceMetadata,
   HospitalMetadata,
   HotelMetadata,
-  HouseMetadata
+  HouseMetadata,
+  AlignCenterHorizontalMetadata,
+  AlignCenterVerticalMetadata,
+  AlignEndHorizontalMetadata,
+  AlignEndVerticalMetadata,
+  AlignHorizontalDistributeCenterMetadata,
+  AlignHorizontalDistributeEndMetadata,
+  AlignHorizontalDistributeStartMetadata,
+  AlignHorizontalJustifyCenterMetadata,
+  AlignHorizontalJustifyEndMetadata,
+  AlignHorizontalJustifyStartMetadata,
+  AlignHorizontalSpaceAroundMetadata,
+  AlignHorizontalSpaceBetweenMetadata
 } from "./icons";
 
 export const iconDatabase: Record<string, IconMetadata> = { 
@@ -83,7 +95,25 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "Fence": FenceMetadata,
   "Hospital": HospitalMetadata,
   "Hotel": HotelMetadata,
-  "House": HouseMetadata
+  "House": HouseMetadata,
+
+  // Layout
+
+  "AlignCenterHorizontal": AlignCenterHorizontalMetadata,
+  "AlignCenterVertical": AlignCenterVerticalMetadata,
+  "AlignEndHorizontal": AlignEndHorizontalMetadata,
+  "AlignEndVertical": AlignEndVerticalMetadata,
+  "AlignHorizontalDistributeCenter": AlignHorizontalDistributeCenterMetadata,
+  "AlignHorizontalDistributeEnd": AlignHorizontalDistributeEndMetadata,
+  "AlignHorizontalDistributeStart": AlignHorizontalDistributeStartMetadata,
+  "AlignHorizontalJustifyCenter": AlignHorizontalJustifyCenterMetadata,
+  "AlignHorizontalJustifyEnd": AlignHorizontalJustifyEndMetadata,
+  "AlignHorizontalJustifyStart": AlignHorizontalJustifyStartMetadata,
+  "AlignHorizontalSpaceAround": AlignHorizontalSpaceAroundMetadata,
+  "AlignHorizontalSpaceBetween": AlignHorizontalSpaceBetweenMetadata
+
+
+
 };
 
 // Get all icons

@@ -76,7 +76,7 @@ export function IconShowcase({
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap justify-center md:justify-between gap-2">
+                <div className="flex flex-wrap gap-2">
                     {filteredIcons.map((icon) => (
                         <div
                             key={icon.name}
@@ -164,12 +164,12 @@ export function IconShowcaseWWW({
     }
 
     return (
-        <div className="p-4 mx-1 overflow-auto h-[400px]">
+        <div className="py-4 ml-4 overflow-auto h-[400px]">
             <RadioGroup
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-1">
                     {filteredIcons.slice(0, 100).map((icon) => (
                         <div
                             key={icon.name}

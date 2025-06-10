@@ -738,7 +738,7 @@ export function IconDetailed() {
                                     </Button>
                                     <Button
                                         size={'icon'}
-                                         variant={'outline'}
+                                        variant={'outline'}
                                         onClick={goToNext}
                                         disabled={currentIndex >= allIcons.length - 1}>
                                         <ChevronRight />
@@ -960,7 +960,9 @@ export default App;`}
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-primary/10 my-3 h-[400px] rounded-xl py-20 text-center">More Coming Soon</div>
+                        <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+
+                        <div className="bg-primary/10 my-3 mt-6 h-[400px] rounded-xl py-20 text-center">More Coming Soon</div>
                     </div>
                 </div>
             </div>
