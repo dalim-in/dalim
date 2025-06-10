@@ -17,6 +17,7 @@ import {
 } from "@dalim/core/ui/alert-dialog"
 import { toast } from "sonner"
 import type { Message } from "@/src/types/chat"
+import { DALIM_URL } from "@dalim/auth"
 
 interface MessageActionsProps {
   message: Message
@@ -31,7 +32,7 @@ export function MessageActions({ message, isCurrentUser, onMessageDeleted }: Mes
   const deleteMessage = async () => {
     try {
       setDeleteLoading(true)
-      const response = await fetch(`/api/chat/messages/${message.id}`, {
+      const response = await fetch(`${DALIM_URL}/api/chat/messages/${message.id}`, {
         method: "DELETE",
       })
 

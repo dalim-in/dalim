@@ -149,8 +149,7 @@ export function IconShowcaseWWW({
 
         return (
             <Icon
-                size={32}
-                
+                size={32} 
                 color={iconColor} 
                 strokeWidth={strokeWidth[0]}
                 animation={animation}
@@ -164,7 +163,7 @@ export function IconShowcaseWWW({
     }
 
     return (
-        <div className="py-4 ml-4 overflow-auto h-[400px]">
+        <div className="overflow-auto h-[400px]">
             <RadioGroup
                 value={selectedIcon}
                 className=""

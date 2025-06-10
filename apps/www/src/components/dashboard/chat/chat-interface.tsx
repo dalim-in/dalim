@@ -17,6 +17,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { MessageActions } from './message-actions'
 import { CldImage } from '@dalim/core/components/common/gallery'
 import Link from 'next/link'
+import { DALIM_URL } from '@dalim/auth'
 
 interface ChatInterfaceProps {
     conversationId?: string
@@ -59,7 +60,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
 
     const fetchConversations = async () => {
         try {
-            const response = await fetch('/api/chat/conversations')
+            const response = await fetch(`${DALIM_URL}/api/chat/conversations`)
             if (response.ok) {
                 const data = await response.json()
                 setConversations(data)
@@ -75,7 +76,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
 
     const fetchConversation = async (id: string) => {
         try {
-            const response = await fetch(`/api/chat/conversations/${id}`)
+            const response = await fetch(`${DALIM_URL}/api/chat/conversations/${id}`)
             if (response.ok) {
                 const data = await response.json()
                 setSelectedConversation(data)
@@ -88,7 +89,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('/api/users')
+            const response = await fetch(`${DALIM_URL}/api/users`)
             if (response.ok) {
                 const data = await response.json()
                 setUsers(data)
@@ -100,7 +101,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
 
     const fetchAdmins = async () => {
         try {
-            const response = await fetch('/api/users?role=admin')
+            const response = await fetch(`${DALIM_URL}/api/users?role=ADMIN`)
             if (response.ok) {
                 const data = await response.json()
                 setAdmins(data)
@@ -112,7 +113,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
 
     const startDirectConversation = async (otherUserId: string) => {
         try {
-            const response = await fetch('/api/chat/conversations/direct', {
+            const response = await fetch(`${DALIM_URL}/api/chat/conversations/direct`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ otherUserId }),
@@ -144,7 +145,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                 formData.append('attachments', file)
             })
 
-            const response = await fetch('/api/chat/messages', {
+            const response = await fetch(`${DALIM_URL}/api/chat/messages`, {
                 method: 'POST',
                 body: formData,
             })
@@ -204,7 +205,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
     const updateConversationStatus = async (conversationId: string, status: 'ACTIVE' | 'CLOSED' | 'ARCHIVED') => {
         try {
             setStatusLoading(true)
-            const response = await fetch(`/api/chat/conversations/${conversationId}/status`, {
+            const response = await fetch(`${DALIM_URL}/api/chat/conversations/${conversationId}/status`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status }),
@@ -228,7 +229,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
     const deleteConversation = async (conversationId: string) => {
         try {
             setDeleteLoading(true)
-            const response = await fetch(`/api/chat/conversations/${conversationId}`, {
+            const response = await fetch(`${DALIM_URL}/api/chat/conversations/${conversationId}`, {
                 method: 'DELETE',
             })
 
@@ -573,8 +574,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                                             />
                                                         </div>
                                                     )}
-                                                    {!isCurrentUser(msg.sender.id) && <p className="mb-1 text-xs font-medium">{msg.sender.name}</p>}
-
+                                    
                                                     {msg.content && <p className="whitespace-pre-wrap text-sm">{msg.content}</p>}
 
                                                     {msg.attachments.length > 0 && (

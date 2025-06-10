@@ -8,6 +8,7 @@ import { Textarea } from "@dalim/core/ui/textarea"
 import { MessageCircle, Send } from "lucide-react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { DALIM_URL } from "@dalim/auth"
 
 export function QuickAdminContact() {
   const { data: session } = useSession()
@@ -25,7 +26,7 @@ export function QuickAdminContact() {
       setLoading(true)
 
       // First, get the first available admin
-      const usersResponse = await fetch("/api/users?role=admin")
+      const usersResponse = await fetch(`${DALIM_URL}/api/users?role=ADMIN`)
       if (!usersResponse.ok) {
         throw new Error("Failed to fetch admins")
       }
@@ -37,7 +38,7 @@ export function QuickAdminContact() {
       }
 
       // Create or get conversation with first admin
-      const conversationResponse = await fetch("/api/chat/conversations/direct", {
+      const conversationResponse = await fetch(`${DALIM_URL}/api/chat/conversations/direct`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otherUserId: admins[0].id }),
@@ -54,7 +55,7 @@ export function QuickAdminContact() {
       formData.append("conversationId", conversation.id)
       formData.append("content", message)
 
-      const messageResponse = await fetch("/api/chat/messages", {
+      const messageResponse = await fetch(`${DALIM_URL}/api/chat/messages`, {
         method: "POST",
         body: formData,
       })
@@ -65,7 +66,7 @@ export function QuickAdminContact() {
 
       toast.success("Message sent to admin!")
       setMessage("")
-      router.push(`/dashboard/chat?conversationId=${conversation.id}`)
+      router.push(`${DALIM_URL}/dashboard/chat?conversationId=${conversation.id}`)
     } catch (error) {
       console.error("Error sending message:", error)
       toast.error("Failed to send message")

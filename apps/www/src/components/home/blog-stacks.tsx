@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export function BlogCard() {
     return (
-        <div className="mt-6 h-full w-full">
+        <div className="my-6 h-full w-full">
             <CardStack items={CARDS} />
         </div>
     )

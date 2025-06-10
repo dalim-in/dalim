@@ -8,6 +8,7 @@ import { Card, CardContent } from "@dalim/core/ui/card"
 import { MessageCircle, Bell, Check, CheckCheck } from "lucide-react"
 import { useRouter } from "next/navigation"
 import type { Notification } from "@/src/types/chat"
+import { DALIM_URL } from "@dalim/auth"
 
 
 export function NotificationsList() {
@@ -21,7 +22,7 @@ export function NotificationsList() {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch("/api/notifications")
+      const response = await fetch(`${DALIM_URL}/api/notifications`)
       if (response.ok) {
         const data = await response.json()
         setNotifications(data)
@@ -35,7 +36,7 @@ export function NotificationsList() {
 
   const markAsRead = async (notificationId: string) => {
     try {
-      const response = await fetch(`/api/notifications/${notificationId}/read`, {
+      const response = await fetch(`${DALIM_URL}/api/notifications/${notificationId}/read`, {
         method: "PATCH",
       })
 
@@ -60,9 +61,9 @@ export function NotificationsList() {
 
     // Handle navigation based on notification type
     if (notification.type === "NEW_MESSAGE" && notification.data?.conversationId) {
-      router.push(`/dashboard/chat?conversationId=${notification.data.conversationId}`)
+      router.push(`${DALIM_URL}/dashboard/chat?conversationId=${notification.data.conversationId}`)
     } else if (notification.type === "CONVERSATION_STATUS_CHANGED" && notification.data?.conversationId) {
-      router.push(`/dashboard/chat?conversationId=${notification.data.conversationId}`)
+      router.push(`${DALIM_URL}/dashboard/chat?conversationId=${notification.data.conversationId}`)
     }
   }
 

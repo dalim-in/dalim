@@ -9,6 +9,7 @@ import { Bell, Check } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { useRouter } from 'next/navigation'
 import type { Notification } from '@/src/types/chat'
+import { DALIM_URL } from '@dalim/auth'
 
 export function NotificationBell() {
     const [notifications, setNotifications] = useState<Notification[]>([])
@@ -31,7 +32,7 @@ export function NotificationBell() {
 
     const fetchNotifications = async () => {
         try {
-            const response = await fetch('/api/notifications')
+            const response = await fetch(`${DALIM_URL}/api/notifications`)
             if (response.ok) {
                 const data = await response.json()
                 setNotifications(data)
@@ -43,7 +44,7 @@ export function NotificationBell() {
 
     const fetchUnreadCount = async () => {
         try {
-            const response = await fetch('/api/notifications/unread-count')
+            const response = await fetch(`${DALIM_URL}/api/notifications/unread-count`)
             if (response.ok) {
                 const data = await response.json()
                 setUnreadCount(data.count)
@@ -55,7 +56,7 @@ export function NotificationBell() {
 
     const markAsRead = async (notificationId: string) => {
         try {
-            const response = await fetch(`/api/notifications/${notificationId}/read`, {
+            const response = await fetch(`${DALIM_URL}/api/notifications/${notificationId}/read`, {
                 method: 'PATCH',
             })
 
@@ -75,9 +76,9 @@ export function NotificationBell() {
 
         // Handle navigation based on notification type
         if (notification.type === 'NEW_MESSAGE' && notification.data?.conversationId) {
-            router.push(`/dashboard/chats?conversationId=${notification.data.conversationId}`)
+            router.push(`${DALIM_URL}/dashboard/chats?conversationId=${notification.data.conversationId}`)
         } else if (notification.type === 'CONVERSATION_STATUS_CHANGED' && notification.data?.conversationId) {
-            router.push(`/dashboard/chats?conversationId=${notification.data.conversationId}`)
+            router.push(`${DALIM_URL}/dashboard/chats?conversationId=${notification.data.conversationId}`)
         }
 
         setIsOpen(false)

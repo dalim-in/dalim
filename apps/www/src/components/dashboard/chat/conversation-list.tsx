@@ -9,6 +9,7 @@ import { ScrollArea } from "@dalim/core/ui/scroll-area"
 import { Button } from "@dalim/core/ui/button"
 import { MessageCircle } from "lucide-react"
 import type { Conversation, User } from "@/src/types/chat"
+import { DALIM_URL } from "@dalim/auth"
 
 interface ConversationListProps {
   onConversationSelect: (conversation: Conversation) => void
@@ -28,7 +29,7 @@ export function ConversationList({ onConversationSelect, selectedConversationId 
 
   const fetchConversations = async () => {
     try {
-      const response = await fetch("/api/chat/conversations")
+      const response = await fetch(`${DALIM_URL}/api/chat/conversations`)
       if (response.ok) {
         const data = await response.json()
         setConversations(data)
@@ -40,7 +41,7 @@ export function ConversationList({ onConversationSelect, selectedConversationId 
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("/api/users")
+      const response = await fetch(`${DALIM_URL}/api/users`)
       if (response.ok) {
         const data = await response.json()
         setUsers(data)
@@ -52,7 +53,7 @@ export function ConversationList({ onConversationSelect, selectedConversationId 
 
   const startDirectConversation = async (otherUserId: string) => {
     try {
-      const response = await fetch("/api/chat/conversations/direct", {
+      const response = await fetch(`${DALIM_URL}/api/chat/conversations/direct`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otherUserId }),

@@ -19,6 +19,7 @@ import * as Logos from 'dalim-icons'
 import { createRoot } from 'react-dom/client'
 import { CodeBlock } from '@dalim/core/components/common/code-block'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
+import { CopyButton } from '@dalim/core/components/common/copy-button'
 
 export function LogoDetailed() {
     const router = useRouter()
@@ -380,7 +381,10 @@ export function LogoDetailed() {
                         <div className="px-3">
                             <div className="flex items-start justify-between">
                                 <div>
-                                    <div className="text-3xl font-semibold">{iconData.name}</div>
+                                   <div className="text-3xl flex items-center gap-1 font-semibold">
+                                        {iconData.name}
+                                         <CopyButton componentSource={iconData.name} />
+                                        </div> 
                                     <div className="mt-2 opacity-60">{iconData.description}</div>
                                     <div className="mt-3 flex items-center gap-1">
                                         <Badge

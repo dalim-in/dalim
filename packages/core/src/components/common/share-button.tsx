@@ -17,8 +17,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../../ui/dialog"
-import { Input } from "../../ui/input"
-import { Label } from "../../ui/label" 
+import { Input } from "../../ui/input" 
 import { Share2, Copy, Mail, QrCode, Check } from 'lucide-react'
 import { toast } from "../../hooks/use-toast"
 import { QRCodeSVG } from "qrcode.react"  
@@ -233,21 +232,8 @@ export function ShareButton({
               <div className="bg-white p-4 rounded-lg">
                 <QRCodeSVG value={fullUrl} size={200} level="M" includeMargin={true} />
               </div>
-              {fullImageUrl && (
-                <div className="text-center">
-                  <img
-                    src={fullImageUrl || "/placeholder.svg"}
-                    alt={title}
-                    className="w-16 h-16 object-cover rounded-lg mx-auto mb-2"
-                    onError={(e) => {
-                      e.currentTarget.style.display = "none"
-                    }}
-                  />
-                  <p className="text-sm text-muted-foreground">Preview image</p>
-                </div>
-              )}
-              <div className="w-full space-y-2">
-                <Label htmlFor="share-url">Link</Label>
+              
+              <div className="w-full space-y-2"> 
                 <div className="flex gap-2">
                   <Input id="share-url" value={fullUrl} readOnly className="flex-1" />
                   <Button size="sm" onClick={handleCopyLink}>

@@ -34,8 +34,7 @@ export interface LogoMetadata {
 }
 
 export interface IconStyle {
-  fill?: string
-  stroke?: string
+  fill?: string 
   strokeWidth?: number
   strokeLinecap?: "butt" | "round" | "square"
   strokeLinejoin?: "round" | "miter" | "bevel"

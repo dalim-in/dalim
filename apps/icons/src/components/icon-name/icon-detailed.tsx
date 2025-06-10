@@ -23,6 +23,8 @@ import { createRoot } from 'react-dom/client'
 import GIF from 'gif.js'
 import { CodeBlock } from '@dalim/core/components/common/code-block'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
+import { CopyButton } from '@dalim/core/components/common/copy-button'
+import Link from 'next/link'
 
 export function IconDetailed() {
     const router = useRouter()
@@ -706,23 +708,32 @@ export function IconDetailed() {
                         <div className="px-3">
                             <div className="flex items-start justify-between">
                                 <div>
-                                    <div className="text-3xl font-semibold">{iconData.name}</div>
+                                    <div className="flex items-center gap-1 text-3xl font-semibold">
+                                        {iconData.name}
+                                        <CopyButton componentSource={iconData.name} />
+                                    </div>
                                     <div className="mt-2 opacity-60">{iconData.description}</div>
                                     <div className="mt-3 flex items-center gap-1">
-                                        <Badge
-                                            variant="outline"
-                                            className="text-sm">
-                                            {iconData.category}
-                                        </Badge>
+                                        <Link href={`/`}>
+                                            <Badge
+                                                variant="outline"
+                                                className="hover:bg-primary hover:text-primary-foreground text-xs">
+                                                {iconData.category}
+                                            </Badge>
+                                        </Link>
                                         <div>
                                             <div className="flex flex-wrap gap-1">
                                                 {iconData.tags.map((tag) => (
-                                                    <Badge
+                                                    <Link
                                                         key={tag}
-                                                        variant="secondary"
-                                                        className="text-xs">
-                                                        {tag}
-                                                    </Badge>
+                                                        href={`/`}>
+                                                        <Badge
+                                                            key={tag}
+                                                            variant="outline"
+                                                             className="hover:bg-primary hover:text-primary-foreground text-xs">
+                                                            {tag}
+                                                        </Badge>
+                                                    </Link>
                                                 ))}
                                             </div>
                                         </div>

@@ -806,67 +806,7 @@ export default App;`}
                         step={0.1}
                         className="mt-2"
                     />
-                </div>
-
-                <div>
-                    <Label className="text-primary/60 text-xs font-medium">Stroke Linecap</Label>
-                    <ToggleGroup
-                        type="single"
-                        value={strokeLinecap}
-                        onValueChange={(value) => {
-                            if (value === 'butt' || value === 'round' || value === 'square') {
-                                setStrokeLinecap(value)
-                            }
-                        }}
-                        className="mt-1 rounded-lg border">
-                        <ToggleGroupItem
-                            value="butt"
-                            className="border-r capitalize">
-                            butt
-                        </ToggleGroupItem>
-
-                        <ToggleGroupItem
-                            value="round"
-                            className="capitalize">
-                            round
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            value="square"
-                            className="border-l capitalize">
-                            square
-                        </ToggleGroupItem>
-                    </ToggleGroup>
-                </div>
-
-                <div>
-                    <Label className="text-primary/60 text-xs font-medium">Stroke Linejoin</Label>
-                    <ToggleGroup
-                        type="single"
-                        value={strokeLinejoin}
-                        onValueChange={(value) => {
-                            if (value === 'round' || value === 'miter' || value === 'bevel') {
-                                setStrokeLinejoin(value)
-                            }
-                        }}
-                        className="mt-1 rounded-lg border">
-                        <ToggleGroupItem
-                            value="round"
-                            className="border-r capitalize">
-                            round
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            value="miter"
-                            className="capitalize">
-                            miter
-                        </ToggleGroupItem>
-                        <ToggleGroupItem
-                            value="bevel"
-                            className="border-l capitalize">
-                            bevel
-                        </ToggleGroupItem>
-                    </ToggleGroup>
-                </div>
-
+                </div> 
                 <div className="flex items-center justify-between">
                     <Label
                         htmlFor="animation"
@@ -1247,7 +1187,7 @@ export default App;`
                 className="hidden"
             />
 
-            <div className="mb-12 mt-8 space-y-4">
+            <div className="space-y-4">
                 {selectedIcon && (
                     <div className="flex flex-wrap gap-2">
                         <DropdownMenu>

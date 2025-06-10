@@ -47,7 +47,19 @@ import {
   AlignHorizontalJustifyEndMetadata,
   AlignHorizontalJustifyStartMetadata,
   AlignHorizontalSpaceAroundMetadata,
-  AlignHorizontalSpaceBetweenMetadata
+  AlignHorizontalSpaceBetweenMetadata,
+  BadgeMetadata,
+  BlocksMetadata,
+  BoxMetadata,
+  BoxesMetadata,
+  CircleMetadata,
+  CircleDashedMetadata,
+  CircleDotMetadata,
+  CircleDotDashedMetadata,
+  CircleOffMetadata,
+  CircleSlash2Metadata,
+  CircleSmallMetadata,
+  ClubMetadata
 } from "./icons";
 
 export const iconDatabase: Record<string, IconMetadata> = { 
@@ -110,9 +122,22 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "AlignHorizontalJustifyEnd": AlignHorizontalJustifyEndMetadata,
   "AlignHorizontalJustifyStart": AlignHorizontalJustifyStartMetadata,
   "AlignHorizontalSpaceAround": AlignHorizontalSpaceAroundMetadata,
-  "AlignHorizontalSpaceBetween": AlignHorizontalSpaceBetweenMetadata
+  "AlignHorizontalSpaceBetween": AlignHorizontalSpaceBetweenMetadata,
 
+  // Shapes
 
+  "Badge": BadgeMetadata,
+  "Blocks": BlocksMetadata,
+  "Box": BoxMetadata,
+  "Boxes": BoxesMetadata,
+  "Circle": CircleMetadata,
+  "CircleDashed": CircleDashedMetadata,
+  "CircleDot": CircleDotMetadata,
+  "CircleDotDashed": CircleDotDashedMetadata,
+  "CircleOff": CircleOffMetadata,
+  "CircleSlash2": CircleSlash2Metadata,
+  "CircleSmall": CircleSmallMetadata,
+  "Club": ClubMetadata
 
 };
 

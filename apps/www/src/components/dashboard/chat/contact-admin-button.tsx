@@ -18,6 +18,7 @@ import { MessageCircle, Users } from "lucide-react"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 import type { User } from "@/src/types/chat"
+import { DALIM_URL } from "@dalim/auth"
 
 interface ContactAdminButtonProps {
   className?: string
@@ -41,7 +42,7 @@ export function ContactAdminButton({ className, variant = "default", size = "def
   const fetchAdmins = async () => {
     try {
       setLoading(true)
-      const response = await fetch("/api/users?role=admin")
+      const response = await fetch(`${DALIM_URL}/api/users?role=ADMIN`)
       if (response.ok) {
         const data = await response.json()
         setAdmins(data)
@@ -57,7 +58,7 @@ export function ContactAdminButton({ className, variant = "default", size = "def
   const startConversationWithAdmin = async (adminId: string, adminName: string) => {
     try {
       setLoading(true)
-      const response = await fetch("/api/chat/conversations/direct", {
+      const response = await fetch(`${DALIM_URL}/api/chat/conversations/direct`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otherUserId: adminId }),
@@ -66,7 +67,7 @@ export function ContactAdminButton({ className, variant = "default", size = "def
       if (response.ok) {
         const conversation = await response.json()
         setOpen(false)
-        router.push(`/dashboard/chat?conversationId=${conversation.id}`)
+        router.push(`${DALIM_URL}/dashboard/chat?conversationId=${conversation.id}`)
         toast.success(`Started conversation with ${adminName}`)
       } else {
         toast.error("Failed to start conversation")

@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { IconShowcase, IconShowcaseWWW } from './icon-showcase'
 import { SearchIcon } from './search-icon'
-import { ControlIcon, ControlIconWWW } from './control-icon'
+import { ControlIcon, ControlIconWWW } from './control-icon' 
 
 export function MainIcons() {
     const [searchTerm, setSearchTerm] = useState('')
@@ -56,21 +56,20 @@ export function MainIcons() {
                             setSelectedCategory={setSelectedCategory}
                         />
                     </div>
-
                     <IconShowcase
-                        searchTerm={searchTerm}
-                        selectedCategory={selectedCategory}
-                        selectedTag={selectedTag}
-                        iconVariant={iconVariant}
-                        iconColor={iconColor}
-                        strokeWidth={strokeWidth}
-                        animation={animation}
-                        strokeLinecap={strokeLinecap}
-                        strokeLinejoin={strokeLinejoin}
-                        loop={loop}
-                        selectedIcon={selectedIcon}
-                        setSelectedIcon={setSelectedIcon}
-                    />
+                            searchTerm={searchTerm}
+                            selectedCategory={selectedCategory}
+                            selectedTag={selectedTag}
+                            iconVariant={iconVariant}
+                            iconColor={iconColor}
+                            strokeWidth={strokeWidth}
+                            animation={animation}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            loop={loop}
+                            selectedIcon={selectedIcon}
+                            setSelectedIcon={setSelectedIcon}
+                        />
                 </div>
             </div>
         </div>
@@ -78,24 +77,24 @@ export function MainIcons() {
 }
 
 export function MainIconsWWW() {
-    const [searchTerm,] = useState('') 
+    const [searchTerm] = useState('')
     const [selectedIcon, setSelectedIcon] = useState<string>('')
 
     const [strokeLinecap, setStrokeLinecap] = useState<'butt' | 'round' | 'square'>('round')
     const [strokeLinejoin, setStrokeLinejoin] = useState<'round' | 'miter' | 'bevel'>('round')
 
     const [iconSize, setIconSize] = useState([32])
-     const [iconColor, setIconColor] = useState('currentColor')
+    const [iconColor, setIconColor] = useState('currentColor')
     const [strokeWidth, setStrokeWidth] = useState([1.5])
     const [animation, setAnimation] = useState(true)
     const [loop, setLoop] = useState(false)
     return (
-        <div className="mt-6">
+        <div className="mt-12 mb-6">
             <div className="">
-                <div className="grid md:flex gap-3">
-                    <div className="md:col-span-1">
+                <div className="grid gap-3 md:flex">
+                    <div className="md:col-span-1 my-3">
                         <ControlIconWWW
-                            iconSize={iconSize} 
+                            iconSize={iconSize}
                             setIconSize={setIconSize}
                             iconColor={iconColor}
                             setIconColor={setIconColor}
@@ -109,15 +108,15 @@ export function MainIconsWWW() {
                             strokeLinecap={strokeLinecap}
                             setStrokeLinecap={setStrokeLinecap}
                             strokeLinejoin={strokeLinejoin}
-                            setStrokeLinejoin={setStrokeLinejoin} 
+                            setStrokeLinejoin={setStrokeLinejoin}
                         />
                     </div>
-                    <div className="md:col-span-4">
+                    <div className="md:col-span-4  mb-3">
                         <IconShowcaseWWW
-                            searchTerm={searchTerm}  
+                            searchTerm={searchTerm}
                             iconColor={iconColor}
                             strokeWidth={strokeWidth}
-                            animation={animation} 
+                            animation={animation}
                             loop={loop}
                             selectedIcon={selectedIcon}
                             setSelectedIcon={setSelectedIcon}
