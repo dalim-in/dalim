@@ -3,7 +3,12 @@
  
 import type { Variants, HTMLMotionProps } from "motion/react";  
 
-export interface AccessIconHandle {
+export interface IconsHandle {
+  startAnimation: () => void
+  stopAnimation: () => void
+}
+
+export interface LogosHandle {
   startAnimation: () => void
   stopAnimation: () => void
 }
@@ -18,6 +23,16 @@ export interface IconMetadata {
   variants: ("stroke" | "solid" | "duotone" | "twotone" | "bulk")[];
 }
 
+export interface LogoMetadata {
+  name: string;
+  category: string;
+  tags: string[];
+  description?: string;
+  author?: string;
+  created?: string;
+  variants: ("icon" | "wordmark")[];
+}
+
 export interface IconStyle {
   fill?: string
   stroke?: string
@@ -28,7 +43,16 @@ export interface IconStyle {
   opacity?: number
 }
 
-export interface AccessIconProps extends HTMLMotionProps<"div"> {
+export interface LogosProps extends HTMLMotionProps<"div"> {
+  size?: number
+  color?: string
+  variant?: "icon" | "wordmark"  
+  fillColor?: string 
+  iconStyle?: IconStyle   
+  className?: string
+}
+
+export interface IconsProps extends HTMLMotionProps<"div"> {
   size?: number
   color?: string
   variant?: "stroke" | "solid" | "duotone" | "twotone" | "bulk"

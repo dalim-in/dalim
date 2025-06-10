@@ -113,3 +113,96 @@ export function IconShowcase({
         </div>
     )
 }
+
+export function IconShowcaseWWW({
+  searchTerm,
+  selectedIcon,
+  setSelectedIcon,   
+  iconColor,
+  strokeWidth,
+  animation,
+  loop,
+}: {
+  searchTerm: string 
+   
+  iconColor: string
+  strokeWidth: number[]
+  animation: boolean 
+  loop: boolean
+  selectedIcon: string
+  setSelectedIcon: any
+}) {
+    const allIcons = getAllIcons()
+
+    const filteredIcons = useMemo(() => {
+        return allIcons.filter((icon) => {
+            const matchesSearch = searchTerm === '' || icon.name.toLowerCase().includes(searchTerm.toLowerCase()) || icon.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+ 
+
+            return matchesSearch 
+        })
+    }, [allIcons, searchTerm,])
+
+    const IconComponent = ({ iconName }: { iconName: string }) => {
+        const Icon = (Icons as Record<string, any>)[iconName]
+        if (!Icon) return null
+
+        return (
+            <Icon
+                size={32}
+                
+                color={iconColor} 
+                strokeWidth={strokeWidth[0]}
+                animation={animation}
+                loop={loop}
+            />
+        )
+    }
+
+    const handleIconClick = (iconName: string) => {
+        setSelectedIcon(iconName)
+    }
+
+    return (
+        <div className="p-4 mx-1 overflow-auto h-[400px]">
+            <RadioGroup
+                value={selectedIcon}
+                className=""
+                onValueChange={setSelectedIcon}>
+                <div className="flex flex-wrap justify-center gap-2">
+                    {filteredIcons.slice(0, 100).map((icon) => (
+                        <div
+                            key={icon.name}
+                            className="flex items-center">
+                            <RadioGroupItem
+                                value={icon.name}
+                                id={icon.name}
+                                className="sr-only"
+                            />
+                            <Label
+                                htmlFor={icon.name}
+                                className="cursor-pointer">
+                                <TooltipProvider delayDuration={0}>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <div
+                                                className={`hover:bg-muted/60 dark:hover:bg-muted/20 bg-muted dark:bg-muted/20 flex h-20 w-20 cursor-pointer items-center justify-center rounded-md transition ${selectedIcon === icon.name ? 'ring-primary bg-muted/40 border' : ''}`}
+                                                onClick={() => handleIconClick(icon.name)}>
+                                                <IconComponent iconName={icon.name} />
+                                            </div>
+                                        </TooltipTrigger>
+                                        <TooltipContent
+                                            className="-mt-3"
+                                            side="bottom">
+                                            {icon.name}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </Label>
+                        </div>
+                    ))}
+                </div>
+            </RadioGroup>
+        </div>
+    )
+}

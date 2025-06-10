@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { PageHeader } from '@dalim/core/components/common/page-header'
 import { Graphics } from './bento/graphic-grid'
 import { FontsListWWW } from './bento/font-list'
+import { MainIconsWWW } from '../../../../icons/src/components/icons/main-icons'
 
 export function ProductBento() {
     const timeOfDayGreeting = getTimeOfDayGreeting()
@@ -42,13 +43,19 @@ export function ProductBento() {
             className: 'col-span-1 md:col-span-6 lg:col-span-6 border-b lg:border-r-0 dark:border-neutral-800',
         },
         {
+            id: 'icons',
+            title: '',
+            description: '',
+            skeleton: <SkeletonIcons />,
+            className: 'col-span-1 border-b md:col-span-6 lg:col-span-6',
+        },
+        {
             id: 'graphic',
             title: '',
             description: '',
             skeleton: <SkeletonGraphic />,
             className: 'col-span-1 border-b md:col-span-6 lg:col-span-6',
         },
-
         {
             id: 'works-header',
             title: '',
@@ -115,6 +122,14 @@ export const SkeletonGraphic = () => {
     return (
         <div className="-mt-6">
            <Graphics />
+        </div>
+    )
+}
+
+export const SkeletonIcons = () => {
+    return (
+        <div className="-mb-12 -mt-14">
+            <MainIconsWWW />
         </div>
     )
 }

@@ -4,7 +4,7 @@ import * as React from 'react'
 import { motion, useAnimation } from 'motion/react'
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
 import { cn } from '../../lib/utils'
-import { AccessIconHandle, AccessIconProps, cardVariants, topVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
+import { IconsHandle, IconsProps, cardVariants, topVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
 export const ArrowDownAZMetadata: IconMetadata = {
     name: 'ArrowDownAZ',
@@ -16,7 +16,7 @@ export const ArrowDownAZMetadata: IconMetadata = {
     variants: ['stroke'],
 }
 
-export const ArrowDownAZ = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const ArrowDownAZ = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 

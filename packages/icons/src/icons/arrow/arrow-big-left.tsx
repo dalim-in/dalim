@@ -4,7 +4,7 @@ import * as React from 'react'
 import { motion, useAnimation } from 'motion/react'
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
 import { cn } from '../../lib/utils'
-import { AccessIconHandle, AccessIconProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
+import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
 export const ArrowBigLeftMetadata: IconMetadata = {
   name: "ArrowBigLeft",
@@ -16,7 +16,7 @@ export const ArrowBigLeftMetadata: IconMetadata = {
   variants: ["stroke"]
 }
 
-export const ArrowBigLeft = forwardRef<AccessIconHandle, AccessIconProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const ArrowBigLeft = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 

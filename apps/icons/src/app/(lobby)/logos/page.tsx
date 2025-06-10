@@ -1,12 +1,9 @@
-'use client'
+import { MainLogos } from '@/src/components/logos/main-icons'
 
-import * as React from 'react'  
-import { Hero } from '@/src/components/home/hero' 
-
-export default function Logos() {
+export default function Home() {
     return (
-        <div>
-            <Hero /> 
+        <div className="-mt-14">
+            <MainLogos />
         </div>
     )
 }

@@ -11,6 +11,7 @@ import {
   ArrowDown01Metadata,
   ArrowDown10Metadata,
   ArrowDownAZMetadata,
+  AArrowDownMetadata,
   ArrowBigLeftMetadata 
 } from "./icons";
 
@@ -26,7 +27,8 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "ArrowDown": ArrowDownMetadata,
   "ArrowDown01": ArrowDown01Metadata,
   "ArrowDown10": ArrowDown10Metadata,
-  "ArrowDownAZ": ArrowDownAZMetadata
+  "ArrowDownAZ": ArrowDownAZMetadata,
+  "AArrowDown": AArrowDownMetadata
 };
 
 // Get all icons
