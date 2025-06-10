@@ -4,19 +4,19 @@ import * as React from 'react'
 import { motion, useAnimation } from 'motion/react'
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
 import { cn } from '../../lib/utils'
-import { IconsHandle, IconsProps, cardVariants, topVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
+import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const ArrowDown01Metadata: IconMetadata = {
-    name: 'ArrowDown01',
-    category: 'Arrow',
-    tags: ['backwards', 'reverse', 'direction', 'south', 'down', 'arrow'],
+export const DamMetadata: IconMetadata = {
+    name: 'Dam',
+    category: 'Buildings',
+    tags: ['building', 'home', 'house', 'apartment', 'tower', 'hotel'],
     description: 'An icon representing access control or authentication with a key and access cards',
     author: 'Ali Imam',
     created: '2025-06-09',
     variants: ['stroke'],
 }
 
-export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Dam = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -66,7 +66,7 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
                 return (
                     <>
                         <motion.path
-                            d="m3 16 4 4 4-4"
+                            d="M11 11.31c1.17.56 1.54 1.69 3.5 1.69 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -77,22 +77,7 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
                             variants={pathVariants}
                         />
                         <motion.path
-                            d="M7 20V4"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.rect
-                            x="15"
-                            y="4"
-                            width="4"
-                            height="6"
-                            ry="2"
+                            d="M11.75 18c.35.5 1.45 1 2.75 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -103,7 +88,7 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
                             variants={pathVariants}
                         />
                         <motion.path
-                            d="M17 20v-6h-2"
+                            d="M2 10h4"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -114,7 +99,40 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
                             variants={pathVariants}
                         />
                         <motion.path
-                            d="M15 20h4"
+                            d="M2 14h4"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M2 18h4"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M2 6h4"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M7 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1L10 4a1 1 0 0 0-1-1z"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -136,7 +154,7 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="ArrowDown01"
+            aria-label="Dam"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -163,4 +181,4 @@ export const ArrowDown01 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
     )
 })
 
-ArrowDown01.displayName = 'ArrowDown01'
+Dam.displayName = 'Dam'

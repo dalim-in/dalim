@@ -6,9 +6,9 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const ArrowBigUpDashMetadata: IconMetadata = {
-  name: "ArrowBigUpDash",
-  category: "Arrow",
+export const CodeMetadata: IconMetadata = {
+  name: "Code",
+  category: "Coding",
   tags: ["backwards", "reverse", "direction", "south", "down", "arrow"],
   description: "An icon representing access control or authentication with a key and access cards",
   author: "Ali Imam",
@@ -16,7 +16,7 @@ export const ArrowBigUpDashMetadata: IconMetadata = {
   variants: ["stroke"]
 }
 
-export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Code = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -66,7 +66,7 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
                 return (
                     <> 
                         <motion.path
-                            d="M9 19h6"
+                            d="M15 5H9"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -75,9 +75,9 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
                             animate={controls}
                             custom={{ loop, animation }}
                             variants={pathVariants}
-                        /> 
+                        />
                         <motion.path
-                            d="M9 15v-3H5l7-7 7 7h-4v3H9z"
+                            d="M15 9v3h4l-7 7-7-7h4V9z"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -86,7 +86,8 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
                             animate={controls}
                             custom={{ loop, animation }}
                             variants={pathVariants}
-                        /> 
+                        />
+                         
                     </>
                 )
              
@@ -99,7 +100,7 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="ArrowBigUpDash"
+            aria-label="Code"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -126,4 +127,4 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
     )
 })
 
-ArrowBigUpDash.displayName = 'ArrowBigUpDash'
+Code.displayName = 'Code'

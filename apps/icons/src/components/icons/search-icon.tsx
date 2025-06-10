@@ -3,23 +3,25 @@
 import { Search } from 'lucide-react'
 import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
-import { getAllCategories, getAllTags } from 'dalim-icons'
+import { getAllCategories, getAllTags, getAllIcons } from 'dalim-icons'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
 
 export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCategory, setSelectedCategory, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; selectedIcon: string; setIconVariant: (val: any) => void }) {
     const allCategories = getAllCategories()
     const allTags = getAllTags()
+    const Icons = getAllIcons()
 
     return (
         <div className="sticky top-20 z-10 -mx-6 flex justify-center border bg-neutral-100/60 py-3 backdrop-blur-lg backdrop-filter dark:bg-neutral-900/60">
             <div className="flex w-full flex-wrap justify-center gap-2 px-6">
                 <div className="relative">
                     <Input
-                        placeholder="Search icons..."
+                        placeholder={`Search ${Icons.length} icons...`}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full pl-10"
                     />
+
                     <Search className="text-muted-foreground top-4.5 absolute left-3 h-4 w-4 -translate-y-1/2 transform" />
                 </div>
                 <Select
@@ -72,8 +74,8 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                 </Select>
                 {selectedIcon && (
                     <div>
-                        <h1 className="flex h-9  justify-between items-center text-nowrap rounded-md border font-mono">
-                            <span className="px-4 overflow-hidden w-40">{`<${selectedIcon} />`}</span>
+                        <h1 className="flex h-9 items-center justify-between text-nowrap rounded-md border font-mono">
+                            <span className="w-40 overflow-hidden px-4">{`<${selectedIcon} />`}</span>
                             <CopyButton componentSource={`<${selectedIcon} />`} />
                         </h1>
                     </div>

@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const ArrowBigUpDashMetadata: IconMetadata = {
-  name: "ArrowBigUpDash",
-  category: "Arrow",
-  tags: ["backwards", "reverse", "direction", "south", "down", "arrow"],
-  description: "An icon representing access control or authentication with a key and access cards",
-  author: "Ali Imam",
-  created: "2025-06-09",
-  variants: ["stroke"]
+export const AnvilMetadata: IconMetadata = {
+    name: 'Anvil',
+    category: 'Buildings',
+    tags: ['building', 'home', 'house', 'apartment', 'tower', 'hotel'],
+    description: 'An icon representing access control or authentication with a key and access cards',
+    author: 'Ali Imam',
+    created: '2025-06-09',
+    variants: ['stroke'],
 }
 
-export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Anvil = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -64,9 +64,9 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
         switch (variant) {
             case 'stroke':
                 return (
-                    <> 
+                    <>
                         <motion.path
-                            d="M9 19h6"
+                            d="M7 10H6a4 4 0 0 1-4-4 1 1 0 0 1 1-1h4"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -75,9 +75,9 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
                             animate={controls}
                             custom={{ loop, animation }}
                             variants={pathVariants}
-                        /> 
+                        />
                         <motion.path
-                            d="M9 15v-3H5l7-7 7 7h-4v3H9z"
+                            d="M7 5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1 7 7 0 0 1-7 7H8a1 1 0 0 1-1-1z"
                             stroke={mainStrokeColor}
                             fill="none"
                             strokeWidth={strokeWidth}
@@ -86,10 +86,43 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
                             animate={controls}
                             custom={{ loop, animation }}
                             variants={pathVariants}
-                        /> 
+                        />
+                        <motion.path
+                            d="M9 12v5"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M15 12v5"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M5 20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1"
+                            stroke={mainStrokeColor}
+                            fill="none"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
                     </>
                 )
-             
+
             default:
                 return 'stroke'
         }
@@ -99,7 +132,7 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="ArrowBigUpDash"
+            aria-label="Anvil"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -126,4 +159,4 @@ export const ArrowBigUpDash = forwardRef<IconsHandle, IconsProps>(({ onMouseEnte
     )
 })
 
-ArrowBigUpDash.displayName = 'ArrowBigUpDash'
+Anvil.displayName = 'Anvil'

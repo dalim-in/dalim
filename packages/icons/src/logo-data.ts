@@ -1,12 +1,20 @@
 import { LogoMetadata } from "./types";
 import { 
+  AppleMetadata,
+  CursorMetadata,
   GeminiMetadata,
+  GithubMetadata,
   OpenAIMetadata
 } from "./logos";
+import { VercelMetadata } from "./logos/hosting";
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
   "Gemini": GeminiMetadata,
-  "OpenAI": OpenAIMetadata
+  "OpenAI": OpenAIMetadata,
+  "Apple": AppleMetadata,
+  "Cursor": CursorMetadata,
+  "Vercel": VercelMetadata,
+  "Github": GithubMetadata
 };
 
 // Get all icons

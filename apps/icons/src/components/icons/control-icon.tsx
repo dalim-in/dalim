@@ -536,7 +536,7 @@ export default App;`
     const isDefaultColor = iconColor === 'currentColor'
 
     return (
-        <div className="top-35 sticky border-b pb-6 md:h-screen md:border-b-0 md:border-r md:pr-6">
+        <div className="h-[900px] overflow-auto border-b pb-6 md:border-b-0 md:border-r md:pr-6">
             <canvas
                 ref={canvasRef}
                 className="hidden"
@@ -588,7 +588,7 @@ export default App;`
                 </DialogContent>
             </Dialog>
 
-            <div className="-mt-3 space-y-4">
+            <div className="relative -mt-3 space-y-4">
                 <IconDetails
                     iconSize={iconSize}
                     iconVariant={iconVariant}
@@ -938,9 +938,8 @@ export function ControlIconWWW({
     setLoop: (val: boolean) => void
     selectedIcon: string
 }) {
-     
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const videoRef = useRef<HTMLVideoElement>(null) 
+    const videoRef = useRef<HTMLVideoElement>(null)
 
     const handleReset = () => {
         setIconSize([24])
@@ -1074,7 +1073,6 @@ export function ControlIconWWW({
     }
 
     // Create an animated GIF from the icon
-     
 
     // Download functions
     const downloadSVG = async () => {
@@ -1158,8 +1156,6 @@ export function ControlIconWWW({
         }
     }
 
-     
-
     // Copy functions
     const copySVG = async () => {
         if (!selectedIcon) return
@@ -1239,7 +1235,6 @@ export default App;`
             })
         }
     }
- 
 
     return (
         <div className="">
@@ -1251,8 +1246,8 @@ export default App;`
                 ref={videoRef}
                 className="hidden"
             />
-            
-            <div className="mt-8 mb-12 space-y-4">
+
+            <div className="mb-12 mt-8 space-y-4">
                 {selectedIcon && (
                     <div className="flex flex-wrap gap-2">
                         <DropdownMenu>
@@ -1275,7 +1270,6 @@ export default App;`
                                     className="flex cursor-pointer justify-between">
                                     JPG <Download className="h-4 w-4" />
                                 </DropdownMenuItem>
-                                
                             </DropdownMenuContent>
                         </DropdownMenu>
                         <DropdownMenu>
@@ -1379,12 +1373,17 @@ export default App;`
                         onCheckedChange={setLoop}
                     />
                 </div>
-                <div className="grid pt-3 gap-2">
+                <div className="grid gap-2 pt-3">
                     <Link href={`${ICONS_URL}`}>
-                        <Button className='w-full'>Downlaod All Icons</Button>
+                        <Button className="w-full">Downlaod All Icons</Button>
                     </Link>
                     <Link href={`${ICONS_URL}/logos`}>
-                        <Button className='w-full' variant={'outline'}> Downlaod All Logos</Button>
+                        <Button
+                            className="w-full"
+                            variant={'outline'}>
+                            {' '}
+                            Downlaod All Logos
+                        </Button>
                     </Link>
                 </div>
             </div>

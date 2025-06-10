@@ -12,10 +12,36 @@ import {
   ArrowDown10Metadata,
   ArrowDownAZMetadata,
   AArrowDownMetadata,
-  ArrowBigLeftMetadata 
+  AArrowUpMetadata,
+  ALargeSmallMetadata,
+  AppWindowMetadata,
+  ArrowBigLeftMetadata ,
+  AppWindowMacMetadata,
+  Axis3dMetadata,
+  BetweenHorizontalEndMetadata,
+  BetweenHorizontalStartMetadata,
+  BetweenVerticalEndMetadata,
+  BetweenVerticalStartMetadata,
+  BlendMetadata,
+  BookTypeMetadata,
+  AnvilMetadata,
+  BrickWallMetadata,
+  BuildingMetadata,
+  Building01Metadata,
+  CastleMetadata,
+  ChurchMetadata,
+  DamMetadata,
+  FactoryMetadata,
+  FenceMetadata,
+  HospitalMetadata,
+  HotelMetadata,
+  HouseMetadata
 } from "./icons";
 
 export const iconDatabase: Record<string, IconMetadata> = { 
+
+  // Arrows
+
   "ArrowBigDown": ArrowBigDownMetadata,
   "ArrowBigDownDash": ArrowBigDownDashMetadata,
   "ArrowBigLeft": ArrowBigLeftMetadata,
@@ -28,7 +54,36 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "ArrowDown01": ArrowDown01Metadata,
   "ArrowDown10": ArrowDown10Metadata,
   "ArrowDownAZ": ArrowDownAZMetadata,
-  "AArrowDown": AArrowDownMetadata
+
+  // Design
+
+  "AArrowDown": AArrowDownMetadata,
+  "AArrowUp": AArrowUpMetadata,
+  "ALargeSmall": ALargeSmallMetadata,
+  "AppWindow": AppWindowMetadata,
+  "AppWindowMac": AppWindowMacMetadata,
+  "Axis3d": Axis3dMetadata,
+  "BetweenHorizontalEnd": BetweenHorizontalEndMetadata,
+  "BetweenHorizontalStarta":BetweenHorizontalStartMetadata,
+  "BetweenVerticalEnd": BetweenVerticalEndMetadata,
+  "BetweenVerticalStart": BetweenVerticalStartMetadata,
+  "Blend": BlendMetadata,
+  "BookType": BookTypeMetadata,
+
+  //Buildings
+  
+  "Anvil": AnvilMetadata,
+  "BrickWall": BrickWallMetadata,
+  "Building": BuildingMetadata,
+  "Building01": Building01Metadata,
+  "Castle": CastleMetadata,
+  "Church": ChurchMetadata,
+  "Dam": DamMetadata,
+  "Factory": FactoryMetadata,
+  "Fence": FenceMetadata,
+  "Hospital": HospitalMetadata,
+  "Hotel": HotelMetadata,
+  "House": HouseMetadata
 };
 
 // Get all icons

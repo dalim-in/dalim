@@ -132,7 +132,7 @@ export const ArrowDown10 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, 
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="Access"
+            aria-label="ArrowDown10"
             className={cn('', className)}
             animate={controls}
             initial="normal"

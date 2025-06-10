@@ -99,7 +99,7 @@ export const ArrowBigRightDash = forwardRef<IconsHandle, IconsProps>(({ onMouseE
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="Access"
+            aria-label="ArrowBigRightDash"
             className={cn('', className)}
             animate={controls}
             initial="normal"

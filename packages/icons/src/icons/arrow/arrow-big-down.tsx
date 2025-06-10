@@ -89,7 +89,7 @@ export const ArrowBigDown = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter,
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="Access"
+            aria-label="ArrowBigDown"
             className={cn('', className)}
             animate={controls}
             initial="normal"
