@@ -7,11 +7,12 @@ import { ThemeProvider } from "./theme-provider";
 import { TooltipProvider } from "@dalim/core/ui/tooltip";  
 import { FontPreviewProvider } from "@dalim/core/hooks/use-font-preview";
 
+
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient();
   return (
     <>
-      <QueryClientProvider client={queryClient}>
+       <QueryClientProvider client={queryClient}>
         <SessionProvider>
           <TooltipProvider>
             <ThemeProvider
@@ -25,7 +26,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
             </ThemeProvider>
           </TooltipProvider>
         </SessionProvider>
-      </QueryClientProvider>
+      </QueryClientProvider> 
     </>
   );
 };

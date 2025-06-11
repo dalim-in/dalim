@@ -59,7 +59,19 @@ import {
   CircleOffMetadata,
   CircleSlash2Metadata,
   CircleSmallMetadata,
-  ClubMetadata
+  ClubMetadata,
+  CirclePlusMetadata,
+  GrabMetadata,
+  LassoMetadata,
+  LassoSelectMetadata,
+  LoaderMetadata,
+  LoaderCircleMetadata,
+  LoaderPinwheelMetadata,
+  MousePointerMetadata,
+  MousePointer1Metadata,
+  MousePointerBanMetadata,
+  MousePointerClickMetadata,
+  MoveMetadata
 } from "./icons";
 
 export const iconDatabase: Record<string, IconMetadata> = { 
@@ -137,7 +149,22 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "CircleOff": CircleOffMetadata,
   "CircleSlash2": CircleSlash2Metadata,
   "CircleSmall": CircleSmallMetadata,
-  "Club": ClubMetadata
+  "Club": ClubMetadata,
+
+  // Cursors
+
+  "CirclePlus": CirclePlusMetadata,
+  "Grab": GrabMetadata,
+  "Lasso": LassoMetadata,
+  "LassoSelect": LassoSelectMetadata,
+  "Loader": LoaderMetadata,
+  "LoaderCircle": LoaderCircleMetadata,
+  "LoaderPinwheel": LoaderPinwheelMetadata,
+  "MousePointer": MousePointerMetadata,
+  "MousePointer1": MousePointer1Metadata,
+  "MousePointerBan": MousePointerBanMetadata,
+  "MousePointerClick": MousePointerClickMetadata,
+  "Move": MoveMetadata
 
 };
 

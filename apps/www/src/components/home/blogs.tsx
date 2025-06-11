@@ -29,7 +29,7 @@ export async function BlogHome() {
                         </Badge>
                     </div>
 
-                    <h2 className="mt-5 text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Design That Speaks</h2>
+                    <h2 className="mt-5 text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Designs That Learn</h2>
                     <p className="mt-2 pb-10 text-center opacity-60">Exploring ideas that connect, communicate, and inspire.</p>
                     <div className="">
                         <BlogPostsHome posts={posts} />
