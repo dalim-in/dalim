@@ -1,2 +1,5 @@
 export * from './ai'
 export * from './software'
+export * from './hosting'
+export * from './browser'
+export * from './design'

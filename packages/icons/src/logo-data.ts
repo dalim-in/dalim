@@ -4,9 +4,15 @@ import {
   CursorMetadata,
   GeminiMetadata,
   GithubMetadata,
-  OpenAIMetadata
-} from "./logos";
-import { VercelMetadata } from "./logos/hosting";
+  OpenAIMetadata,
+  ChromeMetadata,
+  VercelMetadata,
+  PhotoshopMetadata,
+  IllustratorMetadata,
+  AfterEffectsMetadata,
+  PremiereProMetadata,
+  FigmaMetadata
+} from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
   "Gemini": GeminiMetadata,
@@ -14,7 +20,15 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Apple": AppleMetadata,
   "Cursor": CursorMetadata,
   "Vercel": VercelMetadata,
-  "Github": GithubMetadata
+  "Github": GithubMetadata,
+  "Chrome": ChromeMetadata,
+
+  // Design
+
+  "Photoshop": PhotoshopMetadata,
+  "Illustrator": IllustratorMetadata,
+  "AfterEffects": AfterEffectsMetadata,
+  "PremierePro": PremiereProMetadata, 
 };
 
 // Get all icons

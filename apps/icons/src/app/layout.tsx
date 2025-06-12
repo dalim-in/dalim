@@ -9,7 +9,7 @@ import './globals.css'
 import { HeaderIcons } from '@dalim/core/components/layout/header'
 import { FooterAgency } from '@dalim/core/components/layout/footer'
 import Providers from '../components/providers'
-import { Loader } from 'lucide-react'
+import { Loader } from 'lucide-react' 
 const fontSans = Geist({
     subsets: ['latin'],
     variable: '--font-sans',
@@ -46,6 +46,7 @@ export default function RootLayout({
                                             />
                                         </div>
                                     }>
+                                        
                                     <main className="grow">{children}</main>
                                 </Suspense>
                                 <FooterAgency />

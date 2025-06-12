@@ -1,0 +1,5 @@
+export * from './photoshop' 
+export * from './illustrator' 
+export * from './after-effects' 
+export * from './premiere-pro' 
+export * from './figma' 

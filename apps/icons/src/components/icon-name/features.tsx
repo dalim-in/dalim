@@ -11,7 +11,7 @@ export function Features() {
                     <p className="text-primary/60 mt-3">Made for Creators.</p>
                 </div>
                 <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-3 pt-6">
-                    <Card className="bg-white dark:bg-black">
+                    <Card className="bg-white dark:bg-neutral-950">
                         <CardHeader className="">
                             <CardDecorator>
                                 <Zap
@@ -28,7 +28,7 @@ export function Features() {
                             <p className="text-sm text-primary/60">Icons are lightweight, highly optimized scalable vector graphics (SVG).</p>
                         </CardContent>
                     </Card>
-                   <Card className="bg-white dark:bg-black">
+                  <Card className="bg-white dark:bg-neutral-950">
                         <CardHeader className="">
                             <CardDecorator>
                                 <Sparkles
@@ -45,7 +45,7 @@ export function Features() {
                             <p className="text-sm text-primary/60">Designed with a strict set of design rules for consistency in style and readability.</p>
                         </CardContent>
                     </Card>
-                   <Card className="bg-white dark:bg-black">
+                  <Card className="bg-white dark:bg-neutral-950">
                         <CardHeader className="">
                             <CardDecorator>
                                 <SlidersHorizontal
@@ -62,7 +62,7 @@ export function Features() {
                             <p className="text-sm text-primary/60">Customize the color, size, stroke width, and more.</p>
                         </CardContent>
                     </Card>
-                   <Card className="bg-white dark:bg-black">
+                  <Card className="bg-white dark:bg-neutral-950">
                         <CardHeader className="">
                             <CardDecorator>
                                 <Cog
@@ -95,6 +95,6 @@ const CardDecorator = ({ children }: { children: ReactNode }) => (
             aria-hidden
             className="bg-radial to-background absolute inset-0 from-transparent to-75%"
         />
-        <div className="bg-background absolute rounded-xl inset-0 m-auto flex size-18 items-center justify-center border-l border-t">{children}</div>
+        <div className="bg-background absolute rounded-xl inset-0 m-auto flex size-18 items-center justify-center border">{children}</div>
     </div>
 )

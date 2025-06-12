@@ -8,23 +8,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim
 import { Label } from '@dalim/core/ui/label'
 import { RadioGroup, RadioGroupItem } from '@dalim/core/ui/radio-group'
 
-export function IconShowcase({
-  searchTerm,
-  selectedIcon,
-  setSelectedIcon,
-  selectedCategory,
-  selectedTag, 
-  iconVariant,
-  iconColor, 
-}: {
-  searchTerm: string
-  selectedCategory: string
-  selectedTag: string
-  iconVariant: 'icon' | 'wordmark'
-  iconColor: string 
-  selectedIcon: string
-  setSelectedIcon: any
-}) {
+export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, selectedCategory, selectedTag, iconVariant, iconColor }: { searchTerm: string; selectedCategory: string; selectedTag: string; iconVariant: 'icon' | 'wordmark'; iconColor: string; selectedIcon: string; setSelectedIcon: any }) {
     const allLogos = getAllLogos()
 
     const filteredIcons = useMemo(() => {
@@ -46,7 +30,7 @@ export function IconShowcase({
             <Logo
                 size={100}
                 variant={iconVariant}
-                color={iconColor} 
+                color={iconColor}
             />
         )
     }
@@ -56,16 +40,16 @@ export function IconShowcase({
     }
 
     return (
-        <div className="my-4 mx-1">
+        <div className="mx-1 my-4">
             <RadioGroup
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                <div className="flex flex-wrap  justify-center gap-2 md:justify-start">
                     {filteredIcons.map((logo) => (
                         <div
                             key={logo.name}
-                            className="flex items-center">
+                            className="flex h-40 w-40  items-center">
                             <RadioGroupItem
                                 value={logo.name}
                                 id={logo.name}
@@ -73,18 +57,18 @@ export function IconShowcase({
                             />
                             <Label
                                 htmlFor={logo.name}
-                                className="cursor-pointer">
+                                className="cursor-pointer ">
                                 <TooltipProvider delayDuration={0}>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                             <div
-                                                className={`hover:bg-muted/60 dark:hover:bg-muted/20 bg-muted dark:bg-muted/20 flex h-40 w-40 cursor-pointer items-center justify-center rounded-md transition ${selectedIcon === logo.name ? 'ring-primary bg-muted/40 border' : ''}`}
+                                                className={`hover:bg-muted/60 dark:hover:bg-muted/20 bg-muted dark:bg-muted/20 flex h-40 w-40 cursor-pointer items-center justify-center rounded-[40px] transition ${selectedIcon === logo.name ? 'ring-primary bg-muted/40 border' : ''}`}
                                                 onClick={() => handleIconClick(logo.name)}>
                                                 <IconComponent iconName={logo.name} />
                                             </div>
                                         </TooltipTrigger>
                                         <TooltipContent
-                                            className="-mt-2"
+                                            className="-mt-4"
                                             side="bottom">
                                             {logo.name}
                                         </TooltipContent>
