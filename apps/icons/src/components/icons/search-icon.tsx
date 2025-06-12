@@ -9,7 +9,7 @@ import { Button } from '@dalim/core/ui/button'
 import Link from 'next/link'
 
 export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCategory, setSelectedCategory, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; selectedIcon: string; setIconVariant: (val: any) => void }) {
-    const allCategories = getAllCategories()
+    const allCategories: string[] = getAllCategories()
     const allTags = getAllTags()
     const Icons = getAllIcons()
 
@@ -83,7 +83,7 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                     </div>
                 )}
                 <Link  href="mailto:contact@dalim.in">
-                    <Button>Submit an Icon</Button>
+                    <Button>Request an Icon</Button>
                 </Link>
             </div>
         </div>

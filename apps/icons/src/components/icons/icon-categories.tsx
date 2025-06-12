@@ -3,10 +3,11 @@
 import { getAllCategories } from 'dalim-icons'
 
 export function IconCategory({ selectedCategory, setSelectedCategory }: { selectedCategory: string; setSelectedCategory: (val: string) => void }) {
-    const allCategories = getAllCategories()
+    const allCategories: string[] = getAllCategories()
+
 
     return (
-        <div className="grid mt-4 gap-0.5 text-start w-full">
+        <div className="grid mt-4 gap-0.5 text-start w-full"> 
             <div
                 onClick={() => setSelectedCategory('all')}
                 className={`rounded-lg  px-4 py-2 text-sm cursor-pointer font-medium ${selectedCategory === 'all' ? 'bg-black dark:bg-white text-white dark:text-black' : 'hover:bg-muted '}`}>
@@ -24,3 +25,4 @@ export function IconCategory({ selectedCategory, setSelectedCategory }: { select
         </div>
     )
 }
+

@@ -25,6 +25,7 @@ import { CodeBlock } from '@dalim/core/components/common/code-block'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
 import Link from 'next/link'
+import { Features } from './features'
 
 export function IconDetailed() {
     const router = useRouter()
@@ -448,33 +449,8 @@ export function IconDetailed() {
         })
     }
 
-    const shareIcon = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: `${iconData.name} Icon`,
-                    text: `Check out this ${iconData.name} icon from Dalim Icons`,
-                    url: window.location.href,
-                })
-            } catch (error) {
-                // Fallback to clipboard
-                await navigator.clipboard.writeText(window.location.href)
-                toast({
-                    title: 'Link copied!',
-                    description: 'Icon link copied to clipboard.',
-                })
-            }
-        } else {
-            await navigator.clipboard.writeText(window.location.href)
-            toast({
-                title: 'Link copied!',
-                description: 'Icon link copied to clipboard.',
-            })
-        }
-    }
-
-    const isDefaultSize = size[0] === 48
-    const isDefaultStroke = strokeWidth[0] === 1.5
+    const isDefaultSize = size[0] === 92
+    const isDefaultStroke = strokeWidth[0] === 2
     const isDefaultColor = color === 'currentColor'
 
     return (
@@ -666,7 +642,7 @@ export function IconDetailed() {
                                         id="loop"
                                         checked={loop}
                                         onCheckedChange={setLoop}
-                                    />
+                                    /> 
                                 </div>
                             </div>
                         </div>
@@ -699,12 +675,10 @@ export function IconDetailed() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-                        <h1 className="mt-4 text-xs opacity-60">All Categories</h1>
-                        <p className="text-md mt-2 opacity-80">Coming Soon!</p>
+                        <div className="relative pb-10 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
                     </div>
 
-                    <div className="">
+                    <div className="h-[950px] overflow-auto">
                         <div className="px-3">
                             <div className="flex items-start justify-between">
                                 <div>
@@ -730,7 +704,7 @@ export function IconDetailed() {
                                                         <Badge
                                                             key={tag}
                                                             variant="outline"
-                                                             className="hover:bg-primary hover:text-primary-foreground text-xs">
+                                                            className="hover:bg-primary hover:text-primary-foreground text-xs">
                                                             {tag}
                                                         </Badge>
                                                     </Link>
@@ -868,6 +842,17 @@ export function IconDetailed() {
                                                         PNG <Copy className="h-4 w-4" />
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem
+                                                        onClick={() => {
+                                                            navigator.clipboard.writeText(`<${iconName} />`)
+                                                            toast({
+                                                                title: 'Copied!',
+                                                                description: 'TSX code copied to clipboard.',
+                                                            })
+                                                        }}
+                                                        className="flex cursor-pointer justify-between">
+                                                        TSX <Copy className="h-4 w-4" />
+                                                    </DropdownMenuItem>
+                                                    <DropdownMenuItem
                                                         onClick={handleCopyCode}
                                                         className="flex cursor-pointer justify-between">
                                                         React Code <Copy className="h-4 w-4" />
@@ -906,7 +891,7 @@ export function IconDetailed() {
     
 const App = () => {
   return (
-    <${iconData.name}${!isDefaultSize ? `\n      size={${iconData.name[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconData.name}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''}
+    <${iconData.name}  ${!isDefaultSize ? `\n      size={${size[0]}}` : ''}${!isDefaultColor ? `\n      color="${color}"` : ''}${!isDefaultStroke ? `\n      strokeWidth={${strokeWidth[0]}}` : ''}${animation ? '\n      animation' : ''}${loop ? '\n      loop' : ''}
     />
   );
 }
@@ -946,9 +931,7 @@ export default App;`}
                                 </div>
                             </div>
                         </div>
-
                         <div className="relative pb-6 before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-
                         <div className="my-3 overflow-hidden px-3">
                             <div className="flex justify-between gap-3">
                                 {iconData.author && (
@@ -972,8 +955,11 @@ export default App;`}
                             </div>
                         </div>
                         <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-
-                        <div className="bg-primary/10 my-3 mt-6 h-[400px] rounded-xl py-20 text-center">More Coming Soon</div>
+                        <h1 className='py-6 font-semibold text-xl text-center'>
+                            More Icons Like This
+                            </h1>
+                        <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+                        <Features />
                     </div>
                 </div>
             </div>

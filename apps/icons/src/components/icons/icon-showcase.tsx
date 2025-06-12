@@ -7,33 +7,35 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim
 
 import { Label } from '@dalim/core/ui/label'
 import { RadioGroup, RadioGroupItem } from '@dalim/core/ui/radio-group'
+import Link from 'next/link'
+import { Button } from '@dalim/core/ui/button'
 
 export function IconShowcase({
-  searchTerm,
-  selectedIcon,
-  setSelectedIcon,
-  selectedCategory,
-  selectedTag,
-  strokeLinecap,
-  strokeLinejoin,
-  iconVariant,
-  iconColor,
-  strokeWidth,
-  animation,
-  loop,
+    searchTerm,
+    selectedIcon,
+    setSelectedIcon,
+    selectedCategory,
+    selectedTag,
+    strokeLinecap,
+    strokeLinejoin,
+    iconVariant,
+    iconColor,
+    strokeWidth,
+    animation,
+    loop,
 }: {
-  searchTerm: string
-  selectedCategory: string
-  selectedTag: string
-  iconVariant: "stroke" | "solid" | "duotone" | "twotone" | "bulk"
-  iconColor: string
-  strokeWidth: number[]
-  animation: boolean
-  strokeLinecap: "butt" | "round" | "square"
-  strokeLinejoin: "round" | "miter" | "bevel"
-  loop: boolean
-  selectedIcon: string
-  setSelectedIcon: any
+    searchTerm: string
+    selectedCategory: string
+    selectedTag: string
+    iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'
+    iconColor: string
+    strokeWidth: number[]
+    animation: boolean
+    strokeLinecap: 'butt' | 'round' | 'square'
+    strokeLinejoin: 'round' | 'miter' | 'bevel'
+    loop: boolean
+    selectedIcon: string
+    setSelectedIcon: any
 }) {
     const allIcons = getAllIcons()
 
@@ -71,7 +73,16 @@ export function IconShowcase({
     }
 
     return (
-        <div className="my-4 overflow-auto h-[868px] mx-1">
+        <div className="mx-1 my-4 h-[868px] overflow-auto">
+            {filteredIcons.length === 0 && (
+                <div className="text-muted-foreground grid gap-3 py-40 text-center text-sm">
+                    No icons found for this search.
+                    <Link href="mailto:contact@dalim.in">
+                        <Button>Request an Icon</Button>
+                    </Link>
+                </div>
+            )}
+
             <RadioGroup
                 value={selectedIcon}
                 className=""
@@ -115,33 +126,32 @@ export function IconShowcase({
 }
 
 export function IconShowcaseWWW({
-  searchTerm,
-  selectedIcon,
-  setSelectedIcon,   
-  iconColor,
-  strokeWidth,
-  animation,
-  loop,
+    searchTerm,
+    selectedIcon,
+    setSelectedIcon,
+    iconColor,
+    strokeWidth,
+    animation,
+    loop,
 }: {
-  searchTerm: string 
-   
-  iconColor: string
-  strokeWidth: number[]
-  animation: boolean 
-  loop: boolean
-  selectedIcon: string
-  setSelectedIcon: any
+    searchTerm: string
+
+    iconColor: string
+    strokeWidth: number[]
+    animation: boolean
+    loop: boolean
+    selectedIcon: string
+    setSelectedIcon: any
 }) {
     const allIcons = getAllIcons()
 
     const filteredIcons = useMemo(() => {
         return allIcons.filter((icon) => {
             const matchesSearch = searchTerm === '' || icon.name.toLowerCase().includes(searchTerm.toLowerCase()) || icon.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
- 
 
-            return matchesSearch 
+            return matchesSearch
         })
-    }, [allIcons, searchTerm,])
+    }, [allIcons, searchTerm])
 
     const IconComponent = ({ iconName }: { iconName: string }) => {
         const Icon = (Icons as Record<string, any>)[iconName]
@@ -149,8 +159,8 @@ export function IconShowcaseWWW({
 
         return (
             <Icon
-                size={32} 
-                color={iconColor} 
+                size={32}
+                color={iconColor}
                 strokeWidth={strokeWidth[0]}
                 animation={animation}
                 loop={loop}
@@ -163,7 +173,7 @@ export function IconShowcaseWWW({
     }
 
     return (
-        <div className="overflow-auto h-[400px]">
+        <div className="h-[400px] overflow-auto">
             <RadioGroup
                 value={selectedIcon}
                 className=""
