@@ -833,12 +833,13 @@ export default App;`}
                     />
                 </div>
             </div>
+            <div className='hidden md:block'>
             <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-
             <IconCategory
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
             />
+            </div>
         </div>
     )
 }

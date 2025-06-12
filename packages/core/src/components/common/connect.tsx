@@ -140,7 +140,7 @@ export function Connect({ className }: ConnectProps) {
                                                 </span>
                                             </Link>
                                             <Link
-                                                href="https://wa.me/917678432186"
+                                                href="https://chat.whatsapp.com/DPQHEVWBy2mHPFokil97rL"
                                                 target="_blank"
                                                 className={cn(
                                                     buttonVariants({

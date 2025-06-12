@@ -59,6 +59,9 @@
     "FONTS_URL",
     "AUTH_URL",
     "GRAPHIC_URL",
-    "ICONS_URL"
+    "ICONS_URL",
+    "SPOTIFY_CLIENT_ID",
+    "SPOTIFY_CLIENT_SECRET",
+    "SPOTIFY_REFRESH_TOKEN"
   ]
 }

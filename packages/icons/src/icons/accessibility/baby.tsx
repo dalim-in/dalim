@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const HouseMetadata: IconMetadata = {
-    name: 'House',
-    category: 'Buildings',
-    tags: ['building', 'home', 'house', 'apartment', 'tower', 'hut'],
-    description: 'An icon representing access control or authentication with a key and access cards',
-    author: 'Ali Imam',
-    created: '2025-06-09',
-    variants: ['stroke'],
+export const BabyMetadata: IconMetadata = {
+  name: "Baby",
+  category: "Accessibility",
+  tags: ["backwards", "reverse", "direction", "south", "down", "arrow"],
+  description: "An icon representing access control or authentication with a key and access cards",
+  author: "Ali Imam",
+  created: "2025-06-09",
+  variants: ["stroke"]
 }
 
-export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Baby = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -64,32 +64,59 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
         switch (variant) {
             case 'stroke':
                 return (
-                    <>
-                        <motion.path
-                            d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.path
-                            d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        /> 
-  </>
-                )
+                    <> 
+                       <motion.path
+  d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
 
+<motion.path
+  d="M15 12h.01"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+
+<motion.path
+  d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+
+<motion.path
+  d="M9 12h.01"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+
+                         
+                    </>
+                )
+             
             default:
                 return 'stroke'
         }
@@ -99,7 +126,7 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="House"
+            aria-label="Baby"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -126,4 +153,4 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
     )
 })
 
-House.displayName = 'House'
+Baby.displayName = 'Baby'

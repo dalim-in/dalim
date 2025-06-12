@@ -6,17 +6,18 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const HouseMetadata: IconMetadata = {
-    name: 'House',
-    category: 'Buildings',
-    tags: ['building', 'home', 'house', 'apartment', 'tower', 'hut'],
-    description: 'An icon representing access control or authentication with a key and access cards',
-    author: 'Ali Imam',
-    created: '2025-06-09',
-    variants: ['stroke'],
+export const EarOffMetadata: IconMetadata = {
+  name: "EarOff",
+  category: "Accessibility",
+  tags: ["help", "question", "support", "information", "circle", "faq"],
+  description: "An icon depicting a question mark inside a circle, commonly used for help or support indications.",
+  author: "Ali Imam",
+  created: "2025-06-09",
+  variants: ["stroke"]
 }
 
-export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+
+export const EarOff = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -64,32 +65,79 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
         switch (variant) {
             case 'stroke':
                 return (
-                    <>
-                        <motion.path
-                            d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.path
-                            d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                            stroke={mainStrokeColor}
-                            fill="none"
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        /> 
-  </>
+                    <> 
+                    <motion.path
+  d="M6 18.5a3.5 3.5 0 1 0 7 0c0-1.57.92-2.52 2.04-3.46"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+<motion.path
+  d="M6 8.5c0-.75.13-1.47.36-2.14"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+<motion.path
+  d="M8.8 3.15A6.5 6.5 0 0 1 19 8.5c0 1.63-.44 2.81-1.09 3.76"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+<motion.path
+  d="M12.5 6A2.5 2.5 0 0 1 15 8.5"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+<motion.path
+  d="M10 13a2 2 0 0 0 1.82-1.18"
+  stroke={mainStrokeColor}
+  fill="none"
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+<motion.line
+  x1="2"
+  y1="2"
+  x2="22"
+  y2="22"
+  stroke={mainStrokeColor}
+  strokeWidth={strokeWidth}
+  strokeLinecap={strokeLinecap}
+  strokeLinejoin={strokeLinejoin}
+  animate={controls}
+  custom={{ loop, animation }}
+  variants={pathVariants}
+/>
+   
+                    </>
                 )
-
+             
             default:
                 return 'stroke'
         }
@@ -99,7 +147,7 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="House"
+            aria-label="EarOff"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -126,4 +174,4 @@ export const House = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMous
     )
 })
 
-House.displayName = 'House'
+EarOff.displayName = 'EarOff'

@@ -13,6 +13,7 @@ import Analytics from '../components/analytics'
 import { Metadata } from 'next/types'
 import Providers from '../components/providers'
 import { Loader } from 'lucide-react'
+import NowPlaying from '../components/common/now-playing'
 
 const fontSans = Geist({
     subsets: ['latin'],
@@ -55,7 +56,7 @@ export default function RootLayout({
                                 </Suspense>
                                 <CookieConsent />
                                 <Footer />
-                                
+                                 <NowPlaying />
                             </div>
                         </div>
                     </div>

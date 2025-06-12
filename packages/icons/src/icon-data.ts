@@ -71,8 +71,20 @@ import {
   MousePointer1Metadata,
   MousePointerBanMetadata,
   MousePointerClickMetadata,
-  MoveMetadata
-} from "./icons";
+  AccessibilityMetadata,
+  MoveMetadata,
+  BabyMetadata,
+  BadgeHelpMetadata,
+  CircleHelpMetadata,
+  ContrastMetadata,
+  EarOffMetadata,
+  EarMetadata,
+  EclipseMetadata,
+  EyeClosedMetadata,
+  EyeOffMetadata,
+  EyeMetadata,
+  GlassesMetadata
+} from "./icons"; 
 
 export const iconDatabase: Record<string, IconMetadata> = { 
 
@@ -100,7 +112,7 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "AppWindowMac": AppWindowMacMetadata,
   "Axis3d": Axis3dMetadata,
   "BetweenHorizontalEnd": BetweenHorizontalEndMetadata,
-  "BetweenHorizontalStarta":BetweenHorizontalStartMetadata,
+  "BetweenHorizontalStart":BetweenHorizontalStartMetadata,
   "BetweenVerticalEnd": BetweenVerticalEndMetadata,
   "BetweenVerticalStart": BetweenVerticalStartMetadata,
   "Blend": BlendMetadata,
@@ -164,7 +176,22 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "MousePointer1": MousePointer1Metadata,
   "MousePointerBan": MousePointerBanMetadata,
   "MousePointerClick": MousePointerClickMetadata,
-  "Move": MoveMetadata
+  "Move": MoveMetadata,
+
+  // Accessibility
+
+  "Accessibility": AccessibilityMetadata,
+  "Baby": BabyMetadata,
+  "BadgeHelp": BadgeHelpMetadata,
+  "CircleHelp": CircleHelpMetadata,
+  "Contrast": ContrastMetadata,
+  "EarOff": EarOffMetadata,
+  "Ear": EarMetadata,
+  "Eclipse": EclipseMetadata,
+  "EyeClosed": EyeClosedMetadata,
+  "EyeOff": EyeOffMetadata,
+  "Eye": EyeMetadata,
+  "Glasses": GlassesMetadata
 
 };
 

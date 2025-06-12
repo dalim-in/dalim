@@ -70,6 +70,15 @@ const OPTIONS = [
         },
     },
     {
+        value: 'visuals',
+        label: 'Visuals',
+        disabled: true,
+        urls: {
+            prod: 'https://visuals.dalim.in',
+            dev: 'http://localhost:3009',
+        },
+    },
+    {
         value: 'pro',
         label: 'Pro',
         disabled: true,

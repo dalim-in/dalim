@@ -2,13 +2,15 @@
 import React, { useTransition } from 'react'
 import { toast } from '@dalim/core/hooks/use-toast'
 import { Button } from '@dalim/core/ui/button'
-import { Input } from '@dalim/core/ui/input' 
+import { Input } from '@dalim/core/ui/input'
 import { Hourglass, LoaderCircle, Mail, User } from 'lucide-react'
 import { useState } from 'react'
 import { Badge } from '@dalim/core/ui/badge'
 import { Globe } from '@dalim/core/components/backgrunds/globe'
+import { WhatsApp, WhatsAppJoin } from '@dalim/core/components/logos'
+import Link from 'next/link'
 
-const EmailForm = ( ) => {
+const EmailForm = () => {
     const [isPending, startTransaction] = useTransition()
 
     const [, setIsLoading] = useState<boolean>(false)
@@ -72,87 +74,101 @@ const EmailForm = ( ) => {
         })
     }
     return (
-        <div className='border-y -mx-6 mb-10'>
-            <div className='grid md:grid-cols-2'>
-               <div className="relative flex h-full w-full justify-center overflow-hidden">
-       
-      <Globe className="top-2" />
-     </div>
-        <div className="flex flex-col justify-center space-y-6 p-6 md:p-10">
-            <div className="space-y-3">
-                {/* <div className="text-orange-500 font-medium">Limited Time Offer</div> */}
-                <Badge className='bg-green-500 text-sm text-white'>
-                    <Hourglass
-                        className='w-3 mr-1 h-3'
-                        strokeWidth={2}
-                        aria-hidden="true"
-                    />
-                    {getDaysLeft()} days left
-                </Badge> 
-                <h1 className="text-3xl font-semibold leading-tight md:text-4xl">Designs With AI.</h1>
-                <p className='text-primary/60 text-xs'>A platform for discovering open-source design projects, fostering creative collaboration, and growing together — connecting designers with impactful projects and passionate contributors.</p>
-            </div>
-
-            <form
-                onSubmit={(e) => handleSubmit(e)}
-                className="">
-                <div className='flex flex-wrap gap-2'> 
-                    <div className="relative">
-                        <Input
-                            type="text"
-                            name="name"
-                            id="name"
-                            required
-                            placeholder="Name..."
-                        />
-                        <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50">
-                            <User
-                                size={16}
-                                strokeWidth={2}
-                                aria-hidden="true"
-                            />
-                        </div>
-                    </div>
-                    <div className="relative">
-                        <Input
-                            type="email"
-                            className='w-60'
-                            name="email"
-                            id="email"
-                            required
-                            placeholder="Email Address..."
-                        />
-                        <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50">
-                            <Mail
-                                size={16}
-                                strokeWidth={2}
-                                aria-hidden="true"
-                            />
-                        </div>
+        <div className="-mx-6 mb-10 border-y">
+            <div className="grid items-center md:grid-cols-[40%_20%_40%]">
+                <div className="relative flex h-full w-full justify-center overflow-hidden">
+                    <Globe className="top-2" />
+                </div>
+                <div className="h-full border-x">
+                    <div className="flex flex-col pt-6 items-center justify-center gap-3">
+                        <h1 className="text-lg font-semibold text-center leading-tight md:text-xl px-10">Connect with Designers.</h1>
+                        <WhatsAppJoin className="h-40 w-full" />
+                        <Link
+                            href="https://chat.whatsapp.com/DPQHEVWBy2mHPFokil97rL"
+                            target="_blank">
+                            <Button className="">
+                                <WhatsApp className="h-4 w-4" /> Join Community
+                            </Button>
+                        </Link>
                     </div>
                 </div>
-                <Button
-                    onClick={handleClick}
-                    disabled={isPending}
-                    data-loading={isPending}
-                    type="submit"
-                    className="group mt-2 relative disabled:opacity-100">
-                    <span className="group-data-[loading=true]:text-transparent">Join the waitlist</span>
-                    {isPending && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <LoaderCircle
-                                className="animate-spin"
-                                size={16}
+                <div className="flex flex-col justify-center space-y-6 p-6 md:p-10">
+                    <div className="gap-3 justify-center flex flex-col md:text-start text-center">
+                        <div>
+                        <Badge className="bg-green-500 w-fit text-sm text-white">
+                            <Hourglass
+                                className="mr-1 h-3 w-3"
                                 strokeWidth={2}
                                 aria-hidden="true"
                             />
+                            {getDaysLeft()} days left
+                        </Badge>
                         </div>
-                    )}
-                </Button>
-                
-            </form>
+                        <h1 className="text-3xl font-semibold leading-tight md:text-4xl">Designs With AI.</h1>
+                        <p className="text-primary/60 text-xs">A platform for discovering open-source design projects, fostering creative collaboration, and growing together — connecting designers with impactful projects and passionate contributors.</p>
+                    </div>
+
+                    <form
+                        onSubmit={(e) => handleSubmit(e)}
+                        className="grid justify-center md:justify-start">
+                        <div className="flex flex-wrap gap-2">
+                            <div className="relative">
+                                <Input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    required
+                                    placeholder="Name..."
+                                />
+                                <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50">
+                                    <User
+                                        size={16}
+                                        strokeWidth={2}
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                            </div>
+                            <div className="relative">
+                                <Input
+                                    type="email"
+                                    className="w-60"
+                                    name="email"
+                                    id="email"
+                                    required
+                                    placeholder="Email Address..."
+                                />
+                                <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 end-0 flex items-center justify-center pe-3 peer-disabled:opacity-50">
+                                    <Mail
+                                        size={16}
+                                        strokeWidth={2}
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mt-2 justify-center md:justify-start flex items-center gap-2">
+                            <Button
+                                onClick={handleClick}
+                                disabled={isPending}
+                                data-loading={isPending}
+                                type="submit"
+                                className="group relative disabled:opacity-100">
+                                <span className="group-data-[loading=true]:text-transparent">Join the Waitlist</span>
+                                {isPending && (
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <LoaderCircle
+                                            className="animate-spin"
+                                            size={16}
+                                            strokeWidth={2}
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                )}
+                            </Button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
     )
 }
