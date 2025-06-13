@@ -44,6 +44,13 @@ enum GraphicCategory {
   OTHER
 }
 
+enum VisualsCategory {
+  PORTFOLIO
+  BRANDING
+  TOOLS 
+  AI
+}
+
 enum DownloadType {
   GRAPHIC
   FONT
@@ -120,6 +127,7 @@ model User {
   sessions  Session[]
   fonts     Font[]
   graphics  Graphic[]
+  visuals  Visuals[]
   downloads Download[]
   
   // Chat related fields
@@ -209,6 +217,28 @@ model Graphic {
   @@index([category])
   @@index([featured])
   @@map(name: "graphics")
+}
+
+model Visuals {
+  id             String          @id @default(cuid())
+  title          String
+  description    String?         @db.Text
+  category       VisualsCategory
+  image          String       
+  link           String
+  tags           String[]        @default([])
+  viewCount      Int             @default(0)
+  visitCount     Int             @default(0)
+  featured       Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  userId         String
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([category])
+  @@index([featured])
+  @@map(name: "visuals")
 }
 
 model Download {

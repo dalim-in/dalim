@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const BadgeInfo1Metadata: IconMetadata = {
-    name: 'BadgeInfo1',
+export const PersonStandingMetadata: IconMetadata = {
+    name: 'PersonStanding',
     category: 'Accessibility',
-    tags: ['backwards', 'reverse', 'direction', 'south', 'down', 'arrow'],
-    description: 'An icon representing access control or authentication with a key and access cards',
+    tags: ['help', 'question', 'support', 'PersonStanding', 'circle', 'faq'],
+    description: 'An icon depicting a question mark inside a circle, commonly used for help or support indications.',
     author: 'Ali Imam',
-    created: '2025-06-09',
+    created: '2025-06-13',
     variants: ['stroke'],
 }
 
-export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const PersonStanding = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -65,8 +65,21 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
             case 'stroke':
                 return (
                     <>
+                        <motion.circle
+                            cx="12"
+                            cy="5"
+                            r="1"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
                         <motion.path
-                            d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                            d="m9 20 3-6 3 6"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -76,11 +89,8 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
                             custom={{ loop, animation }}
                             variants={pathVariants}
                         />
-                        <motion.line
-                            x1="12"
-                            y1="16"
-                            x2="12"
-                            y2="12"
+                        <motion.path
+                            d="m6 8 6 2 6-2"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -90,11 +100,8 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
                             custom={{ loop, animation }}
                             variants={pathVariants}
                         />
-                        <motion.line
-                            x1="12"
-                            y1="8"
-                            x2="12.01"
-                            y2="8"
+                        <motion.path
+                            d="M12 10v4"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -116,7 +123,7 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="BadgeInfo1"
+            aria-label="PersonStanding"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -143,4 +150,4 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
     )
 })
 
-BadgeInfo1.displayName = 'BadgeInfo1'
+PersonStanding.displayName = 'PersonStanding'

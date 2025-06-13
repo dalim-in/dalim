@@ -1,3 +1,4 @@
+import { ChatDesigner } from '@/src/components/dashboard/chat-with-designer'
 import { DashboardStats } from '@/src/components/dashboard/dashboard-stats'
 import { auth } from '@dalim/auth'
 import { prisma } from '@dalim/db'
@@ -80,8 +81,7 @@ export default async function DashboardPage() {
             <div className="mb-8">
                 <h1 className="text-3xl font-bold">Dashboard</h1>
                 <p className="text-muted-foreground mt-2">Welcome back, {session.user.name}! Here's an overview of your fonts.</p>
-            </div>
-
+            </div> 
             <DashboardStats
                 totalFonts={dashboardData.totalFonts}
                 totalFontViews={dashboardData.totalFontViews}
@@ -89,7 +89,10 @@ export default async function DashboardPage() {
                 totalGraphics={dashboardData.totalGraphics}
                 totalGraphicViews={dashboardData.totalGraphicViews}
                 totalGraphicDownloads={dashboardData.totalGraphicDownloads}
-            />
+            /> 
+            <div className='py-10 flex justify-center'>
+            <ChatDesigner/>
+            </div>
         </div>
     )
 }

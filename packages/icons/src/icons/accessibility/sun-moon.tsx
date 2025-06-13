@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const BadgeInfo1Metadata: IconMetadata = {
-    name: 'BadgeInfo1',
+export const SunMoonMetadata: IconMetadata = {
+    name: 'SunMoon',
     category: 'Accessibility',
-    tags: ['backwards', 'reverse', 'direction', 'south', 'down', 'arrow'],
-    description: 'An icon representing access control or authentication with a key and access cards',
+    tags: ['help', 'question', 'support', 'SunMoon', 'circle', 'faq'],
+    description: 'An icon depicting a question mark inside a circle, commonly used for help or support indications.',
     author: 'Ali Imam',
-    created: '2025-06-09',
+    created: '2025-06-13',
     variants: ['stroke'],
 }
 
-export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const SunMoon = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -66,7 +66,7 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
                 return (
                     <>
                         <motion.path
-                            d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                            d="M12 8a2.83 2.83 0 0 0 4 4 4 4 0 1 1-4-4"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -76,11 +76,8 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
                             custom={{ loop, animation }}
                             variants={pathVariants}
                         />
-                        <motion.line
-                            x1="12"
-                            y1="16"
-                            x2="12"
-                            y2="12"
+                        <motion.path
+                            d="M12 2v2"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -90,11 +87,74 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
                             custom={{ loop, animation }}
                             variants={pathVariants}
                         />
-                        <motion.line
-                            x1="12"
-                            y1="8"
-                            x2="12.01"
-                            y2="8"
+                        <motion.path
+                            d="M12 20v2"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="m4.9 4.9 1.4 1.4"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="m17.7 17.7 1.4 1.4"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M2 12h2"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="M20 12h2"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="m6.3 17.7-1.4 1.4"
+                            stroke={mainStrokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap={strokeLinecap}
+                            strokeLinejoin={strokeLinejoin}
+                            fill="none"
+                            animate={controls}
+                            custom={{ loop, animation }}
+                            variants={pathVariants}
+                        />
+                        <motion.path
+                            d="m19.1 4.9-1.4 1.4"
                             stroke={mainStrokeColor}
                             strokeWidth={strokeWidth}
                             strokeLinecap={strokeLinecap}
@@ -116,7 +176,7 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="BadgeInfo1"
+            aria-label="SunMoon"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -143,4 +203,4 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
     )
 })
 
-BadgeInfo1.displayName = 'BadgeInfo1'
+SunMoon.displayName = 'SunMoon'

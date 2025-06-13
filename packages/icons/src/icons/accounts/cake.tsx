@@ -6,17 +6,17 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const BadgeInfo1Metadata: IconMetadata = {
-    name: 'BadgeInfo1',
-    category: 'Accessibility',
+export const CakeMetadata: IconMetadata = {
+    name: 'Cake',
+    category: 'Accounts',
     tags: ['backwards', 'reverse', 'direction', 'south', 'down', 'arrow'],
     description: 'An icon representing access control or authentication with a key and access cards',
     author: 'Ali Imam',
-    created: '2025-06-09',
+    created: '2025-06-13',
     variants: ['stroke'],
 }
 
-export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const Cake = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -64,47 +64,103 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
         switch (variant) {
             case 'stroke':
                 return (
-                    <>
-                        <motion.path
-                            d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-                            stroke={mainStrokeColor}
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            fill="none"
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.line
-                            x1="12"
-                            y1="16"
-                            x2="12"
-                            y2="12"
-                            stroke={mainStrokeColor}
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            fill="none"
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                        <motion.line
-                            x1="12"
-                            y1="8"
-                            x2="12.01"
-                            y2="8"
-                            stroke={mainStrokeColor}
-                            strokeWidth={strokeWidth}
-                            strokeLinecap={strokeLinecap}
-                            strokeLinejoin={strokeLinejoin}
-                            fill="none"
-                            animate={controls}
-                            custom={{ loop, animation }}
-                            variants={pathVariants}
-                        />
-                    </>
+                   <>
+  <motion.path
+    d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    fill="none"
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    fill="none"
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M2 21h20"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    fill="none"
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M7 8v3"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M12 8v3"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M17 8v3"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M7 4h.01"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M12 4h.01"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+  <motion.path
+    d="M17 4h.01"
+    stroke={mainStrokeColor}
+    strokeWidth={strokeWidth}
+    strokeLinecap={strokeLinecap}
+    strokeLinejoin={strokeLinejoin}
+    animate={controls}
+    custom={{ loop, animation }}
+    variants={pathVariants}
+  />
+</>
+
+
                 )
 
             default:
@@ -116,7 +172,7 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="BadgeInfo1"
+            aria-label="Cake"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -143,4 +199,4 @@ export const BadgeInfo1 = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, o
     )
 })
 
-BadgeInfo1.displayName = 'BadgeInfo1'
+Cake.displayName = 'Cake'
