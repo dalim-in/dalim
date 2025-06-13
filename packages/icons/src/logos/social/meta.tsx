@@ -31,7 +31,7 @@ export const Meta = forwardRef<LogosHandle, LogosProps>(({ className, size = '24
     }
 
     return (
-        <motion.div
+        <motion.div 
             role="img"
             aria-label="Meta"
             className={cn('', className)}
@@ -41,6 +41,8 @@ export const Meta = forwardRef<LogosHandle, LogosProps>(({ className, size = '24
             <svg
                 width={size}
                 height={size}
+                fill='none'
+                preserveAspectRatio="xMidYMid"
                 viewBox="0 0 256 171" 
                 xmlns="http://www.w3.org/2000/svg"
                 className={cn('', className)}>

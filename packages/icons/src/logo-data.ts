@@ -21,17 +21,58 @@ import {
   ThreadsMetadata,
   WhatsAppMetadata,
   XTwitterMetadata,
-  YouTubeMetadata
+  YouTubeMetadata,
+  VisualStudioCodeMetadata,
+  SpotifyMetadata,
+  GmailMetadata,
+  SafariMetadata,
+  CanvaMetadata,
+  GoogleMetadata,
+  ReactJSMetadata,
+  PayPalMetadata,
+  BlenderMetadata,
+  DalimMetadata,
+  MicrosoftMetadata,
+  NikeMetadata,
+  V0Metadata,
+  LovableMetadata,
+  NextJSMetadata
 } from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
+
+  "Dalim": DalimMetadata,
+  // AI
+
   "Gemini": GeminiMetadata,
   "OpenAI": OpenAIMetadata,
-  "Apple": AppleMetadata,
-  "Cursor": CursorMetadata,
+  "V0": V0Metadata,
+  "Lovable": LovableMetadata,
+
+  // Hosting
+  
   "Vercel": VercelMetadata,
-  "Github": GithubMetadata,
+
+  // Browser
+
+  "Safari": SafariMetadata,
   "Chrome": ChromeMetadata,
+
+  // Software
+
+  "Cursor": CursorMetadata,
+  "Apple": AppleMetadata,
+  "Github": GithubMetadata,
+  "VisualStudioCode": VisualStudioCodeMetadata,
+  "Google": GoogleMetadata,
+  "Gmail": GmailMetadata,
+  "Blender": BlenderMetadata,
+  "Microsoft": MicrosoftMetadata,
+  "NextJS": NextJSMetadata,
+
+  // Sport
+
+  "Nike": NikeMetadata,
 
   // Design
 
@@ -39,6 +80,8 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Illustrator": IllustratorMetadata,
   "AfterEffects": AfterEffectsMetadata,
   "PremierePro": PremiereProMetadata, 
+  "Figma": FigmaMetadata,
+  "Canva": CanvaMetadata,
 
   // CMS
 
@@ -53,8 +96,21 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Pinterest": PinterestMetadata,
   "Threads": ThreadsMetadata,
   "WhatsApp": WhatsAppMetadata,
-  "X": XTwitterMetadata,
+  "XTwitter": XTwitterMetadata,
   "YouTube": YouTubeMetadata,
+
+  // Music
+
+  "Spotify": SpotifyMetadata,
+
+  // Library
+
+  "ReactJS": ReactJSMetadata,
+
+  // Payment
+
+  "PayPal": PayPalMetadata,
+  
 
 };
 

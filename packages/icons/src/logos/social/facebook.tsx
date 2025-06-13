@@ -12,7 +12,7 @@ export const FacebookMetadata: LogoMetadata = {
     tags: ['technology', 'design'],
     description: 'An icon representing the Facebook platform logo',
     author: 'Ali Imam',
-    created: '2025-06-10',
+    created: '2025-06-13',
     variants: ['icon', 'wordmark'],
 }
 
@@ -64,6 +64,7 @@ export const Facebook = forwardRef<LogosHandle, LogosProps>(({ className, size =
                 height={size}
                 viewBox="0 0 36 36"
                 fill="url(#a)"
+                preserveAspectRatio="xMidYMid"
                 xmlns="http://www.w3.org/2000/svg"
                 className={cn('', className)}>
                 {renderPaths()}

@@ -28,7 +28,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
 
         return (
             <Logo
-                size={90}
+                size={60}  
                 variant={iconVariant}
                 color={iconColor}
             />
