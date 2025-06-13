@@ -25,7 +25,7 @@ export default async function AdminUsersPage({ searchParams }: AdminUsersPagePro
     const role = searchParams.role || ''
     const status = searchParams.status || ''
 
-    const { users, total, pages, currentPage } = await getAllUsersForAdmin({
+    const { users, total, pages, currentpage } = await getAllUsersForAdmin({
         page,
         search,
         role,
@@ -39,7 +39,7 @@ export default async function AdminUsersPage({ searchParams }: AdminUsersPagePro
                 users={users}
                 total={total}
                 pages={pages}
-                currentPage={currentPage}
+                currentpage={currentpage}
             />
         </div>
     )

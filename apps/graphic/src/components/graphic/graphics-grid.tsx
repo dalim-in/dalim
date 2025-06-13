@@ -72,7 +72,7 @@ export function GraphicsGrid({
     const [, setIsLoading] = useState(false)
     const [isLoadingMore, setIsLoadingMore] = useState(false)
     const [hasMore, setHasMore] = useState(initialGraphics.length < initialTotal)
-    const [currentPage, setCurrentPage] = useState(initialPage)
+    const [currentpage, setcurrentpage] = useState(initialPage)
     const [error, setError] = useState<string | null>(null)
     
     const observerRef = useRef<IntersectionObserver | null>(null)
@@ -88,7 +88,7 @@ export function GraphicsGrid({
     useEffect(() => {
         setIsLoading(true)
         setGraphics(initialGraphics)
-        setCurrentPage(initialPage)
+        setcurrentpage(initialPage)
         setHasMore(initialGraphics.length < initialTotal)
         setError(null)
         
@@ -104,7 +104,7 @@ export function GraphicsGrid({
         setError(null)
 
         try {
-            const nextPage = currentPage + 1
+            const nextPage = currentpage + 1
             const result = await fetchGraphics({
                 search,
                 category,
@@ -117,7 +117,7 @@ export function GraphicsGrid({
                 setHasMore(false)
             } else {
                 setGraphics(prev => [...prev, ...result.graphics])
-                setCurrentPage(nextPage)
+                setcurrentpage(nextPage)
                 setHasMore(result.graphics.length === 12) // Assuming limit is 12
             }
         } catch (err) {
@@ -126,7 +126,7 @@ export function GraphicsGrid({
         } finally {
             setIsLoadingMore(false)
         }
-    }, [isLoadingMore, hasMore, currentPage, search, category, tags])
+    }, [isLoadingMore, hasMore, currentpage, search, category, tags])
 
     // Set up intersection observer
     useEffect(() => {
@@ -336,7 +336,7 @@ export function GraphicsGridWWW({
     const [isLoading, setIsLoading] = useState(false)
     const [isLoadingMore, setIsLoadingMore] = useState(false)
     const [hasMore, setHasMore] = useState(initialGraphics.length < initialTotal)
-    const [currentPage, setCurrentPage] = useState(initialPage)
+    const [currentpage, setcurrentpage] = useState(initialPage)
      
     
     const observerRef = useRef<IntersectionObserver | null>(null)
@@ -351,7 +351,7 @@ export function GraphicsGridWWW({
     useEffect(() => {
         setIsLoading(true)
         setGraphics(initialGraphics)
-        setCurrentPage(initialPage)
+        setcurrentpage(initialPage)
         setHasMore(initialGraphics.length < initialTotal)
         
         
@@ -367,7 +367,7 @@ export function GraphicsGridWWW({
          
 
         try {
-            const nextPage = currentPage + 1
+            const nextPage = currentpage + 1
             const result = await fetchGraphics({
                 search,
                 category, 
@@ -379,7 +379,7 @@ export function GraphicsGridWWW({
                 setHasMore(false)
             } else {
                 setGraphics(prev => [...prev, ...result.graphics])
-                setCurrentPage(nextPage)
+                setcurrentpage(nextPage)
                 setHasMore(result.graphics.length === 12) // Assuming limit is 12
             }
         } catch (err) { 
@@ -387,7 +387,7 @@ export function GraphicsGridWWW({
         } finally {
             setIsLoadingMore(false)
         }
-    }, [isLoadingMore, hasMore, currentPage, search, category])
+    }, [isLoadingMore, hasMore, currentpage, search, category])
 
     // Set up intersection observer
     useEffect(() => {

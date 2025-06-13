@@ -8,8 +8,7 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
-  SelectValue,
+  SelectTrigger, 
 } from "@dalim/core/ui/select"
 import { Skeleton } from "@dalim/core/ui/skeleton"
 

@@ -29,7 +29,7 @@ export default async function ComponentLoader<TProps extends object>({
       await import(`@/registry/default/components/${category.slug}/${component.name}`)
     ).default as ComponentType<TProps>
 
-    return <Component {...(props as TProps)} currentPage={1} totalPages={10} />
+    return <Component {...(props as TProps)} currentpage={1} totalpages={10} />
   } catch (error) {
     console.error(`Failed to load component ${component.name} from ${category.slug}:`, error)
     return null

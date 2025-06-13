@@ -15,7 +15,7 @@ export async function getAllUsersForAdmin(params?: {
   try {
     const session = await auth()
     if (!session?.user || session.user.role !== "ADMIN") {
-      return { users: [], total: 0, pages: 0, currentPage: 1 }
+      return { users: [], total: 0, pages: 0, currentpage: 1 }
     }
 
     const { search = "", role, status, page = 1, limit = 15 } = params || {}
@@ -74,7 +74,7 @@ export async function getAllUsersForAdmin(params?: {
       users,
       total,
       pages: Math.ceil(total / limit),
-      currentPage: page,
+      currentpage: page,
     }
   } catch (error) {
     console.error("Get admin users error:", error)
@@ -82,7 +82,7 @@ export async function getAllUsersForAdmin(params?: {
       users: [],
       total: 0,
       pages: 0,
-      currentPage: 1,
+      currentpage: 1,
     }
   }
 }

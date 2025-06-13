@@ -1,6 +1,6 @@
 type UsePaginationProps = {
-  currentPage: number
-  totalPages: number
+  currentpage: number
+  totalpages: number
   paginationItemsToDisplay: number
 }
 
@@ -11,35 +11,35 @@ type UsePaginationReturn = {
 }
 
 export function usePagination({
-  currentPage,
-  totalPages,
+  currentpage,
+  totalpages,
   paginationItemsToDisplay,
 }: UsePaginationProps): UsePaginationReturn {
-  const showLeftEllipsis = currentPage - 1 > paginationItemsToDisplay / 2
+  const showLeftEllipsis = currentpage - 1 > paginationItemsToDisplay / 2
   const showRightEllipsis =
-    totalPages - currentPage + 1 > paginationItemsToDisplay / 2
+    totalpages - currentpage + 1 > paginationItemsToDisplay / 2
 
   function calculatePaginationRange(): number[] {
-    if (totalPages <= paginationItemsToDisplay) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1)
+    if (totalpages <= paginationItemsToDisplay) {
+      return Array.from({ length: totalpages }, (_, i) => i + 1)
     }
 
     const halfDisplay = Math.floor(paginationItemsToDisplay / 2)
     const initialRange = {
-      start: currentPage - halfDisplay,
-      end: currentPage + halfDisplay,
+      start: currentpage - halfDisplay,
+      end: currentpage + halfDisplay,
     }
 
     const adjustedRange = {
       start: Math.max(1, initialRange.start),
-      end: Math.min(totalPages, initialRange.end),
+      end: Math.min(totalpages, initialRange.end),
     }
 
     if (adjustedRange.start === 1) {
       adjustedRange.end = paginationItemsToDisplay
     }
-    if (adjustedRange.end === totalPages) {
-      adjustedRange.start = totalPages - paginationItemsToDisplay + 1
+    if (adjustedRange.end === totalpages) {
+      adjustedRange.start = totalpages - paginationItemsToDisplay + 1
     }
 
     if (showLeftEllipsis) adjustedRange.start++

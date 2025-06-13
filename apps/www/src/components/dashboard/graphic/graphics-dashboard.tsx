@@ -46,10 +46,10 @@ interface GraphicsDashboardProps {
     }>
     total: number
     pages: number
-    currentPage: number
+    currentpage: number
 }
 
-export function GraphicsDashboard({ graphics, total, pages, currentPage }: GraphicsDashboardProps) {
+export function GraphicsDashboard({ graphics, total, pages, currentpage }: GraphicsDashboardProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
@@ -380,8 +380,8 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                                 <div className="mt-6 flex justify-center gap-2">
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage - 1)}
-                                        disabled={currentPage === 1}>
+                                        onClick={() => handlePageChange(currentpage - 1)}
+                                        disabled={currentpage === 1}>
                                         Previous
                                     </Button>
 
@@ -390,7 +390,7 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
                                         return (
                                             <Button
                                                 key={page}
-                                                variant={currentPage === page ? 'default' : 'outline'}
+                                                variant={currentpage === page ? 'default' : 'outline'}
                                                 onClick={() => handlePageChange(page)}>
                                                 {page}
                                             </Button>
@@ -399,8 +399,8 @@ export function GraphicsDashboard({ graphics, total, pages, currentPage }: Graph
 
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage + 1)}
-                                        disabled={currentPage === pages}>
+                                        onClick={() => handlePageChange(currentpage + 1)}
+                                        disabled={currentpage === pages}>
                                         Next
                                     </Button>
                                 </div>

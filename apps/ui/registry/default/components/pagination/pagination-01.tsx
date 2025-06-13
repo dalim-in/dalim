@@ -17,19 +17,19 @@ import {
 } from "@/registry/default/ui/select"
 
 type PaginationProps = {
-  currentPage: number
-  totalPages: number
+  currentpage: number
+  totalpages: number
   paginationItemsToDisplay?: number
 }
 
 export default function Component({
-  currentPage,
-  totalPages,
+  currentpage,
+  totalpages,
   paginationItemsToDisplay = 5,
 }: PaginationProps) {
   const { pages, showLeftEllipsis, showRightEllipsis } = usePagination({
-    currentPage,
-    totalPages,
+    currentpage,
+    totalpages,
     paginationItemsToDisplay,
   })
 
@@ -40,8 +40,8 @@ export default function Component({
         className="text-muted-foreground flex-1 text-sm whitespace-nowrap"
         aria-live="polite"
       >
-        Page <span className="text-foreground">{currentPage}</span> of{" "}
-        <span className="text-foreground">{totalPages}</span>
+        Page <span className="text-foreground">{currentpage}</span> of{" "}
+        <span className="text-foreground">{totalpages}</span>
       </p>
 
       {/* Pagination */}
@@ -53,11 +53,11 @@ export default function Component({
               <PaginationLink
                 className="aria-disabled:pointer-events-none aria-disabled:opacity-50"
                 href={
-                  currentPage === 1 ? undefined : `#/page/${currentPage - 1}`
+                  currentpage === 1 ? undefined : `#/page/${currentpage - 1}`
                 }
                 aria-label="Go to previous page"
-                aria-disabled={currentPage === 1 ? true : undefined}
-                role={currentPage === 1 ? "link" : undefined}
+                aria-disabled={currentpage === 1 ? true : undefined}
+                role={currentpage === 1 ? "link" : undefined}
               >
                 <ChevronLeftIcon size={16} aria-hidden="true" />
               </PaginationLink>
@@ -75,7 +75,7 @@ export default function Component({
               <PaginationItem key={page}>
                 <PaginationLink
                   href={`#/page/${page}`}
-                  isActive={page === currentPage}
+                  isActive={page === currentpage}
                 >
                   {page}
                 </PaginationLink>
@@ -94,13 +94,13 @@ export default function Component({
               <PaginationLink
                 className="aria-disabled:pointer-events-none aria-disabled:opacity-50"
                 href={
-                  currentPage === totalPages
+                  currentpage === totalpages
                     ? undefined
-                    : `#/page/${currentPage + 1}`
+                    : `#/page/${currentpage + 1}`
                 }
                 aria-label="Go to next page"
-                aria-disabled={currentPage === totalPages ? true : undefined}
-                role={currentPage === totalPages ? "link" : undefined}
+                aria-disabled={currentpage === totalpages ? true : undefined}
+                role={currentpage === totalpages ? "link" : undefined}
               >
                 <ChevronRightIcon size={16} aria-hidden="true" />
               </PaginationLink>

@@ -141,14 +141,14 @@ function ImageComponent({ imageBasePath, alt }: ImageComponentProps) {
     <>
       <Image
         className="w-full dark:hidden"
-        src={`${imageBasePath}.svg`}
+        src={`${imageBasePath}.jpg`}
         alt={alt}
         width={268}
         height={198}
       />
       <Image
         className="hidden w-full dark:block"
-        src={`${imageBasePath}-dark.svg`}
+        src={`${imageBasePath}-dark.jpg`}
         alt={`${alt} dark`}
         width={268}
         height={198}

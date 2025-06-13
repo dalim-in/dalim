@@ -5,7 +5,7 @@ export async function Graphics() {
     const page = 1 // Always start with page 1 for infinite scroll
 
     try {
-        const { graphics, total, currentPage } = await getGraphics({
+        const { graphics, total, currentpage } = await getGraphics({
             page,
             limit: 12,
         })
@@ -15,7 +15,7 @@ export async function Graphics() {
                 <GraphicsGridWWW
                     initialGraphics={graphics}
                     initialTotal={total}
-                    initialPage={currentPage}
+                    initialPage={currentpage}
                 />
             </div>
         )

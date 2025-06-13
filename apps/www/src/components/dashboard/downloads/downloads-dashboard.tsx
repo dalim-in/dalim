@@ -51,7 +51,7 @@ interface DownloadsDashboardProps {
     }>
     total: number
     pages: number
-    currentPage: number
+    currentpage: number
     stats: {
         totalDownloads: number
         graphicsDownloads: number
@@ -60,7 +60,7 @@ interface DownloadsDashboardProps {
     }
 }
 
-export function DownloadsDashboard({ downloads, total, pages, currentPage, stats }: DownloadsDashboardProps) {
+export function DownloadsDashboard({ downloads, total, pages, currentpage, stats }: DownloadsDashboardProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
@@ -462,8 +462,8 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                 <div className="mt-6 flex justify-center gap-2">
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage - 1)}
-                                        disabled={currentPage === 1}>
+                                        onClick={() => handlePageChange(currentpage - 1)}
+                                        disabled={currentpage === 1}>
                                         Previous
                                     </Button>
 
@@ -472,7 +472,7 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
                                         return (
                                             <Button
                                                 key={page}
-                                                variant={currentPage === page ? 'default' : 'outline'}
+                                                variant={currentpage === page ? 'default' : 'outline'}
                                                 onClick={() => handlePageChange(page)}>
                                                 {page}
                                             </Button>
@@ -481,8 +481,8 @@ export function DownloadsDashboard({ downloads, total, pages, currentPage, stats
 
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage + 1)}
-                                        disabled={currentPage === pages}>
+                                        onClick={() => handlePageChange(currentpage + 1)}
+                                        disabled={currentpage === pages}>
                                         Next
                                     </Button>
                                 </div>

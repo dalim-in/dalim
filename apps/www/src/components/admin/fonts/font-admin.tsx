@@ -24,7 +24,7 @@ export function FontsAdmin() {
     const [searchQuery, setSearchQuery] = useState('')
     const [loading, setLoading] = useState(true)
     const [refreshing, setRefreshing] = useState(false)
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentpage, setcurrentpage] = useState(1)
     const [itemsPerPage] = useState(10) // You can make this configurable if needed
 
     const loadFonts = async (showRefreshToast = false) => {
@@ -68,13 +68,13 @@ export function FontsAdmin() {
     }
 
     const handlePageChange = (page: number) => {
-        setCurrentPage(page)
+        setcurrentpage(page)
     }
 
     const filteredFonts = fonts.filter((font) => font.name.toLowerCase().includes(searchQuery.toLowerCase()) || font.type.toLowerCase().includes(searchQuery.toLowerCase()) || font.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase())))
 
-    const totalPages = Math.ceil(filteredFonts.length / itemsPerPage)
-    const startIndex = (currentPage - 1) * itemsPerPage
+    const totalpages = Math.ceil(filteredFonts.length / itemsPerPage)
+    const startIndex = (currentpage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
     const paginatedFonts = filteredFonts.slice(startIndex, endIndex)
 
@@ -139,7 +139,7 @@ export function FontsAdmin() {
                         value={searchQuery}
                         onChange={(e) => {
                             setSearchQuery(e.target.value)
-                            setCurrentPage(1)
+                            setcurrentpage(1)
                         }}
                         className="pl-9"
                     />
@@ -251,7 +251,7 @@ export function FontsAdmin() {
                     <div className="text-muted-foreground text-sm">
                         Showing {startIndex + 1} to {Math.min(endIndex, filteredFonts.length)} of {filteredFonts.length} fonts
                     </div>
-                    {totalPages > 1 && (
+                    {totalpages > 1 && (
                         <Pagination>
                             <PaginationContent>
                                 <PaginationItem>
@@ -259,14 +259,14 @@ export function FontsAdmin() {
                                         href="#"
                                         onClick={(e) => {
                                             e.preventDefault()
-                                            if (currentPage > 1) handlePageChange(currentPage - 1)
+                                            if (currentpage > 1) handlePageChange(currentpage - 1)
                                         }}
-                                        className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
+                                        className={currentpage <= 1 ? 'pointer-events-none opacity-50' : ''}
                                     />
                                 </PaginationItem>
 
                                 {/* First page */}
-                                {currentPage > 2 && (
+                                {currentpage > 2 && (
                                     <PaginationItem>
                                         <PaginationLink
                                             href="#"
@@ -280,22 +280,22 @@ export function FontsAdmin() {
                                 )}
 
                                 {/* Ellipsis before current page */}
-                                {currentPage > 3 && (
+                                {currentpage > 3 && (
                                     <PaginationItem>
                                         <PaginationEllipsis />
                                     </PaginationItem>
                                 )}
 
                                 {/* Previous page */}
-                                {currentPage > 1 && (
+                                {currentpage > 1 && (
                                     <PaginationItem>
                                         <PaginationLink
                                             href="#"
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                handlePageChange(currentPage - 1)
+                                                handlePageChange(currentpage - 1)
                                             }}>
-                                            {currentPage - 1}
+                                            {currentpage - 1}
                                         </PaginationLink>
                                     </PaginationItem>
                                 )}
@@ -305,41 +305,41 @@ export function FontsAdmin() {
                                     <PaginationLink
                                         href="#"
                                         isActive>
-                                        {currentPage}
+                                        {currentpage}
                                     </PaginationLink>
                                 </PaginationItem>
 
                                 {/* Next page */}
-                                {currentPage < totalPages && (
+                                {currentpage < totalpages && (
                                     <PaginationItem>
                                         <PaginationLink
                                             href="#"
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                handlePageChange(currentPage + 1)
+                                                handlePageChange(currentpage + 1)
                                             }}>
-                                            {currentPage + 1}
+                                            {currentpage + 1}
                                         </PaginationLink>
                                     </PaginationItem>
                                 )}
 
                                 {/* Ellipsis after current page */}
-                                {currentPage < totalPages - 2 && (
+                                {currentpage < totalpages - 2 && (
                                     <PaginationItem>
                                         <PaginationEllipsis />
                                     </PaginationItem>
                                 )}
 
                                 {/* Last page */}
-                                {currentPage < totalPages - 1 && (
+                                {currentpage < totalpages - 1 && (
                                     <PaginationItem>
                                         <PaginationLink
                                             href="#"
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                handlePageChange(totalPages)
+                                                handlePageChange(totalpages)
                                             }}>
-                                            {totalPages}
+                                            {totalpages}
                                         </PaginationLink>
                                     </PaginationItem>
                                 )}
@@ -349,9 +349,9 @@ export function FontsAdmin() {
                                         href="#"
                                         onClick={(e) => {
                                             e.preventDefault()
-                                            if (currentPage < totalPages) handlePageChange(currentPage + 1)
+                                            if (currentpage < totalpages) handlePageChange(currentpage + 1)
                                         }}
-                                        className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
+                                        className={currentpage >= totalpages ? 'pointer-events-none opacity-50' : ''}
                                     />
                                 </PaginationItem>
                             </PaginationContent>

@@ -1,12 +1,45 @@
-import { ChevronLeftIcon } from "lucide-react"
+"use client"
 
-import { Button } from "@/registry/default/ui/button"
+import { useEffect, useState } from "react"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { Toggle } from "@/registry/default/ui/toggle"
 
 export default function Component() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   return (
-    <Button variant="link" className="gap-1">
-      <ChevronLeftIcon className="opacity-60" size={16} aria-hidden="true" />
-      Go back
-    </Button>
+    <div className="flex flex-col justify-center">
+      <div>
+        <Toggle
+        variant={'outline'}
+          className="group data-[state=on]:hover:bg-muted size-9 data-[state=on]:bg-transparent"
+          pressed={theme === "dark"}
+          onPressedChange={() =>
+            setTheme(theme === "dark" ? "light" : "dark")
+          }
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          <Moon
+            size={16}
+            className="shrink-0 scale-0 opacity-0 transition-all group-data-[state=on]:scale-100 group-data-[state=on]:opacity-100"
+            aria-hidden="true"
+          />
+          <Sun
+            size={16}
+            className="absolute shrink-0 scale-100 opacity-100 transition-all group-data-[state=on]:scale-0 group-data-[state=on]:opacity-0"
+            aria-hidden="true"
+          />
+        </Toggle>
+      </div>
+    </div>
   )
 }

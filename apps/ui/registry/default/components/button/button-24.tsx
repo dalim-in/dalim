@@ -20,13 +20,13 @@ export default function Component() {
       }}
     >
       <ToggleGroupItem className="flex-1" value="left">
-        Left
+        Butt
       </ToggleGroupItem>
       <ToggleGroupItem className="flex-1" value="center">
-        Center
+        Round
       </ToggleGroupItem>
       <ToggleGroupItem className="flex-1" value="right">
-        Right
+        Square
       </ToggleGroupItem>
     </ToggleGroup>
   )

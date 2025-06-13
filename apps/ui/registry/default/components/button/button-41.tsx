@@ -7,9 +7,9 @@ export default function Component() {
   return (
     <Button className="group h-auto gap-4 py-3 text-left" variant="outline">
       <div className="space-y-1">
-        <h3>Talent Agency</h3>
+        <h3>Dalim Agency</h3>
         <p className="text-muted-foreground font-normal whitespace-break-spaces">
-          Matches for your roster
+          Designs Without Limits
         </p>
       </div>
       <ChevronRightIcon

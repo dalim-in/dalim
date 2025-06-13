@@ -73,7 +73,7 @@ export async function getUserDownloads(params?: {
   try {
     const session = await auth()
     if (!session?.user?.id) {
-      return { downloads: [], total: 0, pages: 0, currentPage: 1 }
+      return { downloads: [], total: 0, pages: 0, currentpage: 1 }
     }
 
     const { search = "", type, page = 1, limit = 20 } = params || {}
@@ -111,7 +111,7 @@ export async function getUserDownloads(params?: {
       downloads,
       total,
       pages: Math.ceil(total / limit),
-      currentPage: page,
+      currentpage: page,
     }
   } catch (error) {
     console.error("Get user downloads error:", error)
@@ -119,7 +119,7 @@ export async function getUserDownloads(params?: {
       downloads: [],
       total: 0,
       pages: 0,
-      currentPage: 1,
+      currentpage: 1,
     }
   }
 }

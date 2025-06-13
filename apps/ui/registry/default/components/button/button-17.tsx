@@ -38,7 +38,7 @@ export default function Component() {
         Volume Control
       </span>
       <Button
-        className="rounded-full"
+        className=""
         variant="outline"
         size="icon"
         aria-label="Decrease volume"
@@ -57,7 +57,7 @@ export default function Component() {
         </span>
       </div>
       <Button
-        className="rounded-full"
+        className=""
         variant="outline"
         size="icon"
         aria-label="Increase volume"

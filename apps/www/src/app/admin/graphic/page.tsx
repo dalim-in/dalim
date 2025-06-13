@@ -25,7 +25,7 @@ export default async function AdminGraphicsPage({ searchParams }: AdminGraphicsP
   const category = searchParams.category || ""
   const user = searchParams.user || ""
 
-  const { graphics, total, pages, currentPage } = await getAllGraphicsForAdmin({
+  const { graphics, total, pages, currentpage } = await getAllGraphicsForAdmin({
     page,
     search,
     category,
@@ -36,7 +36,7 @@ export default async function AdminGraphicsPage({ searchParams }: AdminGraphicsP
   return (
     <div className="mt-3">
       
-      <AdminGraphicsTable graphics={graphics} total={total} pages={pages} currentPage={currentPage} />
+      <AdminGraphicsTable graphics={graphics} total={total} pages={pages} currentpage={currentpage} />
     </div>
   )
 }

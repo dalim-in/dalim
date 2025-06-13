@@ -179,7 +179,7 @@ export function IconShowcaseWWW({
                 className=""
                 onValueChange={setSelectedIcon}>
                 <div className="flex flex-wrap justify-center gap-1">
-                    {filteredIcons.slice(0, 100).map((icon) => (
+                    {filteredIcons.slice(0, 96).map((icon) => (
                         <div
                             key={icon.name}
                             className="flex items-center">

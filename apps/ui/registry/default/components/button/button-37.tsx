@@ -1,8 +1,6 @@
-import {
-  RiFacebookFill,
+import { 
   RiGithubFill,
-  RiGoogleFill,
-  RiTwitterXFill,
+  RiGoogleFill, 
 } from "@remixicon/react"
 
 import { Button } from "@/registry/default/ui/button"
@@ -17,23 +15,7 @@ export default function Component() {
           aria-hidden="true"
         />
         Login with Google
-      </Button>
-      <Button variant="outline">
-        <RiTwitterXFill
-          className="me-1 text-[#14171a] dark:text-white/60"
-          size={16}
-          aria-hidden="true"
-        />
-        Login with X
-      </Button>
-      <Button variant="outline">
-        <RiFacebookFill
-          className="me-1 text-[#1877f2] dark:text-white/60"
-          size={16}
-          aria-hidden="true"
-        />
-        Login with Facebook
-      </Button>
+      </Button> 
       <Button variant="outline">
         <RiGithubFill
           className="me-1 text-[#333333] dark:text-white/60"

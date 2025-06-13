@@ -38,5 +38,5 @@ export default function ComponentLoader<TProps extends object>({
     }
   ) as ComponentType<TProps>
 
-  return <Component {...(props as TProps)} currentPage={1} totalPages={10} />
+  return <Component {...(props as TProps)} currentpage={1} totalpages={10} />
 }

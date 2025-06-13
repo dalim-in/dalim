@@ -1034,7 +1034,8 @@
           "example",
           "component"
         ],
-        "style": 1
+        "style": 1,
+        "colSpan": 3
       }
     },
     {
@@ -1044,139 +1045,6 @@
       "files": [
         {
           "path": "registry/default/components/button/button-47.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-48",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-48.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-49",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-49.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-50",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-50.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-51",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-51.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-52",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-52.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-53",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-53.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "button",
-          "example",
-          "component"
-        ],
-        "style": 1
-      }
-    },
-    {
-      "name": "button-54",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/button/button-54.tsx",
           "type": "registry:component"
         }
       ],

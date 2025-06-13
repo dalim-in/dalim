@@ -50,10 +50,10 @@ interface AdminUsersTableProps {
     }>
     total: number
     pages: number
-    currentPage: number
+    currentpage: number
 }
 
-export function AdminUsersTable({ users, total, pages, currentPage }: AdminUsersTableProps) {
+export function AdminUsersTable({ users, total, pages, currentpage }: AdminUsersTableProps) {
     const router = useRouter()
     const searchParams = useSearchParams()
 
@@ -496,8 +496,8 @@ export function AdminUsersTable({ users, total, pages, currentPage }: AdminUsers
                                 <div className="mt-6 flex justify-center gap-2">
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage - 1)}
-                                        disabled={currentPage === 1}>
+                                        onClick={() => handlePageChange(currentpage - 1)}
+                                        disabled={currentpage === 1}>
                                         Previous
                                     </Button>
 
@@ -506,7 +506,7 @@ export function AdminUsersTable({ users, total, pages, currentPage }: AdminUsers
                                         return (
                                             <Button
                                                 key={page}
-                                                variant={currentPage === page ? 'default' : 'outline'}
+                                                variant={currentpage === page ? 'default' : 'outline'}
                                                 onClick={() => handlePageChange(page)}>
                                                 {page}
                                             </Button>
@@ -515,8 +515,8 @@ export function AdminUsersTable({ users, total, pages, currentPage }: AdminUsers
 
                                     <Button
                                         variant="outline"
-                                        onClick={() => handlePageChange(currentPage + 1)}
-                                        disabled={currentPage === pages}>
+                                        onClick={() => handlePageChange(currentpage + 1)}
+                                        disabled={currentpage === pages}>
                                         Next
                                     </Button>
                                 </div>

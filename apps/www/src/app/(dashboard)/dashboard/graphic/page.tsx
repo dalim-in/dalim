@@ -22,7 +22,7 @@ export default async function DashboardGraphicsPage({ searchParams }: DashboardG
   const search = searchParams.search || ""
   const category = searchParams.category || ""
 
-  const { graphics, total, pages, currentPage } = await getUserGraphics(session.user.id!, {
+  const { graphics, total, pages, currentpage } = await getUserGraphics(session.user.id!, {
     page,
     search,
     category,
@@ -32,7 +32,7 @@ export default async function DashboardGraphicsPage({ searchParams }: DashboardG
   return (
     <div className="mt-3">
       
-      <GraphicsDashboard graphics={graphics} total={total} pages={pages} currentPage={currentPage} />
+      <GraphicsDashboard graphics={graphics} total={total} pages={pages} currentpage={currentpage} />
     </div>
   )
 }

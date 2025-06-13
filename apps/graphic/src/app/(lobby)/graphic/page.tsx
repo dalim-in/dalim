@@ -19,7 +19,7 @@ export default async function GraphicsPage({ searchParams }: GraphicsPageProps) 
   const page = 1 // Always start with page 1 for infinite scroll
 
   try {
-    const { graphics, total, currentPage } = await getGraphics({
+    const { graphics, total, currentpage } = await getGraphics({
       search,
       category,
       tags,
@@ -40,7 +40,7 @@ export default async function GraphicsPage({ searchParams }: GraphicsPageProps) 
           <GraphicsFilters />
           <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
 
-          <GraphicsGrid initialGraphics={graphics} initialTotal={total} initialPage={currentPage} />
+          <GraphicsGrid initialGraphics={graphics} initialTotal={total} initialPage={currentpage} />
         </div>
       </div>
     )

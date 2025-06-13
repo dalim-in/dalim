@@ -11,7 +11,8 @@ import {
   IllustratorMetadata,
   AfterEffectsMetadata,
   PremiereProMetadata,
-  FigmaMetadata
+  FigmaMetadata,
+  ShopifyMetadata
 } from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
@@ -29,6 +30,10 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Illustrator": IllustratorMetadata,
   "AfterEffects": AfterEffectsMetadata,
   "PremierePro": PremiereProMetadata, 
+
+  // CMS
+
+  "Shopify": ShopifyMetadata,
 };
 
 // Get all icons

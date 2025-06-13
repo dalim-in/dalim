@@ -24,7 +24,7 @@ export function FontsDashboard() {
     const [loading, setLoading] = useState(true)
 
     // Pagination states
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentpage, setcurrentpage] = useState(1)
     const pageSize = 8
 
     useEffect(() => {
@@ -70,17 +70,17 @@ export function FontsDashboard() {
     const filteredFonts = fonts.filter((font) => font.name.toLowerCase().includes(searchQuery.toLowerCase()) || font.type.toLowerCase().includes(searchQuery.toLowerCase()) || font.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase())))
 
     // Calculate total pages
-    const totalPages = Math.ceil(filteredFonts.length / pageSize)
+    const totalpages = Math.ceil(filteredFonts.length / pageSize)
 
     // Get fonts for current page
-    const paginatedFonts = filteredFonts.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    const paginatedFonts = filteredFonts.slice((currentpage - 1) * pageSize, currentpage * pageSize)
 
     // Reset to first page if filteredFonts changes and current page is out of range
     useEffect(() => {
-        if (currentPage > totalPages) {
-            setCurrentPage(1)
+        if (currentpage > totalpages) {
+            setcurrentpage(1)
         }
-    }, [filteredFonts, currentPage, totalPages])
+    }, [filteredFonts, currentpage, totalpages])
 
     if (loading) {
         return (
@@ -143,7 +143,7 @@ export function FontsDashboard() {
                         value={searchQuery}
                         onChange={(e) => {
                             setSearchQuery(e.target.value)
-                            setCurrentPage(1) // Reset page on search
+                            setcurrentpage(1) // Reset page on search
                         }}
                         className="pl-9"
                     />
@@ -267,28 +267,28 @@ export function FontsDashboard() {
             </div>
 
             {/* Enhanced Pagination Controls */}
-            {totalPages > 1 && (
+            {totalpages > 1 && (
                 <div className="mt-6 flex justify-center">
                     <Pagination>
                         <PaginationContent>
                             <PaginationItem>
                                 <PaginationPrevious
-                                    onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                                    className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                                    onClick={() => setcurrentpage((p) => Math.max(p - 1, 1))}
+                                    className={currentpage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
                                 />
                             </PaginationItem>
 
                             {/* First page */}
-                            {currentPage > 3 && (
+                            {currentpage > 3 && (
                                 <>
                                     <PaginationItem>
                                         <PaginationLink
-                                            onClick={() => setCurrentPage(1)}
+                                            onClick={() => setcurrentpage(1)}
                                             className="cursor-pointer">
                                             1
                                         </PaginationLink>
                                     </PaginationItem>
-                                    {currentPage > 4 && (
+                                    {currentpage > 4 && (
                                         <PaginationItem>
                                             <PaginationEllipsis />
                                         </PaginationItem>
@@ -297,15 +297,15 @@ export function FontsDashboard() {
                             )}
 
                             {/* Page numbers around current page */}
-                            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                                const pageNumber = Math.max(1, Math.min(totalPages - 4, currentPage - 2)) + i
-                                if (pageNumber > totalPages) return null
+                            {Array.from({ length: Math.min(5, totalpages) }, (_, i) => {
+                                const pageNumber = Math.max(1, Math.min(totalpages - 4, currentpage - 2)) + i
+                                if (pageNumber > totalpages) return null
 
                                 return (
                                     <PaginationItem key={pageNumber}>
                                         <PaginationLink
-                                            onClick={() => setCurrentPage(pageNumber)}
-                                            isActive={pageNumber === currentPage}
+                                            onClick={() => setcurrentpage(pageNumber)}
+                                            isActive={pageNumber === currentpage}
                                             className="cursor-pointer">
                                             {pageNumber}
                                         </PaginationLink>
@@ -314,18 +314,18 @@ export function FontsDashboard() {
                             })}
 
                             {/* Last page */}
-                            {currentPage < totalPages - 2 && (
+                            {currentpage < totalpages - 2 && (
                                 <>
-                                    {currentPage < totalPages - 3 && (
+                                    {currentpage < totalpages - 3 && (
                                         <PaginationItem>
                                             <PaginationEllipsis />
                                         </PaginationItem>
                                     )}
                                     <PaginationItem>
                                         <PaginationLink
-                                            onClick={() => setCurrentPage(totalPages)}
+                                            onClick={() => setcurrentpage(totalpages)}
                                             className="cursor-pointer">
-                                            {totalPages}
+                                            {totalpages}
                                         </PaginationLink>
                                     </PaginationItem>
                                 </>
@@ -333,8 +333,8 @@ export function FontsDashboard() {
 
                             <PaginationItem>
                                 <PaginationNext
-                                    onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                                    className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
+                                    onClick={() => setcurrentpage((p) => Math.min(p + 1, totalpages))}
+                                    className={currentpage === totalpages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
                                 />
                             </PaginationItem>
                         </PaginationContent>
@@ -346,7 +346,7 @@ export function FontsDashboard() {
             {filteredFonts.length > 0 && (
                 <div className="mt-2 flex justify-center">
                     <p className="text-muted-foreground text-sm">
-                        Showing {(currentPage - 1) * pageSize + 1} to {Math.min(currentPage * pageSize, filteredFonts.length)} of {filteredFonts.length} fonts
+                        Showing {(currentpage - 1) * pageSize + 1} to {Math.min(currentpage * pageSize, filteredFonts.length)} of {filteredFonts.length} fonts
                     </p>
                 </div>
             )}

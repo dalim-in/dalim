@@ -1,5 +1,5 @@
 import {
-  RiFacebookFill,
+  RiInstagramLine,
   RiGithubFill,
   RiGoogleFill,
   RiTwitterXFill,
@@ -14,7 +14,7 @@ export default function Component() {
         <RiGoogleFill size={16} aria-hidden="true" />
       </Button>
       <Button variant="outline" aria-label="Login with Facebook" size="icon">
-        <RiFacebookFill size={16} aria-hidden="true" />
+        <RiInstagramLine size={16} aria-hidden="true" />
       </Button>
       <Button variant="outline" aria-label="Login with X" size="icon">
         <RiTwitterXFill size={16} aria-hidden="true" />

@@ -168,7 +168,7 @@ export async function getGraphics(params?: {
       graphics,
       total,
       pages: Math.ceil(total / limit),
-      currentPage: page,
+      currentpage: page,
     }
   } catch (error) {
     console.error("Get graphics error:", error)
@@ -176,7 +176,7 @@ export async function getGraphics(params?: {
       graphics: [],
       total: 0,
       pages: 0,
-      currentPage: 1,
+      currentpage: 1,
     }
   }
 }
@@ -447,7 +447,7 @@ export async function getUserGraphics(
       graphics,
       total,
       pages: Math.ceil(total / limit),
-      currentPage: page,
+      currentpage: page,
     }
   } catch (error) {
     console.error("Get user graphics error:", error)
@@ -455,7 +455,7 @@ export async function getUserGraphics(
       graphics: [],
       total: 0,
       pages: 0,
-      currentPage: 1,
+      currentpage: 1,
     }
   }
 }
@@ -619,7 +619,7 @@ export async function getAllGraphicsForAdmin(params?: {
   try {
     const session = await auth()
     if (!session?.user || session.user.role !== "ADMIN") {
-      return { graphics: [], total: 0, pages: 0, currentPage: 1 }
+      return { graphics: [], total: 0, pages: 0, currentpage: 1 }
     }
 
     const { search = "", category, user = "", page = 1, limit = 15 } = params || {}
@@ -674,7 +674,7 @@ export async function getAllGraphicsForAdmin(params?: {
       graphics,
       total,
       pages: Math.ceil(total / limit),
-      currentPage: page,
+      currentpage: page,
     }
   } catch (error) {
     console.error("Get admin graphics error:", error)
@@ -682,7 +682,7 @@ export async function getAllGraphicsForAdmin(params?: {
       graphics: [],
       total: 0,
       pages: 0,
-      currentPage: 1,
+      currentpage: 1,
     }
   }
 }

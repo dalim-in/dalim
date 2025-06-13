@@ -22,7 +22,7 @@ export default async function DownloadsPage({ searchParams }: DownloadsPageProps
     const search = searchParams.search || ''
     const type = searchParams.type || ''
 
-    const [{ downloads, total, pages, currentPage }, stats] = await Promise.all([getUserDownloads({ page, search, type, limit: 20 }), getDownloadStats()])
+    const [{ downloads, total, pages, currentpage }, stats] = await Promise.all([getUserDownloads({ page, search, type, limit: 20 }), getDownloadStats()])
 
     return (
         <div className="mt-3"> 
@@ -30,7 +30,7 @@ export default async function DownloadsPage({ searchParams }: DownloadsPageProps
                 downloads={downloads}
                 total={total}
                 pages={pages}
-                currentPage={currentPage}
+                currentpage={currentpage}
                 stats={stats}
             />
         </div>
