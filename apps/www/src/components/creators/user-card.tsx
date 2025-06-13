@@ -20,7 +20,7 @@ export function UserCard({ user }: UserCardProps) {
 
     const socialLinks = [
         { icon: Globe, url: user.website, label: 'Website' },
-        { icon: Twitter, url: user.twitter ? `https://twitter.com/${user.twitter}` : null, label: 'Twitter' },
+        { icon: Twitter, url: user.twitter ? `https://x.com/${user.twitter}` : null, label: 'Twitter' },
         { icon: Instagram, url: user.instagram ? `https://instagram.com/${user.instagram}` : null, label: 'Instagram' },
         { icon: Linkedin, url: user.linkedin ? `https://linkedin.com/in/${user.linkedin}` : null, label: 'LinkedIn' },
     ].filter((link) => link.url)
@@ -88,7 +88,7 @@ export function UserCard({ user }: UserCardProps) {
                         <Button
                             variant={'outline'}
                             size={'sm'}>
-                            View Creator
+                            View Prifile
                         </Button>
                     </Link>
                 </div>

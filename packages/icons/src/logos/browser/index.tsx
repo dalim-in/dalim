@@ -1,1 +1,1 @@
-export * from './safari' 
+export * from './chrome' 

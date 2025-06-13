@@ -56,7 +56,7 @@ export default function RootLayout({
                                 </Suspense>
                                 <CookieConsent />
                                 <Footer />
-                                 <NowPlaying />
+                                <NowPlaying />
                             </div>
                         </div>
                     </div>

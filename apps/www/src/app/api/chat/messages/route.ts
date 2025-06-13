@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { ChatService } from "@/src/actions/chat-service"
 
+export const runtime = "nodejs"
+
 export async function POST(request: NextRequest) {
   try {
     const user = await ChatService.getCurrentUser()

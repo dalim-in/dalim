@@ -9,7 +9,7 @@ import { Input } from '@dalim/core/ui/input'
 import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
 import { Badge } from '@dalim/core/ui/badge'
 import { ScrollArea } from '@dalim/core/ui/scroll-area'
-import { Send, Paperclip, ImageIcon, File, X, MessageCircle, MoreHorizontal, CheckCircle, Archive, Trash2, AlertTriangle, Plus, Download, UserCircle } from 'lucide-react'
+import { Send, Paperclip, ImageIcon, File, X, MessageCircle, MoreHorizontal, CheckCircle, Archive, Trash2, AlertTriangle, Plus, Download, UserCircle, RefreshCw } from 'lucide-react'
 import { toast } from 'sonner'
 import type { Conversation, User } from '@/src/types/chat'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@dalim/core/ui/dropdown-menu'
@@ -38,9 +38,33 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
     const [statusLoading, setStatusLoading] = useState(false)
     const [deleteLoading, setDeleteLoading] = useState(false)
     const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+    const [refreshing, setRefreshing] = useState(false)
 
     const fileInputRef = useRef<HTMLInputElement>(null)
     const scrollAreaRef = useRef<HTMLDivElement>(null)
+
+    const refreshChat = async () => {
+        setRefreshing(true)
+        try {
+            // Refresh conversations list
+            await fetchConversations()
+
+            // If there's a selected conversation, refresh it specifically
+            if (selectedConversation) {
+                await fetchConversation(selectedConversation.id)
+            }
+
+            // Refresh users list
+            await fetchUsers()
+
+            toast.success('Chat refreshed successfully')
+        } catch (error) {
+            console.error('Error refreshing chat:', error)
+            toast.error('Failed to refresh chat')
+        } finally {
+            setRefreshing(false)
+        }
+    }
 
     useEffect(() => {
         fetchConversations()
@@ -357,8 +381,8 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
     }
 
     return (
-        <div className={`flex h-[840px] overflow-hidden rounded-lg border ${className}`}>
-            <div className="bg-muted/30 w-1/3 border-r">
+        <div className={`md:flex h-auto md:h-[840px] grid overflow-hidden rounded-lg border ${className}`}>
+            <div className="bg-muted/30 w-full md:w-1/3 border-r">
                 <div className="border-b p-2">
                     <div className="flex items-center justify-between">
                         <h3 className="pl-2 font-semibold">Chats</h3>
@@ -426,7 +450,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                                         {otherParticipant?.role}
                                                     </Badge>
                                                 </div>
-                                                <p className="text-muted-foreground truncate text-xs">{lastMessage?.content || 'No messages yet'}</p>
+                                                <p className="text-muted-foreground w-40 truncate text-xs">{lastMessage?.content || 'No messages yet'}</p>
                                                 {lastMessage && <p className="text-muted-foreground text-xs">{formatTime(lastMessage.createdAt)}</p>}
                                             </div>
                                         </div>
@@ -439,7 +463,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
             </div>
 
             {/* Chat Messages */}
-            <div className="flex flex-1 flex-col">
+            <div className="flex  flex-1 border-t md:border-0 flex-col">
                 {selectedConversation ? (
                     <>
                         <div className="bg-muted/30 border-b p-2">
@@ -465,7 +489,15 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                         </div>
                                     </div>
                                 </div>
-
+                                <div className='flex gap-2'>
+                                <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    onClick={refreshChat}
+                                    disabled={refreshing}
+                                    title="Refresh chat">
+                                    <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+                                </Button>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button
@@ -540,12 +572,13 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                         </AlertDialog>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
+                                </div>
                             </div>
                         </div>
 
                         {/* Messages */}
                         <ScrollArea
-                            className="flex-1 overflow-y-auto p-4"
+                            className="flex-1  overflow-y-auto p-4"
                             ref={scrollAreaRef}>
                             <div className="space-y-1">
                                 {selectedConversation.messages.map((msg, index) => {
@@ -574,7 +607,7 @@ export function ChatInterface({ conversationId, className }: ChatInterfaceProps)
                                                             />
                                                         </div>
                                                     )}
-                                    
+
                                                     {msg.content && <p className="whitespace-pre-wrap text-sm">{msg.content}</p>}
 
                                                     {msg.attachments.length > 0 && (

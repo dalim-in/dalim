@@ -11,3 +11,4 @@ export * from "./eye-closed";
 export * from "./eye-off";
 export * from "./eye";
 export * from "./glasses";
+export * from "./hand";

@@ -536,7 +536,7 @@ export default App;`
     const isDefaultColor = iconColor === 'currentColor'
 
     return (
-        <div className="h-[900px] overflow-auto border-b pb-6 md:border-b-0 md:border-r md:pr-6">
+        <div className=" border-b -ml-6 md:border-b-0 md:border-r h-full lg:top-32">
             <canvas
                 ref={canvasRef}
                 className="hidden"
@@ -588,144 +588,145 @@ export default App;`
                 </DialogContent>
             </Dialog>
 
-            <div className="relative -mt-3 space-y-4">
-                <IconDetails
-                    iconSize={iconSize}
-                    iconVariant={iconVariant}
-                    iconColor={iconColor}
-                    strokeWidth={strokeWidth}
-                    animation={animation}
-                    loop={loop}
-                    selectedIcon={selectedIcon}
-                    strokeLinecap={strokeLinecap}
-                    strokeLinejoin={strokeLinejoin}
-                />
-                <Dialog>
-                    {selectedIcon && (
-                        <div className="flex flex-wrap gap-2">
-                            <DropdownMenu>
-                                <DropdownMenuTrigger className={buttonVariants({ size: 'icon', className: 'h-9 w-9' })}>
-                                    <Download />
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="start">
-                                    <DropdownMenuItem
-                                        onClick={downloadSVG}
-                                        className="flex cursor-pointer justify-between">
-                                        SVG <Download className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                        onClick={downloadPNG}
-                                        className="flex cursor-pointer justify-between">
-                                        PNG <Download className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                        onClick={downloadJPG}
-                                        className="flex cursor-pointer justify-between">
-                                        JPG <Download className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem
-                                        onClick={downloadGIF}
-                                        className="flex cursor-pointer justify-between">
-                                        GIF <Film className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
-                                    <Copy />
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="start">
-                                    <DropdownMenuItem
-                                        onClick={copySVG}
-                                        className="flex cursor-pointer justify-between">
-                                        SVG <Copy className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                        onClick={copyPNG}
-                                        className="flex cursor-pointer justify-between">
-                                        PNG <Copy className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem
-                                        onClick={copyReactCode}
-                                        className="flex cursor-pointer justify-between">
-                                        React <Copy className="h-4 w-4" />
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                            <DialogTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
-                                <Code className="h-4 w-4" />
-                            </DialogTrigger>
-                            <Link href={`/${selectedIcon}`}>
-                                <Button
-                                    variant={'outline'}
-                                    size={'icon'}>
-                                    <Expand />
-                                </Button>
-                            </Link>
-                            <ShareButton
-                                url={`/${selectedIcon}`}
-                                title={selectedIcon}
-                                description={selectedIcon || `Check out this ${selectedIcon.toLowerCase().replace('_', ' ')} graphic!`}
-                                image={selectedIcon}
-                                type="graphic"
-                                variant="outline"
-                                size="icon"
-                                showText={false}
-                            />
-                            <Button
-                                variant="outline"
-                                onClick={handleReset}
-                                size="icon"
-                                className="group cursor-pointer transition-transform duration-300">
-                                <RotateCw className="transition-transform duration-300 group-hover:rotate-45" />
-                            </Button>
-                        </div>
-                    )}
-
-                    <DialogContent className="hidden w-auto max-w-[80vw] justify-center p-6 md:grid md:max-w-[1400px]">
-                        <DialogTitle className="hidden"></DialogTitle>
-                        <div className="relative flex gap-3">
-                            <div className="space-y-3">
-                                <div className="flex justify-center">
-                                    <Link href={`/${selectedIcon}`}>
-                                        <Button className="w-40">
-                                            See in Action <Expand />
-                                        </Button>
-                                    </Link>
-                                </div>
-                                <CodeIconDetails
-                                    iconSize={iconSize}
-                                    iconVariant={iconVariant}
-                                    iconColor={iconColor}
-                                    strokeWidth={strokeWidth}
-                                    animation={animation}
-                                    loop={loop}
-                                    selectedIcon={selectedIcon}
+            <div className="h-screen overflow-auto pl-6 md:px-6">
+                <div className="relative -mt-3 space-y-4">
+                    <IconDetails
+                        iconSize={iconSize}
+                        iconVariant={iconVariant}
+                        iconColor={iconColor}
+                        strokeWidth={strokeWidth}
+                        animation={animation}
+                        loop={loop}
+                        selectedIcon={selectedIcon}
+                        strokeLinecap={strokeLinecap}
+                        strokeLinejoin={strokeLinejoin}
+                    />
+                    <Dialog>
+                        {selectedIcon && (
+                            <div className="flex flex-wrap gap-2">
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger className={buttonVariants({ size: 'icon', className: 'h-9 w-9' })}>
+                                        <Download />
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="start">
+                                        <DropdownMenuItem
+                                            onClick={downloadSVG}
+                                            className="flex cursor-pointer justify-between">
+                                            SVG <Download className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            onClick={downloadPNG}
+                                            className="flex cursor-pointer justify-between">
+                                            PNG <Download className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            onClick={downloadJPG}
+                                            className="flex cursor-pointer justify-between">
+                                            JPG <Download className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem
+                                            onClick={downloadGIF}
+                                            className="flex cursor-pointer justify-between">
+                                            GIF <Film className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
+                                        <Copy />
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="start">
+                                        <DropdownMenuItem
+                                            onClick={copySVG}
+                                            className="flex cursor-pointer justify-between">
+                                            SVG <Copy className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            onClick={copyPNG}
+                                            className="flex cursor-pointer justify-between">
+                                            PNG <Copy className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            onClick={copyReactCode}
+                                            className="flex cursor-pointer justify-between">
+                                            React <Copy className="h-4 w-4" />
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                                <DialogTrigger className={buttonVariants({ variant: 'outline', size: 'icon', className: 'h-9 w-9' })}>
+                                    <Code className="h-4 w-4" />
+                                </DialogTrigger>
+                                <Link href={`/${selectedIcon}`}>
+                                    <Button
+                                        variant={'outline'}
+                                        size={'icon'}>
+                                        <Expand />
+                                    </Button>
+                                </Link>
+                                <ShareButton
+                                    url={`/${selectedIcon}`}
+                                    title={selectedIcon}
+                                    description={selectedIcon || `Check out this ${selectedIcon.toLowerCase().replace('_', ' ')} graphic!`}
+                                    image={selectedIcon}
+                                    type="graphic"
+                                    variant="outline"
+                                    size="icon"
+                                    showText={false}
                                 />
-                                <div className="bg-muted/20 h-35 flex w-40 rounded-lg p-3">
-                                    <div className="space-y-2">
-                                        <Badge
-                                            variant="secondary"
-                                            className="text-xs">
-                                            {icon?.category || 'Uncategorized'}
-                                        </Badge>
-                                        <div className="flex flex-wrap gap-1">
-                                            {icon?.tags?.slice(0, 2).map((tag) => (
-                                                <Badge
-                                                    key={tag}
-                                                    variant="outline"
-                                                    className="text-xs">
-                                                    {tag}
-                                                </Badge>
-                                            ))}
+                                <Button
+                                    variant="outline"
+                                    onClick={handleReset}
+                                    size="icon"
+                                    className="group cursor-pointer transition-transform duration-300">
+                                    <RotateCw className="transition-transform duration-300 group-hover:rotate-45" />
+                                </Button>
+                            </div>
+                        )}
+
+                        <DialogContent className="hidden w-auto max-w-[80vw] justify-center p-6 md:grid md:max-w-[1400px]">
+                            <DialogTitle className="hidden"></DialogTitle>
+                            <div className="relative flex gap-3">
+                                <div className="space-y-3">
+                                    <div className="flex justify-center">
+                                        <Link href={`/${selectedIcon}`}>
+                                            <Button className="w-40">
+                                                See in Action <Expand />
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                    <CodeIconDetails
+                                        iconSize={iconSize}
+                                        iconVariant={iconVariant}
+                                        iconColor={iconColor}
+                                        strokeWidth={strokeWidth}
+                                        animation={animation}
+                                        loop={loop}
+                                        selectedIcon={selectedIcon}
+                                    />
+                                    <div className="bg-muted/20 h-35 flex w-40 rounded-lg p-3">
+                                        <div className="space-y-2">
+                                            <Badge
+                                                variant="secondary"
+                                                className="text-xs">
+                                                {icon?.category || 'Uncategorized'}
+                                            </Badge>
+                                            <div className="flex flex-wrap gap-1">
+                                                {icon?.tags?.slice(0, 2).map((tag) => (
+                                                    <Badge
+                                                        key={tag}
+                                                        variant="outline"
+                                                        className="text-xs">
+                                                        {tag}
+                                                    </Badge>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="">
-                                <CodeBlock
-                                    code={`import { ${selectedIcon} } from 'dalim-icons';
+                                <div className="">
+                                    <CodeBlock
+                                        code={`import { ${selectedIcon} } from 'dalim-icons';
 
 const App = () => {
   return (
@@ -735,13 +736,13 @@ const App = () => {
 }
   
 export default App;`}
-                                    lang="tsx"
-                                    preHighlighted={highlightedCode}
-                                />
+                                        lang="tsx"
+                                        preHighlighted={highlightedCode}
+                                    />
 
-                                <CopyButton
-                                    className="absolute right-2 top-2"
-                                    componentSource={`import { ${selectedIcon} } from 'dalim-icons';
+                                    <CopyButton
+                                        className="absolute right-2 top-2"
+                                        componentSource={`import { ${selectedIcon} } from 'dalim-icons';
 
 const App = () => {
   return (
@@ -754,91 +755,92 @@ const App = () => {
 }
   
 export default App;`}
-                                />
+                                    />
+                                </div>
                             </div>
+                            <div className="-mt-1">
+                                <CliCommands name={'dalim-icons'} />
+                            </div>
+                        </DialogContent>
+                    </Dialog>
+                    {selectedIcon && (
+                        <div>
+                            <Label className="text-xs font-medium">Size: {iconSize[0]}px</Label>
+                            <Slider
+                                value={iconSize}
+                                onValueChange={setIconSize}
+                                max={72}
+                                min={8}
+                                step={4}
+                                className="mt-2"
+                            />
                         </div>
-                        <div className="-mt-1">
-                            <CliCommands name={'dalim-icons'} />
-                        </div>
-                    </DialogContent>
-                </Dialog>
-                {selectedIcon && (
+                    )}
                     <div>
-                        <Label className="text-xs font-medium">Size: {iconSize[0]}px</Label>
+                        <Label className="text-sm font-medium">Color</Label>
+                        <div className="mt-2 flex items-center gap-2">
+                            <input
+                                type="color"
+                                value={iconColor}
+                                onChange={(e) => setIconColor(e.target.value)}
+                                className="absolute h-8 w-8 rounded-full border p-3"
+                            />
+                            <div
+                                className="h-8 w-8 rounded-full border"
+                                style={{ backgroundColor: iconColor }}
+                            />
+                            <Input
+                                value={iconColor}
+                                onChange={(e) => setIconColor(e.target.value)}
+                                className="flex-1"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <Label className="text-xs font-medium">Stroke Width: {strokeWidth[0]}</Label>
                         <Slider
-                            value={iconSize}
-                            onValueChange={setIconSize}
-                            max={72}
-                            min={8}
-                            step={4}
+                            value={strokeWidth}
+                            onValueChange={setStrokeWidth}
+                            max={3}
+                            min={0.1}
+                            step={0.1}
                             className="mt-2"
                         />
                     </div>
-                )}
-                <div>
-                    <Label className="text-sm font-medium">Color</Label>
-                    <div className="mt-2 flex items-center gap-2">
-                        <input
-                            type="color"
-                            value={iconColor}
-                            onChange={(e) => setIconColor(e.target.value)}
-                            className="absolute h-8 w-8 rounded-full border p-3"
+                    <div className="flex items-center justify-between">
+                        <Label
+                            htmlFor="animation"
+                            className="text-sm font-medium">
+                            Animation
+                        </Label>
+                        <Switch
+                            id="animation"
+                            checked={animation}
+                            onCheckedChange={setAnimation}
                         />
-                        <div
-                            className="h-8 w-8 rounded-full border"
-                            style={{ backgroundColor: iconColor }}
-                        />
-                        <Input
-                            value={iconColor}
-                            onChange={(e) => setIconColor(e.target.value)}
-                            className="flex-1"
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                        <Label
+                            htmlFor="loop"
+                            className="text-sm font-medium">
+                            Loop
+                        </Label>
+                        <Switch
+                            id="loop"
+                            checked={loop}
+                            onCheckedChange={setLoop}
                         />
                     </div>
                 </div>
-
-                <div>
-                    <Label className="text-xs font-medium">Stroke Width: {strokeWidth[0]}</Label>
-                    <Slider
-                        value={strokeWidth}
-                        onValueChange={setStrokeWidth}
-                        max={3}
-                        min={0.1}
-                        step={0.1}
-                        className="mt-2"
-                    />
-                </div> 
-                <div className="flex items-center justify-between">
-                    <Label
-                        htmlFor="animation"
-                        className="text-sm font-medium">
-                        Animation
-                    </Label>
-                    <Switch
-                        id="animation"
-                        checked={animation}
-                        onCheckedChange={setAnimation}
+                <div className="">
+                    <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
+                    <IconCategory
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
                     />
                 </div>
-
-                <div className="flex items-center justify-between">
-                    <Label
-                        htmlFor="loop"
-                        className="text-sm font-medium">
-                        Loop
-                    </Label>
-                    <Switch
-                        id="loop"
-                        checked={loop}
-                        onCheckedChange={setLoop}
-                    />
-                </div>
-            </div>
-            <div className='hidden md:block'>
-            <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-            <IconCategory
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-            />
             </div>
         </div>
     )

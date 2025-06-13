@@ -28,7 +28,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
 
         return (
             <Logo
-                size={100}
+                size={90}
                 variant={iconVariant}
                 color={iconColor}
             />
@@ -45,11 +45,11 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap  justify-center gap-2 md:justify-start">
+                <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                     {filteredIcons.map((logo) => (
                         <div
                             key={logo.name}
-                            className="flex h-40 w-40  items-center">
+                            className="flex h-40 w-40 items-center">
                             <RadioGroupItem
                                 value={logo.name}
                                 id={logo.name}
@@ -57,7 +57,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
                             />
                             <Label
                                 htmlFor={logo.name}
-                                className="cursor-pointer ">
+                                className="cursor-pointer">
                                 <TooltipProvider delayDuration={0}>
                                     <Tooltip>
                                         <TooltipTrigger asChild>

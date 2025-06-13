@@ -6,17 +6,17 @@ import { forwardRef } from 'react'
 import { cn } from '../../lib/utils'
 import { LogosHandle, LogosProps, LogoMetadata } from '../../types'
 
-export const VercelMetadata: LogoMetadata = {
-  name: 'Vercel',
-  category: 'Hosting',
+export const XTwitterMetadata: LogoMetadata = {
+  name: 'XTwitter',
+  category: 'Social',
   tags: ['technology', 'design'],
-  description: 'An icon representing the Vercel platform logo',
+  description: 'An icon representing the X platform logo',
   author: 'Ali Imam',
   created: '2025-06-10',
   variants: ['icon', 'wordmark'],
 }
 
-export const Vercel = forwardRef<LogosHandle, LogosProps>(
+export const X = forwardRef<LogosHandle, LogosProps>(
   (
     {
       className,
@@ -31,7 +31,7 @@ export const Vercel = forwardRef<LogosHandle, LogosProps>(
     const renderPaths = () => {
       switch (variant) {
         case 'icon':
-          return <path d="m128 0 128 221.705H0z" />
+          return <path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z" />
         default:
           return 'icon'
       }
@@ -40,7 +40,7 @@ export const Vercel = forwardRef<LogosHandle, LogosProps>(
     return (
       <motion.div 
         role="img"
-        aria-label="Vercel"
+        aria-label="X"
         className={cn('', className)}
         initial="normal"
         style={{ width: size, height: size, color }}
@@ -49,8 +49,8 @@ export const Vercel = forwardRef<LogosHandle, LogosProps>(
         <svg
           width={size}
           height={size}
-          viewBox="0 0 256 222"
-          fill="currentColor"
+          viewBox="0 0 1200 1227"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={cn('', className)}
         >
@@ -61,5 +61,7 @@ export const Vercel = forwardRef<LogosHandle, LogosProps>(
   }
 )
 
-Vercel.displayName = 'Vercel'
+X.displayName = 'X'
+
+  
  

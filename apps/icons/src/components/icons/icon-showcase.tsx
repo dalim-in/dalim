@@ -73,7 +73,7 @@ export function IconShowcase({
     }
 
     return (
-        <div className="mx-1 my-4 h-[868px] overflow-auto">
+        <div className="mx-1 h-screen md:pb-100 overflow-auto my-4">
             {filteredIcons.length === 0 && (
                 <div className="text-muted-foreground grid gap-3 py-40 text-center text-sm">
                     No icons found for this search.
@@ -87,7 +87,7 @@ export function IconShowcase({
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex justify-center md:justify-start flex-wrap gap-2">
                     {filteredIcons.map((icon) => (
                         <div
                             key={icon.name}

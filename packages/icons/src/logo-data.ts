@@ -12,7 +12,16 @@ import {
   AfterEffectsMetadata,
   PremiereProMetadata,
   FigmaMetadata,
-  ShopifyMetadata
+  ShopifyMetadata,
+  InstagramMetadata,
+  FacebookMetadata,
+  LinkedInMetadata,
+  MetaMetadata,
+  PinterestMetadata,
+  ThreadsMetadata,
+  WhatsAppMetadata,
+  XTwitterMetadata,
+  YouTubeMetadata
 } from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
@@ -34,6 +43,19 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   // CMS
 
   "Shopify": ShopifyMetadata,
+
+  // Social
+
+  "Instagram": InstagramMetadata,
+  "Facebook": FacebookMetadata,
+  "LinkedIn": LinkedInMetadata,
+  "Meta": MetaMetadata,
+  "Pinterest": PinterestMetadata,
+  "Threads": ThreadsMetadata,
+  "WhatsApp": WhatsAppMetadata,
+  "X": XTwitterMetadata,
+  "YouTube": YouTubeMetadata,
+
 };
 
 // Get all icons

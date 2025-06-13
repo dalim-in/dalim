@@ -156,7 +156,8 @@ import {
   TriangleRightMetadata,
   VariableMetadata,
   WeightMetadata,
-  XMetadata
+  XMetadata,
+  HandMetadata
 } from "./icons"; 
  
 export const iconDatabase: Record<string, IconMetadata> = { 
@@ -265,6 +266,7 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "EyeOff": EyeOffMetadata,
   "Eye": EyeMetadata,
   "Glasses": GlassesMetadata,
+  "Hand": HandMetadata,
 
   // Mathematics
 
