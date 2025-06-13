@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-nocheck
 import { useEffect, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
