@@ -92,7 +92,7 @@ export function MenuUI() {
                         <NavigationMenuLink
                             href="/ui"
                             className={navigationMenuTriggerStyle()}>
-                            UI
+                            UI <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
@@ -100,7 +100,6 @@ export function MenuUI() {
                             href="/blocks"
                             className={navigationMenuTriggerStyle()}>
                             Blocks
-                            <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
@@ -152,7 +151,6 @@ export function MenuAgency() {
     )
 }
 
-
 export function MenuFonts() {
     return (
         <div className="hidden pr-20 md:block">
@@ -201,7 +199,7 @@ export function MenuGraphic() {
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphic</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
-                     <NavigationMenuItem>
+                    <NavigationMenuItem>
                         <Link
                             href={`/backgrounds`}
                             legacyBehavior
@@ -231,7 +229,6 @@ export function MenuGraphic() {
     )
 }
 
-
 export function MenuIcons() {
     return (
         <div className="hidden pr-20 md:block">
@@ -244,7 +241,7 @@ export function MenuIcons() {
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
                         </Link>
-                    </NavigationMenuItem> 
+                    </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link
                             href={`/logos`}

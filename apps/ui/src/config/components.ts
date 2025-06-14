@@ -68,12 +68,15 @@ export const categories: ComponentCategory[] = [
     name: "Card",
     components: [
       { name: "card-01" },
+      { name: "card-08" },
       { name: "card-02" },
+      { name: "card-09" },
       { name: "card-03" },
       { name: "card-04" },
       { name: "card-06" },
       { name: "card-05" },
       { name: "card-07" },
+      { name: "card-10" },
     ],
   },
   {

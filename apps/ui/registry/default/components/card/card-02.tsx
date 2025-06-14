@@ -11,7 +11,7 @@ import {
 } from "@/registry/default/ui/avatar"
 import { Button } from "@/registry/default/ui/button"
 import {
-  Card,
+  LiquidCard,
   CardContent,
   CardFooter,
   CardHeader,
@@ -97,16 +97,16 @@ export default function Component() {
 
   return (
     <>
-       <Card className="w-full max-w-[350px]">
+       <LiquidCard className="w-full max-w-[350px]">
         <CardHeader className="flex flex-row items-center">
           <div className="flex items-center space-x-4">
-            <Avatar>
-              <AvatarImage src="/avatars/01.png" alt="Image" />
-              <AvatarFallback>OM</AvatarFallback>
+            <Avatar className="border">
+              <AvatarImage className="p-2" src="/brand/logo-icon.svg" alt="Image" />
+              <AvatarFallback>AI</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Sofia Davis</p>
-              <p className="text-sm text-muted-foreground">m@example.com</p>
+              <p className="text-sm font-medium leading-none">Ali Imam</p>
+              <p className="text-sm text-muted-foreground">contact@dalim.in</p>
             </div>
           </div>
           <TooltipProvider delayDuration={0}>
@@ -173,7 +173,7 @@ export default function Component() {
             </Button>
           </form>
         </CardFooter>
-      </Card>
+      </LiquidCard>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="gap-0 p-0 outline-none">
           <DialogHeader className="px-4 pb-4 pt-5">

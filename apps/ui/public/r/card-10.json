@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-10",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/card/card-10.tsx",
+      "content": "\"use client\"\n \nimport { Button } from \"@/registry/default/ui/button\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\"\nimport { Input } from \"@/registry/default/ui/input\"\nimport { Label } from \"@/registry/default/ui/label\" \nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\"\n\nexport default function CardsPaymentMethod() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Payment Method</CardTitle>\n        <CardDescription>\n          Add a new payment method to your account.\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"grid gap-6\">\n         \n        <div className=\"grid gap-2\">\n          <Label htmlFor=\"name\">Name</Label>\n          <Input id=\"name\" placeholder=\"First Last\" />\n        </div>\n        <div className=\"grid gap-2\">\n          <Label htmlFor=\"city\">City</Label>\n          <Input id=\"city\" placeholder=\"\" />\n        </div>\n        <div className=\"grid gap-2\">\n          <Label htmlFor=\"number\">Card number</Label>\n          <Input id=\"number\" placeholder=\"\" />\n        </div>\n        <div className=\"grid grid-cols-3 gap-4\">\n          <div className=\"grid gap-2\">\n            <Label htmlFor=\"month\">Expires</Label>\n            <Select>\n              <SelectTrigger id=\"month\" aria-label=\"Month\">\n                <SelectValue placeholder=\"Month\" />\n              </SelectTrigger>\n              <SelectContent>\n                <SelectItem value=\"1\">January</SelectItem>\n                <SelectItem value=\"2\">February</SelectItem>\n                <SelectItem value=\"3\">March</SelectItem>\n                <SelectItem value=\"4\">April</SelectItem>\n                <SelectItem value=\"5\">May</SelectItem>\n                <SelectItem value=\"6\">June</SelectItem>\n                <SelectItem value=\"7\">July</SelectItem>\n                <SelectItem value=\"8\">August</SelectItem>\n                <SelectItem value=\"9\">September</SelectItem>\n                <SelectItem value=\"10\">October</SelectItem>\n                <SelectItem value=\"11\">November</SelectItem>\n                <SelectItem value=\"12\">December</SelectItem>\n              </SelectContent>\n            </Select>\n          </div>\n          <div className=\"grid gap-2\">\n            <Label htmlFor=\"year\">Year</Label>\n            <Select>\n              <SelectTrigger id=\"year\" aria-label=\"Year\">\n                <SelectValue placeholder=\"Year\" />\n              </SelectTrigger>\n              <SelectContent>\n                {Array.from({ length: 10 }, (_, i) => (\n                  <SelectItem key={i} value={`${new Date().getFullYear() + i}`}>\n                    {new Date().getFullYear() + i}\n                  </SelectItem>\n                ))}\n              </SelectContent>\n            </Select>\n          </div>\n          <div className=\"grid gap-2\">\n            <Label htmlFor=\"cvc\">CVC</Label>\n            <Input id=\"cvc\" placeholder=\"CVC\" />\n          </div>\n        </div>\n      </CardContent>\n      <CardFooter>\n        <Button className=\"w-full\">Continue</Button>\n      </CardFooter>\n    </Card>\n  )\n}",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "card",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}
