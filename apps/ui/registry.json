@@ -47,71 +47,224 @@
       }
     },
     {
-      "name": "ai-input",
+      "name": "alert",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
-      "files": [
-        {
-          "path": "registry/default/ui/ai/input.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "ai-input-01",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/ai/ai-input-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "ai",
-          "input",
-          "component"
-        ],
-        "colSpan": 2
-      }
-    },
-    {
-      "name": "ai-input-02",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/ai/ai-input-02.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "ai",
-          "input",
-          "component"
-        ],
-        "colSpan": 2
-      }
-    },
-    {
-      "name": "alert-dialog",
-      "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-alert-dialog"
-      ],
-      "registryDependencies": [
-        "https://ui.dalim.in/r/button.json"
-      ],
       "files": [
         {
           "path": "registry/default/ui/alert-dialog.tsx",
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "alert-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert/alert-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "alert-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert/alert-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert/alert-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert/alert-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert/alert-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert-dialog/alert-dialog-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert-dialog",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "alert-dialog-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert-dialog/alert-dialog-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert-dialog",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-dialog-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert-dialog/alert-dialog-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert-dialog",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-dialog-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert-dialog/alert-dialog-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert-dialog",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "alert-dialog-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/alert-dialog/alert-dialog-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "alert-dialog",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
     },
     {
       "name": "avatar",
@@ -1058,6 +1211,83 @@
       }
     },
     {
+      "name": "button-48",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-48.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "button-49",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-49.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
+      "name": "button-50",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-50.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
+      "name": "button-51",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-51.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
       "name": "calendar",
       "type": "registry:ui",
       "dependencies": [
@@ -1100,6 +1330,146 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "card-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "card-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "card-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "card-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "card-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "card-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "card-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/card/card-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "card",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
     },
     {
       "name": "checkbox",
@@ -1488,9 +1858,110 @@
       "meta": {
         "tags": [
           "pagination",
-          "navigation",
+          "example",
           "component"
         ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "pagination",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "pagination",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "pagination",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "pagination",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "pagination-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/pagination/pagination-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "pagination",
+          "example",
+          "component"
+        ],
+        "style": 1,
         "colSpan": 2
       }
     },

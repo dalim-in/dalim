@@ -35,26 +35,23 @@
           }
         }
       }
-    },
+    }, 
     {
-      "name": "ai-input",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-slot"],
+      "name": "alert",
+      "type": "registry:ui", 
       "files": [
         {
-          "path": "registry/default/ui/ai/input.tsx",
+          "path": "registry/default/ui/alert-dialog.tsx",
           "type": "registry:ui"
         }
       ]
     },
     {
       "name": "alert-dialog",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-alert-dialog"],
-      "registryDependencies": ["https://ui.dalim.in/r/button.json"],
+      "type": "registry:ui", 
       "files": [
         {
-          "path": "registry/default/ui/alert-dialog.tsx",
+          "path": "registry/default/ui/alert.tsx",
           "type": "registry:ui"
         }
       ]
@@ -101,7 +98,7 @@
           "type": "registry:ui"
         }
       ]
-    },
+    }, 
     {
       "name": "calendar",
       "type": "registry:ui",

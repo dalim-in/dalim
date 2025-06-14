@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-01",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/alert/alert-01.tsx",
+      "content": "import { CheckCircle2Icon } from \"lucide-react\"\n\nimport {\n  LiquidAlert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function Component() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <LiquidAlert>\n        <CheckCircle2Icon />\n        <AlertTitle>Success! Your changes have been saved</AlertTitle>\n        <AlertDescription>\n          This is an alert with icon, title and description.\n        </AlertDescription>\n      </LiquidAlert> \n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "alert",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 3
+  }
+}

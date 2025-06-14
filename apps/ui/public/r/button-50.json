@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-50",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/button/button-50.tsx",
+      "content": "import { Plus } from \"lucide-react\"\n\nimport { LiquidButton } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  return (\n    <>\n      <LiquidButton  size={\"icon\"}>\n        <Plus />\n      </LiquidButton>\n    </>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "button",
+      "example",
+      "component"
+    ],
+    "style": 1
+  }
+}

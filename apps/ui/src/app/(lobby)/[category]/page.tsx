@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory((await params).category)
 
   if (!category) {
-    return {}
+    return {} 
   }
 
   // Get components to check count
