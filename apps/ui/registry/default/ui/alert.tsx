@@ -76,7 +76,7 @@ function LiquidAlert({
       <div
         data-slot="alert"
         role="alert"
-        style={{ backdropFilter: 'url("#container-glass")' }}
+        style={{ backdropFilter: 'url("#container-glass1")' }}
         className={cn(
           alertVariants({ variant }),
           className,
@@ -89,26 +89,48 @@ function LiquidAlert({
   )
 }
 
+
 function GlassFilter() {
   return (
     <svg className="hidden">
-      <filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.05 0.05"
-          numOctaves="1"
-          seed="1"
-          result="turbulence"
-        />
-        <feGaussianBlur in="turbulence" stdDeviation="2" result="blur" />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="blur"
-          scale="70"
-          xChannelSelector="R"
-          yChannelSelector="B"
-        />
-      </filter>
+      <defs>
+        <filter
+          id="container-glass11"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          colorInterpolationFilters="sRGB"
+        >
+          {/* Generate turbulent noise for distortion */}
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.05 0.05"
+            numOctaves="1"
+            seed="1"
+            result="turbulence"
+          />
+
+          {/* Blur the turbulence pattern slightly */}
+          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+
+          {/* Displace the source graphic with the noise */}
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="blurredNoise"
+            scale="70"
+            xChannelSelector="R"
+            yChannelSelector="B"
+            result="displaced"
+          />
+
+          {/* Apply overall blur on the final result */}
+          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+
+          {/* Output the result */}
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+        </filter>
+      </defs>
     </svg>
-  )
+  );
 }
