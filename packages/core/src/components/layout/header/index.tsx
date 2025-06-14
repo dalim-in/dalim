@@ -13,7 +13,9 @@ export function Header() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-40">
                                 <DalimLogo />
                             </div>
@@ -36,6 +38,7 @@ export function Header() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
@@ -46,9 +49,11 @@ export function HeaderUI() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
-                           <div className="w-40">
-                            <DalimUILogo />
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
+                            <div className="w-40">
+                                <DalimUILogo />
                             </div>
                             <MenuUI />
                             <MobileUI>
@@ -69,6 +74,7 @@ export function HeaderUI() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
@@ -79,7 +85,9 @@ export function HeaderAgency() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-60">
                                 <DalimAgencyLogo />
                             </div>
@@ -102,6 +110,7 @@ export function HeaderAgency() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
@@ -112,9 +121,11 @@ export function HeaderWorks() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-60">
-                            <DalimWorksLogo />
+                                <DalimWorksLogo />
                             </div>
                             <MobileWorks>
                                 <ClientOnly>
@@ -134,6 +145,7 @@ export function HeaderWorks() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
@@ -144,9 +156,11 @@ export function HeaderFonts() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-60">
-                            <DalimFontsLogo />
+                                <DalimFontsLogo />
                             </div>
                             <MenuFonts />
                             <MobileFonts>
@@ -167,10 +181,10 @@ export function HeaderFonts() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
-
 
 export function HeaderGraphic() {
     return (
@@ -178,9 +192,11 @@ export function HeaderGraphic() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-60">
-                            <DalimGraphicLogo />
+                                <DalimGraphicLogo />
                             </div>
                             <MenuGraphic />
                             <MobileGraphic>
@@ -201,10 +217,10 @@ export function HeaderGraphic() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
     )
 }
-
 
 export function HeaderIcons() {
     return (
@@ -212,9 +228,11 @@ export function HeaderIcons() {
             <header className="relative mb-14 before:absolute before:-inset-x-full before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
                 <div className="h-[82px] py-2">
                     <div className="container fixed inset-x-0 z-50 mx-auto px-3">
-                        <div className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl border bg-neutral-100/60 pl-6 pr-3 backdrop-blur-md backdrop-filter dark:bg-neutral-900/60">
+                        <div
+                            style={{ backdropFilter: 'url("#container-glass")' }}
+                            className="flex h-[64px] w-full items-center justify-between gap-3 rounded-3xl pl-6 pr-3 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]">
                             <div className="w-60">
-                            <DalimIconsLogo />
+                                <DalimIconsLogo />
                             </div>
                             <MenuIcons />
                             <MobileGraphic>
@@ -235,6 +253,40 @@ export function HeaderIcons() {
                     </div>
                 </div>
             </header>
+            <GlassFilter />
         </div>
+    )
+}
+
+function GlassFilter() {
+    return (
+        <svg className="hidden">
+            <filter
+                id="container-glass"
+                x="0%"
+                y="0%"
+                width="100%"
+                height="100%">
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.05 0.05"
+                    numOctaves="1"
+                    seed="1"
+                    result="turbulence"
+                />
+                <feGaussianBlur
+                    in="turbulence"
+                    stdDeviation="2"
+                    result="blur"
+                />
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="blur"
+                    scale="70"
+                    xChannelSelector="R"
+                    yChannelSelector="B"
+                />
+            </filter>
+        </svg>
     )
 }

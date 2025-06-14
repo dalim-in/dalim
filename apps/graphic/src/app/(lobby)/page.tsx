@@ -39,7 +39,6 @@ export default async function GraphicsPage({ searchParams }: GraphicsPageProps) 
         <div className="">
           <GraphicsFilters />
           <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-
           <GraphicsGrid initialGraphics={graphics} initialTotal={total} initialPage={currentpage} />
         </div>
       </div>

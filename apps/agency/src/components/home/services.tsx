@@ -6,7 +6,7 @@ export function Services() {
         <section className="pb-3 dark:bg-transparent">
             <div className="@container">
                 <div className="grid rounded-3xl border md:grid-cols-2 lg:grid-cols-4">
-                    <div className="p-6 border-b lg:border-b-0 md:border-r">
+                    <div className="p-6 border-b lg:border-b-0 md:border-r ">
                         <div className="">
                             <CardDecorator>
                                 <Globe

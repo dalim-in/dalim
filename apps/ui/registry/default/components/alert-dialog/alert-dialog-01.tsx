@@ -15,19 +15,19 @@ export default function Component() {
   return (
     <AlertDialog>
       <AlertLiquidDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
+        <Button variant="outline">Liquid Glass</Button>
       </AlertLiquidDialogTrigger>
       <AlertLiquidDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="">Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle className="">Did you like Liquid Glass?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
             account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel>No</AlertDialogCancel>
+          <AlertDialogAction className="bg-green-500">Absolutely! Yes</AlertDialogAction>
         </AlertDialogFooter>
       </AlertLiquidDialogContent>
     </AlertDialog>

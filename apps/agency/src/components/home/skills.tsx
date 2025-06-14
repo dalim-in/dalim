@@ -30,6 +30,8 @@ const skills = [
 const Skills = () => {
     return (
         <section className="mx-auto -mt-7 mb-12 max-w-4xl">
+                    
+
             <div className="p-10 rounded-3xl border">
                 <div className="flex flex-wrap justify-center gap-2">
                     {skills.map((item, idx) => {
@@ -43,7 +45,8 @@ const Skills = () => {
                         )
                     })}
                 </div>
-            </div>
+                </div>
+            
         </section>
     )
 }

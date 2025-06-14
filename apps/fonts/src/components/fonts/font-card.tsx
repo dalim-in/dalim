@@ -39,7 +39,7 @@ export function FontCard({ font }: FontCardProps) {
 
     return (
         <div>
-            <div className="bg-muted/50 dark:bg-muted/50 overflow-hidden rounded-3xl">
+            <div className="bg-muted/50 dark:bg-muted/50 overflow-hidden rounded-3xl ">
                 <div className="relative p-2">
                     <Link href={`${FONTS_URL}/${font.id}`}>
                         <FontQuickPreview

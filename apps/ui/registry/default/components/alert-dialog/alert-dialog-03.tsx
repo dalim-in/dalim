@@ -10,19 +10,21 @@ import {
   AlertDialogTrigger,
 } from "@/registry/default/ui/alert-dialog"
 import { Button } from "@/registry/default/ui/button"
+import { TriangleAlert } from "lucide-react"
 
 export default function Component() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
+        <Button variant="outline">Delete</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <TriangleAlert className="text-red-500 mb-4"/>
+          <AlertDialogTitle>Delete Graphic?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            graphic and remove images from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

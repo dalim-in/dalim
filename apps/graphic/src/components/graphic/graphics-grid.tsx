@@ -216,7 +216,7 @@ export function GraphicsGrid({
                 {graphics.map((graphic) => (
                     <div
                         key={graphic.id}
-                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg ${viewMode === 'list' ? 'grid gap-3 p-2' : ''}`}>
+                        className={`group rounded-xl border transition-all duration-200 hover:shadow-lg  ${viewMode === 'list' ? 'grid gap-3 p-2' : ''}`}>
                         <Link
                             href={`/${graphic.id}`}
                             className={viewMode === 'list' ? 'flex-shrink-0' : ''}>
