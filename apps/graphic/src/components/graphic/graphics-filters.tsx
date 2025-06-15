@@ -99,7 +99,7 @@ export function GraphicsFilters() {
         setSearch('')
         setCategory('')
         setTags([])
-        router.push('/graphics')
+        router.push('/graphic')
     }
 
     const hasActiveFilters = search || category || tags.length > 0

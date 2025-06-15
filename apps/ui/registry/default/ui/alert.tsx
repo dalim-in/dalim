@@ -76,7 +76,7 @@ function LiquidAlert({
       <div
         data-slot="alert"
         role="alert"
-        style={{ backdropFilter: 'url("#container-glass1")' }}
+        style={{ backdropFilter: 'url("#container-glass")' }}
         className={cn(
           alertVariants({ variant }),
           className,
@@ -95,7 +95,7 @@ function GlassFilter() {
     <svg className="hidden">
       <defs>
         <filter
-          id="container-glass11"
+          id="container-glass"
           x="0%"
           y="0%"
           width="100%"

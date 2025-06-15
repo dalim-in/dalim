@@ -200,7 +200,20 @@ import {
   FlagMetadata,
   FlagOffMetadata,
   FrownMetadata,
-  BadgeInfo1Metadata
+  BadgeInfo1Metadata,
+  GiftMetadata,
+  HandCoinsMetadata,
+  HandshakeMetadata,
+  HeartHandshakeMetadata,
+  HeartMinusMetadata,
+  HeartPlusMetadata,
+  IdCardMetadata,
+  IdCardLanyardMetadata,
+  InboxMetadata,
+  KeyMetadata,
+  KeyRoundMetadata,
+  KeySquareMetadata,
+  LinkMetadata
 } from "./icons"; 
  
 export const iconDatabase: Record<string, IconMetadata> = { 
@@ -355,6 +368,19 @@ export const iconDatabase: Record<string, IconMetadata> = {
   "Flag": FlagMetadata,
   "FlagOff": FlagOffMetadata,
   "Frown": FrownMetadata,
+  "Gift": GiftMetadata,
+  "HandCoins": HandCoinsMetadata,
+  "Handshake": HandshakeMetadata,
+  "HeartHandshake": HeartHandshakeMetadata,
+  "HeartMinus": HeartMinusMetadata,
+  "HeartPlus": HeartPlusMetadata,
+  "IdCard": IdCardMetadata,
+  "IdCardLanyard":IdCardLanyardMetadata,
+  "Inbox": InboxMetadata,
+  "Key": KeyMetadata,
+  "KeyRound": KeyRoundMetadata,
+  "KeySquare": KeySquareMetadata,
+  "Link": LinkMetadata,
 
   // Mathematics
 

@@ -84,14 +84,14 @@ export function GraphicDetail({ graphic }: GraphicDetailProps) {
                                             <Button
                                                 variant="outline"
                                                 size="icon"
-                                                className="bg-background/80 absolute left-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
+                                                className="bg-background/80 absolute left-4 top-1/2 -translate-y-1/2 backdrop-blur-sm"
                                                 onClick={prevImage}>
                                                 <ChevronLeft className="h-4 w-4" />
                                             </Button>
                                             <Button
                                                 variant="outline"
                                                 size="icon"
-                                                className="bg-background/80 absolute right-2 top-1/2 -translate-y-1/2 backdrop-blur-sm"
+                                                className="bg-background/80 absolute right-4 top-1/2 -translate-y-1/2 backdrop-blur-sm"
                                                 onClick={nextImage}>
                                                 <ChevronRight className="h-4 w-4" />
                                             </Button>
