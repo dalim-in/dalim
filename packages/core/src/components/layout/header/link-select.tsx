@@ -71,11 +71,10 @@ const OPTIONS = [
     },
     {
         value: 'visuals',
-        label: 'Visuals',
-        disabled: true,
+        label: 'Visuals', 
         urls: {
             prod: 'https://visuals.dalim.in',
-            dev: 'http://localhost:3009',
+            dev: 'http://localhost:3008',
         },
     },
     {
@@ -84,7 +83,7 @@ const OPTIONS = [
         disabled: true,
         urls: {
             prod: 'https://pro.dalim.in',
-            dev: 'http://localhost:3008',
+            dev: 'http://localhost:3010',
         },
     },
     {
@@ -93,7 +92,7 @@ const OPTIONS = [
         disabled: true,
         urls: {
             prod: 'https://ali.dalim.in',
-            dev: 'http://localhost:3008',
+            dev: 'http://localhost:3009',
         },
     },
     

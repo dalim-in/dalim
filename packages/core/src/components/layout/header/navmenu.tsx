@@ -274,6 +274,41 @@ export function MenuIcons() {
     )
 }
 
+export function MenuVisuals() {
+    return (
+        <div className="hidden pr-20 md:block">
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${GRAPHIC_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphic</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${FONTS_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Fonts</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${ICONS_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem> 
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
+    )
+}
+
 const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(({ className, title, children, ...props }, ref) => {
     return (
         <li>
