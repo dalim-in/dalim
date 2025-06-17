@@ -168,6 +168,14 @@ export function MenuFonts() {
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link
+                            href={`/fontpair`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Font Pair</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
                             href={`${ICONS_URL}`}
                             legacyBehavior
                             passHref>
