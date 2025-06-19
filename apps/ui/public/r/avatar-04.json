@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-04",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/avatar/avatar-04.tsx",
+      "content": "import {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from \"@/registry/default/ui/avatar\"\n\nexport default function AvatarDemo() {\n  return (\n    <div className=\"flex flex-row flex-wrap items-center gap-12 rounded-lg border p-1\">\n      <div className=\"*:data-[slot=avatar]:ring-background flex -space-x-1 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale\">\n        <Avatar className=\"rounded-lg\">\n          <AvatarImage src=\"https://dalim.in/ali.jpg\" alt=\"@shadcn\" />\n          <AvatarFallback>CN</AvatarFallback>\n        </Avatar>\n        <Avatar className=\"rounded-lg\">\n          <AvatarImage src=\"https://dalim.in/ali.jpg\" alt=\"@leerob\" />\n          <AvatarFallback>LR</AvatarFallback>\n        </Avatar>\n        <Avatar className=\"rounded-lg\">\n          <AvatarImage src=\"https://dalim.in/ali.jpg\" alt=\"@evilrabbit\" />\n          <AvatarFallback>ER</AvatarFallback>\n        </Avatar>\n        <Avatar className=\"w-auto items-center bg-background rounded-lg border\">\n          <p className=\"text-muted-foreground px-2 text-xs\">\n            Trusted by{\" \"}\n            <strong className=\"text-foreground font-medium\">90K+</strong>{\" \"}\n            designers.\n          </p>\n        </Avatar>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "avatar",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

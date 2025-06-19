@@ -7,6 +7,18 @@ export interface ComponentCategory {
 
 export const categories: ComponentCategory[] = [
   {
+    slug: "accordion",
+    name: "Accordion",
+    components: [
+      { name: "accordion-01" },
+      { name: "accordion-02" },
+      { name: "accordion-03" },
+      { name: "accordion-04" },
+      { name: "accordion-05" },
+      { name: "accordion-06" }, 
+    ],
+  },
+  {
     slug: "button",
     name: "Button",
     components: [
@@ -99,6 +111,30 @@ export const categories: ComponentCategory[] = [
       { name: "alert-dialog-03" },
       { name: "alert-dialog-04" },
       { name: "alert-dialog-05" }, 
+    ],
+  },
+  {
+    slug: "avatar",
+    name: "Avatar",
+    components: [
+      { name: "avatar-01" },
+      { name: "avatar-02" },
+      { name: "avatar-03" },
+      { name: "avatar-04" },
+      { name: "avatar-05" },
+      { name: "avatar-06" }, 
+    ],
+  },
+  {
+    slug: "badge",
+    name: "Badge",
+    components: [
+      { name: "badge-01" },
+      { name: "badge-02" },
+      { name: "badge-03" },
+      { name: "badge-04" },
+      { name: "badge-05" },
+      { name: "badge-06" }, 
     ],
   },
   {

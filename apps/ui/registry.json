@@ -47,6 +47,126 @@
       }
     },
     {
+      "name": "accordion-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "accordion-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "accordion-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "accordion-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "accordion-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "accordion-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
       "name": "alert",
       "type": "registry:ui",
       "files": [
@@ -280,6 +400,126 @@
       ]
     },
     {
+      "name": "avatar-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "avatar-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "avatar-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "avatar-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "avatar-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "avatar-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/avatar/avatar-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "avatar",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [
@@ -288,6 +528,126 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "badge-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "badge-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "badge-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "badge-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "badge-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "badge-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/badge/badge-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "badge",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
     },
     {
       "name": "breadcrumb",

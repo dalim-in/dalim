@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-04",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/accordion/accordion-04.tsx",
+      "content": "import { AtSignIcon, CommandIcon, EclipseIcon, ZapIcon } from \"lucide-react\"\n\nimport {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/registry/default/ui/accordion\"\n\nconst items = [\n  {\n    id: \"1\",\n    title: \"What makes Dalim Design different?\",\n    icon: CommandIcon,\n    content:\n      \"Dalim Design blends creativity with clarity, offering a visually consistent system that empowers both designers and developers. It emphasizes minimal aesthetics, strong typography, and pixel-perfect components tailored for modern web experiences.\",\n  },\n  {\n    id: \"2\",\n    title: \"How can I customize the design system?\",\n    icon: EclipseIcon,\n    content:\n      \"Dalim Design is highly flexible—modify design tokens, color palettes, typography scales, and spacing units to suit your brand. The system supports seamless theming, including dark mode and accessibility-aware contrast settings.\",\n  },\n  {\n    id: \"3\",\n    title: \"Is Dalim Design optimized for performance?\",\n    icon: ZapIcon,\n    content:\n      \"Absolutely. The design system is streamlined to avoid bloat, enabling fast load times and high responsiveness. Assets are optimized for modern rendering pipelines and support responsive and adaptive layouts by default.\",\n  },\n  {\n    id: \"4\",\n    title: \"How accessible is Dalim Design?\",\n    icon: AtSignIcon,\n    content:\n      \"Accessibility is a core principle. All visual elements are designed with inclusive UX in mind—ensuring legible typography, sufficient contrast, focus indicators, and compatibility with assistive technologies.\",\n  },\n]\n\nexport default function Component() {\n  return (\n    <div className=\"space-y-4\">\n      <Accordion\n        type=\"single\"\n        collapsible\n        className=\"w-[350px] space-y-1 md:w-lg\"\n        defaultValue=\"3\"\n      >\n        {items.map((item) => (\n          <AccordionItem value={item.id} key={item.id} className=\"py-2\">\n            <AccordionTrigger className=\"py-2 text-[15px] leading-6 hover:no-underline\">\n              <span className=\"flex items-center gap-3\">\n                <item.icon\n                  size={16}\n                  className=\"shrink-0 opacity-60\"\n                  aria-hidden=\"true\"\n                />\n                <span>{item.title}</span>\n              </span>\n            </AccordionTrigger>\n            <AccordionContent className=\"text-muted-foreground ps-7 pb-2\">\n              {item.content}\n            </AccordionContent>\n          </AccordionItem>\n        ))}\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "accordion",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

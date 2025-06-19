@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { categories } from "@/src/config/components"
+import { Button } from "@dalim/core/ui/button"
  
 
 export function CategoryUI() {
@@ -50,6 +51,11 @@ export function CategoryHomeUI() {
               />
             ))} 
         </div>
+        <Link className="flex justify-center pt-6" href={"/ui"}>
+        <Button>
+          View All UI
+        </Button>
+        </Link>
       </div>
     </div>
   )

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-06",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/accordion/accordion-06.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/registry/default/ui/accordion\"\n \n\nexport default function Component() {\n  return (\n    <div className=\"space-y-4\"> \n      <Accordion\n      type=\"single\"\n      collapsible\n      className=\"w-[350px] border rounded-xl md:w-md space-y-1\"\n      defaultValue=\"item-1\"\n    >\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger className=\"rounded-md px-4 py-3 text-[15px] leading-6 outline-none hover:no-underline focus-visible:ring-0\">Dalim UI</AccordionTrigger>\n        <AccordionContent className=\"flex flex-col gap-2 text-balance\">\n         <div className=\"overflow-hidden px-4\">\n          <div className=\"pt-1 font-mono text-sm\">\n            <p>\n              This example demonstrates how you can use{\" \"}\n              <strong className=\"font-bold\">Dalim Icons</strong>.\n            </p>\n            <pre className=\"mt-2 rounded-md bg-zinc-100 p-2 text-xs dark:bg-zinc-950\">\n              {`import { AArrowUp } from 'dalim-icons';\n    \nconst App = () => {\n  return (\n    <AArrowUp />\n  );\n}\n\nexport default App;`}\n            </pre>\n          </div>\n        </div>\n        </AccordionContent>\n      </AccordionItem> \n    </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "accordion",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}
