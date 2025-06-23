@@ -1,9 +1,6 @@
 "use client"
-
-import { useState } from "react"
-import { VisualCard } from "./visual-card"
-import { Button } from "@dalim/core/ui/button"
-import { Grid, List } from "lucide-react"
+ 
+import { VisualCard } from "./visual-card" 
 
 interface Visual {
   id: string
@@ -29,7 +26,7 @@ interface VisualsGridProps {
 }
 
 export function VisualsGrid({ visuals, currentUserId }: VisualsGridProps) {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
+   
 
   if (visuals.length === 0) {
     return (
@@ -41,34 +38,11 @@ export function VisualsGrid({ visuals, currentUserId }: VisualsGridProps) {
 
   return (
     <div className="space-y-6 mt-3">
-      <div className=" hidden justify-end">
-        <div className="flex border rounded-lg">
-          <Button
-            variant={viewMode === "grid" ? "default" : "ghost"}
-            size="sm"
-            onClick={() => setViewMode("grid")}
-            className="rounded-r-none"
-          >
-            <Grid className="h-4 w-4" />
-          </Button>
-          <Button
-            variant={viewMode === "list" ? "default" : "ghost"}
-            size="sm"
-            onClick={() => setViewMode("list")}
-            className="rounded-l-none"
-          >
-            <List className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
-
+       
       <div
-        className={
-          viewMode === "grid" ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3" : "space-y-3"
-        }
-      >
+        className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3"} >
         {visuals.map((visual) => (
-          <VisualCard key={visual.id} visual={visual} currentUserId={currentUserId} viewMode={viewMode} />
+          <VisualCard key={visual.id} visual={visual} currentUserId={currentUserId} />
         ))}
       </div>
     </div>

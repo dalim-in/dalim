@@ -5,7 +5,7 @@ export interface ComponentCategory {
   isNew?: boolean
 }
 
-export const categories: ComponentCategory[] = [
+export const categories: ComponentCategory[] = [ 
   {
     slug: "accordion",
     name: "Accordion",
@@ -21,6 +21,7 @@ export const categories: ComponentCategory[] = [
   {
     slug: "button",
     name: "Button",
+    isNew: true,
     components: [
       { name: "button-48" },
       { name: "button-49" },
@@ -135,6 +136,18 @@ export const categories: ComponentCategory[] = [
       { name: "badge-04" },
       { name: "badge-05" },
       { name: "badge-06" }, 
+    ],
+  },
+  {
+    slug: "breadcrumb",
+    name: "Breadcrumb",
+    components: [
+      { name: "breadcrumb-01" },
+      { name: "breadcrumb-02" },
+      { name: "breadcrumb-03" },
+      { name: "breadcrumb-04" },
+      { name: "breadcrumb-05" },
+      { name: "breadcrumb-06" }, 
     ],
   },
   {

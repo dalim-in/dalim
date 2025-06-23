@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
-import { Loader, LoaderIcon } from 'lucide-react'
+import {   Loader, LoaderIcon } from 'lucide-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
@@ -21,7 +21,7 @@ import { Google } from '@dalim/core/components/logos'
 export function LoginForm() {
     const router = useRouter()
     const [isPending, startTransition] = useTransition()
-    const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+    const [isGoogleLoading, setIsGoogleLoading] = useState(false) 
     const [error, setError] = useState<string>('')
     const [success, setSuccess] = useState<string>('')
     const [showOTPForm, setShowOTP] = useState<boolean>(false)
@@ -103,8 +103,7 @@ export function LoginForm() {
             <div className="space-y-1 text-center">
                 <h1 className="text-3xl font-semibold tracking-tight">Dalim</h1>
                 <p className="text-muted-foreground text-sm">Designs That Give</p>
-            </div>
-
+            </div> 
             {/* Google Sign-In */}
             <Button
                 variant="outline"
@@ -116,10 +115,10 @@ export function LoginForm() {
                 }}
                 disabled={isPending || isGoogleLoading}
                 className="w-full">
-                {isGoogleLoading && <Loader className="mr-2 size-4 animate-spin" />}
+                {isGoogleLoading && <Loader className="size-4 animate-spin" />}
                 <span>Continue with Google</span>
-                <Google/>
-            </Button>
+                <Google />
+            </Button> 
 
             <Separator />
             <p className="text-muted-foreground text-center text-sm">or continue with email</p>

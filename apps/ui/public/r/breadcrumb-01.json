@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-01",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/breadcrumb/breadcrumb-01.tsx",
+      "content": "import { Badge } from \"@/registry/default/ui/badge\"\n\nexport default function Component() {\n  return (\n    <div className=\"space-y-4\">\n      <Badge>Badge</Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "breadcrumb",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

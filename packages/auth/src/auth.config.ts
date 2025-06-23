@@ -1,7 +1,7 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
 import bcryptjs from "bcryptjs";
 import type { NextAuthConfig } from "next-auth";
-import Google from "next-auth/providers/google";
+import Google from "next-auth/providers/google"; 
 import Resend from "next-auth/providers/resend";
 import Credentials from "next-auth/providers/credentials";
 import { CredentialsSchema } from "./schemas/auth";
@@ -37,13 +37,12 @@ export default {
  
     return user;
   },
-}),
-
+}), 
     Resend,
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       allowDangerousEmailAccountLinking: true,
-    }),
+    }), 
   ],
 } satisfies NextAuthConfig;

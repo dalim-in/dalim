@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import { IconShowcase, IconShowcaseWWW } from './icon-showcase'
 import { SearchIcon } from './search-icon'
-import { ControlIcon, ControlIconWWW } from './control-icon' 
+import { ControlIcon, ControlIconWWW } from './control-icon'
+import { IconCategory } from './icon-categories'
 
 export function MainIcons() {
     const [searchTerm, setSearchTerm] = useState('')
@@ -20,20 +21,9 @@ export function MainIcons() {
     const [animation, setAnimation] = useState(false)
     const [loop, setLoop] = useState(false)
     return (
-        <div className="mt-2">
+        <div className="">
             <div className="">
-                <SearchIcon
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    selectedTag={selectedTag}
-                    setSelectedTag={setSelectedTag}
-                    iconVariant={iconVariant}
-                    setIconVariant={setIconVariant}
-                    selectedIcon={selectedIcon}
-                />
-                <div className="grid gap-3 md:grid-cols-[20%_80%] lg:grid-cols-[17%_83%]">
+                <div className="grid gap-3 md:grid-cols-[20%_60%_20%] lg:grid-cols-[15%_70%_15%] xl:grid-cols-[12%_76%_12%]">
                     <div className="">
                         <ControlIcon
                             iconSize={iconSize}
@@ -56,7 +46,19 @@ export function MainIcons() {
                             setSelectedCategory={setSelectedCategory}
                         />
                     </div>
-                    <IconShowcase
+                    <div>
+                        <SearchIcon
+                            searchTerm={searchTerm}
+                            setSearchTerm={setSearchTerm}
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                            selectedTag={selectedTag}
+                            setSelectedTag={setSelectedTag}
+                            iconVariant={iconVariant}
+                            setIconVariant={setIconVariant}
+                            selectedIcon={selectedIcon}
+                        />
+                        <IconShowcase
                             searchTerm={searchTerm}
                             selectedCategory={selectedCategory}
                             selectedTag={selectedTag}
@@ -70,6 +72,13 @@ export function MainIcons() {
                             selectedIcon={selectedIcon}
                             setSelectedIcon={setSelectedIcon}
                         />
+                    </div>
+                    <div className="">
+                         <IconCategory
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,10 +98,10 @@ export function MainIconsWWW() {
     const [animation, setAnimation] = useState(true)
     const [loop, setLoop] = useState(false)
     return (
-        <div className="mt-12 mb-6">
+        <div className="mb-6 mt-12">
             <div className="">
                 <div className="grid gap-3 md:flex">
-                    <div className="md:col-span-1 my-3">
+                    <div className="my-3 md:col-span-1">
                         <ControlIconWWW
                             iconSize={iconSize}
                             setIconSize={setIconSize}
@@ -111,7 +120,7 @@ export function MainIconsWWW() {
                             setStrokeLinejoin={setStrokeLinejoin}
                         />
                     </div>
-                    <div className="md:col-span-4  mb-3">
+                    <div className="mb-3 md:col-span-4">
                         <IconShowcaseWWW
                             searchTerm={searchTerm}
                             iconColor={iconColor}

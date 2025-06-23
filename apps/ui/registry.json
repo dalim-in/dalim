@@ -663,6 +663,126 @@
       ]
     },
     {
+      "name": "breadcrumb-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "breadcrumb-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "breadcrumb-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "breadcrumb-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "breadcrumb-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "breadcrumb-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/breadcrumb/breadcrumb-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "dependencies": [

@@ -1,15 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import { Card, CardTitle } from '@dalim/core/ui/card'
+import { CardTitle } from '@dalim/core/ui/card'
 import { Button } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@dalim/core/ui/avatar'
-import { ArrowLeft, BookmarkIcon, ExternalLink, Eye, Loader2, SquareArrowOutUpRight, Star, X } from 'lucide-react'
+import { ArrowLeft, BookmarkIcon, Eye, Loader2, SquareArrowOutUpRight, Star, X } from 'lucide-react'
 import { cn } from '@dalim/core/lib/utils'
 import { bookmarkVisual, unbookmarkVisual } from '@/src/actions/bookmark-actions'
-import { incrementViewCount } from '@/src/actions/visual-actions' 
+import { incrementViewCount } from '@/src/actions/visual-actions'
 import { AspectRatio } from '@dalim/core/ui/aspect-ratio'
 import { CldImage } from '@dalim/core/components/common/gallery'
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/src/components/ui/dialog'
@@ -36,10 +34,9 @@ interface Visual {
 interface VisualCardProps {
     visual: Visual
     currentUserId?: string
-    viewMode: 'grid' | 'list'
 }
 
-export function VisualCard({ visual, currentUserId, viewMode }: VisualCardProps) {
+export function VisualCard({ visual, currentUserId }: VisualCardProps) {
     const [isBookmarked, setIsBookmarked] = useState(false)
     const [isBookmarking, setIsBookmarking] = useState(false)
     const isMobile = useIsMobile()
@@ -70,75 +67,6 @@ export function VisualCard({ visual, currentUserId, viewMode }: VisualCardProps)
         window.open(visual.link, '_blank')
     }
 
-    if (viewMode === 'list') {
-        return (
-            <Card className="flex flex-row overflow-hidden">
-                <div className="relative h-32 w-48 flex-shrink-0">
-                    <Image
-                        src={visual.image || '/placeholder.svg'}
-                        alt={visual.title}
-                        fill
-                        className="object-cover"
-                    />
-                    {visual.featured && (
-                        <Badge className="absolute left-2 top-2 bg-yellow-500">
-                            <Star className="mr-1 h-3 w-3" />
-                            Featured
-                        </Badge>
-                    )}
-                </div>
-                <div className="flex-1 p-4">
-                    <div className="mb-2 flex items-start justify-between">
-                        <h3 className="line-clamp-1 text-lg font-semibold">{visual.title}</h3>
-                        {currentUserId && (
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={handleBookmark}
-                                disabled={isBookmarking}
-                                className="ml-2">
-                                <BookmarkIcon className={cn('h-4 w-4', isBookmarked && 'fill-current')} />
-                            </Button>
-                        )}
-                    </div>
-                    {visual.description && <p className="text-muted-foreground mb-3 line-clamp-2 text-sm">{visual.description}</p>}
-                    <div className="mb-3 flex flex-wrap gap-1">
-                        <Badge variant="secondary">{visual.category}</Badge>
-                        {visual.tags.slice(0, 2).map((tag) => (
-                            <Badge
-                                key={tag}
-                                variant="outline"
-                                className="text-xs">
-                                {tag}
-                            </Badge>
-                        ))}
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <Avatar className="h-6 w-6">
-                                <AvatarImage src={visual.user.image || ''} />
-                                <AvatarFallback className="text-xs">{visual.user.name?.[0] || 'U'}</AvatarFallback>
-                            </Avatar>
-                            <span className="text-muted-foreground text-sm">{visual.user.name}</span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <div className="text-muted-foreground flex items-center gap-1 text-sm">
-                                <Eye className="h-4 w-4" />
-                                {visual.viewCount}
-                            </div>
-                            <Button
-                                onClick={handleVisit}
-                                size="sm">
-                                <ExternalLink className="mr-1 h-4 w-4" />
-                                Visit
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </Card>
-        )
-    }
-
     return (
         <div className="group overflow-hidden rounded-b-sm rounded-t-3xl border transition-shadow hover:shadow-lg">
             <Dialog key={visual.id}>
@@ -160,28 +88,19 @@ export function VisualCard({ visual, currentUserId, viewMode }: VisualCardProps)
                                         fill
                                         className="h-full w-full object-cover transition-all group-hover:scale-105"
                                     />
-                                    {visual.featured && (
-                                        <Badge className="absolute left-3 top-3 bg-purple-500 text-white">
-                                            <Star className="mr-1 h-3 w-3" />
-                                            Featured
-                                        </Badge>
-                                    )}
                                 </div>
-                                {currentUserId && (
-                                    <Button
-                                        variant="secondary"
-                                        size="icon"
-                                        onClick={handleBookmark}
-                                        disabled={isBookmarking}
-                                        className="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
-                                        <BookmarkIcon className={cn('h-4 w-4', isBookmarked && 'fill-current')} />
-                                    </Button>
-                                )}
                             </AspectRatio>
                         </div>
                         <div className="flex items-center justify-between px-4 pt-2">
                             <CardTitle className="md:text-md truncate text-sm">{visual.title}</CardTitle>
+
                             <div className="text-primary/60 flex gap-3 text-xs">
+                                {visual.featured && (
+                                    <Badge className="h-5 bg-purple-500 text-white">
+                                        <Star className="mr-1 h-3 w-3" />
+                                        Featured
+                                    </Badge>
+                                )}
                                 <div className="flex gap-1">
                                     <Eye className="h-4 w-4" />
                                     <p>{visual.visitCount}</p>
@@ -209,7 +128,7 @@ export function VisualCard({ visual, currentUserId, viewMode }: VisualCardProps)
                                         className="">
                                         <BookmarkIcon className={cn('h-4 w-4', isBookmarked && 'fill-current')} />
                                     </Button>
-                                )} 
+                                )}
                                 <div className="flex items-center gap-2">
                                     <Button
                                         onClick={handleVisit}
@@ -219,7 +138,7 @@ export function VisualCard({ visual, currentUserId, viewMode }: VisualCardProps)
                                         <p> {visual.viewCount}</p>
                                     </Button>
                                 </div>
-                                <div className="flex items-center pl-2 gap-2">
+                                <div className="flex items-center gap-2 pl-2">
                                     <DialogClose>
                                         <X className="h-4 w-4" />
                                     </DialogClose>

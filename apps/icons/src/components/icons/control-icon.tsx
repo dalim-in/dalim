@@ -25,9 +25,7 @@ import { createRoot } from 'react-dom/client'
 // Import GIF.js for GIF creation
 // Note: You'll need to install this package: npm install gif.js
 import GIF from 'gif.js'
-import React from 'react'
-import { ToggleGroup, ToggleGroupItem } from '@dalim/core/ui/toggle-group'
-import { IconCategory } from './icon-categories'
+import React from 'react' 
 import { ICONS_URL } from '@dalim/auth'
 
 export function ControlIcon({
@@ -536,7 +534,7 @@ export default App;`
     const isDefaultColor = iconColor === 'currentColor'
 
     return (
-        <div className=" border-b -ml-6 md:border-b-0 md:border-r h-full lg:top-32">
+        <div className="border-b -ml-6 md:border-b-0 md:border-r h-full">
             <canvas
                 ref={canvasRef}
                 className="hidden"
@@ -833,14 +831,7 @@ export default App;`}
                             onCheckedChange={setLoop}
                         />
                     </div>
-                </div>
-                <div className="">
-                    <div className="relative pb-6 before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-                    <IconCategory
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                    />
-                </div>
+                </div> 
             </div>
         </div>
     )

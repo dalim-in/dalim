@@ -97,7 +97,7 @@ export default async function NowPlaying() {
   }
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative -mx-6 overflow-hidden">
       <div
         aria-hidden="true"
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"

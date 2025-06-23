@@ -55,6 +55,7 @@
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
     "contentlayer2": "^0.4.6",
+    "dalim-icons": "workspace:*",
     "date-fns": "^4.1.0",
     "emblor": "^1.4.8",
     "framer-motion": "^12.12.1",

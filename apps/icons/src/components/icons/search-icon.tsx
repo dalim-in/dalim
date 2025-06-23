@@ -3,18 +3,16 @@
 import { Search } from 'lucide-react'
 import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
-import { getAllCategories, getAllTags, getAllIcons } from 'dalim-icons'
+import { getAllTags, getAllIcons } from 'dalim-icons'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
-import { Button } from '@dalim/core/ui/button'
-import Link from 'next/link'
 
-export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCategory, setSelectedCategory, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; selectedIcon: string; setIconVariant: (val: any) => void }) {
-    const allCategories: string[] = getAllCategories()
+export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'stroke' | 'solid' | 'duotone' | 'twotone' | 'bulk'; selectedIcon: string; setIconVariant: (val: any) => void }) {
+     
     const allTags = getAllTags()
     const Icons = getAllIcons()
 
     return (
-        <div className="sticky top-20 z-10 -mx-6 flex justify-center border bg-neutral-100/60 py-3 backdrop-blur-lg backdrop-filter dark:bg-neutral-900/60">
+        <div className="-mx-3 flex justify-center border-b py-3">
             <div className="flex w-full flex-wrap justify-center gap-2 px-6">
                 <div className="relative">
                     <Input
@@ -25,24 +23,7 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                     />
 
                     <Search className="text-muted-foreground top-4.5 absolute left-3 h-4 w-4 -translate-y-1/2 transform" />
-                </div>
-                <Select
-                    value={selectedCategory}
-                    onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="w-40">
-                        <SelectValue placeholder="Select category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Categories</SelectItem>
-                        {allCategories.map((category) => (
-                            <SelectItem
-                                key={category}
-                                value={category}>
-                                {category}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                </div> 
                 <Select
                     value={selectedTag}
                     onValueChange={setSelectedTag}>
@@ -82,9 +63,6 @@ export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCa
                         </h1>
                     </div>
                 )}
-                <Link  href="mailto:contact@dalim.in">
-                    <Button>Request an Icon</Button>
-                </Link>
             </div>
         </div>
     )

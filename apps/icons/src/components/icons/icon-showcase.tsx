@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import * as Icons from 'dalim-icons'
 import { getAllIcons } from 'dalim-icons'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim/core/ui/tooltip'
@@ -73,7 +73,7 @@ export function IconShowcase({
     }
 
     return (
-        <div className="mx-1 h-screen md:pb-100 overflow-auto my-4">
+        <div className="h-screen sticky mx-1 my-4 md:pb-100 top-0 overflow-scroll">
             {filteredIcons.length === 0 && (
                 <div className="text-muted-foreground grid gap-3 py-40 text-center text-sm">
                     No icons found for this search.
@@ -82,16 +82,15 @@ export function IconShowcase({
                     </Link>
                 </div>
             )}
-
             <RadioGroup
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex justify-center md:justify-start flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                     {filteredIcons.map((icon) => (
                         <div
                             key={icon.name}
-                            className="flex items-center">
+                            className="flex h-auto items-center">
                             <RadioGroupItem
                                 value={icon.name}
                                 id={icon.name}
@@ -172,6 +171,13 @@ export function IconShowcaseWWW({
         setSelectedIcon(iconName)
     }
 
+    useEffect(() => {
+        const active = document.activeElement as HTMLElement
+        if (active && active.blur) {
+            active.blur() // force blur to avoid focus scroll
+        }
+    }, [selectedIcon])
+
     return (
         <div className="h-[400px] overflow-auto">
             <RadioGroup
@@ -187,6 +193,9 @@ export function IconShowcaseWWW({
                                 value={icon.name}
                                 id={icon.name}
                                 className="sr-only"
+                                tabIndex={-1}
+                                style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
+                                onFocus={(e) => e.preventDefault()} // prevent default focus scroll
                             />
                             <Label
                                 htmlFor={icon.name}
