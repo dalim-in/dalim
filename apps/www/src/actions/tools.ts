@@ -1,7 +1,18 @@
-import { tool } from "ai";
+import { tool as createTool } from 'ai';
 import { z } from "zod";
 
-export const colorPaletteTool = tool({
+export const weatherTool = createTool({
+  description: 'Display the weather for a location',
+  parameters: z.object({
+    location: z.string().describe('The location to get the weather for'),
+  }),
+  execute: async function ({ location }) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return { weather: 'Sunny', temperature: 75, location };
+  },
+});
+
+export const colorPaletteTool = createTool({
   description: "Generate a color palette based on a theme, mood, or brand",
   parameters: z.object({
     theme: z.string().describe("The theme or mood for the color palette (e.g., 'modern tech', 'warm autumn', 'minimalist')"),
@@ -29,7 +40,7 @@ export const colorPaletteTool = tool({
   },
 });
 
-export const iconGeneratorTool = tool({
+export const iconGeneratorTool = createTool({
   description: "Generate SVG icon code based on description",
   parameters: z.object({
     description: z.string().describe("Description of the icon to generate"),
@@ -66,6 +77,7 @@ export const iconGeneratorTool = tool({
     const svgCode = matchedIcon ? iconTemplates[matchedIcon as keyof typeof iconTemplates] : iconTemplates['design'];
     
     return {
+      iconName: description, // 👈 add this
       description,
       style,
       size,
@@ -75,7 +87,7 @@ export const iconGeneratorTool = tool({
   },
 });
 
-export const typographyTool = tool({
+export const typographyTool = createTool({
   description: "Suggest typography combinations and font pairings",
   parameters: z.object({
     projectType: z.string().describe("Type of project (e.g., 'website', 'app', 'poster', 'logo')"),
@@ -120,132 +132,4 @@ export const typographyTool = tool({
   },
 });
 
-export const layoutTool = tool({
-  description: "Generate layout suggestions and CSS Grid/Flexbox code",
-  parameters: z.object({
-    layoutType: z.string().describe("Type of layout needed (e.g., 'hero section', 'card grid', 'sidebar layout')"),
-    responsive: z.boolean().default(true).describe("Whether the layout should be responsive"),
-  }),
-  execute: async ({ layoutType, responsive }) => {
-    const layouts = {
-      'hero section': {
-        html: `<section class="hero">
-  <div class="hero-content">
-    <h1>Your Amazing Headline</h1>
-    <p>Compelling subtitle that explains your value proposition</p>
-    <button class="cta-button">Get Started</button>
-  </div>
-</section>`,
-        css: `
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  text-align: center;
-  color: white;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-button {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  background: white;
-  color: #667eea;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-}
-
-${responsive ? `
-@media (max-width: 768px) {
-  .hero-content h1 { font-size: 2.5rem; }
-  .hero-content p { font-size: 1rem; }
-}` : ''}
-        `
-      },
-      'card grid': {
-        html: `<div class="card-grid">
-  <div class="card">
-    <h3>Feature 1</h3>
-    <p>Description of your first feature</p>
-  </div>
-  <div class="card">
-    <h3>Feature 2</h3>
-    <p>Description of your second feature</p>
-  </div>
-  <div class="card">
-    <h3>Feature 3</h3>
-    <p>Description of your third feature</p>
-  </div>
-</div>`,
-        css: `
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-  margin-bottom: 1rem;
-  color: #1f2937;
-}
-
-.card p {
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-${responsive ? `
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-}` : ''}
-        `
-      }
-    };
-    
-    const layout = layouts[layoutType.toLowerCase() as keyof typeof layouts] || layouts['hero section'];
-    
-    return {
-      layoutType,
-      responsive,
-      html: layout.html,
-      css: layout.css,
-      description: `A responsive ${layoutType} layout with modern styling and hover effects.`
-    };
-  },
-});
+ 

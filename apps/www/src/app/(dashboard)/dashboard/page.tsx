@@ -1,4 +1,4 @@
-import { ChatDesigner } from '@/src/components/dashboard/chat-with-designer'
+ 
 import { DashboardStats } from '@/src/components/dashboard/dashboard-stats'
 import { auth } from '@dalim/auth'
 import { prisma } from '@dalim/db'
@@ -89,10 +89,7 @@ export default async function DashboardPage() {
                 totalGraphics={dashboardData.totalGraphics}
                 totalGraphicViews={dashboardData.totalGraphicViews}
                 totalGraphicDownloads={dashboardData.totalGraphicDownloads}
-            /> 
-            <div className='py-10 flex justify-center'>
-            <ChatDesigner/>
-            </div>
+            />  
         </div>
     )
 }

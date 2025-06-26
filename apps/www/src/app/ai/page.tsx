@@ -1,10 +1,14 @@
-import Chat from '@/src/components/ai/chat'
+import { Suspense } from 'react'
+import EnhancedChat from '@/src/components/ai/chat'
 
-export default function Page() {
+export default async function DesignChatPage() {
     return (
-        <div className="-mx-6  -mt-14 h-full  ">
-          
-            <Chat />
+        <div className="relative -mx-6 -mt-14 h-[950px]">
+            <div className="">
+                <Suspense fallback={<div>Loading...</div>}>
+                    <EnhancedChat chatId={''} />
+                </Suspense>
+            </div>
         </div>
     )
 }

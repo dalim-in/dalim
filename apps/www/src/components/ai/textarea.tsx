@@ -1,7 +1,9 @@
 import { modelID } from '@/src/actions/providers'
 import { Textarea as ShadcnTextarea } from '@dalim/core/ui/textarea'
+import { Message, ChatRequestOptions, CreateMessage } from 'ai'
 import { ArrowUp } from 'lucide-react'
-import { ModelPicker } from './model-picker' 
+import { ModelPicker } from './model-picker'
+import { motion } from 'framer-motion'
 
 interface InputProps {
     input: string
@@ -11,11 +13,53 @@ interface InputProps {
     stop: () => void
     selectedModel: modelID
     setSelectedModel: (model: modelID) => void
+    messages: Array<Message>
+    append: (message: Message | CreateMessage, chatRequestOptions?: ChatRequestOptions) => Promise<string | null | undefined>
 }
 
-export const Textarea = ({ input, handleInputChange, isLoading, status, stop, selectedModel, setSelectedModel }: InputProps) => {
+const suggestedActions = [
+    {
+        title: 'Help me generate an Icon',
+        label: 'from SVG to PNG that Download',
+        action: 'Help me generate an Heart Outline Icon',
+    },
+    {
+        title: 'What is the Design Process?',
+        label: 'and design system',
+        action: 'What is the design system?',
+    },
+    
+]
+
+export const Textarea = ({ input, handleInputChange, isLoading, status, stop, selectedModel, setSelectedModel, messages, append }: InputProps) => {
     return (
         <div className="relative w-full pt-4">
+            {messages.length === 0 && (
+                <div className="mx-auto mb-2 grid w-full grid-cols-2 gap-2">
+                    {suggestedActions.map((suggestedAction, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 20 }}
+                            transition={{ delay: 0.05 * index }}
+                            key={index}
+                            className={index > 1 ? 'hidden sm:block' : 'block'}>
+                            <button
+                                onClick={async () => {
+                                    append({
+                                        role: 'user',
+                                        content: suggestedAction.action,
+                                    })
+                                }}
+                                className="bg-muted/50 flex w-full cursor-pointer flex-col rounded-lg border p-3 text-left text-sm text-zinc-800 transition-colors hover:bg-zinc-100 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-800">
+                                <span className="font-medium">{suggestedAction.title}</span>
+                                <span className="text-zinc-500 dark:text-zinc-400">{suggestedAction.label}</span>
+                            </button>
+                        </motion.div>
+                    ))}
+                </div>
+            )}
+
             <ShadcnTextarea
                 className="bg-secondary max-h-80 w-full resize-none overflow-y-auto rounded-2xl pb-16 pr-12 pt-4"
                 value={input}
@@ -37,7 +81,7 @@ export const Textarea = ({ input, handleInputChange, isLoading, status, stop, se
             <ModelPicker
                 setSelectedModel={setSelectedModel}
                 selectedModel={selectedModel}
-            /> 
+            />
             {status === 'streaming' || status === 'submitted' ? (
                 <button
                     type="button"

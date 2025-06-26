@@ -47,7 +47,7 @@ enum GraphicCategory {
 enum VisualsCategory {
   PORTFOLIO
   BRANDING
-  TOOLS 
+  TOOLS
   AI
 }
 
@@ -127,19 +127,22 @@ model User {
   sessions  Session[]
   fonts     Font[]
   graphics  Graphic[]
-  visuals  Visuals[]
+  visuals   Visuals[]
   downloads Download[]
-  
-  // Chat related fields
-  sentMessages        Message[]        @relation("SentMessages")
-  receivedMessages    Message[]        @relation("ReceivedMessages")
-  conversations       ConversationParticipant[]
-  notifications       Ping[]
 
-  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
-  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
-  stripePriceId          String?   @map(name: "stripe_price_id")
-  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+  // Chat related fields
+  sentMessages     Message[]                 @relation("SentMessages")
+  receivedMessages Message[]                 @relation("ReceivedMessages")
+  conversations    ConversationParticipant[]
+  notifications    Ping[]
+
+  stripeCustomerId       String?          @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?          @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?          @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime?        @map(name: "stripe_current_period_end")
+  
+  DesignChat             DesignChat[]     @relation("UserDesignChats")
+  DesignChatVote         DesignChatVote[] @relation("UserDesignChatVotes")
 
   @@map(name: "users")
 }
@@ -220,20 +223,20 @@ model Graphic {
 }
 
 model Visuals {
-  id             String          @id @default(cuid())
-  title          String
-  description    String?         @db.Text
-  category       VisualsCategory
-  image          String       
-  link           String
-  tags           String[]        @default([])
-  viewCount      Int             @default(0)
-  visitCount     Int             @default(0)
-  featured       Boolean         @default(false)
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-  userId         String
-  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id          String          @id @default(cuid())
+  title       String
+  description String?         @db.Text
+  category    VisualsCategory
+  image       String
+  link        String
+  tags        String[]        @default([])
+  viewCount   Int             @default(0)
+  visitCount  Int             @default(0)
+  featured    Boolean         @default(false)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
   @@index([category])
@@ -264,13 +267,13 @@ model Download {
 
 // Chat Models
 model Conversation {
-  id          String             @id @default(cuid())
-  title       String?
-  status      ConversationStatus @default(ACTIVE)
-  createdAt   DateTime           @default(now())
-  updatedAt   DateTime           @updatedAt
+  id            String             @id @default(cuid())
+  title         String?
+  status        ConversationStatus @default(ACTIVE)
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
   lastMessageAt DateTime?
-  
+
   participants ConversationParticipant[]
   messages     Message[]
 
@@ -278,12 +281,12 @@ model Conversation {
 }
 
 model ConversationParticipant {
-  id             String   @id @default(cuid())
+  id             String    @id @default(cuid())
   conversationId String
   userId         String
-  joinedAt       DateTime @default(now())
+  joinedAt       DateTime  @default(now())
   lastReadAt     DateTime?
-  
+
   conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -294,23 +297,23 @@ model ConversationParticipant {
 }
 
 model Message {
-  id             String        @id @default(cuid())
-  content        String?       @db.Text
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
-  status         MessageStatus @default(SENT)
-  readAt         DateTime?
-  
-  senderId       String
-  sender         User          @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
-  
-  recipientId    String?
-  recipient      User?         @relation("ReceivedMessages", fields: [recipientId], references: [id], onDelete: SetNull)
-  
+  id        String        @id @default(cuid())
+  content   String?       @db.Text
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  status    MessageStatus @default(SENT)
+  readAt    DateTime?
+
+  senderId String
+  sender   User   @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+
+  recipientId String?
+  recipient   User?   @relation("ReceivedMessages", fields: [recipientId], references: [id], onDelete: SetNull)
+
   conversationId String
-  conversation   Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-  
-  attachments    Attachment[]
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  attachments Attachment[]
 
   @@index([senderId])
   @@index([recipientId])
@@ -327,25 +330,25 @@ model Attachment {
   fileUrl   String
   publicId  String?
   createdAt DateTime @default(now())
-  
+
   messageId String
-  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  message   Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
 
   @@index([messageId])
   @@map(name: "attachments")
 }
 
 model Ping {
-  id            String   @id @default(cuid())
-  type          String
-  title         String
-  content       String?  @db.Text
-  isRead        Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  
-  userId        String
-  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
+  id        String   @id @default(cuid())
+  type      String
+  title     String
+  content   String?  @db.Text
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   referenceId   String?
   referenceType String?
   data          Json?
@@ -355,3 +358,75 @@ model Ping {
   @@index([createdAt])
   @@map(name: "notifications")
 }
+
+// Add these models to your existing schema.prisma file
+
+model DesignChat {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // User relationship
+  userId String
+  user   User   @relation("UserDesignChats", fields: [userId], references: [id], onDelete: Cascade)
+
+  // Messages in this chat
+  messages DesignMessage[]
+
+  // Voting
+  votes     DesignChatVote[]
+  upvotes   Int              @default(0)
+  downvotes Int              @default(0)
+
+  // Stats
+  viewCount Int @default(0)
+
+  @@index([userId])
+  @@index([isPublic])
+  @@index([createdAt])
+  @@map(name: "design_chats")
+}
+
+model DesignMessage {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  role      String // 'user' or 'assistant'
+  createdAt DateTime @default(now())
+
+  // Chat relationship
+  chatId String
+  chat   DesignChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+
+  // Tool calls and results (JSON)
+  toolCalls Json?
+
+  @@index([chatId])
+  @@index([createdAt])
+  @@map(name: "design_messages")
+}
+
+model DesignChatVote {
+  id        String   @id @default(cuid())
+  isUpvote  Boolean // true for upvote, false for downvote
+  createdAt DateTime @default(now())
+
+  // User who voted
+  userId String
+  user   User   @relation("UserDesignChatVotes", fields: [userId], references: [id], onDelete: Cascade)
+
+  // Chat being voted on
+  chatId String
+  chat   DesignChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, chatId]) // One vote per user per chat
+  @@index([chatId])
+  @@index([userId])
+  @@map(name: "design_chat_votes")
+}
+
+// Add these relations to your existing User model:
+// designChats     DesignChat[]     @relation("UserDesignChats")
+// designChatVotes DesignChatVote[] @relation("UserDesignChatVotes")

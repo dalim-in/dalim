@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CodeBlock } from "./tools/code-block";
 import Link from "next/link";
 import React, { memo } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 const components: Partial<Components> = {
-  pre: ({ children }) => <>{children}</>,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  code: CodeBlock,
+  pre: ({ children }) => <>{children}</>, 
   ol: ({ node, children, ...props }) => {
     return (
       <ol className="list-decimal list-outside ml-4" {...props}>
@@ -33,7 +37,7 @@ const components: Partial<Components> = {
         {children}
       </span>
     );
-  },
+  }, 
   a: ({ node, children, ...props }) => {
     return (
       // @ts-expect-error error
@@ -46,10 +50,10 @@ const components: Partial<Components> = {
         {children}
       </Link>
     );
-  },
+  }, 
   h1: ({ node, children, ...props }) => {
     return (
-      <h1 className="text-3xl font-semibold mt-6 mb-2" {...props}>
+      <h1 className="text-3xl font-semibold my-2" {...props}>
         {children}
       </h1>
     );

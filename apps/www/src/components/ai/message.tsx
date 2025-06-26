@@ -7,10 +7,10 @@ import equal from 'fast-deep-equal'
 
 import { Markdown } from './markdown'
 import { cn } from '@dalim/core/lib/utils'
-import { Check, CheckCircle, ChevronDownIcon, ChevronUpIcon, Copy, Loader2,   StopCircle, ThumbsDown, ThumbsUp } from 'lucide-react'
+import { Check, CheckCircle, ChevronDownIcon, ChevronUpIcon, Copy, Loader2, StopCircle, ThumbsDown, ThumbsUp, Download } from 'lucide-react'
 import { SpinnerIcon } from './icons'
 import { DalimLogoIcon } from '@dalim/core/components/logo'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@dalim/core/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim/core/ui/tooltip'
 import { Button } from '@dalim/core/ui/button'
 import { toast } from 'sonner'
 import { useCopyToClipboard } from 'usehooks-ts'
@@ -51,9 +51,6 @@ export function ReasoningMessagePart({ part, isReasoning }: ReasoningMessagePart
     useEffect(() => {
         memoizedSetIsExpanded(isReasoning)
     }, [isReasoning, memoizedSetIsExpanded])
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, copyToClipboard] = useCopyToClipboard()
 
     return (
         <div className="flex flex-col">
@@ -97,9 +94,44 @@ export function ReasoningMessagePart({ part, isReasoning }: ReasoningMessagePart
     )
 }
 
-const PurePreviewMessage = ({ message, isLatestMessage, status }: { message: TMessage; isLoading: boolean; status: 'error' | 'submitted' | 'streaming' | 'ready'; isLatestMessage: boolean }) => {
+const PurePreviewMessage = ({ message, isLatestMessage, status, onVote }: { message: TMessage; isLoading: boolean; status: 'error' | 'submitted' | 'streaming' | 'ready'; isLatestMessage: boolean; onVote?: (messageId: string, isUpvote: boolean) => void }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, copyToClipboard] = useCopyToClipboard()
+    const [userVote, setUserVote] = useState<boolean | null>(null)
+
+    const handleVote = (isUpvote: boolean) => {
+        if (userVote === isUpvote) {
+            setUserVote(null) // Remove vote if clicking same button
+        } else {
+            setUserVote(isUpvote)
+        }
+        onVote?.(message.id, isUpvote)
+        toast.success(isUpvote ? 'Message upvoted! 👍' : 'Message downvoted 👎')
+    }
+
+    const downloadContent = () => {
+        const textFromParts = message.parts
+            ?.filter((part) => part.type === 'text')
+            .map((part) => part.text)
+            .join('\n')
+            .trim()
+
+        if (!textFromParts) {
+            toast.error('No content to download!')
+            return
+        }
+
+        const blob = new Blob([textFromParts], { type: 'text/markdown' })
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `ai-response-${Date.now()}.md`
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        URL.revokeObjectURL(url)
+        toast.success('Content downloaded!')
+    }
     return (
         <AnimatePresence key={message.id}>
             <motion.div
@@ -138,9 +170,9 @@ const PurePreviewMessage = ({ message, isLatestMessage, status }: { message: TMe
                                             </div>
                                         </motion.div>
                                     )
-                                case 'tool-invocation':
-                                    const { toolName, state } = part.toolInvocation
-
+                                    case 'tool-invocation':
+                                    const { toolName, state } = part.toolInvocation 
+ 
                                     return (
                                         <motion.div
                                             initial={{ y: 5, opacity: 0 }}
@@ -152,7 +184,7 @@ const PurePreviewMessage = ({ message, isLatestMessage, status }: { message: TMe
                                                     <Check className="h-4 w-4" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <div className="flex items-baseline ml-2 gap-2 font-medium">
+                                                    <div className="ml-2 flex items-baseline gap-2 font-medium">
                                                         {state === 'call' ? 'Calling' : 'Called'} <span className="rounded-md bg-zinc-100 px-2 py-1 font-mono dark:bg-zinc-800">{toolName}</span>
                                                     </div>
                                                 </div>
@@ -187,60 +219,77 @@ const PurePreviewMessage = ({ message, isLatestMessage, status }: { message: TMe
                             }
                         })}
                     </div>
+
                     {message.role === 'assistant' && (
-                        <div className="flex items-center gap-1">
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button
-                                        size={'icon'}
-                                        variant="ghost"
-                                        onClick={async () => {
-                                            const textFromParts = message.parts
-                                                ?.filter((part) => part.type === 'text')
-                                                .map((part) => part.text)
-                                                .join('\n')
-                                                .trim()
+                        <TooltipProvider>
+                            <div className="flex items-center gap-1">
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            size={'icon'}
+                                            variant="ghost"
+                                            onClick={async () => {
+                                                const textFromParts = message.parts
+                                                    ?.filter((part) => part.type === 'text')
+                                                    .map((part) => part.text)
+                                                    .join('\n')
+                                                    .trim()
 
-                                            if (!textFromParts) {
-                                                toast.error("There's no text to copy!")
-                                                return
-                                            }
+                                                if (!textFromParts) {
+                                                    toast.error("There's no text to copy!")
+                                                    return
+                                                }
 
-                                            await copyToClipboard(textFromParts)
-                                            toast.success('Copied to clipboard!')
-                                        }}>
-                                        <Copy />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>Copy</TooltipContent>
-                            </Tooltip>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button
-                                        size={'icon'}
-                                        variant="ghost"
-                                        onClick={async () => { 
-                                            toast.success('Upvote Responce')
-                                        }}>
-                                        <ThumbsUp />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>Upvote</TooltipContent>
-                            </Tooltip>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button
-                                        size={'icon'}
-                                        variant="ghost"
-                                        onClick={async () => { 
-                                            toast.success('Upvote Responce')
-                                        }}>
-                                        <ThumbsDown />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent>Upvote</TooltipContent>
-                            </Tooltip>
-                        </div>
+                                                await copyToClipboard(textFromParts)
+                                                toast.success('Copied to clipboard!')
+                                            }}>
+                                            <Copy className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Copy response</TooltipContent>
+                                </Tooltip>
+
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            size={'icon'}
+                                            variant="ghost"
+                                            onClick={downloadContent}>
+                                            <Download className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Download as file</TooltipContent>
+                                </Tooltip>
+
+                                <div className="mx-1 h-4 w-px bg-slate-300 dark:bg-slate-600" />
+
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            size={'icon'}
+                                            variant="ghost"
+                                            className={cn('transition-colors', userVote === true && 'bg-green-50 text-green-600 dark:bg-green-900/20')}
+                                            onClick={() => handleVote(true)}>
+                                            <ThumbsUp className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Upvote response</TooltipContent>
+                                </Tooltip>
+
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            size={'icon'}
+                                            variant="ghost"
+                                            className={cn('transition-colors', userVote === false && 'bg-red-50 text-red-600 dark:bg-red-900/20')}
+                                            onClick={() => handleVote(false)}>
+                                            <ThumbsDown className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>Downvote helpful</TooltipContent>
+                                </Tooltip>
+                            </div>
+                        </TooltipProvider>
                     )}
                 </div>
             </motion.div>
@@ -251,7 +300,6 @@ const PurePreviewMessage = ({ message, isLatestMessage, status }: { message: TMe
 export const Message = memo(PurePreviewMessage, (prevProps, nextProps) => {
     if (prevProps.status !== nextProps.status) return false
     if (prevProps.message.annotations !== nextProps.message.annotations) return false
-    // if (prevProps.message.content !== nextProps.message.content) return false;
     if (!equal(prevProps.message.parts, nextProps.message.parts)) return false
 
     return true
