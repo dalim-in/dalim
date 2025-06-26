@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/breadcrumb/breadcrumb-01.tsx",
-      "content": "import { Badge } from \"@/registry/default/ui/badge\"\n\nexport default function Component() {\n  return (\n    <div className=\"space-y-4\">\n      <Badge>Badge</Badge>\n    </div>\n  )\n}\n",
+      "content": "import {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/default/ui/breadcrumb\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Breadcrumb>\n        <BreadcrumbList>\n          <BreadcrumbItem>\n            <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n          </BreadcrumbItem>\n          <BreadcrumbSeparator />\n          <BreadcrumbItem>\n            <BreadcrumbLink href=\"#\">Graphic</BreadcrumbLink>\n          </BreadcrumbItem>\n          <BreadcrumbSeparator />\n          <BreadcrumbItem>\n            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n          </BreadcrumbItem>\n        </BreadcrumbList>\n      </Breadcrumb>\n    </div>\n  )\n}\n",
       "type": "registry:component"
     }
   ],

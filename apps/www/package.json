@@ -12,7 +12,11 @@
     "lint": "next lint",
     "registry:build": "shadcn build"
   },
-  "dependencies": { 
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.19",
+    "@ai-sdk/openai": "^1.3.22",
+    "@ai-sdk/react": "^1.2.12",
+    "@ai-sdk/xai": "^1.2.16",
     "@dalim/auth": "workspace:*",
     "@dalim/core": "workspace:*",
     "@dalim/db": "workspace:*",
@@ -24,12 +28,14 @@
     "@tanstack/react-query": "^5.62.3",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.12",
+    "ai": "^4.3.16",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.2.0",
     "clsx": "^2.1.1",
     "contentlayer2": "^0.4.6",
     "date-fns": "^4.1.0",
+    "fast-deep-equal": "^3.1.3",
     "framer-motion": "^12.12.1",
     "google": "link:@next/third-parties/google",
     "jotai": "^2.1.0",
@@ -45,6 +51,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "react-markdown": "^10.1.0",
     "react-qr-code": "^2.0.15",
     "react-wrap-balancer": "^0.4.1",
     "resend": "^3.2.0",
@@ -55,6 +62,7 @@
     "tailwindcss-animate": "^1.0.7",
     "third-parties": "link:@next/third-parties",
     "ua-parser-js": "^0.7.39",
+    "usehooks-ts": "^3.1.0",
     "vaul": "^1.1.2",
     "zod": "^3.24.2"
   },

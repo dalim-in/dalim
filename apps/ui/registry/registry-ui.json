@@ -68,6 +68,17 @@
       ]
     },
     {
+      "name": "award",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/award.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [

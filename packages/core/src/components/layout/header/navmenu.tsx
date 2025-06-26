@@ -21,6 +21,13 @@ export function Menu() {
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
+                        <NavigationMenuLink
+                            href="/ai"
+                            className={navigationMenuTriggerStyle()}>
+                            AI <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                         <NavigationMenuContent
                             className="flex w-full items-center justify-between gap-3 rounded-3xl border shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"

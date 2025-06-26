@@ -26,6 +26,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
 import Link from 'next/link'
 import { Features } from './features'
+import { IconCategory } from '../icons/icon-categories'
 
 export function IconDetailed() {
     const router = useRouter()
@@ -51,6 +52,7 @@ export function IconDetailed() {
     const [exportFormat, setExportFormat] = useState<'gif' | 'mp4'>('gif')
     const [gifQuality, setGifQuality] = useState(10)
     const [gifFrameRate, setGifFrameRate] = useState(30)
+    const [selectedCategory, setSelectedCategory] = useState('all')
 
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const iconRef = useRef<HTMLDivElement>(null)
@@ -497,7 +499,7 @@ export function IconDetailed() {
                 </DialogContent>
             </Dialog>
             <div className="">
-                <div className="grid gap-3 md:grid-cols-[20%_80%] lg:grid-cols-[17%_83%]">
+                <div className="grid gap-3 md:grid-cols-[20%_60%_20%] lg:grid-cols-[15%_70%_15%] xl:grid-cols-[12%_76%_12%]">
                     <div className="-mt-6 border-r pr-6">
                         <div className="my-6 flex items-center gap-2">
                             <Button
@@ -642,7 +644,7 @@ export function IconDetailed() {
                                         id="loop"
                                         checked={loop}
                                         onCheckedChange={setLoop}
-                                    /> 
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -713,7 +715,7 @@ export function IconDetailed() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center justify-between gap-2">
+                                <div className="flex items-center mt-1 justify-between gap-2">
                                     <Button
                                         size={'icon'}
                                         variant={'outline'}
@@ -955,11 +957,15 @@ export default App;`}
                             </div>
                         </div>
                         <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
-                        <h1 className='py-6 font-semibold text-xl text-center'>
-                            More Icons Like This
-                            </h1>
+                        <h1 className="py-6 text-center text-xl font-semibold">More Icons Like This</h1>
                         <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
                         <Features />
+                    </div>
+                    <div className="-mt-6">
+                        <IconCategory
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                        />
                     </div>
                 </div>
             </div>

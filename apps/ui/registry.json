@@ -520,6 +520,39 @@
       }
     },
     {
+      "name": "award",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/award.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "award-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "award",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [
@@ -1755,6 +1788,63 @@
       "files": [
         {
           "path": "registry/default/components/button/button-51.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
+      "name": "button-52",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-52.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
+      "name": "button-53",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-53.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1
+      }
+    },
+    {
+      "name": "button-54",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-54.tsx",
           "type": "registry:component"
         }
       ],

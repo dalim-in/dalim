@@ -27,6 +27,9 @@ export const categories: ComponentCategory[] = [
       { name: "button-49" },
       { name: "button-50" },
       { name: "button-51" },
+      { name: "button-52" },
+      { name: "button-53" },
+      { name: "button-54" },
       { name: "button-01" },
       { name: "button-02" },
       { name: "button-03" },
@@ -124,6 +127,13 @@ export const categories: ComponentCategory[] = [
       { name: "avatar-04" },
       { name: "avatar-05" },
       { name: "avatar-06" }, 
+    ],
+  },
+  {
+    slug: "award",
+    name: "Award",
+    components: [
+      { name: "award-01" }, 
     ],
   },
   {

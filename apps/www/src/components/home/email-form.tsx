@@ -80,8 +80,8 @@ const EmailForm = () => {
                     <Globe className="top-2" />
                 </div>
                 <div className="h-full border-x">
-                    <div className="flex flex-col pt-6 items-center justify-center gap-3">
-                        <h1 className="text-lg font-semibold text-center leading-tight md:text-xl px-10">Connect with Designers.</h1>
+                    <div className="flex flex-col items-center justify-center gap-3 pt-6">
+                        <h1 className="px-10 text-center text-lg font-semibold leading-tight md:text-xl">Connect with Designers.</h1>
                         <WhatsAppJoin className="h-40 w-full" />
                         <Link
                             href="https://chat.whatsapp.com/DPQHEVWBy2mHPFokil97rL"
@@ -93,18 +93,21 @@ const EmailForm = () => {
                     </div>
                 </div>
                 <div className="flex flex-col justify-center space-y-6 p-6 md:p-10">
-                    <div className="gap-3 justify-center flex flex-col md:text-start text-center">
-                        <div>
-                        <Badge className="bg-green-500 w-fit text-sm text-white">
-                            <Hourglass
-                                className="mr-1 h-3 w-3"
-                                strokeWidth={2}
-                                aria-hidden="true"
-                            />
-                            {getDaysLeft()} days left
-                        </Badge>
-                        </div>
-                        <h1 className="text-3xl font-semibold leading-tight md:text-4xl">Designs With AI.</h1>
+                    <div className="flex flex-col justify-center gap-3 text-center md:text-start">
+                        <Link href={'/ai'}>
+                            <Badge className="h-7 w-fit bg-green-500 text-sm text-white">
+                                <Hourglass
+                                    className="mr-1 h-3 w-3"
+                                    strokeWidth={2}
+                                    aria-hidden="true"
+                                />
+                                {getDaysLeft()} days left
+                                <span className="-mr-1.5 ml-2 h-4 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-black no-underline group-hover:no-underline">Demo</span>
+                            </Badge>
+                        </Link>
+                        <h1 className="text-3xl font-semibold leading-tight md:text-4xl">
+                            Designs <span className="text-neutral-500">+</span> AI
+                        </h1>
                         <p className="text-primary/60 text-xs">A platform for discovering open-source design projects, fostering creative collaboration, and growing together — connecting designers with impactful projects and passionate contributors.</p>
                     </div>
 
@@ -146,7 +149,7 @@ const EmailForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-2 justify-center md:justify-start flex items-center gap-2">
+                        <div className="mt-2 flex items-center justify-center gap-2 md:justify-start">
                             <Button
                                 onClick={handleClick}
                                 disabled={isPending}

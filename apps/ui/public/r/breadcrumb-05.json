@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "registry/default/components/breadcrumb/breadcrumb-05.tsx",
-      "content": "import { Badge } from \"@/registry/default/ui/badge\"\nimport { BadgeCheck } from \"lucide-react\"\n\nexport default function Component() {\n  return (\n    <div className=\"space-y-4\">\n      <Badge\n          variant=\"secondary\"\n          className=\"bg-blue-500 text-white dark:bg-blue-600\"\n        >\n          <BadgeCheck className=\"h-3 w-3\" />\n          Verified\n        </Badge>\n    </div>\n  )\n}\n",
+      "content": "import { Home } from \"lucide-react\"\n\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/default/ui/breadcrumb\"\n\nexport default function Component() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList className=\"bg-background rounded-md border px-3 py-2\">\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">\n            <Home size={16} aria-hidden=\"true\" />\n            <span className=\"sr-only\">Home</span>\n          </BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Graphic</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
       "type": "registry:component"
     }
   ],
