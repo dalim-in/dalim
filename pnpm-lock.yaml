@@ -1223,6 +1223,9 @@ importers:
       contentlayer2:
         specifier: ^0.4.6
         version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
+      dalim-icons:
+        specifier: workspace:*
+        version: link:../../packages/icons
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -1639,6 +1642,9 @@ importers:
       sonner:
         specifier: ^1.7.4
         version: 1.7.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      swr:
+        specifier: ^2.2.5
+        version: 2.3.3(react@19.1.0)
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.3.1

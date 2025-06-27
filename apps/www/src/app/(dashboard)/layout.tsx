@@ -27,30 +27,30 @@ export default async function Users({ children }: ProtectedLayoutProps) {
                         user={user}
                         className="relative h-[950px] border-l"
                     />
-                    <SidebarInset className=""> 
-                            <header className="flex justify-between h-16 shrink-0 border-b items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-                                <div className="flex items-center gap-2 px-4">
-                                    <SidebarTrigger className="-ml-1" />
-                                    <Separator
-                                        orientation="vertical"
-                                        className="mr-2 h-4"
-                                    />
-                                    <Breadcrumb>
-                                        <BreadcrumbList>
-                                            <BreadcrumbItem className="hidden md:block">
-                                                <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
-                                            </BreadcrumbItem>
-                                            <BreadcrumbSeparator className="hidden md:block" />
-                                            <BreadcrumbItem>
-                                                <BreadcrumbPage>{user.name}</BreadcrumbPage>
-                                            </BreadcrumbItem>
-                                        </BreadcrumbList>
-                                    </Breadcrumb>
-                                </div>
-                                <div className="pr-4">
-                                    <NotificationBell />
-                                </div>
-                            </header> 
+                    <SidebarInset className="">
+                        <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                            <div className="flex items-center gap-2 px-4">
+                                <SidebarTrigger/>
+                                <Separator
+                                    orientation="vertical"
+                                    className="data-[orientation=vertical]:h-6"
+                                />
+                                <Breadcrumb className='ml-2'>
+                                    <BreadcrumbList>
+                                        <BreadcrumbItem className="hidden md:block">
+                                            <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+                                        </BreadcrumbItem>
+                                        <BreadcrumbSeparator className="hidden md:block" />
+                                        <BreadcrumbItem>
+                                            <BreadcrumbPage>{user.name}</BreadcrumbPage>
+                                        </BreadcrumbItem>
+                                    </BreadcrumbList>
+                                </Breadcrumb>
+                            </div>
+                            <div className="pr-4">
+                                <NotificationBell />
+                            </div>
+                        </header>
                         <div className="mt-3 h-[870px] overflow-y-auto px-6">{children}</div>
                     </SidebarInset>
                 </SidebarProvider>

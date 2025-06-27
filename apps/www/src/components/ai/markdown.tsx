@@ -8,8 +8,7 @@ import remarkGfm from "remark-gfm";
 const components: Partial<Components> = {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  code: CodeBlock,
-  pre: ({ children }) => <>{children}</>, 
+  code: CodeBlock, 
   ol: ({ node, children, ...props }) => {
     return (
       <ol className="list-decimal list-outside ml-4" {...props}>
@@ -26,14 +25,14 @@ const components: Partial<Components> = {
   },
   ul: ({ node, children, ...props }) => {
     return (
-      <ul className="list-decimal list-outside ml-4" {...props}>
+      <ul className="list-decimal text-sm list-outside ml-8" {...props}>
         {children}
       </ul>
     );
   },
   strong: ({ node, children, ...props }) => {
     return (
-      <span className="font-semibold" {...props}>
+      <span className="font-semibold text-primary" {...props}>
         {children}
       </span>
     );
@@ -42,7 +41,7 @@ const components: Partial<Components> = {
     return (
       // @ts-expect-error error
       <Link
-        className="text-blue-500 hover:underline"
+        className="text-purple-500 hover:underline"
         target="_blank"
         rel="noreferrer"
         {...props}

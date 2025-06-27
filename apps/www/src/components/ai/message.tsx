@@ -7,13 +7,17 @@ import equal from 'fast-deep-equal'
 
 import { Markdown } from './markdown'
 import { cn } from '@dalim/core/lib/utils'
-import { Check, CheckCircle, ChevronDownIcon, ChevronUpIcon, Copy, Loader2, StopCircle, ThumbsDown, ThumbsUp, Download } from 'lucide-react'
-import { SpinnerIcon } from './icons'
+import { ChevronDownIcon, ChevronUpIcon, Copy, ThumbsDown, ThumbsUp, Download } from 'lucide-react'
+import { SpinnerIcon } from '@dalim/core/components/logos'
 import { DalimLogoIcon } from '@dalim/core/components/logo'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@dalim/core/ui/tooltip'
 import { Button } from '@dalim/core/ui/button'
 import { toast } from 'sonner'
 import { useCopyToClipboard } from 'usehooks-ts'
+import { IconPreview } from './tools/icon-preview'
+import { ColorPalettePreview } from './tools/color-gen'
+import { TypographyPreview } from './tools/typography-preview'
+import { useScrollToBottom } from '@dalim/core/hooks/use-scroll-to-bottom'
 
 interface ReasoningPart {
     type: 'reasoning'
@@ -94,7 +98,7 @@ export function ReasoningMessagePart({ part, isReasoning }: ReasoningMessagePart
     )
 }
 
-const PurePreviewMessage = ({ message, isLatestMessage, status, onVote }: { message: TMessage; isLoading: boolean; status: 'error' | 'submitted' | 'streaming' | 'ready'; isLatestMessage: boolean; onVote?: (messageId: string, isUpvote: boolean) => void }) => {
+const PurePreviewMessage = ({ message, messages, onVote }: { message: TMessage; messages: TMessage[]; isLoading: boolean; onVote?: (messageId: string, isUpvote: boolean) => void }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, copyToClipboard] = useCopyToClipboard()
     const [userVote, setUserVote] = useState<boolean | null>(null)
@@ -132,10 +136,14 @@ const PurePreviewMessage = ({ message, isLatestMessage, status, onVote }: { mess
         URL.revokeObjectURL(url)
         toast.success('Content downloaded!')
     }
+
+    const [containerRef, endRef] = useScrollToBottom()
+ 
     return (
         <AnimatePresence key={message.id}>
             <motion.div
-                className="group/message mx-auto w-full px-4"
+                ref={containerRef}
+                className="group/message mx-auto max-w-2xl px-4"
                 initial={{ y: 5, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 key={`message-${message.id}`}
@@ -164,55 +172,61 @@ const PurePreviewMessage = ({ message, isLatestMessage, status, onVote }: { mess
                                             className="flex w-full flex-row items-start gap-2 pb-4">
                                             <div
                                                 className={cn('flex flex-col gap-4', {
-                                                    'bg-secondary text-secondary-foreground rounded-bl-xl rounded-tl-xl rounded-tr-xl px-3 py-2': message.role === 'user',
+                                                    'bg-secondary text-secondary-foreground rounded-bl-xl rounded-tl-xl rounded-tr-xl px-4 py-2': message.role === 'user',
                                                 })}>
                                                 <Markdown>{part.text}</Markdown>
                                             </div>
                                         </motion.div>
                                     )
-                                    case 'tool-invocation':
-                                    const { toolName, state } = part.toolInvocation 
- 
+                                case 'tool-invocation':
                                     return (
                                         <motion.div
                                             initial={{ y: 5, opacity: 0 }}
                                             animate={{ y: 0, opacity: 1 }}
-                                            key={`message-${message.id}-part-${i}`}
-                                            className="mb-3 flex flex-col gap-2 rounded-md border border-zinc-200 bg-zinc-50 p-2 text-sm dark:border-zinc-800 dark:bg-zinc-900">
-                                            <div className="flex flex-1 items-center justify-center">
-                                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-50 dark:bg-zinc-800">
-                                                    <Check className="h-4 w-4" />
+                                            className="space-y-2"
+                                            key={`message-${message.id}-part-${i}`}>
+                                            {messages.map((m, i) => (
+                                                <div key={i}>
+                                                    {m.toolInvocations?.map(
+                                                        (toolInvocation: {
+                                                            toolName: string
+                                                            toolCallId: string
+                                                            state: string
+                                                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                                            result?: any
+                                                        }) => {
+                                                            const { toolName, toolCallId, state, result } = toolInvocation
+
+                                                            if (state === 'result') {
+                                                                return (
+                                                                    <div key={toolCallId}>
+                                                                        {toolName === 'generateIcon' && <IconPreview {...(result || {})} />}
+                                                                        {toolName === 'generateColorPalette' && <ColorPalettePreview {...(result || {})} />}
+                                                                        {toolName === 'suggestTypography' && <TypographyPreview {...(result || {})} />}
+                                                                        {!['generateIcon', 'generateColorPalette', 'suggestTypography'].includes(toolName) && (
+                                                                            <div className="rounded-lg bg-gray-50 p-4 dark:bg-gray-800">
+                                                                                <pre className="text-sm">{JSON.stringify(result || {}, null, 2)}</pre>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                )
+                                                            } else {
+                                                                return (
+                                                                    <div
+                                                                        key={toolCallId}
+                                                                        className="animate-pulse rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+                                                                        {toolName === 'generateIcon' && <div>Generating icon...</div>}
+                                                                        {toolName === 'generateColorPalette' && <div>Creating color palette...</div>}
+                                                                        {toolName === 'suggestTypography' && <div>Suggesting typography...</div>}
+                                                                        {!['displayWeather', 'generateIcon', 'generateColorPalette', 'suggestTypography'].includes(toolName) && <div>Processing...</div>}
+                                                                    </div>
+                                                                )
+                                                            }
+                                                        }
+                                                    )}
                                                 </div>
-                                                <div className="flex-1">
-                                                    <div className="ml-2 flex items-baseline gap-2 font-medium">
-                                                        {state === 'call' ? 'Calling' : 'Called'} <span className="rounded-md bg-zinc-100 px-2 py-1 font-mono dark:bg-zinc-800">{toolName}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="flex h-5 w-5 items-center justify-center">
-                                                    {state === 'call' ? (
-                                                        isLatestMessage && status !== 'ready' ? (
-                                                            <Loader2 className="h-4 w-4 animate-spin text-zinc-500" />
-                                                        ) : (
-                                                            <StopCircle className="h-4 w-4 text-red-500" />
-                                                        )
-                                                    ) : state === 'result' ? (
-                                                        <CheckCircle
-                                                            size={14}
-                                                            className="text-green-600"
-                                                        />
-                                                    ) : null}
-                                                </div>
-                                            </div>
+                                            ))}
                                         </motion.div>
-                                    )
-                                case 'reasoning':
-                                    return (
-                                        <ReasoningMessagePart
-                                            key={`message-${message.id}-${i}`}
-                                            // @ts-expect-error part
-                                            part={part}
-                                            isReasoning={(message.parts && status === 'streaming' && i === message.parts.length - 1) ?? false}
-                                        />
                                     )
                                 default:
                                     return null
@@ -293,12 +307,16 @@ const PurePreviewMessage = ({ message, isLatestMessage, status, onVote }: { mess
                     )}
                 </div>
             </motion.div>
+
+            <div
+                className="h-1"
+                ref={endRef}
+            />
         </AnimatePresence>
     )
 }
 
 export const Message = memo(PurePreviewMessage, (prevProps, nextProps) => {
-    if (prevProps.status !== nextProps.status) return false
     if (prevProps.message.annotations !== nextProps.message.annotations) return false
     if (!equal(prevProps.message.parts, nextProps.message.parts)) return false
 

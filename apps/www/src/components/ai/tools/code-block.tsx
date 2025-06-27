@@ -20,10 +20,10 @@ export function CodeBlock({
 }: CodeBlockProps) {
     if (!inline) {
         return (
-            <div className="not-prose flex flex-col">
+            <div className="not-prose py-2 w-80 md:w-full md:max-w-xl overflow-x-auto flex flex-col">
                 <pre
                     {...props}
-                    className={`w-full relative overflow-x-auto rounded-xl border border-zinc-200 p-4 text-sm text-zinc-900 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50`}>
+                    className={`w-full relative overflow-x-auto rounded-xl border border-neutral-200 p-4 text-sm bg-neutral-100 text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50`}>
                     <code className="whitespace-pre-wrap break-words">{children}</code>
                     <div className="absolute right-2 top-2">
                         <CopyButton textToCopy={children} />
@@ -34,9 +34,12 @@ export function CodeBlock({
     } else {
         return (
             <code
-                className={`${className} rounded-md bg-zinc-100 px-1 py-0.5 text-sm dark:bg-zinc-800`}
+                className={`${className} rounded-md bg-neutral-100 px-1 py-0.5 text-sm dark:bg-neutral-800`}
                 {...props}>
                 {children}
+                <div className="absolute right-2 top-2">
+                        <CopyButton textToCopy={children} />
+                    </div>
             </code>
         )
     }

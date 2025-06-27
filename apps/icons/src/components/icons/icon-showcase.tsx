@@ -179,7 +179,7 @@ export function IconShowcaseWWW({
     }, [selectedIcon])
 
     return (
-        <div className="h-[400px] overflow-auto">
+        <div className="h-[400px] overflow-y-auto">
             <RadioGroup
                 value={selectedIcon}
                 className=""

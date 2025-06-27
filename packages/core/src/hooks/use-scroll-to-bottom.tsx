@@ -11,20 +11,23 @@ export function useScrollToBottom(): [
     const container = containerRef.current;
     const end = endRef.current;
 
-    if (container && end) {
-      const observer = new MutationObserver(() => {
-        end.scrollIntoView({ behavior: 'instant', block: 'end' });
-      });
+    if (!container || !end) return;
 
-      observer.observe(container, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        characterData: true,
-      });
+    const observer = new MutationObserver(() => {
+      const isAtBottom =
+        container.scrollHeight - container.scrollTop - container.clientHeight < 100;
 
-      return () => observer.disconnect();
-    }
+      if (isAtBottom) {
+        end.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    });
+
+    observer.observe(container, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // @ts-expect-error error

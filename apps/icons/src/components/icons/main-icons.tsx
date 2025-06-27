@@ -99,8 +99,7 @@ export function MainIconsWWW() {
     const [loop, setLoop] = useState(false)
     return (
         <div className="mb-6 mt-12">
-            <div className="">
-                <div className="grid gap-3 md:flex">
+            <div className="grid gap-3 md:flex">
                     <div className="my-3 md:col-span-1">
                         <ControlIconWWW
                             iconSize={iconSize}
@@ -132,7 +131,6 @@ export function MainIconsWWW() {
                         />
                     </div>
                 </div>
-            </div>
         </div>
     )
 }

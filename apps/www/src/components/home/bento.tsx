@@ -47,7 +47,7 @@ export function ProductBento() {
             title: '',
             description: '',
             skeleton: <SkeletonIcons />,
-            className: 'col-span-1 border-b md:col-span-6 lg:col-span-6',
+            className: 'col-span-1  h-full  border-b md:col-span-6 lg:col-span-6',
         },
         {
             id: 'graphic',

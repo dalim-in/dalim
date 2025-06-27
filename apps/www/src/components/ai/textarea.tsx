@@ -3,7 +3,7 @@ import { Textarea as ShadcnTextarea } from '@dalim/core/ui/textarea'
 import { Message, ChatRequestOptions, CreateMessage } from 'ai'
 import { ArrowUp } from 'lucide-react'
 import { ModelPicker } from './model-picker'
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion' 
 
 interface InputProps {
     input: string
@@ -18,18 +18,28 @@ interface InputProps {
 }
 
 const suggestedActions = [
-    {
-        title: 'Help me generate an Icon',
-        label: 'from SVG to PNG that Download',
-        action: 'Help me generate an Heart Outline Icon',
-    },
-    {
-        title: 'What is the Design Process?',
-        label: 'and design system',
-        action: 'What is the design system?',
-    },
-    
+  {
+    title: 'Create a Color Palette',
+    label: 'Generate harmonious colors for a brand or UI',
+    action: 'Generate a modern color palette for a tech brand',
+  },
+  {
+    title: 'Explore Typography Options',
+    label: 'Find font pairings and type scales',
+    action: 'Suggest typography for a clean, modern UI',
+  },
+  {
+    title: 'Generate an Icon',
+    label: 'Convert SVG to downloadable PNG',
+    action: 'Generate a heart outline icon',
+  },
+  {
+    title: 'Understand the Design Process',
+    label: 'Learn about design systems and workflows',
+    action: 'What is a design system?',
+  },
 ]
+
 
 export const Textarea = ({ input, handleInputChange, isLoading, status, stop, selectedModel, setSelectedModel, messages, append }: InputProps) => {
     return (

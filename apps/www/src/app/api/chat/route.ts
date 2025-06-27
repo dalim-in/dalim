@@ -1,5 +1,7 @@
-import { model, type modelID } from "@/src/actions/providers";
-import { colorPaletteTool, iconGeneratorTool, typographyTool, weatherTool } from "@/src/actions/tools";
+import { colorPaletteTool } from "@/src/actions/ai/color-palette-tool";
+import { iconGeneratorTool } from "@/src/actions/ai/icon-generator-tool";
+import { typographyTool } from "@/src/actions/ai/typography-tool";
+import { model, type modelID } from "@/src/actions/providers"; 
 import { streamText, type UIMessage } from "ai";
 
 export const maxDuration = 20;
@@ -31,8 +33,7 @@ Be creative, inspiring, and help users create beautiful, functional designs.`,
     tools: {
       generateColorPalette: colorPaletteTool,
       generateIcon: iconGeneratorTool,
-      suggestTypography: typographyTool, 
-      displayWeather: weatherTool,
+      suggestTypography: typographyTool,  
     },
     experimental_telemetry: {
       isEnabled: true,

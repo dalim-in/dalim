@@ -155,7 +155,7 @@ export default function EnhancedChat({ chatId }: ChatProps) {
 
     return (
         <div className="h-auto">
-            <header className="flex h-16 w-full shrink-0 items-center justify-between gap-2  border-b px-6">
+            <header className="flex h-16 w-full shrink-0 items-center justify-between gap-2 border-b px-6">
                 <Sheet>
                     <div className="flex items-center gap-6">
                         <SheetTrigger>
@@ -176,7 +176,7 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                                         className="cursor-pointer"
                                         onClick={startNewChat}>
                                         {' '}
-                                        New Design Chat
+                                        New Chat
                                     </BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
@@ -237,18 +237,17 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                         </div>
                     </div>
                 )}
-
-                <div className="">
+                <div>
                     <div className="flex w-full justify-center gap-2">
-                        <Link href={session ? '/dashboard' : `/login`}>
-                            <Button variant={'outline'}>{session ? 'Dashboard' : 'Login'}</Button>
+                        <Link href={session ? '/dashboard' : '/login'}>
+                            <Button variant="outline">{session ? 'Dashboard' : 'Login'}</Button>
                         </Link>
                     </div>
                 </div>
             </header>
-            <div className="flex flex-1 px-6 flex-col">
+            <div className="flex flex-1 flex-col mx-6">
                 {currentChatId && chatData && (
-                    <div className="border-b hidden md:block p-2 px-6">
+                    <div className="hidden border-b p-2 px-6 md:block">
                         <div className="flex w-full items-center justify-between">
                             <div className="flex w-full items-center justify-between gap-2">
                                 <h1 className="text-xl font-semibold">{chatData.title}</h1>
@@ -256,8 +255,9 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                                     by
                                     <Link
                                         className="text-brand font-semibold"
-                                        href={`/${chatData.user.username}`}> 
-                                        {" "} {chatData.user.name}
+                                        href={`/${chatData.user.username}`}>
+                                        {' '}
+                                        {chatData.user.name}
                                     </Link>
                                 </p>
                             </div>
@@ -274,24 +274,23 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                     </div>
                 )}
 
-                <div className="stretch flex h-[600px]  md:h-[850px] w-full flex-col justify-center">
+                <div className="stretch flex h-[700px] w-full flex-col justify-center md:h-[850px]">
                     {messages.length === 0 ? (
-                        <div className="mx-auto w-full  max-w-xl">
+                        <div className="mx-auto w-full max-w-xl">
                             <h1 className="mb-4 text-center text-3xl font-semibold">
                                 Designs <span className="text-neutral-500">+</span> AI
                             </h1>
-                            <p className="text-center text-primary/80 text-sm">I'm building AI-powered tools for design, branding, icons, colors, UI, graphics, fonts, style guides, and much more - empowering creators with smart, intuitive workflows.</p>
+                            <p className="text-primary/80 text-center text-sm">I'm building AI-powered tools for design, branding, icons, colors, UI, graphics, fonts, style guides, and much more - empowering creators with smart, intuitive workflows.</p>
                         </div>
                     ) : (
                         <Messages
                             messages={messages}
-                            isLoading={isLoading}
-                            status={status} 
+                            isLoading={isLoading} 
                         />
                     )}
                     <form
                         onSubmit={handleSubmitWithSave}
-                        className="mx-auto w-full max-w-2xl  pb-8 sm:px-0 ">
+                        className="mx-auto w-full max-w-2xl pb-8">
                         <Textarea
                             selectedModel={selectedModel}
                             setSelectedModel={setSelectedModel}
