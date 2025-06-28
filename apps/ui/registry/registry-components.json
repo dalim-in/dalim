@@ -1631,6 +1631,86 @@
         "style": 1,
         "colSpan": 2
       }
+    },
+    {
+      "name": "award-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "award-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "award-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "award-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "award-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/award/award-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
     }
   ]
 }

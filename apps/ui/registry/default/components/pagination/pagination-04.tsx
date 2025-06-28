@@ -1,3 +1,4 @@
+"use client"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { usePagination } from "@/registry/default/hooks/use-pagination"

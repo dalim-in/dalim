@@ -3,11 +3,12 @@ import { AwardsComponent } from "@/registry/default/ui/award"
 export default function Component() {
   return (
     <AwardsComponent
-      variant="stamp"
-      title="Excellence Award"
-      subtitle="Outstanding Performance"
+      variant="id-card"
+      title="Ali Imam"
+      description="#000001"
+      subtitle="Design that Gives"
       recipient="Ali Imam"
-      date="June 2025"   
+      date="June 2025" 
     />
   )
 }

@@ -1,3 +1,4 @@
+"use client"
 import { useId } from "react"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 

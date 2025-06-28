@@ -1,11 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "award-01",
+  "name": "award-04",
   "type": "registry:component",
   "registryDependencies": [],
   "files": [
     {
-      "path": "registry/default/components/award/award-01.tsx",
+      "path": "registry/default/components/award/award-04.tsx",
       "content": "import { AwardsComponent } from \"@/registry/default/ui/award\"\n\nexport default function Component() {\n  return (\n    <AwardsComponent\n      variant=\"stamp\"\n      title=\"Excellence Award\"\n      subtitle=\"Outstanding Performance\"\n      recipient=\"Ali Imam\"\n      date=\"June 2025\" \n    />\n  )\n}\n",
       "type": "registry:component"
     }

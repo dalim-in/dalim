@@ -1,3 +1,4 @@
+"use client"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { Button } from "@/registry/default/ui/button"

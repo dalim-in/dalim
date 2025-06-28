@@ -1,3 +1,4 @@
+"use client"
 import { usePagination } from "@/registry/default/hooks/use-pagination"
 import {
   Pagination,

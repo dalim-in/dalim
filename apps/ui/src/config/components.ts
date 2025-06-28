@@ -134,6 +134,11 @@ export const categories: ComponentCategory[] = [
     name: "Award",
     components: [
       { name: "award-01" }, 
+      { name: "award-02" }, 
+      { name: "award-03" }, 
+      { name: "award-04" }, 
+      { name: "award-05" }, 
+      { name: "award-06" }, 
     ],
   },
   {
