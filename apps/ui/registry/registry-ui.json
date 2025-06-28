@@ -111,6 +111,17 @@
       ]
     }, 
     {
+      "name": "book",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/book.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }, 
+    {
       "name": "calendar",
       "type": "registry:ui",
       "dependencies": ["react-day-picker", "date-fns"],
@@ -393,6 +404,16 @@
       "files": [
         {
           "path": "registry/default/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/stack.tsx",
           "type": "registry:ui"
         }
       ]

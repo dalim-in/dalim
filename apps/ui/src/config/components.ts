@@ -5,7 +5,7 @@ export interface ComponentCategory {
   isNew?: boolean
 }
 
-export const categories: ComponentCategory[] = [ 
+export const categories: ComponentCategory[] = [
   {
     slug: "accordion",
     name: "Accordion",
@@ -15,7 +15,7 @@ export const categories: ComponentCategory[] = [
       { name: "accordion-03" },
       { name: "accordion-04" },
       { name: "accordion-05" },
-      { name: "accordion-06" }, 
+      { name: "accordion-06" },
     ],
   },
   {
@@ -78,10 +78,11 @@ export const categories: ComponentCategory[] = [
       { name: "button-47" },
       { name: "button-45" },
     ],
-  }, 
+  },
   {
     slug: "card",
     name: "Card",
+    isNew: true,
     components: [
       { name: "card-01" },
       { name: "card-08" },
@@ -103,7 +104,7 @@ export const categories: ComponentCategory[] = [
       { name: "alert-02" },
       { name: "alert-03" },
       { name: "alert-04" },
-      { name: "alert-05" }, 
+      { name: "alert-05" },
     ],
   },
   {
@@ -114,7 +115,7 @@ export const categories: ComponentCategory[] = [
       { name: "alert-dialog-02" },
       { name: "alert-dialog-03" },
       { name: "alert-dialog-04" },
-      { name: "alert-dialog-05" }, 
+      { name: "alert-dialog-05" },
     ],
   },
   {
@@ -126,19 +127,20 @@ export const categories: ComponentCategory[] = [
       { name: "avatar-03" },
       { name: "avatar-04" },
       { name: "avatar-05" },
-      { name: "avatar-06" }, 
+      { name: "avatar-06" },
     ],
   },
   {
     slug: "award",
     name: "Award",
+    isNew: true,
     components: [
-      { name: "award-01" }, 
-      { name: "award-02" }, 
-      { name: "award-03" }, 
-      { name: "award-04" }, 
-      { name: "award-05" }, 
-      { name: "award-06" }, 
+      { name: "award-01" },
+      { name: "award-02" },
+      { name: "award-03" },
+      { name: "award-04" },
+      { name: "award-05" },
+      { name: "award-06" },
     ],
   },
   {
@@ -150,7 +152,20 @@ export const categories: ComponentCategory[] = [
       { name: "badge-03" },
       { name: "badge-04" },
       { name: "badge-05" },
-      { name: "badge-06" }, 
+      { name: "badge-06" },
+    ],
+  },
+  {
+    slug: "book",
+    name: "Book",
+    isNew: true,
+    components: [
+      { name: "book-01" },
+      { name: "book-02" },
+      { name: "book-03" },
+      { name: "book-04" },
+      { name: "book-05" },
+      { name: "book-06" },
     ],
   },
   {
@@ -162,7 +177,7 @@ export const categories: ComponentCategory[] = [
       { name: "breadcrumb-03" },
       { name: "breadcrumb-04" },
       { name: "breadcrumb-05" },
-      { name: "breadcrumb-06" }, 
+      { name: "breadcrumb-06" },
     ],
   },
   {
@@ -174,7 +189,7 @@ export const categories: ComponentCategory[] = [
       { name: "pagination-03" },
       { name: "pagination-04" },
       { name: "pagination-05" },
-      { name: "pagination-06" }, 
+      { name: "pagination-06" },
     ],
   },
 ]

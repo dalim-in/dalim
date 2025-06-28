@@ -1,8 +1,8 @@
-import { AwardsComponent } from "@/registry/default/ui/award"
+import { Awards } from "@/registry/default/ui/award"
 
 export default function Component() {
   return (
-    <AwardsComponent
+    <Awards
       variant="badge"
       title="40"
       subtitle="Bronze Badges"

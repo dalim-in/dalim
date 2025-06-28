@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stack",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/stack.tsx",
+      "content": "import { ComponentProps } from \"react\";\n\nexport type FlexAlignItems = \"stretch\" | \"start\" | \"end\" | \"center\";\nexport type FlexJustifyContent =\n  | \"stretch\"\n  | \"start\"\n  | \"end\"\n  | \"space-between\"\n  | \"space-around\"\n  | \"space-evenly\"\n  | \"center\";\n\ninterface StackProps extends ComponentProps<\"div\"> {\n  children: React.ReactNode;\n  direction?: \"column\" | \"row\";\n  align?: FlexAlignItems;\n  justify?: FlexJustifyContent;\n  gap?: number;\n  padding?: number;\n  grow?: boolean;\n  shrink?: boolean;\n  wrap?: boolean;\n  className?: string;\n}\n\nexport function Stack(props: StackProps) {\n  const {\n    children,\n    shrink = false,\n    grow = false,\n    justify = \"start\",\n    align = \"start\",\n    wrap = false,\n    padding = 0,\n    gap = 0,\n    direction = \"column\",\n    className,\n    ...etc\n  } = props;\n\n  return (\n    <div\n      className={className}\n      style={{\n        display: \"flex\",\n        flex: \"initial\",\n        flexDirection: direction,\n        alignItems:\n          align === \"start\"\n            ? \"flex-start\"\n            : align === \"end\"\n              ? \"flex-end\"\n              : align,\n        justifyContent:\n          justify === \"start\"\n            ? \"flex-start\"\n            : justify === \"end\"\n              ? \"flex-end\"\n              : justify,\n        flexWrap: wrap ? \"wrap\" : \"nowrap\",\n        flexGrow: grow ? 1 : 0,\n        flexShrink: shrink ? 1 : 0,\n        padding: padding * 4 + \"px\",\n        gap: gap * 4 + \"px\",\n      }}\n      {...etc}\n    >\n      {children}\n    </div>\n  );\n}",
+      "type": "registry:ui"
+    }
+  ]
+}

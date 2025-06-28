@@ -26,7 +26,7 @@ const levelColors = {
   platinum: "from-slate-300 to-slate-500",
 }
 
-export function AwardsComponent({
+export function Awards({
   variant = "badge",
   title,
   subtitle,

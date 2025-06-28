@@ -1,12 +1,12 @@
-import { AwardsComponent } from "@/registry/default/ui/award"
+import { Awards } from "@/registry/default/ui/award"
 
 export default function Component() {
   return (
-    <AwardsComponent
+    <Awards
       variant="id-card"
       title="Ali Imam"
       description="#000001"
-      subtitle="Design that Gives"
+      subtitle="Designs That Give"
       recipient="Ali Imam"
       date="June 2025" 
     />

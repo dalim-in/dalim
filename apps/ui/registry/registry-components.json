@@ -1711,6 +1711,102 @@
         "style": 1,
         "colSpan": 2
       }
+    },
+    {
+      "name": "book-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "book-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "book-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "book-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "book-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "book-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/book/book-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
     }
   ]
 }

@@ -1,8 +1,8 @@
-import { AwardsComponent } from "@/registry/default/ui/award"
+import { Awards } from "@/registry/default/ui/award"
 
 export default function Component() {
   return (
-    <AwardsComponent
+    <Awards
       variant="certificate"
       title="Appreciation"
       subtitle="has successfully completed the mastry of design."

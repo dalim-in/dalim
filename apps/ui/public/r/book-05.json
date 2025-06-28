@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "book-05",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/book/book-05.tsx",
+      "content": "import { DalimYellowIcon } from \"@dalim/core/components/logo\"\n\nimport Book from \"@/registry/default/ui/book\"\n\nexport default function Component() {\n  return (\n    <main className=\"flex flex-col items-center gap-6\">\n      <Book\n        author=\"Ali\"\n        variant=\"notebook\"\n        color=\"black\"\n        depth={8}\n        pages={200}\n        height={204}\n        width={300}\n        orientation=\"landscape\"\n        textColor=\"white\"\n      >\n        <div className=\"space-y-2 px-3 text-white\">\n          <div className=\"absolute top-6 right-6\">\n            <DalimYellowIcon />\n          </div>\n          <h1 className=\"pt-3 text-3xl leading-8 font-bold tracking-tighter\">\n            Designs That Gives\n          </h1>\n          <p className=\"mt-2 pr-4 text-xs leading-3 opacity-70\">\n            A Practical Handbook for Visual Consistency & Creativity\n          </p>\n        </div>\n      </Book>\n    </main>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "award",
+      "example",
+      "component"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

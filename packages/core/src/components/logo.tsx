@@ -100,6 +100,46 @@ export function DalimLogoIcon() {
     )
 }
 
+export function DalimBlackIcon() {
+    return (
+        <div className="">
+            <Link
+                className="shrink-0"
+                href={DALIM_URL}
+                aria-label="Home">
+                <span className="sr-only">Dalim</span>
+                <Image
+                    src={PhoneLogoDark}
+                    alt="Dalim logo"
+                    width={24}
+                    height={24} 
+                    priority
+                /> 
+            </Link>
+        </div>
+    )
+}
+
+export function DalimYellowIcon() {
+    return (
+        <div className="">
+            <Link
+                className="shrink-0"
+                href={DALIM_URL}
+                aria-label="Home">
+                <span className="sr-only">Dalim</span> 
+                <Image
+                    src={PhoneLogo}
+                    alt="Dalim logo"
+                    width={24}
+                    height={24} 
+                    priority
+                />
+            </Link>
+        </div>
+    )
+}
+
 export function DalimLogoIcon2() {
     return (
         <div className="">
