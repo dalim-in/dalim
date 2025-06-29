@@ -35,7 +35,7 @@ export function CategoryHomeUI() {
       <div className="relative">
         <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {categories
-            .slice(0, 6)
+            .slice(0, 9)
             .sort((a, b) => {
               if (a.isNew && !b.isNew) return -1
               if (!a.isNew && b.isNew) return 1

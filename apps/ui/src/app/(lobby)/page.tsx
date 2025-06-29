@@ -2,8 +2,7 @@ import Link from "next/link"
 import { BlockPreviewHome } from "@/src/components/blocks/block-preview"
 import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar"
-
-import KeyboardButton from "@/registry/default/components/button/button-43"
+ 
 import { Button } from "@/registry/default/ui/button"
 
 import { CategoryHomeUI } from "../../components/home/category"
@@ -16,11 +15,8 @@ export default function Page() {
         <Hero />
       </div>
       <div className="before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))] relative before:absolute before:-inset-x-6 before:top-0 before:h-px"></div>
-      <CategoryHomeUI />
-      <div className="border p-6 pt-6">
-        <KeyboardButton />
-      </div>
-      <div className="border-x mx-auto max-w-6xl p-6">
+      <CategoryHomeUI /> 
+      <div className="border-x border-t mx-auto max-w-6xl p-6">
         <BlockProvider block={"dashboard-03"}>
           <div className="mb-4 -mt-2 flex flex-col items-center justify-between gap-2 md:flex-row">
             <Link href={"/blocks"}>

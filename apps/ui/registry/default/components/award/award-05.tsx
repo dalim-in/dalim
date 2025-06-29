@@ -4,7 +4,7 @@ export default function Component() {
   return (
     <Awards
       variant="sticker"
-      title="Designs"
+      title="Creative"
     />
   )
 }
