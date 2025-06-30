@@ -16,6 +16,7 @@ export const categories: ComponentCategory[] = [
       { name: "accordion-04" },
       { name: "accordion-05" },
       { name: "accordion-06" },
+      { name: "accordion-07" },
     ],
   },
   {
@@ -178,6 +179,17 @@ export const categories: ComponentCategory[] = [
       { name: "breadcrumb-04" },
       { name: "breadcrumb-05" },
       { name: "breadcrumb-06" },
+    ],
+  },
+  {
+    slug: "device",
+    name: "Device",
+    isNew: true,
+    components: [
+      { name: "device-01" },
+      { name: "device-02" },
+      { name: "device-03" },
+      { name: "device-04" },
     ],
   },
   {

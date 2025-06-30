@@ -211,6 +211,17 @@
       ]
     },
     {
+      "name": "device",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/device.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "datefield-rac",
       "type": "registry:ui",
       "dependencies": ["react-aria-components"],

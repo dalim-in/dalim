@@ -12,7 +12,6 @@
     "./**/*.ts",
     "./**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.mjs"
-, "registry/default/components/award/award-03.tsx"  ],
+    "next.config.mjs"],
   "exclude": ["node_modules", "dist"]
 }

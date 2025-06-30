@@ -1329,6 +1329,22 @@
       }
     },
     {
+      "name": "accordion-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["accordion", "example", "component"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "avatar-01",
       "type": "registry:component",
       "registryDependencies": [],
@@ -1804,6 +1820,70 @@
       ],
       "meta": {
         "tags": ["award", "example", "component"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["device", "macbook", "imac", "apple", "iphone"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["device", "macbook", "imac", "apple", "iphone"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["device", "macbook", "imac", "apple", "iphone"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["device", "macbook", "imac", "apple", "iphone"],
         "style": 1,
         "colSpan": 2
       }

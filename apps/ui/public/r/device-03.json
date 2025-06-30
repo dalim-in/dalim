@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "device-03",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/device/device-03.tsx",
+      "content": "import { Device } from \"@/registry/default/ui/device\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Device\n        variant=\"iphone\" \n        width={150}\n         src=\"/images/1.jpeg\"  \n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "device",
+      "macbook",
+      "imac",
+      "apple",
+      "iphone"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

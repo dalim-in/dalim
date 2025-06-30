@@ -167,6 +167,26 @@
       }
     },
     {
+      "name": "accordion-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/accordion/accordion-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "alert",
       "type": "registry:ui",
       "files": [
@@ -2536,6 +2556,107 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "device",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/device.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "device-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "device",
+          "macbook",
+          "imac",
+          "apple",
+          "iphone"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "device",
+          "macbook",
+          "imac",
+          "apple",
+          "iphone"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "device",
+          "macbook",
+          "imac",
+          "apple",
+          "iphone"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "device-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/device/device-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "device",
+          "macbook",
+          "imac",
+          "apple",
+          "iphone"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
     },
     {
       "name": "dialog",
