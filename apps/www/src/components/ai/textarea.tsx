@@ -45,7 +45,7 @@ export const Textarea = ({ input, handleInputChange, isLoading, status, stop, se
     return (
         <div className="relative w-full pt-4">
             {messages.length === 0 && (
-                <div className="mx-auto mb-2 grid w-full grid-cols-2 gap-2">
+                <div className="mx-auto mb-2 grid w-full md:grid-cols-2 gap-2">
                     {suggestedActions.map((suggestedAction, index) => (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

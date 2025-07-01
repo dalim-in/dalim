@@ -9,10 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "dependencies": { 
     "@calcom/embed-react": "^1.5.3",
     "@dalim/auth": "workspace:*",
     "@hookform/resolvers": "^5.0.1",
+    "@next/third-parties": "^15.1.7",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
     "@radix-ui/react-aspect-ratio": "^1.1.6",
@@ -39,6 +40,8 @@
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-three/fiber": "^9.1.2",
     "@tailwindcss/vite": "^4.1.6",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cobe": "^0.6.4",

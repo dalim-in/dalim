@@ -136,7 +136,7 @@ export function ChatVoting({
             )}>
               {netVotes > 0 ? `+${netVotes}` : netVotes}
             </span>
-            <span className="text-xs text-slate-500">({votePercentage}% positive)</span>
+            <span className="text-xs text-slate-500 whitespace-nowrap">({votePercentage}% positive)</span>
           </div>
 
           <div className="w-px h-6 bg-slate-300 dark:bg-slate-600" />

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { IconShowcase, IconShowcaseWWW } from './icon-showcase'
 import { SearchIcon } from './search-icon'
 import { ControlIcon, ControlIconWWW } from './control-icon'
-import { IconCategory } from './icon-categories'
+import { IconCategory } from './icon-categories' 
 
 export function MainIcons() {
     const [searchTerm, setSearchTerm] = useState('')

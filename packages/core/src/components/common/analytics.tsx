@@ -4,7 +4,7 @@ import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-export default function Analytics() {
+export function Analytics() {
   return (
     <>
       <VercelAnalytics />

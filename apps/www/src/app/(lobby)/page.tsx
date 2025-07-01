@@ -7,6 +7,7 @@ import { Connect } from '@dalim/core/components/common/connect'
 import { GradientBars } from '@dalim/core/components/backgrunds/gradient-bars'
 import { StaggerTestimonials } from '@/src/components/home/testimonials'
 import { EmailForm } from '@/src/components/home/email-form'
+import { AdBanner } from "@dalim/core/components/common/adbanner";
 
 export default function Home() {
      
@@ -21,6 +22,11 @@ export default function Home() {
             <Quote />
             <StaggerTestimonials />
             <EmailForm />
+            <AdBanner
+              dataAdFormat="auto"
+              dataFullWidthResponsive={true}
+              dataAdSlot="5723796123"
+            />
             <BlogHome />
             <Connect className={'mb-10'} />
         </div>

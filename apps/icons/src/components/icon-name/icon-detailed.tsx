@@ -9,6 +9,7 @@ import { Button, buttonVariants } from '@dalim/core/ui/button'
 import { Badge } from '@dalim/core/ui/badge'
 import { ToggleGroup, ToggleGroupItem } from '@dalim/core/ui/toggle-group'
 import { ShareButton } from '@dalim/core/components/common/share-button'
+import { AdBanner } from "@dalim/core/components/common/adbanner";
 import { Slider } from '@dalim/core/ui/slider'
 import { Switch } from '@dalim/core/ui/switch'
 import { GridPattern } from '@dalim/core/components/backgrunds/grid'
@@ -960,6 +961,13 @@ export default App;`}
                         <h1 className="py-6 text-center text-xl font-semibold">More Icons Like This</h1>
                         <div className="relative before:absolute before:-inset-x-3 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
                         <Features />
+<div className='px-3'>
+                        <AdBanner
+              dataAdFormat="auto"
+              dataFullWidthResponsive={true}
+              dataAdSlot="5723796123"
+            />
+            </div>
                     </div>
                     <div className="-mt-6">
                         <IconCategory

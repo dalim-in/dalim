@@ -5,9 +5,11 @@ import type React from 'react'
 
 import { useEffect, useState } from 'react'
 import { defaultModel, type modelID } from '@/src/actions/providers'
+
 import { useChat } from '@ai-sdk/react'
 import { Textarea } from './textarea'
 import { Messages } from './messages'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@dalim/core/ui/tabs'
 import { ChatHistorySidebar } from './chat-history-sidebar'
 import { ChatVoting } from './chat-voting'
 import { toast } from 'sonner'
@@ -24,6 +26,7 @@ import { createDesignChat, saveDesignMessage, getDesignChatWithMessages } from '
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { ImageAI } from './image/image-ai'
 
 interface ChatProps {
     chatId: string
@@ -195,6 +198,33 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                         </SheetHeader>
                     </SheetContent>
                 </Sheet>
+                {currentChatId && chatData && (
+                    <div className="hidden px-6 md:block">
+                        <div className="flex w-full items-center justify-between">
+                            <div className="flex w-full items-center gap-2">
+                                <h1 className="text-xl font-semibold">{chatData.title}</h1>
+                                <p className="text-sm text-slate-500">
+                                    by
+                                    <Link
+                                        className="text-brand font-semibold"
+                                        href={`/${chatData.user.username}`}>
+                                        {' '}
+                                        {chatData.user.name}
+                                    </Link>
+                                </p>
+                            </div>
+                            <ChatVoting
+                                chatId={currentChatId}
+                                upvotes={chatData.upvotes}
+                                downvotes={chatData.downvotes}
+                                viewCount={chatData.viewCount}
+                                userVote={chatData.votes?.[0]}
+                                isPublic={chatData.isPublic}
+                                isOwner={chatData.userId === chatData.user.id} // You'll need to pass current user ID
+                            />
+                        </div>
+                    </div>
+                )}
                 {session && showSaveDialog && (
                     <div className="z-10 hidden md:block">
                         <div className="flex items-center gap-2">
@@ -245,65 +275,65 @@ export default function EnhancedChat({ chatId }: ChatProps) {
                     </div>
                 </div>
             </header>
-            <div className="flex flex-1 flex-col mx-6">
-                {currentChatId && chatData && (
-                    <div className="hidden border-b p-2 px-6 md:block">
-                        <div className="flex w-full items-center justify-between">
-                            <div className="flex w-full items-center justify-between gap-2">
-                                <h1 className="text-xl font-semibold">{chatData.title}</h1>
-                                <p className="text-sm text-slate-500">
-                                    by
-                                    <Link
-                                        className="text-brand font-semibold"
-                                        href={`/${chatData.user.username}`}>
-                                        {' '}
-                                        {chatData.user.name}
-                                    </Link>
-                                </p>
-                            </div>
-                            <ChatVoting
-                                chatId={currentChatId}
-                                upvotes={chatData.upvotes}
-                                downvotes={chatData.downvotes}
-                                viewCount={chatData.viewCount}
-                                userVote={chatData.votes?.[0]}
-                                isPublic={chatData.isPublic}
-                                isOwner={chatData.userId === chatData.user.id} // You'll need to pass current user ID
-                            />
-                        </div>
-                    </div>
-                )}
 
-                <div className="stretch flex h-[700px] w-full flex-col justify-center md:h-[850px]">
-                    {messages.length === 0 ? (
-                        <div className="mx-auto w-full max-w-xl">
-                            <h1 className="mb-4 text-center text-3xl font-semibold">
-                                Designs <span className="text-neutral-500">+</span> AI
-                            </h1>
-                            <p className="text-primary/80 text-center text-sm">I'm building AI-powered tools for design, branding, icons, colors, UI, graphics, fonts, style guides, and much more - empowering creators with smart, intuitive workflows.</p>
+            <div className="mx-6 flex flex-1 flex-col">
+                
+                <Tabs
+                    defaultValue="ai"
+                    className="my-3 w-full">
+                    <div className="flex justify-center">
+                        <TabsList className="w-auto">
+                            <TabsTrigger
+                                className="cursor-pointer"
+                                value="ai">
+                                Design AI
+                            </TabsTrigger>
+                            <TabsTrigger
+                                className="cursor-pointer"
+                                onClick={startNewChat}
+                                value="image">
+                                Image Gen
+                            </TabsTrigger>
+                        </TabsList>
+                    </div>
+                    <TabsContent value="ai">
+                        <div className="stretch flex h-[700px] w-full flex-col justify-center md:h-[850px]">
+                            {messages.length === 0 ? (
+                                <div className="mx-auto w-full max-w-xl">
+                                    <h1 className="mb-4 text-center text-3xl font-semibold">
+                                        Designs <span className="text-neutral-500">+</span> AI
+                                    </h1>
+                                    <p className="text-primary/80 text-center text-sm">I'm building AI-powered tools for design, branding, icons, colors, UI, graphics, fonts, style guides, and much more - empowering creators with smart, intuitive workflows.</p>
+                                </div>
+                            ) : (
+                                <Messages
+                                    messages={messages}
+                                    isLoading={isLoading}
+                                />
+                            )}
+                            <form
+                                onSubmit={handleSubmitWithSave}
+                                className="mx-auto w-full max-w-2xl pb-8">
+                                <Textarea
+                                    selectedModel={selectedModel}
+                                    setSelectedModel={setSelectedModel}
+                                    handleInputChange={handleInputChange}
+                                    input={input}
+                                    isLoading={isLoading}
+                                    status={status}
+                                    stop={stop}
+                                    messages={messages}
+                                    append={append}
+                                />
+                            </form>
                         </div>
-                    ) : (
-                        <Messages
-                            messages={messages}
-                            isLoading={isLoading} 
-                        />
-                    )}
-                    <form
-                        onSubmit={handleSubmitWithSave}
-                        className="mx-auto w-full max-w-2xl pb-8">
-                        <Textarea
-                            selectedModel={selectedModel}
-                            setSelectedModel={setSelectedModel}
-                            handleInputChange={handleInputChange}
-                            input={input}
-                            isLoading={isLoading}
-                            status={status}
-                            stop={stop}
-                            messages={messages}
-                            append={append}
-                        />
-                    </form>
-                </div>
+                    </TabsContent>
+                    <TabsContent value="image">
+                        <div className="stretch flex w-full flex-col justify-center">
+                        <ImageAI />
+                        </div>
+                    </TabsContent>
+                </Tabs>
             </div>
         </div>
     )
