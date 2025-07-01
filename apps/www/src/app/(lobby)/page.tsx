@@ -25,7 +25,7 @@ export default function Home() {
             <AdBanner
               dataAdFormat="auto"
               dataFullWidthResponsive={true}
-              dataAdSlot="5723796123"
+              dataAdSlot="5400508594"
             />
             <BlogHome />
             <Connect className={'mb-10'} />

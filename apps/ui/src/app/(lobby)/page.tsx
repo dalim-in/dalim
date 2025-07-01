@@ -31,7 +31,7 @@ export default function Page() {
       <AdBanner
         dataAdFormat="auto"
         dataFullWidthResponsive={true}
-        dataAdSlot="5723796123"
+        dataAdSlot="2774345250"
       />
       </div>
       </div>
