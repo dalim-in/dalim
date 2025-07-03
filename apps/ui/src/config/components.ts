@@ -98,6 +98,16 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "chart",
+    name: "Chart",
+    isNew: true,
+    components: [
+      { name: "chart-01" }, 
+      { name: "chart-02" }, 
+      { name: "chart-03" }, 
+    ],
+  },
+  {
     slug: "alert",
     name: "Alert",
     components: [
@@ -190,6 +200,21 @@ export const categories: ComponentCategory[] = [
       { name: "device-02" },
       { name: "device-03" },
       { name: "device-04" },
+    ],
+  },
+  {
+    slug: "spinner",
+    name: "Spinner", 
+    components: [
+      { name: "spinner-01" },
+      { name: "spinner-02" },
+      { name: "spinner-03" },
+      { name: "spinner-04" },
+      { name: "spinner-05" },
+      { name: "spinner-06" },
+      { name: "spinner-07" },
+      { name: "spinner-08" },
+      { name: "spinner-09" },
     ],
   },
   {

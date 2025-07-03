@@ -156,6 +156,17 @@
       ]
     },
     {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-checkbox"],
@@ -425,6 +436,17 @@
       "files": [
         {
           "path": "registry/default/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/spinner.tsx",
           "type": "registry:ui"
         }
       ]

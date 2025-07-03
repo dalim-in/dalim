@@ -1,4 +1,6 @@
-import { IconMetadata } from "./types";
+import { IconMetadata, IconsProps } from "./types";
+import type { ComponentType } from "react"
+
 import { 
   ArrowBigDownMetadata, 
   ArrowBigDownDashMetadata, 
@@ -511,10 +513,12 @@ export function getAllIcons(): IconMetadata[] {
   return Object.values(iconDatabase);
 }
 
+ 
 // Get icon by name
 export function getIconByName(name: string): IconMetadata | undefined {
   return iconDatabase[name];
 }
+ 
 
 // Get icons by category
 export function getIconsByCategory(category: string): IconMetadata[] {

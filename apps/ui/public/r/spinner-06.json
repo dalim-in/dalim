@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner-06",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/spinner/spinner-06.tsx",
+      "content": "import { Spinner } from \"@/registry/default/ui/spinner\"\n\nexport default function Component() {\n  return <Spinner variant=\"ring\"/> \n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "spinner",
+      "loader",
+      "rotate",
+      "spin"
+    ],
+    "style": 1,
+    "colSpan": 1
+  }
+}

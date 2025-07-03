@@ -18,6 +18,8 @@ export const ICONS_URL = isProduction ? 'https://icons.dalim.in' : 'http://local
 
 export const VISUALS_URL = isProduction ? 'https://visuals.dalim.in' : 'http://localhost:3008'
 
-export const TRUSTED_ORIGINS = [APP_URL, AGENCY_URL, UI_URL, WORKS_URL, LEARN_URL, FONTS_URL, GRAPHIC_URL, ICONS_URL, VISUALS_URL]
+export const TOOLS_URL = isProduction ? 'https://tools.dalim.in' : 'http://localhost:3009'
+
+export const TRUSTED_ORIGINS = [APP_URL, AGENCY_URL, UI_URL, WORKS_URL, LEARN_URL, FONTS_URL, GRAPHIC_URL, ICONS_URL, VISUALS_URL, TOOLS_URL]
 
 export const DALIM_URL = APP_URL

@@ -78,6 +78,15 @@ const OPTIONS = [
         },
     },
     {
+        value: 'tools',
+        label: 'Tools',
+        disabled: true,
+        urls: {
+            prod: 'https://tools.dalim.in',
+            dev: 'http://localhost:3009',
+        },
+    },
+    {
         value: 'pro',
         label: 'Pro',
         disabled: true,
@@ -92,7 +101,7 @@ const OPTIONS = [
         disabled: true,
         urls: {
             prod: 'https://ali.dalim.in',
-            dev: 'http://localhost:3009',
+            dev: 'http://localhost:3011',
         },
     },
     

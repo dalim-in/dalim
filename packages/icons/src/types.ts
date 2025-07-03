@@ -1,4 +1,3 @@
-
 "use client";
  
 import type { Variants, HTMLMotionProps } from "motion/react";  
@@ -20,7 +19,7 @@ export interface IconMetadata {
   description?: string;
   author?: string;
   created?: string;
-  variants: ("stroke" | "solid" | "duotone" | "twotone" | "bulk")[];
+  variants: ("stroke" | "solid" | "duotone" | "twotone" | "bulk")[]; 
 }
 
 export interface LogoMetadata {
