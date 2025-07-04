@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-01",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/gauge/gauge-01.tsx",
+      "content": "import { Gauge } from \"@/registry/default/ui/gauge\"\n\nexport default function Component() {\n  return (\n    <main>\n      <Gauge\n        value={63}   \n      />\n    </main>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "chart",
+      "graph",
+      "bar",
+      "line"
+    ],
+    "style": 1,
+    "colSpan": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-04",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/gauge/gauge-04.tsx",
+      "content": "import { Gauge } from \"@/registry/default/ui/gauge\"\n\nexport default function Component() {\n  return (\n    <main>\n      <Gauge\n        value={46}\n        size={200}\n        gaugeType=\"half\"\n        primary={{\n          0: \"danger\",\n          30: \"warning\",\n          70: \"success\",\n        }}\n        thresholds={[\n          { value: 30, color: \"#f59e0b\" },\n          { value: 70, color: \"#22c55e\" },\n        ]}\n        label=\"Speed\"\n        unit=\" mph\"\n        max={120}\n        transition={{ length: 1800, delay: 0 }}\n      />\n    </main>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "chart",
+      "graph",
+      "bar",
+      "line"
+    ],
+    "style": 1,
+    "colSpan": 1
+  }
+}

@@ -203,6 +203,22 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "gauge",
+    name: "Gauge",
+    isNew: true,
+    components: [
+      { name: "gauge-01" },
+      { name: "gauge-02" },
+      { name: "gauge-03" },
+      { name: "gauge-04" },
+      { name: "gauge-05" },
+      { name: "gauge-06" },
+      { name: "gauge-07" },
+      { name: "gauge-08" },
+      { name: "gauge-09" },
+    ],
+  },
+  {
     slug: "spinner",
     name: "Spinner", 
     components: [

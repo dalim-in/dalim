@@ -2761,6 +2761,208 @@
       ]
     },
     {
+      "name": "gauge",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/gauge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gauge-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
+      "name": "gauge-09",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/gauge/gauge-09.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "chart",
+          "graph",
+          "bar",
+          "line"
+        ],
+        "style": 1,
+        "colSpan": 1
+      }
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": [

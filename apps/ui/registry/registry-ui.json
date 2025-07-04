@@ -266,6 +266,17 @@
       ]
     },
     {
+      "name": "gauge",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/gauge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-hover-card"],

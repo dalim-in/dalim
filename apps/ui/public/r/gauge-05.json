@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gauge-05",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/gauge/gauge-05.tsx",
+      "content": "import { Gauge } from \"@/registry/default/ui/gauge\"\n\nexport default function Component() {\n  return (\n    <main>\n      <Gauge\n        value={75}\n        size={200}\n        primary={{\n          0: \"#ef4444\",\n          25: \"#f97316\",\n          50: \"#eab308\",\n          75: \"#fff200\",\n          90: \"#3b82f6\",\n        }}\n        strokeWidth={12}\n        label=\"Health Score\"\n        glowEffect={true}\n        transition={{ length: 2000, delay: 150 }}\n      />\n    </main>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "chart",
+      "graph",
+      "bar",
+      "line"
+    ],
+    "style": 1,
+    "colSpan": 1
+  }
+}
