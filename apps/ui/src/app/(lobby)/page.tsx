@@ -2,7 +2,7 @@ import Link from "next/link"
 import { BlockPreviewHome } from "@/src/components/blocks/block-preview"
 import { BlockProvider } from "@/src/components/blocks/block-provider"
 import BlockToolbar from "@/src/components/blocks/block-toolbar"
-import { AdBanner } from "@dalim/core/components/common/adbanner"
+// import { AdBanner } from "@dalim/core/components/common/adbanner"
 
 import { Button } from "@/registry/default/ui/button"
 
@@ -29,11 +29,11 @@ export default function Page() {
           <BlockPreviewHome block={"dashboard-03"} />
         </BlockProvider>
         <div className="mt-10 -mb-6">
-      <AdBanner
+      {/*<AdBanner
         dataAdFormat="auto"
         dataFullWidthResponsive={true}
         dataAdSlot="2774345250"
-      />
+      />*/}
       </div>
       </div>
     </div>

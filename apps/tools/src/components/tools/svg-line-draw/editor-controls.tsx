@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@dalim/core/ui/button";
 import { Move, Redo, Save, Undo, X, ZoomIn, ZoomOut } from "lucide-react";
 
 interface EditorControlsProps {

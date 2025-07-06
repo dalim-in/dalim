@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-11",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/text/text-11.tsx",
+      "content": "import { Text } from \"@/registry/default/ui/text\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Text variant=\"matrix\" className=\"text-xl\" speed={0.05}>\n        Matrix Code\n      </Text>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "text",
+      "typo",
+      "work",
+      "effect"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

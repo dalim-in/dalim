@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-05",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/text/text-05.tsx",
+      "content": "import { Text } from \"@/registry/default/ui/text\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Text variant=\"typewriter\" className=\"text-2xl\" speed={0.08}>\n        Hello, I'm typing...\n      </Text>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "text",
+      "typo",
+      "work",
+      "effect"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

@@ -2223,6 +2223,263 @@
         "style": 1,
         "colSpan": 1
       }
+    }, 
+    {
+      "name": "text-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }
+    , 
+    {
+      "name": "text-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-09",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-09.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-10",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-10.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-11",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-11.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-12",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-12.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-13",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-13.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-14",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-14.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-15",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-15.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
+    }, 
+    {
+      "name": "text-16",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-16.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["text", "typo", "work", "effect"],
+        "style": 1,
+        "colSpan": 2
+      }
     }
   ]
 }

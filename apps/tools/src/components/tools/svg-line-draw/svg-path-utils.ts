@@ -215,7 +215,7 @@ export function addControlPointsToAllAnchors(
 			// Calculate the direction and distance to the next point
 			const dx = nextPoint.x - point.x;
 			const dy = nextPoint.y - point.y;
-			const _distance = Math.sqrt(dx * dx + dy * dy);
+			 
 
 			// Add control points at 1/3 and 2/3 of the distance
 			const cp1: ControlPoint = {

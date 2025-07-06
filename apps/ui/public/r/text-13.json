@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-13",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/text/text-13.tsx",
+      "content": "import { Text } from \"@/registry/default/ui/text\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Text variant=\"fade\" className=\"text-2xl\">\n        Scroll to reveal\n      </Text>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "text",
+      "typo",
+      "work",
+      "effect"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

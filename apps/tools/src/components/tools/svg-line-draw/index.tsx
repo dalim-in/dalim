@@ -20,19 +20,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@d
 
 import { SavedPathsTab } from './saved-draw-paths'
 
-import { Copy, Edit2, GripVertical, PenTool, RefreshCcw, X } from 'lucide-react'
+import { Copy, Edit2,   PenTool, RefreshCcw, X } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useEffect, useState } from 'react'
 
-import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@dalim/core/ui/resizable'
 import { toast } from 'sonner'
 import { AnimateSvg } from './animate-svg'
 import { compoentCode } from './data'
 import { DrawingCanvas } from './drawing-canvas'
 
 import { SavePathDialog } from './save-path-dialog'
-import { SvgEditor } from './svg-editor' 
+import { SvgEditor } from './svg-editor'
 
 type AnimationSettings = {
     width: string
@@ -163,19 +163,18 @@ function SVGLineDrawGenerator() {
     }
 
     return (
-        <div className="-mx-6 -mt-14 px-3">
-            <div className="mt-3 grid w-full md:flex">
+        <div className="-mx-6 px-3">
+            <div className="mt-3 px-3 md:px-0 grid w-full md:flex">
                 <Accordion
                     defaultValue="1"
-                    className="w-80"
+                    className="md:w-80 w-full"
                     type="single"
                     collapsible>
                     <AccordionItem value="1">
                         <AccordionTrigger>Presets</AccordionTrigger>
-                        <AccordionContent className="h-[40vh]">
+                        <AccordionContent className="h-[72vh]">
                             <ScrollArea className="bg-main h-[79vh] space-y-3 overflow-auto">
-                              
-							    <ExamplePaths
+                                <ExamplePaths
                                     onSelectPath={setCurrentPath}
                                     // onEditPath={openEditorForExample}
                                     setActivePresets={setActivePresets}
@@ -215,21 +214,21 @@ function SVGLineDrawGenerator() {
                 </Accordion>
                 <div className={cn('w-full px-3', customDrawLine || editPath ? ' ' : ' ')}>
                     <div className="mb-6 h-[90vh] w-full">
-                        <div className="h-[85%] w-full 2xl:h-[90%]">
-                            <PanelGroup direction="horizontal">
-                                <Panel
+                        <div className="h-full w-full">
+                            <ResizablePanelGroup direction="horizontal">
+                                <ResizablePanel
                                     defaultSize={customDrawLine ? 50 : 100}
                                     minSize={20}>
-                                    <div className={cn('relative flex w-full items-center justify-center rounded-xl', editPath ? 'h-[95%] p-0' : 'bg-main h-[95%] border p-4', customDrawLine && 'h-full')}>
+                                    <div className={cn('relative flex w-full items-center justify-center rounded-xl', editPath ? 'h-[95%] p-0' : 'h-[95%] border p-4', customDrawLine && 'h-full')}>
                                         {/* SVG Editor Modal */}
                                         {editPath ? (
                                             <>
-                                                <PanelGroup direction="horizontal">
-                                                    <Panel
-                                                        defaultSize={30}
-                                                        minSize={10}
-                                                        className="relative rounded-xl border">
-                                                        <div className="absolute bottom-0 left-0 right-0 top-0 z-0 rounded-xl bg-[radial-gradient(#79797960_1px,#f3f4f6_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff33_1px,#000000_1px)]" />
+                                                <ResizablePanelGroup direction="horizontal">
+                                                    <ResizablePanel
+                                                        defaultSize={60}
+                                                        minSize={30}
+                                                        className="relative w-full rounded-lg border">
+                                                        <div className="absolute bottom-0 left-0 right-0 top-0 z-0 rounded-lg bg-[radial-gradient(#00000015_1px,#fff_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff15_1px,#000000_1px)]" />
 
                                                         <div
                                                             key={previewKey}
@@ -251,13 +250,12 @@ function SVGLineDrawGenerator() {
                                                                 hoverAnimationType={settings.hoverAnimationType}
                                                             />
                                                         </div>
-                                                    </Panel>
-                                                    <PanelResizeHandle className="grid w-5 place-items-center rounded-xl p-0">
-                                                        <GripVertical className="w-5 text-neutral-400" />
-                                                    </PanelResizeHandle>
-                                                    <Panel
-                                                        defaultSize={70}
-                                                        minSize={60}>
+                                                    </ResizablePanel>
+                                                    <ResizableHandle className="after:bg-border relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-3px] after:rounded-full after:transition-all after:hover:h-10 md:block" />
+                                                    
+                                                    <ResizablePanel
+                                                        defaultSize={100}
+                                                        minSize={30}>
                                                         <SvgEditor
                                                             setShowSaveDialog={setShowSaveDialog}
                                                             path={currentPath}
@@ -269,13 +267,12 @@ function SVGLineDrawGenerator() {
                                                             strokeColor={settings.strokeColor}
                                                             strokeWidth={settings.strokeWidth}
                                                         />
-                                                    </Panel>
-                                                </PanelGroup>
+                                                    </ResizablePanel>
+                                                </ResizablePanelGroup>
                                             </>
                                         ) : (
                                             <>
                                                 <div className="absolute bottom-0 left-0 right-0 top-0 z-0 rounded-xl bg-[radial-gradient(#79797960_1px,#f3f4f6_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff33_1px,#000000_1px)]" />
-
                                                 {currentPath || savedPaths.length > 0 ? (
                                                     <div
                                                         key={previewKey}
@@ -326,16 +323,15 @@ function SVGLineDrawGenerator() {
                                             </>
                                         )}
                                     </div>
-                                </Panel>
+                                </ResizablePanel>
                                 {customDrawLine && (
                                     <>
-                                        <PanelResizeHandle className="grid w-5 place-items-center rounded-xl p-0">
-                                            <GripVertical className="w-5 text-neutral-400" />
-                                        </PanelResizeHandle>
-                                        <Panel
+                                        <ResizableHandle className="after:bg-border relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-3px] after:rounded-full after:transition-all after:hover:h-10 md:block" />
+                                        
+                                        <ResizablePanel
                                             defaultSize={customDrawLine ? 50 : 0}
                                             minSize={40}>
-                                            <div className="bg-main h-full rounded-lg border p-4">
+                                            <div className="h-[95%] rounded-lg border p-3">
                                                 <DrawingCanvas
                                                     width={400}
                                                     height={300}
@@ -346,10 +342,10 @@ function SVGLineDrawGenerator() {
                                                     savePath={savePath}
                                                 />
                                             </div>
-                                        </Panel>
+                                        </ResizablePanel>
                                     </>
                                 )}
-                            </PanelGroup>
+                            </ResizablePanelGroup>
                         </div>
                     </div>
 
@@ -364,7 +360,7 @@ function SVGLineDrawGenerator() {
                         />
                     )}
                 </div>
-                <div className="w-80">
+                <div className="w-full md:w-80">
                     <div className={cn('items-center gap-3 py-1', customDrawLine || editPath ? 'justify-between' : 'justify-between')}>
                         <div className="pb-4">{customDrawLine ? 'Drawing' : editPath ? 'Editing' : 'Preview'}</div>
 

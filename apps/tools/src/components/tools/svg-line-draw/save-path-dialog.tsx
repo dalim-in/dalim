@@ -112,7 +112,7 @@ export function SavePathDialog({
 
 	return (
 		<div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
-			<div className="w-full max-w-md rounded-lg border bg-card-bg shadow-lg">
+			<div className="w-full max-w-md rounded-lg border bg-card shadow-lg">
 				<div className="flex items-center justify-between border-b p-4">
 					<h2 className="font-semibold text-xl">
 						{isUpdating ? "Update Path" : "Save Path"}

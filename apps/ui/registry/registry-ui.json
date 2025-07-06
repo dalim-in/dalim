@@ -505,6 +505,16 @@
       ]
     },
     {
+      "name": "text",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "files": [

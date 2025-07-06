@@ -1,44 +1,36 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@dalim/core/ui/button";
 import {
 	Card,
 	CardContent,
 	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+	CardHeader, 
+} from "@dalim/core/ui/card";
+import { Input } from "@dalim/core/ui/input";
+import { Label } from "@dalim/core/ui/label";
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@dalim/core/ui/popover";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
-import { Textarea } from "@/components/ui/textarea";
-import { useSvgStore } from "@/store/use-custom-paths";
-import { Plus, Trash2 } from "lucide-react";
-import { useTheme } from "next-themes";
+} from "@dalim/core/ui/select";
+import { Slider } from "@dalim/core/ui/slider";
+import { Textarea } from "@dalim/core/ui/textarea";
+import { useSvgStore } from "@/src/store/use-custom-paths";
+import { Plus, Trash2 } from "lucide-react"; 
 import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { toast } from "sonner";
-interface CustomLineInputProps {
-	activePresets: string | null;
-	setActivePresets: (presets: string) => void;
-}
-export function CustomLineInput({
-	activePresets,
-	setActivePresets,
-}: CustomLineInputProps) {
-	const { theme } = useTheme();
+
+export function CustomLineInput() {
+	 
 
 	const [pathData, setPathData] = useState("");
 	const [strokeColor, setStrokeColor] = useState("#000000");

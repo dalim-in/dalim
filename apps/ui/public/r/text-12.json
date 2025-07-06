@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-12",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/text/text-12.tsx",
+      "content": "import { Text } from \"@/registry/default/ui/text\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Text variant=\"morphing\" className=\"text-2xl\" speed={2}>\n        Design|Develop|Deploy|Deliver\n      </Text>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "text",
+      "typo",
+      "work",
+      "effect"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

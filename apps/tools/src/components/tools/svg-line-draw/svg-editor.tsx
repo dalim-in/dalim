@@ -493,8 +493,8 @@ export function SvgEditor({
 
 	return (
 		<>
-			<div className="flex h-full w-full max-w-full flex-col rounded-lg border bg-card-bg shadow-lg">
-				<div className="flex items-center justify-between border-b p-2">
+			<div className="flex h-full w-full max-w-full flex-col rounded-lg border bg-card">
+				<div className="flex items-center  justify-between border-b p-2">
 					<div>
 						{/* <h2 className="text-xl font-semibold">Edit SVG Path</h2> */}
 						<p className="text-primary text-xs">
@@ -548,8 +548,7 @@ export function SvgEditor({
 						</div>
 					) : (
 						<div className="absolute inset-0 bg-main">
-							<div className="absolute top-0 right-0 bottom-0 left-0 z-0 rounded-xl bg-[radial-gradient(#79797960_1px,#f3f4f6_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff33_1px,#000000_1px)] " />
-							{/* SVG editor */}
+							 <div className="absolute bottom-0 left-0 right-0 top-0 z-0 bg-[radial-gradient(#00000015_1px,#fff_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff15_1px,#000000_1px)]" />
 							<svg
 								ref={editorRef}
 								viewBox={exampleViewBox}

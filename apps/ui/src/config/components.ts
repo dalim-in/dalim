@@ -21,8 +21,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "button",
-    name: "Button",
-    isNew: true,
+    name: "Button", 
     components: [
       { name: "button-48" },
       { name: "button-49" },
@@ -82,8 +81,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "card",
-    name: "Card",
-    isNew: true,
+    name: "Card", 
     components: [
       { name: "card-01" },
       { name: "card-08" },
@@ -99,8 +97,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "chart",
-    name: "Chart",
-    isNew: true,
+    name: "Chart", 
     components: [
       { name: "chart-01" }, 
       { name: "chart-02" }, 
@@ -193,8 +190,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "device",
-    name: "Device",
-    isNew: true,
+    name: "Device", 
     components: [
       { name: "device-01" },
       { name: "device-02" },
@@ -216,6 +212,29 @@ export const categories: ComponentCategory[] = [
       { name: "gauge-07" },
       { name: "gauge-08" },
       { name: "gauge-09" },
+    ],
+  },
+  {
+    slug: "text",
+    name: "Text",
+    isNew: true,
+    components: [
+      { name: "text-01" },
+      { name: "text-02" },
+      { name: "text-03" },
+      { name: "text-04" },
+      { name: "text-05" },
+      { name: "text-06" },
+      { name: "text-07" },
+      { name: "text-08" },
+      { name: "text-09" },
+      { name: "text-10" },
+      { name: "text-11" },
+      { name: "text-12" },
+      { name: "text-13" },
+      { name: "text-14" },
+      { name: "text-15" },
+      { name: "text-16" },
     ],
   },
   {
