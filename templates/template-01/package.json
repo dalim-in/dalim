@@ -3,8 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "delete": "rm -rf app/n"
+    "start": "next start"
   },
   "dependencies": {
     "@next/mdx": "15.3.3",

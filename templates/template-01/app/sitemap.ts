@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://next-mdx-blog.vercel.app';
+const SITE_URL = 'https://template-01-ui.dalim.in';
 
 async function getNoteSlugs(dir: string) {
   const entries = await fs.readdir(dir, {
@@ -21,11 +21,11 @@ async function getNoteSlugs(dir: string) {
 }
 
 export default async function sitemap() {
-  const notesDirectory = path.join(process.cwd(), 'app', 'n');
+  const notesDirectory = path.join(process.cwd(), 'app', '(n)');
   const slugs = await getNoteSlugs(notesDirectory);
 
   const notes = slugs.map((slug) => ({
-    url: `${SITE_URL}/n/${slug}`,
+    url: `${SITE_URL}/${slug}`,
     lastModified: new Date().toISOString()
   }));
 
