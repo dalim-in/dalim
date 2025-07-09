@@ -17,7 +17,8 @@
   "packageManager": "pnpm@9.10.0",
   "workspaces": [
     "apps/*",
-    "packages/*" 
+    "packages/*",
+    "templates/*" 
   ], 
   "devDependencies": {
     "prettier": "3.5.1",
