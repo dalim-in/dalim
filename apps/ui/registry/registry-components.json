@@ -2480,6 +2480,118 @@
         "style": 1,
         "colSpan": 2
       }
+    }, 
+    {
+      "name": "background-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "background-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
     }
   ]
 }

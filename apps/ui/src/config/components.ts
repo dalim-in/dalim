@@ -21,7 +21,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "button",
-    name: "Button", 
+    name: "Button",
     components: [
       { name: "button-48" },
       { name: "button-49" },
@@ -81,7 +81,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "card",
-    name: "Card", 
+    name: "Card",
     components: [
       { name: "card-01" },
       { name: "card-08" },
@@ -97,11 +97,11 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "chart",
-    name: "Chart", 
+    name: "Chart",
     components: [
-      { name: "chart-01" }, 
-      { name: "chart-02" }, 
-      { name: "chart-03" }, 
+      { name: "chart-01" },
+      { name: "chart-02" },
+      { name: "chart-03" },
     ],
   },
   {
@@ -164,6 +164,20 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "background",
+    name: "Background",
+    isNew: true,
+    components: [
+      { name: "background-01" },
+      { name: "background-02" },
+      { name: "background-03" },
+      { name: "background-04" },
+      { name: "background-05" },
+      { name: "background-06" },
+      { name: "background-07" },
+    ],
+  },
+  {
     slug: "book",
     name: "Book",
     isNew: true,
@@ -190,7 +204,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "device",
-    name: "Device", 
+    name: "Device",
     components: [
       { name: "device-01" },
       { name: "device-02" },
@@ -239,7 +253,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "spinner",
-    name: "Spinner", 
+    name: "Spinner",
     components: [
       { name: "spinner-01" },
       { name: "spinner-02" },
