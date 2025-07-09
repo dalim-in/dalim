@@ -5,21 +5,21 @@ import { PageHeader } from "@dalim/core/components/common/page-header"
 import Card from "@/src/components/templates/card"
 
 export const metadata: Metadata = {
-  title: "UI Templates built with Tailwind CSS and React - Dalim UI",
+  title: "Templates - Dalim UI",
   description:
     "Beautiful UI layouts built with Tailwind CSS and React to help you get started with your next project.",
 }
 
-const cards = [
-    
+const cards = [ 
   {
     id: 1,
-    title: "Portfolio",
+    title: "Simple Portfolio",
+    subheading: "Beautifully designed open-source templates and UI components built with Dalim UI and shadcn/ui.",
     demoUrl: "https://template-01-ui.dalim.in",
     repoUrl:
       "https://github.com/dalim-in/dalim/tree/main/templates/template-01",
     imgHeight: 900,
-  },
+  }
 ]
 
 export default function Page() {
@@ -32,7 +32,7 @@ export default function Page() {
         subheading="Beautifully designed open-source templates and UI components built with Dalim UI and shadcn/ui."
       />
       {/* Cards */}
-      <div className="space-y-16">
+      <div className="py-3 mx-auto max-w-6xl px-6 border-x">
         {cards.map((card) => (
           <Card key={card.id} card={card} />
         ))}
