@@ -17,7 +17,7 @@ const cards = [
     subheading: "Beautifully designed open-source templates and UI components built with Dalim UI and shadcn/ui.",
     demoUrl: "https://template-01-ui.dalim.in",
     repoUrl:
-      "https://github.com/dalim-in/dalim/tree/main/templates/template-01",
+      "https://github.com/dalim-in/templates/tree/main/apps/template-01",
     imgHeight: 900,
   },
   {
@@ -26,7 +26,7 @@ const cards = [
     subheading: "Beautifully designed open-source templates and UI components built with Dalim UI and shadcn/ui.",
     demoUrl: "https://template-02-ui.dalim.in",
     repoUrl:
-      "https://github.com/dalim-in/dalim/tree/main/templates/template-02",
+      "https://github.com/dalim-in/templates/tree/main/apps/template-02",
     imgHeight: 900,
   }
 ]
