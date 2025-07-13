@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-12",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/theme/theme-12.tsx",
+      "content": "import { Theme } from \"@/registry/default/ui/theme\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Theme\n        variant=\"floating\"\n        size=\"md\"\n        themes={[\"light\", \"dark\", \"system\"]}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "theme",
+      "bg",
+      "texture",
+      "pattern"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

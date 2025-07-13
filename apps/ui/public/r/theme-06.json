@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-06",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/theme/theme-06.tsx",
+      "content": "import { Theme } from \"@/registry/default/ui/theme\"\n\nexport default function Component() {\n  return (\n    <div>\n      <Theme\n        variant=\"grid\"\n        size=\"md\"\n        showLabel\n        themes={[\"light\", \"dark\"]}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "theme",
+      "bg",
+      "texture",
+      "pattern"
+    ],
+    "style": 1,
+    "colSpan": 2
+  }
+}

@@ -87,7 +87,7 @@ export function Menu() {
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>
-            </NavigationMenu> 
+            </NavigationMenu>
         </div>
     )
 }
@@ -271,7 +271,10 @@ export function MenuIcons() {
                             href={`/logos`}
                             legacyBehavior
                             passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Logos</NavigationMenuLink>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Logos
+                                <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
@@ -324,7 +327,7 @@ export function MenuVisuals() {
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
                         </Link>
-                    </NavigationMenuItem> 
+                    </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
         </div>
@@ -347,4 +350,3 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
     )
 })
 ListItem.displayName = 'ListItem'
- 

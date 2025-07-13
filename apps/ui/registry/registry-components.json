@@ -2191,7 +2191,7 @@
         "style": 1,
         "colSpan": 1
       }
-    }, 
+    },
     {
       "name": "gauge-08",
       "type": "registry:component",
@@ -2207,7 +2207,7 @@
         "style": 1,
         "colSpan": 1
       }
-    }, 
+    },
     {
       "name": "gauge-09",
       "type": "registry:component",
@@ -2223,7 +2223,7 @@
         "style": 1,
         "colSpan": 1
       }
-    }, 
+    },
     {
       "name": "text-01",
       "type": "registry:component",
@@ -2239,7 +2239,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-02",
       "type": "registry:component",
@@ -2255,7 +2255,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-03",
       "type": "registry:component",
@@ -2271,7 +2271,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-04",
       "type": "registry:component",
@@ -2287,7 +2287,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-05",
       "type": "registry:component",
@@ -2303,7 +2303,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-06",
       "type": "registry:component",
@@ -2319,8 +2319,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }
-    , 
+    },
     {
       "name": "text-07",
       "type": "registry:component",
@@ -2336,7 +2335,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-08",
       "type": "registry:component",
@@ -2352,7 +2351,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-09",
       "type": "registry:component",
@@ -2368,7 +2367,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-10",
       "type": "registry:component",
@@ -2384,7 +2383,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-11",
       "type": "registry:component",
@@ -2400,7 +2399,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-12",
       "type": "registry:component",
@@ -2416,7 +2415,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-13",
       "type": "registry:component",
@@ -2432,7 +2431,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-14",
       "type": "registry:component",
@@ -2448,7 +2447,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-15",
       "type": "registry:component",
@@ -2464,7 +2463,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "text-16",
       "type": "registry:component",
@@ -2480,7 +2479,7 @@
         "style": 1,
         "colSpan": 2
       }
-    }, 
+    },
     {
       "name": "background-01",
       "type": "registry:component",
@@ -2496,7 +2495,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-02",
       "type": "registry:component",
@@ -2512,7 +2511,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-03",
       "type": "registry:component",
@@ -2528,7 +2527,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-04",
       "type": "registry:component",
@@ -2544,7 +2543,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-05",
       "type": "registry:component",
@@ -2560,7 +2559,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-06",
       "type": "registry:component",
@@ -2576,7 +2575,7 @@
         "style": 1,
         "colSpan": 3
       }
-    }, 
+    },
     {
       "name": "background-07",
       "type": "registry:component",
@@ -2591,6 +2590,134 @@
         "tags": ["background", "bg", "texture", "pattern"],
         "style": 1,
         "colSpan": 3
+      }
+    },
+    {
+      "name": "theme-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["theme", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 2
       }
     }
   ]

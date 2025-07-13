@@ -4108,6 +4108,187 @@
       ]
     },
     {
+      "name": "theme",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/theme.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-07",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
+      "name": "theme-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/theme/theme-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 2
+      }
+    },
+    {
       "name": "timeline",
       "type": "registry:ui",
       "dependencies": [

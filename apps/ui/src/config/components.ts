@@ -252,6 +252,22 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "theme",
+    name: "Theme",
+    isNew: true,
+    components: [
+      { name: "theme-01" },  
+      { name: "theme-02" },
+      { name: "theme-03" },
+      { name: "theme-04" },
+      { name: "theme-05" },
+      { name: "theme-06" },
+      { name: "theme-07" },
+      { name: "theme-08" }, 
+      
+    ],
+  },
+  {
     slug: "spinner",
     name: "Spinner",
     components: [

@@ -561,7 +561,7 @@ export function LogoDetailed() {
     
 const App = () => {
   return (
-    <${iconData.name}${!isDefaultSize ? `\n      size={${iconData.name[0]}}` : ''}${!isDefaultColor ? `\n      color="${iconData.name}"` : ''}  ''}
+    <${iconData.name}${!isDefaultSize ? `\n      size={${isDefaultSize}}` : isDefaultSize}${!isDefaultColor ? `\n      color="${iconData.name}"` : ''}  ''}
     />
   );
 }

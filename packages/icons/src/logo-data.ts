@@ -36,7 +36,25 @@ import {
   NikeMetadata,
   V0Metadata,
   LovableMetadata,
-  NextJSMetadata
+  NextJSMetadata,
+  GrokMetadata,
+  PerplexityAIMetadata,
+  ReplicateMetadata,
+  RunwayMetadata,
+  xAIMetadata,
+  BingMetadata,
+  EdgeMetadata,
+  FirefoxMetadata,
+  OperaMetadata,
+  WordPressMetadata,
+  DrizzleORMMetadata,
+  MongoDBMetadata,
+  NeonMetadata,
+  PlanetScaleMetadata, 
+  RedisMetadata,
+  SupabaseMetadata,
+  TursoMetadata,
+  UpstashMetadata
 } from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
@@ -48,6 +66,11 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "OpenAI": OpenAIMetadata,
   "V0": V0Metadata,
   "Lovable": LovableMetadata,
+  "Grok": GrokMetadata,
+  "PerplexityAI": PerplexityAIMetadata,
+  "Replicate": ReplicateMetadata,
+  "Runway": RunwayMetadata,
+  "xAI": xAIMetadata,
 
   // Hosting
   
@@ -57,6 +80,10 @@ export const logoDatabase: Record<string, LogoMetadata> = {
 
   "Safari": SafariMetadata,
   "Chrome": ChromeMetadata,
+  "Bing": BingMetadata,
+  "Edge": EdgeMetadata,
+  "Firefox": FirefoxMetadata,
+  "Opera": OperaMetadata,
 
   // Software
 
@@ -83,9 +110,21 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Figma": FigmaMetadata,
   "Canva": CanvaMetadata,
 
+  // Database
+
+  "DrizzleORM": DrizzleORMMetadata,
+  "MongoDB": MongoDBMetadata,
+  "Neon": NeonMetadata,
+  "PlanetScale": PlanetScaleMetadata,
+  "Redis": RedisMetadata,
+  "Supabase": SupabaseMetadata,
+  "Turso": TursoMetadata,
+  "Upstash": UpstashMetadata,
+
   // CMS
 
   "Shopify": ShopifyMetadata,
+  "WordPress": WordPressMetadata,
 
   // Social
 

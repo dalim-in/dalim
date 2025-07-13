@@ -45,7 +45,7 @@ export function IconShowcase({ searchTerm, selectedIcon, setSelectedIcon, select
                 value={selectedIcon}
                 className=""
                 onValueChange={setSelectedIcon}>
-                <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+                <div className="flex mb-100 flex-wrap justify-center gap-2 md:justify-start">
                     {filteredIcons.map((logo) => (
                         <div
                             key={logo.name}

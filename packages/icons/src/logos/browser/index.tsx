@@ -1,2 +1,6 @@
 export * from './chrome' 
 export * from './safari' 
+export * from './bing' 
+export * from './edge' 
+export * from './firefox' 
+export * from './opera' 

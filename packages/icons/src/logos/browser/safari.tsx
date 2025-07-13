@@ -23,7 +23,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                 return (
                     <>
                         <defs>
-                            <linearGradient id="b">
+                            <linearGradient id="bSafari">
                                 <stop
                                     offset={0}
                                     stopColor="#06c2e7"
@@ -45,7 +45,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                                     stopColor="#107ddd"
                                 />
                             </linearGradient>
-                            <linearGradient id="a">
+                            <linearGradient id="aSafari">
                                 <stop
                                     offset={0}
                                     stopColor="#bdbdbd"
@@ -56,8 +56,8 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                                 />
                             </linearGradient>
                             <linearGradient
-                                xlinkHref="#a"
-                                id="d"
+                                xlinkHref="#aSafari"
+                                id="dSafari"
                                 x1={412.97501}
                                 x2={412.97501}
                                 y1={237.60777}
@@ -66,7 +66,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                                 gradientUnits="userSpaceOnUse"
                             />
                             <filter
-                                id="f"
+                                id="fSafari"
                                 width={1.0418189}
                                 height={1.0446756}
                                 x={-0.02090938}
@@ -75,7 +75,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                                 <feGaussianBlur stdDeviation={0.95767362} />
                             </filter>
                             <filter
-                                id="c"
+                                id="cSafari"
                                 width={1.096}
                                 height={1.096}
                                 x={-0.048}
@@ -84,8 +84,8 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                                 <feGaussianBlur stdDeviation={3.5643107} />
                             </filter>
                             <radialGradient
-                                xlinkHref="#b"
-                                id="e"
+                                xlinkHref="#bSafari"
+                                id="eSafari"
                                 cx={413.06128}
                                 cy={136.81819}
                                 r={82.125351}
@@ -103,7 +103,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                             transform="matrix(.33865 0 0 .3261 -106.76956 -14.47833)"
                         />
                         <path
-                            fill="url(#d)"
+                            fill="url(#dSafari)"
                             stroke="#cdcdcd"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -113,7 +113,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                             transform="translate(-318.88562 -180.59501)"
                         />
                         <path
-                            fill="url(#e)"
+                            fill="url(#eSafari)"
                             d="M380.83911 211.97671a28.870571 28.870571 0 0 1-28.87057 28.87057 28.870571 28.870571 0 0 1-28.87057-28.87057 28.870571 28.870571 0 0 1 28.87057-28.87057 28.870571 28.870571 0 0 1 28.87057 28.87057z"
                             paintOrder="markers stroke fill"
                             transform="translate(-318.88562 -180.59501)"
@@ -125,7 +125,7 @@ export const Safari = forwardRef<LogosHandle, LogosProps>(({ className, size = '
                         />
                         <path
                             d="m469.09621 100.6068-65.50955 38.06124-41.41979 65.20654 60.59382-44.88117z"
-                            filter="url(#f)"
+                            filter="url(#fSafari)"
                             opacity={0.40900005}
                             paintOrder="markers stroke fill"
                             transform="translate(-112.09544 -20.8224) scale(.35154)"

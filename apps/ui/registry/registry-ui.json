@@ -536,6 +536,17 @@
       ]
     },
     {
+      "name": "theme",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/theme.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "toast",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-toast"],

@@ -23,7 +23,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                 return (
                     <>
                         <mask
-                            id="b"
+                            id="bLovable"
                             width={121}
                             height={122}
                             x={0}
@@ -33,14 +33,14 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                 maskType: 'alpha',
                             }}>
                             <path
-                                fill="url(#a)"
+                                fill="url(#aLovable)"
                                 fillRule="evenodd"
                                 d="M36.069 0c19.92 0 36.068 16.155 36.068 36.084v13.713h12.004c19.92 0 36.069 16.156 36.069 36.084 0 19.928-16.149 36.083-36.069 36.083H0v-85.88C0 16.155 16.148 0 36.069 0Z"
                                 clipRule="evenodd"
                             />
                         </mask>
-                        <g mask="url(#b)">
-                            <g filter="url(#c)">
+                        <g mask="url(#bLovable)">
+                            <g filter="url(#cLovable)">
                                 <ellipse
                                     cx={52.738}
                                     cy={65.101}
@@ -49,7 +49,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                     ry={81.192}
                                 />
                             </g>
-                            <g filter="url(#d)">
+                            <g filter="url(#dLovable)">
                                 <ellipse
                                     cx={61.673}
                                     cy={20.547}
@@ -58,7 +58,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                     ry={81.192}
                                 />
                             </g>
-                            <g filter="url(#e)">
+                            <g filter="url(#eLovable)">
                                 <ellipse
                                     cx={78.666}
                                     cy={5.268}
@@ -67,7 +67,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                     ry={71.304}
                                 />
                             </g>
-                            <g filter="url(#f)">
+                            <g filter="url(#fLovable)">
                                 <ellipse
                                     cx={63.121}
                                     cy={20.527}
@@ -79,7 +79,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                         </g>
                         <defs>
                             <filter
-                                id="c"
+                                id="cLovable"
                                 width={235.52}
                                 height={235.159}
                                 x={-65.022}
@@ -101,7 +101,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                 />
                             </filter>
                             <filter
-                                id="d"
+                                id="dLovable"
                                 width={281.208}
                                 height={235.159}
                                 x={-78.93}
@@ -123,7 +123,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                 />
                             </filter>
                             <filter
-                                id="e"
+                                id="eLovable"
                                 width={235.52}
                                 height={215.383}
                                 x={-39.094}
@@ -145,7 +145,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                 />
                             </filter>
                             <filter
-                                id="f"
+                                id="fLovable"
                                 width={170.649}
                                 height={170.432}
                                 x={-22.204}
@@ -167,7 +167,7 @@ export const Lovable = forwardRef<LogosHandle, LogosProps>(({ className, size = 
                                 />
                             </filter>
                             <linearGradient
-                                id="a"
+                                id="aLovable"
                                 x1={40.453}
                                 x2={76.933}
                                 y1={21.433}
