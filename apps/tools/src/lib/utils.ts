@@ -21,3 +21,14 @@ export const formatComponentName = (category: string, variant: string): string =
         .join('')
     return `${categoryFormatted}${variantFormatted}`
 }
+
+export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
+  fn: T,
+  ms: number
+): (...args: Parameters<T>) => void {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+}

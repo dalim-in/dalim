@@ -18,6 +18,8 @@ import IconsLogoDark from '../../public/brand/dalim-icons-black.svg'
 import IconsLogo from '../..//public/brand/dalim-icons.svg'
 import VisualsLogoDark from '../../public/brand/dalim-visuals-black.svg'
 import VisualsLogo from '../..//public/brand/dalim-visuals.svg'
+import ToolsLogoDark from '../../public/brand/dalim-tools-black.svg'
+import ToolsLogo from '../..//public/brand/dalim-tools.svg'
 import { DALIM_URL } from '@dalim/auth'
 
 export function DalimLogo() {
@@ -498,6 +500,57 @@ export function DalimVisualsLogo() {
                 />
                 <Image
                     src={VisualsLogo}
+                    alt="Dalim logo"
+                    height={24}
+                    width={0}
+                    className="h-6 hidden w-auto object-contain dark:block"
+                    priority
+                />
+            </Link>
+            <Link
+                className="block shrink-0 md:hidden"
+                href={DALIM_URL}
+                aria-label="Home">
+                <span className="sr-only">Dalim</span>
+                <Image
+                    src={PhoneLogoDark}
+                    alt="Dalim logo"
+                    width={24}
+                    height={30}
+                    className="dark:hidden"
+                    priority
+                />
+                <Image
+                    src={PhoneLogo}
+                    alt="Dalim logo"
+                    width={24}
+                    height={30}
+                    className="hidden dark:block"
+                    priority
+                />
+            </Link>
+        </div>
+    )
+}
+
+export function DalimToolsLogo() {
+    return (
+        <div className="">
+            <Link
+                className="hidden shrink-0 md:block"
+                href={DALIM_URL}
+                aria-label="Home">
+                <span className="sr-only">Dalim</span>
+                <Image
+                    src={ToolsLogoDark}
+                    alt="Dalim logo"
+                    height={24} // fixed height
+                    width={0} // width auto-adjusts with "w-auto"
+                    className="h-6  w-auto object-contain dark:hidden"
+                    priority
+                />
+                <Image
+                    src={ToolsLogo}
                     alt="Dalim logo"
                     height={24}
                     width={0}

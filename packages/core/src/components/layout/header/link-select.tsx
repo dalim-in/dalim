@@ -79,8 +79,7 @@ const OPTIONS = [
     },
     {
         value: 'tools',
-        label: 'Tools',
-        disabled: true,
+        label: 'Tools', 
         urls: {
             prod: 'https://tools.dalim.in',
             dev: 'http://localhost:3009',

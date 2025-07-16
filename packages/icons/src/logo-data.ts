@@ -54,7 +54,23 @@ import {
   RedisMetadata,
   SupabaseMetadata,
   TursoMetadata,
-  UpstashMetadata
+  UpstashMetadata,
+  AdobeMetadata,
+  AnimateMetadata,
+  InDesignMetadata,
+  LayersMetadata,
+  LightroomMetadata,
+  SketchMetadata,
+  XDMetadata,
+  NetflixMetadata,
+  TwitchMetadata,
+  NuxtMetadata,
+  TailwindCSSMetadata,
+  VueMetadata,
+  GoogleCloudMetadata,
+  GoogleDriveMetadata,
+  YoutubeMusicMetadata,
+  DropboxMetadata
 } from "./logos";  
 
 export const logoDatabase: Record<string, LogoMetadata> = { 
@@ -74,7 +90,8 @@ export const logoDatabase: Record<string, LogoMetadata> = {
 
   // Hosting
   
-  "Vercel": VercelMetadata,
+  "Vercel": VercelMetadata, 
+  "Dropbox": DropboxMetadata,
 
   // Browser
 
@@ -93,9 +110,14 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "VisualStudioCode": VisualStudioCodeMetadata,
   "Google": GoogleMetadata,
   "Gmail": GmailMetadata,
+  "GoogleDrive": GoogleDriveMetadata,
+  "GoogleCloud": GoogleCloudMetadata,
   "Blender": BlenderMetadata,
   "Microsoft": MicrosoftMetadata,
   "NextJS": NextJSMetadata,
+  "Nuxt": NuxtMetadata,
+  "TailwindCSS": TailwindCSSMetadata,
+  "Vue": VueMetadata,
 
   // Sport
 
@@ -103,12 +125,20 @@ export const logoDatabase: Record<string, LogoMetadata> = {
 
   // Design
 
+
+  "Adobe": AdobeMetadata,
+  "Animate": AnimateMetadata,
   "Photoshop": PhotoshopMetadata,
   "Illustrator": IllustratorMetadata,
   "AfterEffects": AfterEffectsMetadata,
   "PremierePro": PremiereProMetadata, 
+  "InDesign": InDesignMetadata,
+  "Lightroom": LightroomMetadata,
+  "XDMetadata": XDMetadata,
   "Figma": FigmaMetadata,
   "Canva": CanvaMetadata,
+  "Layers": LayersMetadata,
+  "Sketch": SketchMetadata,
 
   // Database
 
@@ -126,6 +156,11 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   "Shopify": ShopifyMetadata,
   "WordPress": WordPressMetadata,
 
+  // Entertainmet
+
+  "Netflix": NetflixMetadata,
+  "TwitchMetadata": TwitchMetadata,
+
   // Social
 
   "Instagram": InstagramMetadata,
@@ -141,6 +176,7 @@ export const logoDatabase: Record<string, LogoMetadata> = {
   // Music
 
   "Spotify": SpotifyMetadata,
+  "YoutubeMusic": YoutubeMusicMetadata,
 
   // Library
 

@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { cn } from '../../../lib/utils'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '../../../ui/navigation-menu'
-import { AGENCY_URL, DALIM_URL, FONTS_URL, GRAPHIC_URL, ICONS_URL, WORKS_URL } from '@dalim/auth'
+import { AGENCY_URL, DALIM_URL, FONTS_URL, GRAPHIC_URL, ICONS_URL, TOOLS_URL, UI_URL, WORKS_URL } from '@dalim/auth'
 
 export function Menu() {
     return (
@@ -326,6 +326,65 @@ export function MenuVisuals() {
                             legacyBehavior
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${UI_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>UI</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+        </div>
+    )
+}
+
+export function MenuTools() {
+    return (
+        <div className="hidden pr-20 md:block">
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${TOOLS_URL}/gradient`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Gradient</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${GRAPHIC_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Graphic</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${FONTS_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Fonts</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${ICONS_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Icons</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`${UI_URL}`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>UI</NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                 </NavigationMenuList>

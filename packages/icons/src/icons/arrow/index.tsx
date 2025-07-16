@@ -10,3 +10,4 @@ export * from "./arrow-down";
 export * from "./arrow-down-0-1"; 
 export * from "./arrow-down-1-0"; 
 export * from "./arrow-down-a-z"; 
+export * from "./arrow-down-from-line"; 

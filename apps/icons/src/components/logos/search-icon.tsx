@@ -3,7 +3,7 @@
 import { Search } from 'lucide-react'
 import { Input } from '@dalim/core/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@dalim/core/ui/select'
-import { getAllLogoCategories, getAllLogoTags } from 'dalim-icons'
+import { getAllLogoCategories, getAllLogos, getAllLogoTags } from 'dalim-icons'
 import { CopyButton } from '@dalim/core/components/common/copy-button'
 import Link from 'next/link'
 import { Button } from '@dalim/core/ui/button'
@@ -11,13 +11,14 @@ import { Button } from '@dalim/core/ui/button'
 export function SearchIcon({ searchTerm, setSearchTerm, selectedIcon, selectedCategory, setSelectedCategory, selectedTag, setSelectedTag, iconVariant, setIconVariant }: { searchTerm: string; setSearchTerm: (val: string) => void; selectedCategory: string; setSelectedCategory: (val: string) => void; selectedTag: string; setSelectedTag: (val: string) => void; iconVariant: 'icon' | 'wordmark'; selectedIcon: string; setIconVariant: (val: any) => void }) {
     const allCategories = getAllLogoCategories()
     const allTags = getAllLogoTags()
-
+    const Icons = getAllLogos()
+ 
     return (
         <div className="sticky top-20 z-10 -mx-6 flex justify-center border bg-neutral-100/60 py-3 backdrop-blur-lg backdrop-filter dark:bg-neutral-900/60">
             <div className="flex w-full flex-wrap justify-center gap-2 px-6">
                 <div className="relative">
                     <Input
-                        placeholder="Search icons..."
+                         placeholder={`Search ${Icons.length} logos...`}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full pl-10"

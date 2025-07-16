@@ -5,17 +5,16 @@ import Link from "next/link"
 import { Tabs, TabsList, TabsTrigger } from "@dalim/core/ui/tabs" 
 
 const tabs = [
-  { value: "linedraw", label: "LineDraw",   href: "/linedraw" },
-  { value: "background", label: "Background",   href: "/background" },
   { value: "gradient", label: "Gradient", href: "/gradient" },
-  { value: "shadow", label: "Shadow",   href: "/shadow" },
+  { value: "linedraw", label: "LineDraw",   href: "/linedraw" },
+  { value: "background", label: "Background",   href: "/background" }, 
 ]
 
 export function TabNavigation() {
   const pathname = usePathname()
   
   // Determine active tab based on current pathname
-  const activeTab = tabs.find(tab => pathname === tab.href)?.value || "profile"
+  const activeTab = tabs.find(tab => pathname === tab.href)?.value || "gradient"
 
   return (
     <Tabs value={activeTab} className="-mt-12 -mb-1 flex justify-center">
