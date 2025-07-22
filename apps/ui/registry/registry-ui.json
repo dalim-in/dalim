@@ -309,6 +309,17 @@
       ]
     },
     {
+      "name": "marquee",
+      "type": "registry:ui",
+      "registryDependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "multiselect",
       "type": "registry:ui",
       "registryDependencies": ["https://ui.dalim.in/r/command.json"],

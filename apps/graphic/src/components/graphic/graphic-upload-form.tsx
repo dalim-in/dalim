@@ -123,8 +123,11 @@ export function GraphicUploadForm() {
         try {
             const formData = new FormData(e.currentTarget)
 
-            // Add images to form data
             images.forEach((image, index) => {
+                if (image.size > 10 * 1024 * 1024) {
+                    // 10MB limit
+                    throw new Error(`Image "${image.name}" exceeds 10MB limit`)
+                }
                 formData.append(`image-${index}`, image)
             })
 
@@ -161,7 +164,7 @@ export function GraphicUploadForm() {
 
     return (
         <div className="">
-            <div className="flex items-center gap-2 justify-center py-3">
+            <div className="flex items-center justify-center gap-2 py-3">
                 <Button
                     variant="ghost"
                     size="icon"
@@ -172,7 +175,7 @@ export function GraphicUploadForm() {
             </div>
             <div className="relative before:absolute before:-inset-x-6 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
 
-            <div className="pt-6"> 
+            <div className="pt-6">
                 <form
                     onSubmit={handleSubmit}
                     className="grid gap-3 space-y-3 md:grid-cols-2">

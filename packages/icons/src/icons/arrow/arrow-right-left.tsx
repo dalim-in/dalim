@@ -6,8 +6,8 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 
 import { cn } from '../../lib/utils'
 import { IconsHandle, IconsProps, cardVariants, topVariants, IconMetadata, keyVariants, pathVariants } from '../../types'
 
-export const ArrowDownFromLineMetadata: IconMetadata = {
-    name: 'ArrowDownFromLine',
+export const ArrowRightLeftMetadata: IconMetadata = {
+    name: 'ArrowRightLeft',
     category: 'Arrow',
     tags: ['backwards', 'reverse', 'direction', 'south', 'down', 'arrow'],
     description: 'An icon representing access control or authentication with a key and access cards',
@@ -16,7 +16,7 @@ export const ArrowDownFromLineMetadata: IconMetadata = {
     variants: ['stroke'],
 }
 
-export const ArrowDownFromLine = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
+export const ArrowRightLeft = forwardRef<IconsHandle, IconsProps>(({ onMouseEnter, onMouseLeave, className, size = '24', animation = false, color = 'currentColor', variant = 'stroke', loop = false, strokeColor, fillColor, secondaryColor, iconStyle = 'default', strokeWidth = 1, strokeLinecap = 'round', strokeLinejoin = 'round', strokeDasharray = '0 0', outline = false, onClick, outlineColor = '#fff000', ...props }, ref) => {
     const controls = useAnimation()
     const innerRef = useRef<HTMLDivElement>(null)
 
@@ -65,9 +65,11 @@ export const ArrowDownFromLine = forwardRef<IconsHandle, IconsProps>(({ onMouseE
             case 'stroke':
                 return (
                     <>
-                     <path d="M19 3H5"/>
-<path d="M12 21V7"/>
-<path d="m6 15 6 6 6-6"/>
+                     <path d="m16 3 4 4-4 4"/>
+<path d="M20 7H4"/>
+<path d="m8 21-4-4 4-4"/>
+<path d="M4 17h16"/>
+
 
                     </>
                 )
@@ -81,7 +83,7 @@ export const ArrowDownFromLine = forwardRef<IconsHandle, IconsProps>(({ onMouseE
         <motion.div
             ref={innerRef}
             role="img"
-            aria-label="ArrowDownFromLine"
+            aria-label="ArrowRightLeft"
             className={cn('', className)}
             animate={controls}
             initial="normal"
@@ -108,4 +110,4 @@ export const ArrowDownFromLine = forwardRef<IconsHandle, IconsProps>(({ onMouseE
     )
 })
 
-ArrowDownFromLine.displayName = 'ArrowDownFromLine'
+ArrowRightLeft.displayName = 'ArrowRightLeft'

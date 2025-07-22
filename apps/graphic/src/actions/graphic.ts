@@ -66,29 +66,44 @@ export async function uploadGraphic(formData: FormData) {
     const publicIds: string[] = []
 
     for (let i = 0; formData.get(`image-${i}`); i++) {
-      const file = formData.get(`image-${i}`) as File
-      const bytes = await file.arrayBuffer()
-      const buffer = Buffer.from(bytes)
+  const file = formData.get(`image-${i}`) as File
 
-      const result = (await new Promise((resolve, reject) => {
-        cloudinary.uploader
-          .upload_stream(
-            {
-              folder: "graphics",
-              resource_type: "image",
-            },
-            (error, result) => {
-              if (error) reject(error)
-              else resolve(result)
-            },
-          )
-          .end(buffer)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      })) as any
+  console.log(`📤 Starting upload for image-${i}:`, file?.name, file?.size)
 
-      imageUrls.push(result.secure_url)
-      publicIds.push(result.public_id)
-    }
+  try {
+    const bytes = await file.arrayBuffer()
+    const buffer = Buffer.from(bytes)
+
+    const result = await new Promise((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream(
+          {
+            folder: "graphics",
+            resource_type: "image",
+          },
+          (error, result) => {
+            if (error) {
+              console.error(`❌ Cloudinary upload_stream error for image-${i}:`, error)
+              reject(error)
+            } else {
+              resolve(result)
+            }
+          }
+        )
+        .end(buffer)
+    }) as any
+
+    console.log(`✅ Uploaded image-${i}:`, result.secure_url)
+
+    imageUrls.push(result.secure_url)
+    publicIds.push(result.public_id)
+  } catch (uploadErr) {
+    console.error(`❌ Error uploading image-${i}:`, uploadErr)
+    return { success: false, error: `Failed to upload image ${i + 1}` }
+  }
+}
+
+
 
     // Create graphic in database
     const graphic = await prisma.graphic.create({
@@ -107,10 +122,14 @@ export async function uploadGraphic(formData: FormData) {
 
     revalidatePath("/")
     return { success: true, graphicId: graphic.id }
-  } catch (error) {
-    console.error("Upload error:", error)
-    return { success: false, error: "Failed to upload graphic" }
+  } catch (error: any) {
+  console.error("Upload error:", error)
+
+  return {
+    success: false,
+    error: error?.message || "Failed to upload graphic",
   }
+}
 }
 
 export async function getGraphics(params?: {
@@ -283,6 +302,10 @@ export async function updateGraphic(id: string, formData: FormData) {
     // Upload new images to Cloudinary
     for (let i = 0; formData.get(`image-${i}`); i++) {
       const file = formData.get(`image-${i}`) as File
+     if (file.size > 10 * 1024 * 1024) { // 10MB limit
+       return { success: false, error: "Image size exceeds 10MB limit" }
+       }
+
       const bytes = await file.arrayBuffer()
       const buffer = Buffer.from(bytes)
 

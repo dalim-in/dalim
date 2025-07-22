@@ -2719,6 +2719,102 @@
         "style": 1,
         "colSpan": 2
       }
+    },
+    {
+      "name": "marquee-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "marquee-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "marquee-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "marquee-04",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "marquee-05",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "marquee-06",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/marquee/marquee-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["marquee", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
     }
   ]
 }

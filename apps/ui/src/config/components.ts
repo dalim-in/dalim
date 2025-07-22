@@ -229,6 +229,18 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "marquee",
+    name: "Marquee",
+    components: [
+      { name: "marquee-01" }, 
+      { name: "marquee-02" }, 
+      { name: "marquee-03" }, 
+      { name: "marquee-04" }, 
+      { name: "marquee-05" }, 
+      { name: "marquee-06" }, 
+    ],
+  },
+  {
     slug: "text",
     name: "Text",
     isNew: true,
