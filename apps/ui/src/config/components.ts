@@ -80,6 +80,14 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "bento-grid",
+    name: "Bento Grid",
+    isNew: true,
+    components: [
+      { name: "bento-grid-01" }, 
+    ],
+  },
+  {
     slug: "card",
     name: "Card",
     components: [
@@ -140,8 +148,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "award",
-    name: "Award",
-    isNew: true,
+    name: "Award", 
     components: [
       { name: "award-01" },
       { name: "award-02" },
@@ -165,8 +172,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "background",
-    name: "Background",
-    isNew: true,
+    name: "Background", 
     components: [
       { name: "background-01" },
       { name: "background-02" },
@@ -179,8 +185,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "book",
-    name: "Book",
-    isNew: true,
+    name: "Book", 
     components: [
       { name: "book-01" },
       { name: "book-02" },
@@ -214,8 +219,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "gauge",
-    name: "Gauge",
-    isNew: true,
+    name: "Gauge", 
     components: [
       { name: "gauge-01" },
       { name: "gauge-02" },
@@ -242,8 +246,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "text",
-    name: "Text",
-    isNew: true,
+    name: "Text", 
     components: [
       { name: "text-01" },
       { name: "text-02" },
@@ -265,8 +268,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "theme",
-    name: "Theme",
-    isNew: true,
+    name: "Theme", 
     components: [
       { name: "theme-01" },  
       { name: "theme-02" },

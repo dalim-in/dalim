@@ -2815,6 +2815,22 @@
         "style": 1,
         "colSpan": 3
       }
+    },
+    {
+      "name": "bento-grid-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/bento-grid/bento-grid-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["bento-grid", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
     }
   ]
 }

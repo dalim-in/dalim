@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bento-grid-01",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/bento-grid/bento-grid-01.tsx",
+      "content": "import { BentoGrid, BentoCard, MetricCard } from \"@/registry/default/ui/bento-grid\"\nimport { Award, BarChart3, Clock, Heart, Target, Users } from \"lucide-react\"\n\nexport default function Component() {\n  return (\n    <div className=\"\">\n      <BentoGrid variant=\"default\" gap=\"lg\">\n            <BentoCard\n              name=\"Revenue Analytics\"\n              description=\"Track your revenue performance with real-time insights and detailed breakdowns.\"\n              Icon={BarChart3}\n              variant=\"feature\"\n              size=\"lg\"\n              href=\"#analytics\"\n              cta=\"View Dashboard\"\n              metric={{\n                value: \"$124,592\",\n                label: \"Total Revenue\",\n                trend: \"up\",\n                percentage: \"+12.5%\",\n              }}\n              badge=\"Live\"\n              priority=\"high\"\n            />\n\n            <MetricCard\n              title=\"Active Users\"\n              value=\"2,847\"\n              change=\"+8.2%\"\n              trend=\"up\"\n              Icon={Users}\n              variant=\"elevated\"\n              href=\"#users\"\n            />\n\n            <MetricCard\n              title=\"Conversion Rate\"\n              value=\"3.24%\"\n              change=\"+0.8%\"\n              trend=\"up\"\n              Icon={Target}\n              variant=\"gradient\"\n              href=\"#conversion\"\n            />\n\n            <BentoCard\n              name=\"Team Performance\"\n              description=\"Monitor team productivity and collaboration metrics across all departments.\"\n              Icon={Award}\n              variant=\"glass\"\n              size=\"wide\"\n              href=\"#team\"\n              tags={[\"Productivity\", \"Collaboration\", \"Analytics\"]}\n              metric={{\n                value: \"94%\",\n                label: \"Team Efficiency\",\n                trend: \"up\",\n                percentage: \"+5%\",\n              }}\n            />\n\n            <BentoCard\n              name=\"Recent Activity\"\n              description=\"Stay updated with the latest activities and notifications from your workspace.\"\n              Icon={Clock}\n              variant=\"minimal\"\n              size=\"tall\"\n              href=\"#activity\"\n              status=\"active\"\n            />\n\n            <BentoCard\n              name=\"Customer Satisfaction\"\n              description=\"Monitor customer feedback and satisfaction scores in real-time.\"\n              Icon={Heart}\n              variant=\"bordered\"\n              size=\"sm\"\n              href=\"#satisfaction\"\n              metric={{\n                value: \"4.8\",\n                label: \"Average Rating\",\n                trend: \"up\",\n                percentage: \"+0.3\",\n              }}\n            />\n          </BentoGrid>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "bento-grid",
+      "bg",
+      "texture",
+      "pattern"
+    ],
+    "style": 1,
+    "colSpan": 3
+  }
+}
