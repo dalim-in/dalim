@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 
-export default function FlickeringGrid01() {
+export default function Component() {
   return (
     <div className="bg-background relative flex h-[650px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border">
       <p className="z-10 text-center text-3xl font-semibold tracking-tighter whitespace-pre-wrap text-black md:text-7xl dark:text-white">

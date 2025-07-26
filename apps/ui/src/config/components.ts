@@ -181,6 +181,7 @@ export const categories: ComponentCategory[] = [
       { name: "background-05" },
       { name: "background-06" },
       { name: "background-07" },
+      { name: "background-08" },
     ],
   },
   {
@@ -205,6 +206,13 @@ export const categories: ComponentCategory[] = [
       { name: "breadcrumb-04" },
       { name: "breadcrumb-05" },
       { name: "breadcrumb-06" },
+    ],
+  },
+  {
+    slug: "cursor",
+    name: "Cursor",
+    components: [
+      { name: "cursor-01" }, 
     ],
   },
   {
@@ -294,6 +302,14 @@ export const categories: ComponentCategory[] = [
       { name: "spinner-07" },
       { name: "spinner-08" },
       { name: "spinner-09" },
+    ],
+  },
+  {
+    slug: "scroll-progress",
+    name: "Scroll Progress",
+    isNew: true,
+    components: [
+      { name: "scroll-progress-01" }, 
     ],
   },
   {

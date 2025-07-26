@@ -820,6 +820,27 @@
       }
     },
     {
+      "name": "background-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [
@@ -2677,6 +2698,37 @@
       ]
     },
     {
+      "name": "cursor",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/cursor.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cursor-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/cursor/cursor-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "cursor",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "title": "Dashboard 01",
@@ -3598,6 +3650,40 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/scroll-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/scroll-progress/scroll-progress-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "scroll-progress",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
     },
     {
       "name": "select",

@@ -222,6 +222,16 @@
       ]
     },
     {
+      "name": "cursor",
+      "type": "registry:ui", 
+      "files": [
+        {
+          "path": "registry/default/ui/cursor.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "cropper",
       "type": "registry:ui",
       "dependencies": ["@origin-space/image-cropper"],
@@ -480,6 +490,17 @@
       "files": [
         {
           "path": "registry/default/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }, 
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "dependencies": [""],
+      "files": [
+        {
+          "path": "registry/default/ui/scroll-progress.tsx",
           "type": "registry:ui"
         }
       ]

@@ -2591,6 +2591,22 @@
         "style": 1,
         "colSpan": 3
       }
+    }, 
+    {
+      "name": "background-08",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
     },
     {
       "name": "theme-01",
@@ -2828,6 +2844,38 @@
       ],
       "meta": {
         "tags": ["bento-grid", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "scroll-progress-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/scroll-progress/scroll-progress-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["scroll-progress", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "cursor-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/cursor/cursor-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["cursor", "bg", "texture", "pattern"],
         "style": 1,
         "colSpan": 3
       }

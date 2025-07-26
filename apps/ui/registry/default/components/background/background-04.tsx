@@ -2,7 +2,7 @@
 
 import { cn } from "@/registry/default/lib/utils"
 
-export default function RetroGrid01() {
+export default function Component() {
   return (
     <div className="bg-background relative flex h-[650px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border">
       <span className="pointer-events-none z-10 whitespace-pre-wrap  text-center text-7xl font-semibold leading-none tracking-tighter">
