@@ -220,18 +220,17 @@ export function Clock({
             </div>
             <div
               ref={hourHandRef}
-              className="absolute bottom-[175px] left-[175px] z-20 ml-[-3px] h-[70px] w-[6px] rounded-[3px] shadow-[0_0_5px_rgba(0,0,0,0.3)] will-change-transform"
+              className="absolute bg-foreground bottom-[175px] left-[175px] z-20 ml-[-3px] h-[70px] w-[6px] rounded-[3px] shadow-[0_0_5px_rgba(0,0,0,0.3)] will-change-transform"
               style={{
                 transformOrigin: "center bottom",
-                backgroundColor: "rgba(50, 50, 50, 0.9)",
+                
               }}
             />
             <div
               ref={minuteHandRef}
-              className="absolute bottom-[175px] left-[175px] z-20 ml-[-2px] h-[100px] w-[4px] rounded-[2px] shadow-[0_0_5px_rgba(0,0,0,0.3)] will-change-transform"
+              className="absolute bg-foreground bottom-[175px] left-[175px] z-20 ml-[-2px] h-[100px] w-[4px] rounded-[2px] shadow-[0_0_5px_rgba(0,0,0,0.3)] will-change-transform"
               style={{
-                transformOrigin: "center bottom",
-                backgroundColor: "rgba(50, 50, 50, 0.9)",
+                transformOrigin: "center bottom", 
               }}
             />
             <div

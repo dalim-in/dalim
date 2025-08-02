@@ -117,6 +117,8 @@ export const categories: ComponentCategory[] = [
     isNew: true,
     components: [
       { name: "clock-01" }, 
+      { name: "clock-02" }, 
+      { name: "clock-03" }, 
     ],
   },
   {
