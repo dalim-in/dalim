@@ -32,6 +32,16 @@ export interface LogoMetadata {
   variants: ("icon" | "wordmark")[];
 }
 
+export interface FlagMetadata {
+  name: string;
+  category: string;
+  tags: string[];
+  description?: string;
+  author?: string;
+  created?: string;
+  variants: ("icon")[];
+}
+
 export interface IconStyle {
   fill?: string 
   strokeWidth?: number

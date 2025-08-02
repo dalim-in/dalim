@@ -222,15 +222,16 @@
       ]
     },
     {
-      "name": "cursor",
-      "type": "registry:ui", 
+      "name": "clock",
+      "type": "registry:ui",
+      "dependencies": [""], 
       "files": [
         {
-          "path": "registry/default/ui/cursor.tsx",
+          "path": "registry/default/ui/clock.tsx",
           "type": "registry:ui"
         }
       ]
-    },
+    }, 
     {
       "name": "cropper",
       "type": "registry:ui",

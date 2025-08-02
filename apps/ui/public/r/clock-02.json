@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clock-02",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/clock/clock-02.tsx",
+      "content": "import { Clock } from \"@/registry/default/ui/clock\"\n\nexport default function Component() {\n  return (\n    <Clock\n          timeZone=\"America/New_York\" \n          initialSecondsMode=\"highFreq\"\n\n        />\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "clock",
+      "bg",
+      "texture",
+      "pattern"
+    ],
+    "style": 1,
+    "colSpan": 3
+  }
+}

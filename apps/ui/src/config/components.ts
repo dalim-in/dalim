@@ -81,8 +81,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "bento-grid",
-    name: "Bento Grid",
-    isNew: true,
+    name: "Bento Grid",  
     components: [
       { name: "bento-grid-01" }, 
     ],
@@ -110,6 +109,14 @@ export const categories: ComponentCategory[] = [
       { name: "chart-01" },
       { name: "chart-02" },
       { name: "chart-03" },
+    ],
+  },
+  {
+    slug: "clock",
+    name: "Clock",
+    isNew: true,
+    components: [
+      { name: "clock-01" }, 
     ],
   },
   {
@@ -207,14 +214,7 @@ export const categories: ComponentCategory[] = [
       { name: "breadcrumb-05" },
       { name: "breadcrumb-06" },
     ],
-  },
-  {
-    slug: "cursor",
-    name: "Cursor",
-    components: [
-      { name: "cursor-01" }, 
-    ],
-  },
+  }, 
   {
     slug: "device",
     name: "Device",

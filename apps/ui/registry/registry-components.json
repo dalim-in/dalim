@@ -2863,19 +2863,51 @@
         "style": 1,
         "colSpan": 3
       }
-    },
+    }, 
     {
-      "name": "cursor-01",
+      "name": "clock-01",
       "type": "registry:component",
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/default/components/cursor/cursor-01.tsx",
+          "path": "registry/default/components/clock/clock-01.tsx",
           "type": "registry:component"
         }
       ],
       "meta": {
-        "tags": ["cursor", "bg", "texture", "pattern"],
+        "tags": ["clock", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "clock-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/clock/clock-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["clock", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    }, 
+    {
+      "name": "clock-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/clock/clock-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["clock", "bg", "texture", "pattern"],
         "style": 1,
         "colSpan": 3
       }

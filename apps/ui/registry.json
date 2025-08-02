@@ -2656,6 +2656,82 @@
       ]
     },
     {
+      "name": "clock",
+      "type": "registry:ui",
+      "dependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/clock.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "clock-01",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/clock/clock-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "clock",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "clock-02",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/clock/clock-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "clock",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "clock-03",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/clock/clock-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "clock",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": [
@@ -2696,37 +2772,6 @@
           "type": "registry:ui"
         }
       ]
-    },
-    {
-      "name": "cursor",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/default/ui/cursor.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "cursor-01",
-      "type": "registry:component",
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/default/components/cursor/cursor-01.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "tags": [
-          "cursor",
-          "bg",
-          "texture",
-          "pattern"
-        ],
-        "style": 1,
-        "colSpan": 3
-      }
     },
     {
       "name": "dashboard-01",
