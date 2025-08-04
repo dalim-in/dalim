@@ -108,7 +108,14 @@ export function MenuUI() {
                         <NavigationMenuLink
                             href="/templates"
                             className={navigationMenuTriggerStyle()}>
-                            Templates <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            Templates
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
+                            href="/pattern"
+                            className={navigationMenuTriggerStyle()}>
+                            Pattern <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
