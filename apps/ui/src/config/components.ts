@@ -191,6 +191,7 @@ export const categories: ComponentCategory[] = [
       { name: "background-06" },
       { name: "background-07" },
       { name: "background-08" },
+      { name: "background-09" },
     ],
   },
   {

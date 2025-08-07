@@ -2609,6 +2609,22 @@
       }
     },
     {
+      "name": "background-09",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-09.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": ["background", "bg", "texture", "pattern"],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "theme-01",
       "type": "registry:component",
       "registryDependencies": [],
