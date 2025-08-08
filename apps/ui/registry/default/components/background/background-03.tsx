@@ -1,205 +1,164 @@
 "use client"
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Component() {
   return (
-    <div className="bg-background relative flex h-[650px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border">
-      <p className="z-10 text-center text-3xl font-semibold tracking-tighter whitespace-pre-wrap text-black md:text-7xl dark:text-white">
-        Flicker Grid
-      </p>
-      <FlickerGrid
-        className="absolute inset-0 -z-0 size-full"
-        squareSize={1.5} 
-        color="#a855f7"
-        maxOpacity={0.5}
-        flickerChance={0.1} 
+    <div className="relative flex h-[650px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-blue-700">
+      <SnowfallBackground
+        count={150}
+        speed={0.1}
+        minSize={1}
+        maxSize={40}
+        minOpacity={0}
+        maxOpacity={1}
+        color={"#ffffff"}
+        wind={true}
+        zIndex={1}
       />
+      <span className="pointer-events-none z-10 text-center text-7xl leading-none font-semibold tracking-tighter whitespace-pre-wrap text-white">
+        Snow Flakes
+      </span>
     </div>
   )
 }
 
-interface FlickeringGridProps {
-  squareSize?: number
-  gridGap?: number
-  flickerChance?: number
-  color?: string
-  width?: number
-  height?: number
-  className?: string
-
-  maxOpacity?: number
+interface SnowflakeProps {
+  id: number
+  size: number
+  left: number
+  animationDuration: number
+  opacity: number
+  color: string
 }
 
-const FlickerGrid: React.FC<FlickeringGridProps> = ({
-  squareSize = 4,
-  gridGap = 6,
-  flickerChance = 0.3,
-  color = "rgb(0, 0, 0)",
-  width,
-  height,
-  className,
-  maxOpacity = 0.3,
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
-  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 })
+interface SnowfallBackgroundProps {
+  /** Number of snowflakes */
+  count?: number
+  /** Snow color */
+  color?: string
+  /** Animation speed multiplier (lower = slower) */
+  speed?: number
+  /** Minimum snowflake size in pixels */
+  minSize?: number
+  /** Maximum snowflake size in pixels */
+  maxSize?: number
+  /** Minimum opacity */
+  minOpacity?: number
+  /** Maximum opacity */
+  maxOpacity?: number
+  /** Z-index for the snow layer */
+  zIndex?: number
+  /** Whether to enable wind effect */
+  wind?: boolean
+}
 
-  const memoizedColor = useMemo(() => {
-    const toRGBA = (color: string) => {
-      if (typeof window === "undefined") {
-        return `rgba(0, 0, 0,`
-      }
-      const canvas = document.createElement("canvas")
-      canvas.width = canvas.height = 1
-      const ctx = canvas.getContext("2d")
-      if (!ctx) return "rgba(255, 0, 0,"
-      ctx.fillStyle = color
-      ctx.fillRect(0, 0, 1, 1)
-      const [r, g, b] = Array.from(ctx.getImageData(0, 0, 1, 1).data)
-      return `rgba(${r}, ${g}, ${b},`
-    }
-    return toRGBA(color)
-  }, [color])
-
-  const setupCanvas = useCallback(
-    (canvas: HTMLCanvasElement, width: number, height: number) => {
-      const dpr = window.devicePixelRatio || 1
-      canvas.width = width * dpr
-      canvas.height = height * dpr
-      canvas.style.width = `${width}px`
-      canvas.style.height = `${height}px`
-      const cols = Math.floor(width / (squareSize + gridGap))
-      const rows = Math.floor(height / (squareSize + gridGap))
-
-      const squares = new Float32Array(cols * rows)
-      for (let i = 0; i < squares.length; i++) {
-        squares[i] = Math.random() * maxOpacity
-      }
-
-      return { cols, rows, squares, dpr }
-    },
-    [squareSize, gridGap, maxOpacity]
+const Snowflake = ({
+  id,
+  size,
+  left,
+  animationDuration,
+  opacity,
+  color,
+}: SnowflakeProps) => {
+  return (
+    <div
+      className="pointer-events-none absolute select-none"
+      style={{
+        left: `${left}%`,
+        fontSize: `${size}px`,
+        opacity,
+        color,
+        animation: `snowfall-${id} ${animationDuration}s linear infinite`,
+        textShadow: "0 0 1px rgba(255,255,255,0.8)",
+      }}
+    >
+      ❄
+    </div>
   )
+}
 
-  const updateSquares = useCallback(
-    (squares: Float32Array, deltaTime: number) => {
-      for (let i = 0; i < squares.length; i++) {
-        if (Math.random() < flickerChance * deltaTime) {
-          squares[i] = Math.random() * maxOpacity
-        }
-      }
-    },
-    [flickerChance, maxOpacity]
-  )
-
-  const drawGrid = useCallback(
-    (
-      ctx: CanvasRenderingContext2D,
-      width: number,
-      height: number,
-      cols: number,
-      rows: number,
-      squares: Float32Array,
-      dpr: number
-    ) => {
-      ctx.clearRect(0, 0, width, height)
-      ctx.fillStyle = "transparent"
-      ctx.fillRect(0, 0, width, height)
-
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const opacity = squares[i * rows + j]
-          ctx.fillStyle = `${memoizedColor}${opacity})`
-          ctx.fillRect(
-            i * (squareSize + gridGap) * dpr,
-            j * (squareSize + gridGap) * dpr,
-            squareSize * dpr,
-            squareSize * dpr
-          )
-        }
-      }
-    },
-    [memoizedColor, squareSize, gridGap]
-  )
+function SnowfallBackground({
+  count = 50,
+  color = "#ffffff",
+  speed = 1,
+  minSize = 10,
+  maxSize = 20,
+  minOpacity = 0.3,
+  maxOpacity = 0.8,
+  zIndex = -1,
+  wind = true,
+}: SnowfallBackgroundProps) {
+  const [snowflakes, setSnowflakes] = useState<SnowflakeProps[]>([])
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    const container = containerRef.current
-    if (!canvas || !container) return
+    setMounted(true)
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const generateSnowflakes = () => {
+      const flakes: SnowflakeProps[] = []
 
-    let animationFrameId: number
-    let gridParams: ReturnType<typeof setupCanvas>
+      for (let i = 0; i < count; i++) {
+        const size = Math.random() * (maxSize - minSize) + minSize
+        const left = Math.random() * 100
+        const animationDuration = (Math.random() * 3 + 2) / speed
+        const opacity = Math.random() * (maxOpacity - minOpacity) + minOpacity
 
-    const updateCanvasSize = () => {
-      const newWidth = width || container.clientWidth
-      const newHeight = height || container.clientHeight
-      setCanvasSize({ width: newWidth, height: newHeight })
-      gridParams = setupCanvas(canvas, newWidth, newHeight)
+        flakes.push({
+          id: i,
+          size,
+          left,
+          animationDuration,
+          opacity,
+          color,
+        })
+      }
+
+      setSnowflakes(flakes)
     }
 
-    updateCanvasSize()
+    generateSnowflakes()
+  }, [count, color, speed, minSize, maxSize, minOpacity, maxOpacity])
 
-    let lastTime = 0
-    const animate = (time: number) => {
-      if (!isInView) return
+  useEffect(() => {
+    if (!mounted) return
 
-      const deltaTime = (time - lastTime) / 1000
-      lastTime = time
+    // Generate CSS animations for each snowflake
+    const styleSheet = document.createElement("style")
+    styleSheet.type = "text/css"
 
-      updateSquares(gridParams.squares, deltaTime)
-      drawGrid(
-        ctx,
-        canvas.width,
-        canvas.height,
-        gridParams.cols,
-        gridParams.rows,
-        gridParams.squares,
-        gridParams.dpr
-      )
-      animationFrameId = requestAnimationFrame(animate)
-    }
+    let cssRules = ""
 
-    const resizeObserver = new ResizeObserver(() => {
-      updateCanvasSize()
+    snowflakes.forEach((flake) => {
+      const windOffset = wind ? Math.random() * 100 - 50 : 0
+
+      cssRules += `
+        @keyframes snowfall-${flake.id} {
+          0% {
+            transform: translateY(-100vh) translateX(0px) rotate(0deg);
+          }
+          100% {
+            transform: translateY(100vh) translateX(${windOffset}px) rotate(360deg);
+          }
+        }
+      `
     })
 
-    resizeObserver.observe(container)
-
-    const intersectionObserver = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting)
-      },
-      { threshold: 0 }
-    )
-
-    intersectionObserver.observe(canvas)
-
-    if (isInView) {
-      animationFrameId = requestAnimationFrame(animate)
-    }
+    styleSheet.innerHTML = cssRules
+    document.head.appendChild(styleSheet)
 
     return () => {
-      cancelAnimationFrame(animationFrameId)
-      resizeObserver.disconnect()
-      intersectionObserver.disconnect()
+      document.head.removeChild(styleSheet)
     }
-  }, [setupCanvas, updateSquares, drawGrid, width, height, isInView])
+  }, [snowflakes, wind, mounted])
+
+  if (!mounted) return null
 
   return (
-    <div ref={containerRef} className={`h-full w-full ${className}`}>
-      <canvas
-        ref={canvasRef}
-        className="pointer-events-none"
-        style={{
-          width: canvasSize.width,
-          height: canvasSize.height,
-        }}
-      />
+    <div className="pointer-events-none overflow-hidden" style={{ zIndex }}>
+      {snowflakes.map((flake) => (
+        <Snowflake key={flake.id} {...flake} />
+      ))}
     </div>
   )
 }

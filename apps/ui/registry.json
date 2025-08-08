@@ -862,6 +862,48 @@
       }
     },
     {
+      "name": "background-10",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-10.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "background-11",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-11.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [

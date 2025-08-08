@@ -114,7 +114,6 @@ export const categories: ComponentCategory[] = [
   {
     slug: "clock",
     name: "Clock",
-    isNew: true,
     components: [
       { name: "clock-01" }, 
       { name: "clock-02" }, 
@@ -182,6 +181,7 @@ export const categories: ComponentCategory[] = [
   {
     slug: "background",
     name: "Background", 
+    isNew: true,
     components: [
       { name: "background-01" },
       { name: "background-02" },
@@ -192,6 +192,7 @@ export const categories: ComponentCategory[] = [
       { name: "background-07" },
       { name: "background-08" },
       { name: "background-09" },
+      { name: "background-10" },
     ],
   },
   {
@@ -309,8 +310,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "scroll-progress",
-    name: "Scroll Progress",
-    isNew: true,
+    name: "Scroll Progress", 
     components: [
       { name: "scroll-progress-01" }, 
     ],
