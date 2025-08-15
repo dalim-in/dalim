@@ -24,6 +24,7 @@ export const categories: ComponentCategory[] = [
     name: "Button",
     components: [
       { name: "button-48" },
+      { name: "button-55" },
       { name: "button-49" },
       { name: "button-50" },
       { name: "button-51" },
@@ -81,10 +82,8 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "bento-grid",
-    name: "Bento Grid",  
-    components: [
-      { name: "bento-grid-01" }, 
-    ],
+    name: "Bento Grid",
+    components: [{ name: "bento-grid-01" }],
   },
   {
     slug: "card",
@@ -115,9 +114,9 @@ export const categories: ComponentCategory[] = [
     slug: "clock",
     name: "Clock",
     components: [
-      { name: "clock-01" }, 
-      { name: "clock-02" }, 
-      { name: "clock-03" }, 
+      { name: "clock-01" },
+      { name: "clock-02" },
+      { name: "clock-03" },
     ],
   },
   {
@@ -156,7 +155,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "award",
-    name: "Award", 
+    name: "Award",
     components: [
       { name: "award-01" },
       { name: "award-02" },
@@ -180,9 +179,13 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "background",
-    name: "Background", 
+    name: "Background",
     isNew: true,
     components: [
+      { name: "background-12" },
+      { name: "background-13" },
+      { name: "background-14" },
+      { name: "background-15" },
       { name: "background-01" },
       { name: "background-02" },
       { name: "background-03" },
@@ -197,7 +200,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "book",
-    name: "Book", 
+    name: "Book",
     components: [
       { name: "book-01" },
       { name: "book-02" },
@@ -218,7 +221,7 @@ export const categories: ComponentCategory[] = [
       { name: "breadcrumb-05" },
       { name: "breadcrumb-06" },
     ],
-  }, 
+  },
   {
     slug: "device",
     name: "Device",
@@ -231,7 +234,7 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "gauge",
-    name: "Gauge", 
+    name: "Gauge",
     components: [
       { name: "gauge-01" },
       { name: "gauge-02" },
@@ -248,18 +251,19 @@ export const categories: ComponentCategory[] = [
     slug: "marquee",
     name: "Marquee",
     components: [
-      { name: "marquee-01" }, 
-      { name: "marquee-02" }, 
-      { name: "marquee-03" }, 
-      { name: "marquee-04" }, 
-      { name: "marquee-05" }, 
-      { name: "marquee-06" }, 
+      { name: "marquee-01" },
+      { name: "marquee-02" },
+      { name: "marquee-03" },
+      { name: "marquee-04" },
+      { name: "marquee-05" },
+      { name: "marquee-06" },
     ],
   },
   {
     slug: "text",
-    name: "Text", 
+    name: "Text",
     components: [
+      { name: "text-17" },
       { name: "text-01" },
       { name: "text-02" },
       { name: "text-03" },
@@ -280,23 +284,23 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "theme",
-    name: "Theme", 
+    name: "Theme",
     components: [
-      { name: "theme-01" },  
+      { name: "theme-01" },
       { name: "theme-02" },
       { name: "theme-03" },
       { name: "theme-04" },
       { name: "theme-05" },
       { name: "theme-06" },
       { name: "theme-07" },
-      { name: "theme-08" }, 
-      
+      { name: "theme-08" },
     ],
   },
   {
     slug: "spinner",
     name: "Spinner",
     components: [
+      { name: "spinner-10" },
       { name: "spinner-01" },
       { name: "spinner-02" },
       { name: "spinner-03" },
@@ -310,10 +314,8 @@ export const categories: ComponentCategory[] = [
   },
   {
     slug: "scroll-progress",
-    name: "Scroll Progress", 
-    components: [
-      { name: "scroll-progress-01" }, 
-    ],
+    name: "Scroll Progress",
+    components: [{ name: "scroll-progress-01" }],
   },
   {
     slug: "pagination",

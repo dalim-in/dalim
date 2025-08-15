@@ -904,6 +904,90 @@
       }
     },
     {
+      "name": "background-12",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-12.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "background-13",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-13.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "background-14",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-14.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
+      "name": "background-15",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/background/background-15.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "background",
+          "bg",
+          "texture",
+          "pattern"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "files": [
@@ -2373,6 +2457,26 @@
           "component"
         ],
         "style": 1
+      }
+    },
+    {
+      "name": "button-55",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/button/button-55.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "button",
+          "example",
+          "component"
+        ],
+        "style": 1,
+        "colSpan": 3
       }
     },
     {
@@ -4063,6 +4167,27 @@
       }
     },
     {
+      "name": "spinner-10",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/spinner/spinner-10.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "spinner",
+          "loader",
+          "rotate",
+          "spin"
+        ],
+        "style": 1,
+        "colSpan": 3
+      }
+    },
+    {
       "name": "stack",
       "type": "registry:ui",
       "files": [
@@ -4462,6 +4587,27 @@
         ],
         "style": 1,
         "colSpan": 2
+      }
+    },
+    {
+      "name": "text-17",
+      "type": "registry:component",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/default/components/text/text-17.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "text",
+          "typo",
+          "work",
+          "effect"
+        ],
+        "style": 1,
+        "colSpan": 3
       }
     },
     {

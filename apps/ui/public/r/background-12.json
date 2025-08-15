@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-12",
+  "type": "registry:component",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/default/components/background/background-12.tsx",
+      "content": "\"use client\"\n\nimport type React from \"react\"\n\nimport { useEffect, useState } from \"react\"\n\nexport default function DemoOne() {\n  return (\n    <AnimatedLeaves />\n  )\n}\n\n\nexport function AnimatedLeaves() {\n  const [leaves, setLeaves] = useState<\n    Array<{\n      index: number\n      ringIndex: number\n      count: number\n      delay: number\n    }>\n  >([])\n\n  useEffect(() => {\n    const startCount = 10\n    const ringCount = 13\n    const leafElements = []\n    let globalIndex = 0\n\n    for (let ri = 0; ri < ringCount; ri++) {\n      const count = startCount - 1 + ri * 11\n      for (let i = 0; i <= count; i++) {\n        leafElements.push({\n          index: globalIndex,\n          ringIndex: ri,\n          count: count + 1,\n          delay: 0.6 * ri + 0.9 * Math.random(),\n        })\n        globalIndex++\n      }\n    }\n\n    setLeaves(leafElements)\n  }, [])\n\n  return (\n    <div className=\"w-full h-[650px] grid place-items-center border relative overflow-hidden\">\n      {/* SVG Filter */}\n      <svg className=\"absolute invisible pointer-events-none\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n        <filter id=\"blurFilter\">\n          <feGaussianBlur stdDeviation=\"4.5\"></feGaussianBlur>\n          <feColorMatrix\n            type=\"matrix\"\n            values=\"1 0 0 0 0\n                    0 1 0 0 0\n                    0 0 1 0 0\n                    0 0 0 19 -9\"\n          ></feColorMatrix>\n        </filter>\n      </svg>\n\n      {/* Background blur circle */}\n      <div\n        className=\"absolute w-[30vmin] aspect-square rounded-full translate-y-1/2\"\n        style={{ filter: \"blur(1rem)\" }}\n      />\n\n      {/* Container with leaves */}\n      <div\n        className=\"relative\"\n        style={\n          {\n            filter: \"url(#blurFilter) saturate(1.5) brightness(1.1)\",\n            \"--color-primary\": \"#ee75d2\",\n          } as React.CSSProperties\n        }\n      >\n        {leaves.map((leaf) => {\n          const anglePerItem = 360 / leaf.count\n          const angle = anglePerItem * (leaf.index % leaf.count)\n\n          return (\n            <div\n              key={leaf.index}\n              className=\"absolute opacity-0 rounded-full\"\n              style={\n                {\n                  \"--size\": \"20vmin\",\n                  \"--ri\": leaf.ringIndex,\n                  \"--i\": leaf.index % leaf.count,\n                  \"--delay\": `${leaf.delay}s`,\n                  \"--count\": leaf.count,\n                  height:  \"20vmin\",\n                  aspectRatio: \"1 / 20\",\n                  background: `radial-gradient(\n                  color-mix(in srgb, white, transparent 90%),\n                  color-mix(\n                    in srgb,\n                    var(--color-primary),\n                    hsla(${10 * (leaf.index % leaf.count)}, 100%, 50%, 1) 50%\n                  )\n                )`,\n                  animation: `leafMove 0.8s var(--delay) ease infinite`,\n                  transform: `\n                  translate(\n                    calc(cos(${angle}deg) * (var(--move, 0vmin) + 4.2vmin + ${leaf.ringIndex} * 20vmin * 0.44)),\n                    calc(sin(${angle}deg) * (var(--move, 0vmin) + 4.2vmin + ${leaf.ringIndex} * 20vmin * 0.44) * -1)\n                  )\n                  rotate(${90 - angle}deg)\n                `,\n                } as React.CSSProperties\n              }\n            />\n          )\n        })}\n      </div>\n\n      {/* CSS Animation */}\n      <style jsx>{`\n        @property --move {\n          syntax: \"<length>\";\n          inherits: true;\n          initial-value: 0;\n        }\n\n        @keyframes leafMove {\n          from {\n            --move: 0vmin;\n            opacity: 0;\n          }\n          20%, 50%, 70% {\n            opacity: 1;\n          }\n          to {\n            --move: 22vmin;\n          }\n        }\n\n        * {\n          box-sizing: border-box;\n        }\n      `}</style>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "tags": [
+      "background",
+      "bg",
+      "texture",
+      "pattern"
+    ],
+    "style": 1,
+    "colSpan": 3
+  }
+}
