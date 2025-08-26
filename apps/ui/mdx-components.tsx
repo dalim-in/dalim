@@ -1,17 +1,17 @@
-import * as React from "react"
-import Image from "next/image"
+import * as React from "react" 
+import NextImage from "next/image"
 import Link from "next/link"
+import { CodeBlockCommand } from "@/src/components/blocks/code-block-command"
+import { CodeCollapsibleWrapper } from "@/src/components/blocks/code-collapsible-wrapper"
+import { CodeTabs } from "@/src/components/blocks/code-tabs"
+import { ComponentPreview } from "@/src/components/blocks/component-preview"
+import { ComponentSource } from "@/src/components/blocks/component-source"
+import { ComponentsList } from "@/src/components/blocks/components-list"
+import { Callout } from "@/src/components/callout"
+import { getIconForLanguageExtension } from "@/src/components/icons"
+import { CopyButton } from "@/src/components/ui/copy-button"
+import { cn } from "@/src/lib/utils"
 
-import { cn } from "@/lib/utils"
-import { Callout } from "@/components/callout"
-import { CodeBlockCommand } from "@/components/blocks/code-block-command"
-import { CodeCollapsibleWrapper } from "@/components/blocks/code-collapsible-wrapper"
-import { CodeTabs } from "@/components/blocks/code-tabs"
-import { ComponentPreview } from "@/components/blocks/component-preview"
-import { ComponentSource } from "@/components/blocks/component-source"
-import { ComponentsList } from "@/components/blocks/components-list"
-import { CopyButton } from "@/components/ui/copy-button"
-import { getIconForLanguageExtension } from "@/components/icons"
 import {
   Accordion,
   AccordionContent,
@@ -279,8 +279,8 @@ export const mdxComponents = {
     height,
     alt,
     ...props
-  }: React.ComponentProps<"img">) => (
-    <Image
+  }: React.ComponentProps<typeof NextImage>) => (
+    <NextImage
       className={cn("mt-6 rounded-md border", className)}
       src={src || "/placeholder.svg"}
       width={Number(width)}

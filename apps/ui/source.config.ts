@@ -6,7 +6,7 @@ import {
 import rehypePrettyCode from "rehype-pretty-code"
 import { z } from "zod"
 
-import { transformers } from "@/lib/highlight-code"
+import { transformers } from "@/src/lib/highlight-code"
 
 export default defineConfig({
   mdxOptions: {
@@ -31,7 +31,7 @@ export default defineConfig({
 })
 
 export const docs = defineDocs({
-  dir: "content/docs",
+  dir: "src/content/docs",
   docs: {
     schema: frontmatterSchema.extend({
       links: z

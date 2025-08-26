@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/src/lib/utils"
 import { Button } from "@/registry/default/ui/button"
 import {
   Command,

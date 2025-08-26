@@ -3,7 +3,7 @@ import { promises as fs } from "fs"
 import path from "path"
 import { rimraf } from "rimraf"
 
-import { getAllBlocks } from "@/lib/blocks"
+import { getAllBlocks } from "@/src/lib/blocks"
 import { registry } from "@/registry/index"
 
 async function buildRegistryIndex() {
