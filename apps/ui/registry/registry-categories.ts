@@ -1,9 +1,9 @@
-export const registryCategories = [ 
+export const registryCategories = [
   {
     name: "Dashboard",
     slug: "dashboard",
     hidden: true,
-  }, 
+  },
   {
     name: "Login",
     slug: "login",

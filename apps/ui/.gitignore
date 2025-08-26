@@ -42,7 +42,5 @@ yarn-error.log*
 next-env.d.ts
 
 
-# generated content
-.contentlayer
-.content-collections
+# generated content 
 .source
