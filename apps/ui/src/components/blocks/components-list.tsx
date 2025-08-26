@@ -7,42 +7,28 @@ export function ComponentsList() {
     (page) => page.$id === "components"
   )
 
-  const backgrounds = source.pageTree.children.find(
-    (page) => page.$id === "backgrounds"
-  )
-
-  if (components?.type !== "folder" && backgrounds?.type !== "folder") {
-    return null
+  if (components?.type !== "folder") {
+    return
   }
 
-  // Collect pages from both folders
-  const list = [
-    ...(components?.type === "folder"
-      ? components.children.filter((c) => c.type === "page")
-      : []),
-    ...(backgrounds?.type === "folder"
-      ? backgrounds.children.filter((b) => b.type === "page")
-      : []),
-  ]
+  const list = components.children.filter(
+    (component) => component.type === "page"
+  )
 
   return (
     <div className="grid grid-cols-1 gap-3 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-      {list.map((item) => {
-        const name = String(item.name) // normalize ReactNode → string
-
-        return (
-          <Link
-            key={item.$id}
-            href={item.url}
-            className="flex flex-col gap-2"
-          >
-            {/* <ImageComponent imageBasePath={slugify(name)} alt={name} /> */}
-            <span className="text-lg text-primary/60 hover:text-primary font-medium underline-offset-4 md:text-base">
-              {name}
-            </span>
-          </Link>
-        )
-      })}
+      {list.map((component) => (
+        <Link
+          key={component.$id}
+          href={component.url}
+          className="flex flex-col gap-2"
+        >
+          {/* <ImageComponent imageBasePath={slugify(name)} alt={name} /> */}
+          <span className="text-primary/60 hover:text-primary text-lg font-medium underline-offset-4 md:text-base">
+            {component.name}
+          </span>
+        </Link>
+      ))}
     </div>
   )
 }
@@ -56,14 +42,14 @@ export function ImageComponent({ imageBasePath, alt }: ImageComponentProps) {
   return (
     <>
       <Image
-        className="w-full hover:shadow-md border rounded-xl dark:hidden"
+        className="w-full rounded-xl border hover:shadow-md dark:hidden"
         src={`/thumbs/${imageBasePath}.jpg`}
         alt={alt}
         width={268}
         height={198}
       />
       <Image
-        className="w-full hover:shadow-md hidden border rounded-xl dark:block"
+        className="hidden w-full rounded-xl border hover:shadow-md dark:block"
         src={`/thumbs/${imageBasePath}-dark.jpg`}
         alt={`${alt} dark`}
         width={268}
