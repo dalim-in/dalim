@@ -27,6 +27,8 @@
   "dependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
+    "puppeteer": "^24.17.0",
+    "tsx": "^4.19.3",
     "turbo": "^2.5.3"
   }
 }

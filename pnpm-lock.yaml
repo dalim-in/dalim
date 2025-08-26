@@ -14,6 +14,12 @@ importers:
       '@types/react':
         specifier: ^19
         version: 19.1.8
+      puppeteer:
+        specifier: ^24.17.0
+        version: 24.17.0(typescript@5.8.3)
+      tsx:
+        specifier: ^4.19.3
+        version: 4.20.2
       turbo:
         specifier: ^2.5.3
         version: 2.5.4
@@ -56,7 +62,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       framer-motion:
         specifier: ^12.12.1
         version: 12.17.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -77,7 +83,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -180,7 +186,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -201,7 +207,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -301,7 +307,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -322,7 +328,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -422,7 +428,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       dalim-icons:
         specifier: workspace:*
         version: link:../../packages/icons
@@ -446,7 +452,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -543,7 +549,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       framer-motion:
         specifier: ^12.12.1
         version: 12.17.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -561,7 +567,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -667,7 +673,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       context-filter-polyfill:
         specifier: ^0.3.22
         version: 0.3.23
@@ -691,13 +697,13 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       nuqs:
         specifier: ^2.4.3
-        version: 2.4.3(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 2.4.3(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -1167,7 +1173,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       framer-motion:
         specifier: ^12.12.1
         version: 12.17.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1185,7 +1191,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1285,7 +1291,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       framer-motion:
         specifier: ^12.12.1
         version: 12.17.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1306,7 +1312,7 @@ importers:
         version: 6.16.0(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1430,7 +1436,7 @@ importers:
         version: 2.1.1
       contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(esbuild@0.25.5)
+        version: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       dalim-icons:
         specifier: workspace:*
         version: link:../../packages/icons
@@ -1469,7 +1475,7 @@ importers:
         version: 5.0.0-beta.28(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-contentlayer2:
         specifier: ^0.4.6
-        version: 0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -7716,7 +7722,6 @@ packages:
 
   libsql@0.3.19:
     resolution: {integrity: sha512-Aj5cQ5uk/6fHdmeW0TiXK42FqUlwx7ytmMLPSaUQPin5HKKKuUPD62MAbN4OEweGBBI7q1BekoEN4gPUEL6MZA==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lighthouse-logger@1.4.2:
@@ -11038,9 +11043,9 @@ snapshots:
     dependencies:
       '@cloudinary/transformation-builder-sdk': 1.17.0
 
-  '@contentlayer2/cli@0.4.3(esbuild@0.25.5)':
+  '@contentlayer2/cli@0.4.3(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
       '@contentlayer2/utils': 0.4.3
       clipanion: 3.2.1(typanion@3.14.0)
       typanion: 3.14.0
@@ -11051,9 +11056,9 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/client@0.4.3(esbuild@0.25.5)':
+  '@contentlayer2/client@0.4.3(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - acorn
@@ -11061,13 +11066,13 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/core@0.4.3(esbuild@0.25.5)':
+  '@contentlayer2/core@0.4.3(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
       '@contentlayer2/utils': 0.4.3
       camel-case: 4.1.2
       comment-json: 4.2.5
       gray-matter: 4.0.3
-      mdx-bundler: 10.1.1(esbuild@0.25.5)
+      mdx-bundler: 10.1.1(acorn@8.15.0)(esbuild@0.25.5)
       rehype-stringify: 10.0.1
       remark-frontmatter: 5.0.0
       remark-parse: 11.0.0
@@ -11082,9 +11087,9 @@ snapshots:
       - acorn
       - supports-color
 
-  '@contentlayer2/source-files@0.4.3(esbuild@0.25.5)':
+  '@contentlayer2/source-files@0.4.3(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
       '@contentlayer2/utils': 0.4.3
       chokidar: 3.6.0
       fast-glob: 3.3.3
@@ -11102,10 +11107,10 @@ snapshots:
       - markdown-wasm
       - supports-color
 
-  '@contentlayer2/source-remote-files@0.4.3(esbuild@0.25.5)':
+  '@contentlayer2/source-remote-files@0.4.3(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
-      '@contentlayer2/source-files': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
+      '@contentlayer2/source-files': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
       '@contentlayer2/utils': 0.4.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -11785,7 +11790,7 @@ snapshots:
   '@libsql/isomorphic-ws@0.1.5':
     dependencies:
       '@types/ws': 8.18.1
-      ws: 8.18.2
+      ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -11805,7 +11810,7 @@ snapshots:
   '@libsql/win32-x64-msvc@0.3.19':
     optional: true
 
-  '@mdx-js/esbuild@3.1.0(esbuild@0.25.5)':
+  '@mdx-js/esbuild@3.1.0(acorn@8.15.0)(esbuild@0.25.5)':
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
       '@types/unist': 3.0.3
@@ -14862,13 +14867,13 @@ snapshots:
 
   content-type@1.0.5: {}
 
-  contentlayer2@0.4.6(esbuild@0.25.5):
+  contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5):
     dependencies:
-      '@contentlayer2/cli': 0.4.3(esbuild@0.25.5)
-      '@contentlayer2/client': 0.4.3(esbuild@0.25.5)
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
-      '@contentlayer2/source-files': 0.4.3(esbuild@0.25.5)
-      '@contentlayer2/source-remote-files': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/cli': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
+      '@contentlayer2/client': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
+      '@contentlayer2/source-files': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
+      '@contentlayer2/source-remote-files': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
       '@contentlayer2/utils': 0.4.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -14907,6 +14912,15 @@ snapshots:
       path-type: 4.0.0
     optionalDependencies:
       typescript: 5.9.2
+
+  cosmiconfig@9.0.0(typescript@5.8.3):
+    dependencies:
+      env-paths: 2.2.1
+      import-fresh: 3.3.1
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+    optionalDependencies:
+      typescript: 5.8.3
 
   cosmiconfig@9.0.0(typescript@5.9.2):
     dependencies:
@@ -17280,12 +17294,12 @@ snapshots:
       unist-util-is: 5.2.1
       unist-util-visit: 4.1.2
 
-  mdx-bundler@10.1.1(esbuild@0.25.5):
+  mdx-bundler@10.1.1(acorn@8.15.0)(esbuild@0.25.5):
     dependencies:
       '@babel/runtime': 7.27.6
       '@esbuild-plugins/node-resolve': 0.2.2(esbuild@0.25.5)
       '@fal-works/esbuild-plugin-global-externals': 2.1.2
-      '@mdx-js/esbuild': 3.1.0(esbuild@0.25.5)
+      '@mdx-js/esbuild': 3.1.0(acorn@8.15.0)(esbuild@0.25.5)
       esbuild: 0.25.5
       gray-matter: 4.0.3
       remark-frontmatter: 5.0.0
@@ -18072,11 +18086,11 @@ snapshots:
       next: 15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  next-contentlayer2@0.4.6(contentlayer2@0.4.6(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next-contentlayer2@0.4.6(acorn@8.15.0)(contentlayer2@0.4.6(acorn@8.15.0)(esbuild@0.25.5))(esbuild@0.25.5)(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@contentlayer2/core': 0.4.3(esbuild@0.25.5)
+      '@contentlayer2/core': 0.4.3(acorn@8.15.0)(esbuild@0.25.5)
       '@contentlayer2/utils': 0.4.3
-      contentlayer2: 0.4.6(esbuild@0.25.5)
+      contentlayer2: 0.4.6(acorn@8.15.0)(esbuild@0.25.5)
       next: 15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
@@ -18205,7 +18219,7 @@ snapshots:
 
   nullthrows@1.1.1: {}
 
-  nuqs@2.4.3(next@15.2.1(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  nuqs@2.4.3(next@15.2.1(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       mitt: 3.0.1
       react: 19.1.0
@@ -18685,6 +18699,21 @@ snapshots:
       - bare-buffer
       - bufferutil
       - supports-color
+      - utf-8-validate
+
+  puppeteer@24.17.0(typescript@5.8.3):
+    dependencies:
+      '@puppeteer/browsers': 2.10.7
+      chromium-bidi: 8.0.0(devtools-protocol@0.0.1475386)
+      cosmiconfig: 9.0.0(typescript@5.8.3)
+      devtools-protocol: 0.0.1475386
+      puppeteer-core: 24.17.0
+      typed-query-selector: 2.12.0
+    transitivePeerDependencies:
+      - bare-buffer
+      - bufferutil
+      - supports-color
+      - typescript
       - utf-8-validate
 
   puppeteer@24.17.0(typescript@5.9.2):
