@@ -1,0 +1,117 @@
+---
+title: Grid Pattern
+description: A flexible SVG-based grid background utility with customizable spacing, dash patterns, and square highlights. Useful for charts, diagrams, or decorative UI sections.
+component: true 
+---
+
+<ComponentPreview
+  name="grid-pattern-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG grid pattern background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="grid-pattern-large"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG grid pattern background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="grid-pattern-small"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG grid pattern background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="grid-pattern-custom"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG grid pattern background."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/grid-pattern.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="grid-pattern" title="components/ui/grid-pattern.tsx" /> 
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { GridPattern } from "@/components/ui/grid-pattern"
+```
+
+```tsx showLineNumbers
+<div className="relative h-64 w-full rounded-lg border">
+  <GridPattern variant="default" />
+  <div className="relative z-10 flex h-full items-center justify-center">
+    <p className="text-lg font-medium">Content over grid background</p>
+  </div>
+</div>
+```
+
+### With squares highlighted
+
+```tsx showLineNumbers
+<GridPattern
+  variant="small"
+  squares={[
+    [2, 3],
+    [4, 1],
+    [5, 2],
+  ]}
+/>
+```
+
+## API Reference
+
+### GridPattern
+
+Renders a customizable SVG grid pattern with optional square highlights.
+
+| Prop             | Type                               | Default     | Description |
+|------------------|------------------------------------|-------------|-------------|
+| `width`          | number                             | `variant`   | Width of each grid tile (overrides variant). |
+| `height`         | number                             | `variant`   | Height of each grid tile (overrides variant). |
+| `x`              | number                             | `-1`        | X-axis offset for the pattern. |
+| `y`              | number                             | `-1`        | Y-axis offset for the pattern. |
+| `squares`        | Array                              | –           | Array of grid coordinates to fill with highlighted squares. |
+| `strokeDasharray`| string                             | `"0"`       | SVG `stroke-dasharray` for dashed lines. |
+| `variant`        | `"default" \| "small" \| "large"`  | `"default"` | Predefined pattern size & style. |
+| `className`      | string                             | –           | Tailwind/CSS classes applied to the `<svg>`. |
+| `...props`       | `SVGProps<SVGSVGElement>`          | –           | Additional props for the `<svg>`. |
+
+### Variants
+
+- **default** → `30x30` grid, light stroke.  
+- **small** → `10x10` grid, denser lines.  
+- **large** → `60x60` grid, larger tiles with subtle fill.  
+

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "browser-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "browser"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/mockups/browser-default.tsx",
+      "content": "import { Browser } from \"@/registry/default/ui/mockups/browser\"\n\nexport default function Component() {\n  return (\n    <div className=\"h-[500px]\">\n      <Browser />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+---
+title: Rain
+description: A dynamic animated rain and lightning background component with optional thunder audio effects.
+component: true
+---
+
+<ComponentPreview
+  name="rain-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[580px]"
+  description="A customizable rain and lightning effect."
+  align="start"
+/> 
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/rain.json
+```
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="rain" title="components/ui/rain.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+
+## Usage
+
+```tsx showLineNumbers
+import { Rain } from "@/components/ui/rain"
+```
+
+```tsx showLineNumbers
+<div className="relative h-[400px] w-full rounded-lg border bg-black">
+  <Rain lightningEnabled thunderEnabled className="text-blue-400">
+    <div className="relative z-10 flex h-full items-center justify-center">
+      <p className="text-lg font-medium text-white">
+        Content over animated rain background
+      </p>
+    </div>
+  </Rain>
+</div>
+```
+
+## API Reference
+
+### Rain
+
+Renders animated raindrops with optional lightning and thunder effects.
+
+| Prop                 | Type      | Default | Description |
+|----------------------|-----------|---------|-------------|
+| `intensity`          | number    | `100`   | Number of raindrops rendered. |
+| `speed`              | number    | `1`     | Speed multiplier for raindrop fall. |
+| `color`              | string    | `"rgba(174, 194, 224, 0.6)"` | Raindrop color. |
+| `angle`              | number    | `0`     | Wind angle in degrees (rotation of rain). |
+| `dropSize`           | object    | `{min:1,max:3}` | Minimum and maximum raindrop size. |
+| `lightningEnabled`   | boolean   | `false` | Enable lightning effects. |
+| `lightningFrequency` | number    | `8`     | Average frequency of lightning in seconds. |
+| `thunderEnabled`     | boolean   | `false` | Enable thunder sound effects. |
+| `thunderVolume`      | number    | `0.5`   | Thunder volume (0–1). |
+| `thunderDelay`       | number    | `2`     | Delay between lightning and thunder in seconds. |
+| `className`          | string    | –       | Additional Tailwind/CSS classes applied to wrapper. |
+| `children`           | ReactNode | –       | Content to render above the rain. |

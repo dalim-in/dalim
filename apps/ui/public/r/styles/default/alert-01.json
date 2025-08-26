@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-01",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-01.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { Download } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function Component() {\n  const [dismissed, setDismissed] = useState(false)\n  if (dismissed) {\n    return (\n      <div className=\"flex w-full justify-center p-6\">\n        <div className=\"w-full max-w-lg text-center\">\n          <p className=\"text-muted-foreground mb-4\">Alert dismissed</p>\n          <Button variant=\"outline\" onClick={() => setDismissed(false)}>\n            Show Alert\n          </Button>\n        </div>\n      </div>\n    )\n  }\n  return (\n    <div className=\"flex w-full justify-center p-6\">\n      <div className=\"w-full max-w-lg\">\n        <Alert>\n          <Download />\n          <AlertTitle>New version available</AlertTitle>\n          <AlertDescription>\n            <p className=\"mb-3\">\n              Version 2.1.0 is now available with security improvements.\n            </p>\n            <div className=\"flex gap-2\">\n              <Button size=\"sm\">Download Now</Button>\n              <Button\n                size=\"sm\"\n                variant=\"outline\"\n                onClick={() => setDismissed(true)}\n              >\n                Dismiss\n              </Button>\n            </div>\n          </AlertDescription>\n        </Alert>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

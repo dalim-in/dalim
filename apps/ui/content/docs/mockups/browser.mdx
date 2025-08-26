@@ -1,0 +1,107 @@
+---
+title: Browser
+description: A customizable browser-like component with tabs, bookmarks, history, downloads, and settings simulation.
+component: true 
+---
+
+<ComponentPreview
+  name="browser-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[580px]"
+  description="A simulated browser component with tabs, bookmarks, history, and status bar."
+  align="start"
+/>
+
+<ComponentPreview
+  name="browser-custom"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[700px]"
+  description="A simulated browser component with tabs, bookmarks, history, and status bar."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/browser.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="browser" title="components/ui/ai/browser.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Browser } from "@/components/ui/ai/browser"
+```
+
+```tsx showLineNumbers
+<Browser
+  showWindowControls
+  enableTabManagement
+  showBookmarksBar
+  enableDownloads
+  enableHistory
+  enableSettings
+  autoFocusAddressBar
+/>
+```
+
+## API Reference
+
+### Browser
+
+The main `Browser` component. It accepts multiple configuration props to simulate a browser-like UI.
+
+| Prop                  | Type                          | Default     | Description |
+|-----------------------|-------------------------------|-------------|-------------|
+| `image`               | string                        | `"/placeholder.svg"` | Placeholder image shown when not rendering content. |
+| `initialUrl`          | string                        | `"https://dalim.in"` | The default URL to load on startup. |
+| `initialTabs`         | Partial                       | –           | Initial set of tabs to open. |
+| `theme`               | `"light" \| "dark" \| "system"` | `"system"` | Browser theme mode. |
+| `showWindowControls`  | boolean                       | `false`     | Shows macOS-like window control buttons. |
+| `showBookmarksBar`    | boolean                       | `false`     | Displays a bookmarks toolbar. |
+| `showStatusBar`       | boolean                       | `true`      | Displays a status bar at the bottom. |
+| `className`           | string                        | –           | Additional wrapper classes. |
+| `enableTabManagement` | boolean                       | `false`     | Enables opening, closing, and switching tabs. |
+| `enableBookmarks`     | boolean                       | `true`      | Enables bookmarks sidebar. |
+| `enableHistory`       | boolean                       | `true`      | Enables browsing history sidebar. |
+| `enableDownloads`     | boolean                       | `true`      | Enables simulated downloads. |
+| `enableSettings`      | boolean                       | `true`      | Enables settings sidebar. |
+| `maxTabs`             | number                        | `10`        | Maximum number of open tabs allowed. |
+| `customBookmarks`     | Bookmark[]                    | –           | Custom list of bookmarks to render. |
+| `customHistory`       | HistoryItem[]                 | –           | Custom browsing history list. |
+| `onNavigate`          | `(url: string, tabId: string) => void` | – | Callback when navigating to a URL. |
+| `onTabCreate`         | `(tab: Tab) => void`          | –           | Callback when a new tab is created. |
+| `onTabClose`          | `(tabId: string) => void`     | –           | Callback when a tab is closed. |
+| `onDownload`          | `(file: DownloadItem) => void` | –          | Callback when a new download is triggered. |
+| `onBookmarkAdd`       | `(bookmark: Bookmark) => void` | –          | Callback when a bookmark is added. |
+| `onHistoryAdd`        | `(entry: HistoryItem) => void` | –          | Callback when a history entry is added. |

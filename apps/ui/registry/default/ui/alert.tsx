@@ -1,21 +1,31 @@
-import * as React from "react"
+import type * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/registry/default/lib/utils"
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
+  "relative w-full rounded-lg border text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] gap-y-0.5 items-start [&>svg]:text-current",
   {
     variants: {
       variant: {
-        default: "bg-transparent text-card-foreground",
-        secondary: "bg-card text-card-foreground",
+        default: "bg-card text-card-foreground border-border",
         destructive:
-          "text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90",
+          "text-destructive bg-destructive/10 border-destructive/20 [&>svg]:text-destructive",
+        success:
+          "text-green-700 bg-green-50 border-green-200 dark:text-green-400 dark:bg-green-950/50 dark:border-green-900 [&>svg]:text-green-600 dark:[&>svg]:text-green-400",
+        warning:
+          "text-amber-700 bg-amber-50 border-amber-200 dark:text-amber-400 dark:bg-amber-950/50 dark:border-amber-900 [&>svg]:text-amber-600 dark:[&>svg]:text-amber-400",
+        info: "text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-400 dark:bg-blue-950/50 dark:border-blue-900 [&>svg]:text-blue-600 dark:[&>svg]:text-blue-400",
+      },
+      size: {
+        sm: "px-3 py-2 has-[>svg]:gap-x-1 text-xs [&>svg]:size-3 [&>svg]:translate-y-0.5",
+        md: "px-4 py-3 has-[>svg]:gap-x-2 text-sm [&>svg]:size-4 [&>svg]:translate-y-0.5",
+        lg: "px-6 py-4 has-[>svg]:gap-x-3 text-base [&>svg]:size-5 [&>svg]:translate-y-1",
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "md",
     },
   }
 )
@@ -23,13 +33,14 @@ const alertVariants = cva(
 function Alert({
   className,
   variant,
+  size,
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
   return (
     <div
       data-slot="alert"
       role="alert"
-      className={cn(alertVariants({ variant }), className)}
+      className={cn(alertVariants({ variant, size }), className)}
       {...props}
     />
   )
@@ -64,73 +75,4 @@ function AlertDescription({
   )
 }
 
-export { Alert, AlertTitle, AlertDescription, LiquidAlert }
-
-function LiquidAlert({
-  className,
-  variant,
-  ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
-  return (
-    <div>
-      <div
-        data-slot="alert"
-        role="alert"
-        style={{ backdropFilter: 'url("#container-glass")' }}
-        className={cn(
-          alertVariants({ variant }),
-          className,
-          "shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]"
-        )}
-        {...props}
-      />
-      <GlassFilter />
-    </div>
-  )
-}
-
-
-function GlassFilter() {
-  return (
-    <svg className="hidden">
-      <defs>
-        <filter
-          id="container-glass"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%"
-          colorInterpolationFilters="sRGB"
-        >
-          {/* Generate turbulent noise for distortion */}
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.05 0.05"
-            numOctaves="1"
-            seed="1"
-            result="turbulence"
-          />
-
-          {/* Blur the turbulence pattern slightly */}
-          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
-
-          {/* Displace the source graphic with the noise */}
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="blurredNoise"
-            scale="70"
-            xChannelSelector="R"
-            yChannelSelector="B"
-            result="displaced"
-          />
-
-          {/* Apply overall blur on the final result */}
-          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
-
-          {/* Output the result */}
-          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
-        </filter>
-      </defs>
-    </svg>
-  );
-}
+export { Alert, AlertTitle, AlertDescription }

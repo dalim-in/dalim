@@ -16,7 +16,6 @@
 # next.js
 /.next/
 /out/
-.turbo
 
 # production
 /build
@@ -33,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# generated content
+.contentlayer
+.content-collections
+.source

@@ -1,0 +1,83 @@
+---
+title: Render Canvas
+description: A dynamic animated canvas component that renders trails following the cursor with configurable physics and color cycling.
+component: true
+---
+
+<ComponentPreview
+  name="render-canvas-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="render-canvas-custom"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/render-canvas.json
+```
+
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="render-canvas" title="components/ui/render-canvas.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { RenderCanvas } from "@/components/ui/render-canvas"
+```
+
+```tsx showLineNumbers
+<div className="relative h-[500px] w-full rounded-lg border">
+  <RenderCanvas className="text-purple-600" />
+  <div className="relative z-10 flex h-full items-center justify-center">
+    <p className="text-lg font-medium">Content over animated canvas</p>
+  </div>
+</div>
+```
+## API Reference
+
+### RenderCanvas
+
+Renders a dynamic canvas with animated trails.
+
+| Prop                  | Type     | Default | Description |
+|----------------------|----------|---------|-------------|
+| `trails`             | number   | `80`    | Number of trail lines rendered. |
+| `size`               | number   | `50`    | Number of nodes per trail line. |
+| `friction`           | number   | `0.5`   | Friction applied to line movement. |
+| `dampening`          | number   | `0.025` | Dampening factor for velocity transfer. |
+| `tension`            | number   | `0.99`  | Spring tension applied along line nodes. |
+| `lineWidth`          | number   | `10`    | Width of the line strokes. |
+| `colorHue`           | number   | `285`   | Base hue for HSLA stroke color. |
+| `colorSaturation`    | number   | `100`   | Saturation of HSLA stroke color. |
+| `colorLightness`     | number   | `50`    | Lightness of HSLA stroke color. |
+| `opacity`            | number   | `0.025` | Opacity of strokes. |
+| `enableColorCycle`   | boolean  | `true`  | Enable dynamic color cycling for trails. |
+| `colorCycleSpeed`    | number   | `0.0015`| Speed of hue wave for color cycling. |
+| `colorCycleAmplitude`| number   | `85`    | Amplitude of hue wave for color cycling. |
+| `width`              | number   | `700`   | Canvas width in pixels. |
+| `height`             | number   | `650`   | Canvas height in pixels. |
+| `className`          | string   | `""`    | Additional Tailwind/CSS classes applied to wrapper div. |

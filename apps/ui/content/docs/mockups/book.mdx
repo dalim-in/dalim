@@ -1,0 +1,103 @@
+---
+title: Book
+description: A 3D styled, interactive book component with multiple variants and props.
+component: true 
+---
+
+<ComponentPreview
+  name="book-default"
+  className="[.preview]:min-h-[400px]"
+  description="A 3D interactive book with title, author, and bookmark"
+  align="start"
+/>
+
+<ComponentPreview
+  name="book-thick"
+  className="[.preview]:min-h-[400px]"
+  description="A 3D interactive book with title, author, and bookmark"
+  align="start"
+/>
+
+
+<ComponentPreview
+  name="book-wide"
+  className="[.preview]:min-h-[400px]"
+  description="A 3D interactive book with title, author, and bookmark"
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/book.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="book" title="components/ui/book.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Book } from "@/components/ui/book"
+
+<Book
+  title="The Great Adventure"
+  author="John Doe"
+  spineText="Adventure"
+  bookmark
+  variant="hardcover"
+  animation="hover"
+>
+  <p>This is some content inside the book.</p>
+</Book>
+```
+
+## API Reference
+
+### Book
+
+Main container for the 3D styled book.
+
+| Prop           | Type                                                               | Default       | Description |
+|----------------|--------------------------------------------------------------------|---------------|-------------|
+| `children`     | `React.ReactNode`                                                  | –             | Content inside the book (pages). |
+| `title`        | `string`                                                           | –             | Title text displayed on the cover. |
+| `author`       | `string`                                                           | –             | Author text displayed below the title. |
+| `spineText`    | `string`                                                           | –             | Text displayed on the book spine. |
+| `color`        | `string`                                                           | `#555555`     | Cover background color. |
+| `textColor`    | `string`                                                           | `currentColor`| Text color for title and author. |
+| `bookmark`     | `boolean`                                                          | `false`       | Shows a bookmark ribbon. |
+| `bookmarkColor`| `string`                                                           | `red`         | Color of the bookmark ribbon. |
+| `depth`        | `number`                                                           | `5`           | Depth (thickness) of the book spine. |
+| `variant`      | `"default" \| "simple" \| "hardcover" \| "notebook"`               | `"default"`   | Style variant of the book. |
+| `illustration` | `React.ReactNode`                                                  | –             | Illustration or custom content on the cover. |
+| `width`        | `number`                                                           | –             | Custom width of the book (overrides preset). |
+| `height`       | `number`                                                           | –             | Custom height of the book (overrides preset). |
+| `animation`    | `"hover" \| "none"`                                                | `"hover"`     | Controls interactive hover animation. |
+| `className`    | `string`                                                           | –             | Additional CSS classes for styling. |
+| `...props`     | `div` props                                                        | –             | Any other props passed to the root element. |
+

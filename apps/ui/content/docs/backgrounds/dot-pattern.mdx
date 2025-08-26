@@ -1,0 +1,87 @@
+---
+title: Dot Pattern
+description: A background utility component that renders a repeated dot pattern using SVG `<pattern>`. Useful for decorative backgrounds or UI sections.
+component: true 
+---
+
+<ComponentPreview
+  name="dot-pattern-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG dot pattern background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="dot-pattern-custom"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[300px]"
+  description="A customizable SVG dot pattern background."
+  align="start"
+/>
+
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/dot-pattern.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="dot-pattern" title="components/ui/dot-pattern.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { DotPattern } from "@/components/ui/dot-pattern"
+```
+
+```tsx showLineNumbers
+<div className="relative h-64 w-full rounded-lg border">
+  <DotPattern className="text-gray-300" />
+  <div className="relative z-10 flex h-full items-center justify-center">
+    <p className="text-lg font-medium">Content over dot background</p>
+  </div>
+</div>
+```
+
+## API Reference
+
+### DotPattern
+
+Renders a customizable repeating SVG dot pattern.
+
+| Prop        | Type     | Default | Description |
+|-------------|----------|---------|-------------|
+| `width`     | number   | `20`    | The width of each pattern tile. |
+| `height`    | number   | `20`    | The height of each pattern tile. |
+| `x`         | number   | `0`     | X-axis offset of the pattern. |
+| `y`         | number   | `0`     | Y-axis offset of the pattern. |
+| `cx`        | number   | `1`     | X coordinate of the dot inside the tile. |
+| `cy`        | number   | `0.5`   | Y coordinate of the dot inside the tile. |
+| `dotSize`   | number   | `0.7`   | Radius of the dots. |
+| `className` | string   | –       | Additional Tailwind/CSS classes applied to the `<svg>`. |
+| `...props`  | `SVGProps<SVGSVGElement>` | – | Any additional props for the `<svg>`. |
+

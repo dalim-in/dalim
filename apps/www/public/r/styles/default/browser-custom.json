@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "browser-custom",
+  "type": "registry:example",
+  "registryDependencies": [
+    "browser"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/mockups/browser-custom.tsx",
+      "content": "import { Browser } from \"@/registry/default/ui/mockups/browser\"\n\nexport default function Component() {\n  return (\n    <div className=\"h-[620px]\">\n      <Browser\n        initialUrl=\"https://www.dalim.in\"\n        showWindowControls={true}\n        showBookmarksBar={true}\n        showStatusBar={true}\n        enableTabManagement={true}\n        enableBookmarks={true}\n        enableHistory={true}\n        enableDownloads={true}\n        enableSettings={true}\n        maxTabs={8}\n        simulateLoading={true}\n        loadingDuration={1500}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

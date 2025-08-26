@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-default.tsx",
+      "content": "import { AlertCircle } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function Component() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <Alert>\n        <AlertCircle />\n        <AlertTitle>Default Alert</AlertTitle>\n        <AlertDescription>\n          This is a default alert for general information.\n        </AlertDescription>\n      </Alert>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -13,14 +13,13 @@ export async function LoginButton() {
             <DropdownMenu>
                 <div>
                     {user ? (
-                        <div className="flex items-center gap-1">
-                            
+                        <div className="flex items-center gap-1"> 
                             <SignIn user={user} />
                         </div>
                     ) : (
                         <Link href={`${DALIM_URL}/login`}>
                             <Button
-                                className="px-3"
+                                className="px-3 rounded-[14px]"
                                 variant="default">
                                 Login
                             </Button>

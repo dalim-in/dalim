@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-success",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-success.tsx",
+      "content": "import { CheckCircle } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function AlertDemo() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <Alert variant=\"success\">\n        <CheckCircle />\n        <AlertTitle>Success Alert</AlertTitle>\n        <AlertDescription>\n          Your action was completed successfully!\n        </AlertDescription>\n      </Alert>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

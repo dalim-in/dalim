@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-outline",
+  "type": "registry:example",
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/accordion/accordion-outline.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/registry/default/ui/accordion\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex h-full w-full items-center justify-center\">\n      <Accordion\n        type=\"single\"\n        collapsible\n        className=\"w-full max-w-lg\"\n        defaultValue=\"item-1\"\n      >\n        <AccordionItem value=\"item-1\" variant=\"outline\">\n          <AccordionTrigger variant=\"outline\">\n            What makes Dalim Design different?\n          </AccordionTrigger>\n          <AccordionContent\n            variant=\"outline\"\n            className=\"flex flex-col gap-4 text-balance\"\n          >\n            <p>\n              Dalim Design blends creativity with clarity, offering a visually\n              consistent system that empowers both designers and developers.\n            </p>\n            <p>\n              It emphasizes minimal aesthetics, strong typography, and\n              pixel-perfect components tailored for modern web experiences.\n            </p>\n          </AccordionContent>\n        </AccordionItem>\n        <AccordionItem variant=\"outline\" value=\"item-2\">\n          <AccordionTrigger variant=\"outline\">\n            How can I customize the design system?\n          </AccordionTrigger>\n          <AccordionContent\n            variant=\"outline\"\n            className=\"flex flex-col gap-4 text-balance\"\n          >\n            <p>\n              Dalim Design is highly flexible—modify design tokens, color\n              palettes, typography scales, and spacing units to suit your brand.\n            </p>\n            <p>\n              The system supports seamless theming, including dark mode and\n              accessibility-aware contrast settings.\n            </p>\n          </AccordionContent>\n        </AccordionItem>\n        <AccordionItem variant=\"outline\" value=\"item-3\">\n          <AccordionTrigger variant=\"outline\">\n            Is Dalim Design optimized for performance?\n          </AccordionTrigger>\n          <AccordionContent\n            variant=\"outline\"\n            className=\"flex flex-col gap-4 text-balance\"\n          >\n            <p>\n              Absolutely. The design system is streamlined to avoid bloat,\n              enabling fast load times and high responsiveness.\n            </p>\n            <p>\n              Assets are optimized for modern rendering pipelines and support\n              responsive and adaptive layouts by default.\n            </p>\n          </AccordionContent>\n        </AccordionItem>\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

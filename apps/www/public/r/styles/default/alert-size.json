@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-size.tsx",
+      "content": "import { AlertCircle } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function AlertDemo() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <section className=\"space-y-4\">\n        <Alert size=\"sm\">\n          <AlertCircle />\n          <AlertTitle>Small Alert</AlertTitle>\n          <AlertDescription>\n            This is a small alert with compact spacing.\n          </AlertDescription>\n        </Alert>\n\n        <Alert size=\"md\">\n          <AlertCircle />\n          <AlertTitle>Medium Alert (Default)</AlertTitle>\n          <AlertDescription>\n            This is a medium-sized alert with standard spacing.\n          </AlertDescription>\n        </Alert>\n\n        <Alert size=\"lg\">\n          <AlertCircle />\n          <AlertTitle>Large Alert</AlertTitle>\n          <AlertDescription>\n            This is a large alert with generous spacing for important messages.\n          </AlertDescription>\n        </Alert>\n      </section>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

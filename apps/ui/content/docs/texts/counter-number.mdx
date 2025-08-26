@@ -1,0 +1,129 @@
+---
+title: Counter Number
+description: An animated numeric display component with smooth counting, formatting, sizes, and semantic color variants.
+component: true
+---
+
+<ComponentPreview
+  name="counter-number-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[200px]"
+  description="Basic animated count-up with default formatting."
+  align="start"
+/>
+
+
+<ComponentPreview
+  name="counter-number-percentage"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="counter-number-currency"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="counter-number-decimal"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="counter-number-prefix"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="counter-number-seperator"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[500px]"
+  description="A customizable animated canvas background."
+  align="start"
+/>
+
+<ComponentPreview
+  name="counter-number-custom"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[260px]"
+  description="Variants: currency, decimals, sizes, and colors."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/counter-number.json
+```
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="counter-number" title="components/ui/counter-number.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { CounterNumber } from "@/components/ui/counter-number"
+```
+
+```tsx showLineNumbers
+<div className="flex flex-wrap gap-8 items-end">
+  {/* Default */}
+  <CounterNumber value={12345} />
+
+  {/* With prefix/suffix */}
+  <CounterNumber value={86} suffix="%" size="xl" color="success" />
+
+  {/* Decimals */}
+  <CounterNumber value={3.14159} decimalPlaces={3} size="lg" />
+
+  {/* Currency */}
+  <CounterNumber value={1299.99} currency="USD" decimalPlaces={2} size="xl" color="primary" />
+
+  {/* Locale + separator */}
+  <CounterNumber value={1000000} locale="de-DE" separator="." size="lg" />
+
+  {/* Mono spacing for layout stability */}
+  <CounterNumber value={2025} preserveAspectRatio className="font-medium" />
+</div>
+```
+
+## API Reference
+
+### CounterNumber
+
+Animated number display with formatting options.
+
+| Prop                  | Type                                                                 | Default   | Description |
+|-----------------------|----------------------------------------------------------------------|-----------|-------------|
+| `value`               | number                                                              | —         | **Required.** Final value to animate to. |
+| `startValue`          | number                                                              | `0`       | Starting value before animation begins. |
+| `duration`            | number                                                              | `1000`    | Animation duration in milliseconds. |
+| `decimalPlaces`       | number                                                              | `0`       | Number of fractional digits to display. |
+| `prefix`              | string                                                              | `""`      | String shown before the number. |
+| `suffix`              | string                                                              | `""`      | String shown after the number. |
+| `separator`           | string                                                              | `","`     | Thousands separator override (applied after locale formatting). |
+| `currency`            | string (ISO 4217)                                                   | —         | Formats number as currency (e.g., `"USD"`, `"INR"`). |
+| `locale`              | string                                                              | `"en-US"` | Locale code (BCP 47) for `Intl.NumberFormat`. |
+| `size`                | `"sm"` \| `"md"` \| `"lg"` \| `"xl"` \| `"2xl"`                    | `"md"`    | Visual size variant. |
+| `color`               | `"default"` \| `"primary"` \| `"secondary"` \| `"success"` \| `"warning"` \| `"error"` | `"default"` | Color/text variant. |
+| `preserveAspectRatio` | boolean                                                             | `false`   | Uses monospaced digits (`font-mono`) to reduce layout shift. |
+| `className`           | string                                                              | `""`      | Additional Tailwind/CSS classes applied to the `<span>`. |

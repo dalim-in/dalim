@@ -1,4 +1,7 @@
-# Ignore artifacts:
+dist
+node_modules
+.next
 build
-coverage
-pnpm-workspace.yaml
+.contentlayer
+registry/__index__.tsx
+content/docs/components/calendar.mdx

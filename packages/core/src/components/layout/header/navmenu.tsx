@@ -99,23 +99,16 @@ export function MenuUI() {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuLink
-                            href="/ui"
+                            href="/"
                             className={navigationMenuTriggerStyle()}>
-                            UI <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            UI
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink
-                            href="/templates"
+                            href="/components"
                             className={navigationMenuTriggerStyle()}>
-                            Templates
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <NavigationMenuLink
-                            href="/pattern"
-                            className={navigationMenuTriggerStyle()}>
-                            Pattern <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            Components <span className="ml-2 rounded-full bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
@@ -126,20 +119,25 @@ export function MenuUI() {
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link
+                        <NavigationMenuLink
+                            href="/templates"
+                            className={navigationMenuTriggerStyle()}>
+                            Templates
+                        </NavigationMenuLink>
+                    </NavigationMenuItem> 
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
                             href="/colors"
-                            legacyBehavior
-                            passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Colors</NavigationMenuLink>
-                        </Link>
+                            className={navigationMenuTriggerStyle()}>
+                            Colors
+                        </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link
+                        <NavigationMenuLink
                             href="/easings"
-                            legacyBehavior
-                            passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>Easings</NavigationMenuLink>
-                        </Link>
+                            className={navigationMenuTriggerStyle()}>
+                            Easings
+                        </NavigationMenuLink>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
@@ -185,6 +183,16 @@ export function MenuFonts() {
                             legacyBehavior
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Fonts</NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link
+                            href={`/variation`}
+                            legacyBehavior
+                            passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Variation <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
+                            </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>

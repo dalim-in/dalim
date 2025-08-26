@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-error",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-error.tsx",
+      "content": "import { AlertCircle } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function AlertDemo() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <Alert variant=\"destructive\">\n        <AlertCircle />\n        <AlertTitle>Error Alert</AlertTitle>\n        <AlertDescription>\n          Something went wrong. Please try again.\n        </AlertDescription>\n      </Alert>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

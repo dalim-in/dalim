@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "snow-flakes-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "snow-flakes"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/snow-flakes-default.tsx",
+      "content": "\"use client\"\n\nimport { SnowFlakes } from \"@/registry/default/ui/backgrounds/snow-flakes\"\n\nexport default function DemoOne() {\n  return (\n    <div className=\"relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-blue-700\">\n      <SnowFlakes\n        count={150}\n        speed={0.1}\n        minSize={1}\n        maxSize={40}\n        minOpacity={0}\n        maxOpacity={1}\n        color={\"#ffffff\"}\n        wind={true}\n        zIndex={1}\n      />\n      <span className=\"pointer-events-none z-10 text-center text-7xl leading-none font-semibold tracking-tighter whitespace-pre-wrap text-white\">\n        Snow Flakes\n      </span>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

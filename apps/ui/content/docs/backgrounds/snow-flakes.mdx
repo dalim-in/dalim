@@ -1,0 +1,67 @@
+---
+title: Snow Flakes
+description: A dynamic animated snowflake background component with optional wind effect.
+component: true
+---
+
+<ComponentPreview
+  name="snow-flakes-default"
+  className="[&_.preview]:min-h-[580px] [&_.preview>[data-orientation=vertical]]:sm:max-w-[90%]"
+  description="A customizable snowfall background with optional wind."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/snow-flakes.json
+```
+
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="snow-flakes" title="components/ui/snow-flakes.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { SnowFlakes } from "@/components/ui/snow-flakes"
+```
+
+```tsx  
+<SnowFlakes /> 
+```
+
+## API Reference
+
+### Snow Flakes
+
+Renders animated snowflakes with customizable size, opacity, speed, and optional wind.
+
+| Prop         | Type      | Default     | Description                                  |
+| ------------ | --------- | ----------- | -------------------------------------------- |
+| `count`      | number    | `50`        | Number of snowflakes rendered.               |
+| `color`      | string    | `"#ffffff"` | Snowflake color.                             |
+| `speed`      | number    | `1`         | Speed multiplier for falling snow.           |
+| `minSize`    | number    | `10`        | Minimum snowflake size (px).                 |
+| `maxSize`    | number    | `20`        | Maximum snowflake size (px).                 |
+| `minOpacity` | number    | `0.3`       | Minimum snowflake opacity.                   |
+| `maxOpacity` | number    | `0.8`       | Maximum snowflake opacity.                   |
+| `zIndex`     | number    | `-1`        | Z-index for the snow layer.                  |
+| `wind`       | boolean   | `true`      | Enables wind effect on snowfall.             |
+| `className`  | string    | –           | Additional Tailwind/CSS classes for wrapper. |
+| `children`   | ReactNode | –           | Content to render above the snowfall.        |

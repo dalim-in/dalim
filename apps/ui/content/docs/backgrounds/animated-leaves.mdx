@@ -1,0 +1,62 @@
+---
+title: Animated Leaves
+description: A background utility component that renders colorful animated leaves arranged in circular rings. Useful for decorative sections or ambient motion backgrounds.
+component: true
+---
+
+<ComponentPreview
+  name="animated-leaves-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[580px]"
+  description="Animated colorful leaves with blur and circular motion."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/animated-leaves.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="animated-leaves" title="components/ui/animated-leaves.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { AnimatedLeaves } from "@/components/ui/animated-leaves"
+```
+
+```tsx showLineNumbers
+<div className="relative h-screen w-full overflow-hidden">
+  <AnimatedLeaves />
+  <div className="absolute inset-0 z-10 flex items-center justify-center">
+    <p className="text-xl font-semibold">Content over animated leaves</p>
+  </div>
+</div>
+```
+
+## API Reference

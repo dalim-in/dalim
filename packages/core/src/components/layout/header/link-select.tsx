@@ -158,7 +158,7 @@ export function LinkSelect() {
             value={value}
             onValueChange={handleValueChange}
             disabled={isRedirecting}>
-            <SelectTrigger className="w-full md:w-24">
+            <SelectTrigger className="w-full rounded-[14px] md:w-24">
                 <SelectValue placeholder="Select">
                     {OPTIONS.find((option) => option.value === value)?.label}
                 </SelectValue>

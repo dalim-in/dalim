@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-03",
+  "type": "registry:example",
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/accordion/accordion-03.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/registry/default/ui/accordion\"\nimport { Label } from \"@/registry/default/ui/label\"\nimport { Switch } from \"@/registry/default/ui/switch\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex h-full w-full items-center justify-center\">\n      <Accordion\n        type=\"single\"\n        defaultValue=\"privacy\"\n        className=\"w-full max-w-lg rounded-md border px-4\"\n      >\n        <AccordionItem value=\"notifications\">\n          <AccordionTrigger>Notifications</AccordionTrigger>\n          <AccordionContent>\n            <div className=\"space-y-4\">\n              <div className=\"flex items-center justify-between\">\n                <Label htmlFor=\"email-notifications\">Email notifications</Label>\n                <Switch id=\"email-notifications\" />\n              </div>\n              <div className=\"flex items-center justify-between\">\n                <Label htmlFor=\"push-notifications\">SMS notifications</Label>\n                <Switch id=\"sms-notifications\" />\n              </div>\n            </div>\n          </AccordionContent>\n        </AccordionItem>\n\n        <AccordionItem value=\"privacy\">\n          <AccordionTrigger>Privacy & Security</AccordionTrigger>\n          <AccordionContent>\n            <div className=\"space-y-4\">\n              <div className=\"flex items-center justify-between\">\n                <Label htmlFor=\"public-profile\">Public profile</Label>\n                <Switch id=\"public-profile\" />\n              </div>\n              <div className=\"flex items-center justify-between\">\n                <Label htmlFor=\"two-factor\">Two-factor authentication</Label>\n                <Switch id=\"two-factor\" />\n              </div>\n            </div>\n          </AccordionContent>\n        </AccordionItem>\n      </Accordion>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

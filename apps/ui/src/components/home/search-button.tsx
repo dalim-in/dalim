@@ -1,45 +1,22 @@
 "use client"
 
-import { useEffect } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation" 
-import { Search } from "lucide-react"
+import { getColors } from "@/src/lib/colors"
+import { source } from "@/src/lib/source"
 
-export default function SearchButton() {
-  const router = useRouter()
+import { CommandMenu } from "../command-menu"
+import { siteConfig } from "@/src/lib/config"
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "d") {
-        e.preventDefault()
-        router.push("/search")
-      }
-    }
-
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [router])
+export function SearchButton() {
+  const colors = getColors()
+  const pageTree = source.pageTree
 
   return (
-    <Link
-      href="/search"
-      className="bg-background text-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:ring-ring/50 inline-flex h-10 w-fit min-w-72 cursor-text rounded-full border px-4 py-2 text-sm outline-none focus:ring-[3px]"
-    >
-      <span className="flex grow items-center gap-2">
-        <Search
-          className="text-muted-foreground -ms-1"
-          size={20}
-          aria-hidden="true"
-        />
-        <span className="font-normal text-zinc-400 dark:text-zinc-500">
-          Quick search...
-        </span>
-        <div className="text-muted-foreground/80 pointer-events-none ml-auto flex items-center justify-center">
-          <kbd className="text-muted-foreground inline-flex font-[inherit] text-xs font-medium">
-            <span className="opacity-70">⌘</span>d
-          </kbd>
-        </div>
-      </span>
-    </Link>
+    <div className="bg-background text-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:ring-ring/50 mt-6 inline-flex h-10 w-fit min-w-72 cursor-text rounded-full border px-4 py-2 text-sm outline-none focus:ring-[3px]">
+      <CommandMenu
+        tree={pageTree}
+        colors={colors}
+        navItems={siteConfig.navItems}
+      />
+    </div>
   )
 }

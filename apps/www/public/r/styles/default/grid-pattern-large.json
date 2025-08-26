@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-pattern-large",
+  "type": "registry:example",
+  "registryDependencies": [
+    "grid-pattern"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/grid-pattern-large.tsx",
+      "content": "import { GridPattern } from \"@/registry/default/ui/backgrounds/grid-pattern\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex w-full justify-center\">\n      <GridPattern variant=\"large\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

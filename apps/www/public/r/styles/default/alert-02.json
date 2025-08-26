@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-02",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-02.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { CircleAlertIcon, XIcon } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function Component() {\n  const [isActive, setIsActive] = useState(true)\n  if (!isActive) return null\n  return (\n    <div className=\"flex w-full justify-center p-6\">\n      <div className=\"w-full max-w-lg\">\n        <Alert className=\"flex justify-between\">\n          <CircleAlertIcon />\n          <div className=\"flex flex-1 flex-col gap-1\">\n            <AlertTitle>Verify your email to activate your account</AlertTitle>\n            <AlertDescription>\n              We&apos;ve sent a confirmation link to your inbox. Check your\n              email to complete the sign-up.\n            </AlertDescription>\n          </div>\n          <button className=\"cursor-pointer\" onClick={() => setIsActive(false)}>\n            <XIcon className=\"size-5\" />\n            <span className=\"sr-only\">Close</span>\n          </button>\n        </Alert>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

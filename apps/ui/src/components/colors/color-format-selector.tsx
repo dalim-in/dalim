@@ -1,16 +1,17 @@
 "use client"
 
 import * as React from "react"
-import { useColors } from "@/src/hooks/use-colors"
+
 import { getColorFormat, type Color } from "@/src/lib/colors"
-import { cn } from "@dalim/core/lib/utils"
+import { cn } from "@/src/lib/utils"
+import { useColors } from "@/src/hooks/use-colors"
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger, 
-} from "@dalim/core/ui/select"
-import { Skeleton } from "@dalim/core/ui/skeleton"
+  SelectTrigger,
+} from "@/registry/default/ui/select"
+import { Skeleton } from "@/registry/default/ui/skeleton"
 
 export function ColorFormatSelector({
   color,
@@ -29,13 +30,15 @@ export function ColorFormatSelector({
   return (
     <Select value={format} onValueChange={setFormat}>
       <SelectTrigger
-        className={cn("h-7 w-auto gap-1.5 rounded-lg pr-2 text-xs", className)}
+        size="sm"
+        className={cn(
+          "bg-secondary text-secondary-foreground border-secondary shadow-none",
+          className
+        )}
         {...props}
       >
         <span className="font-medium">Format: </span>
-        <span className="text-muted-foreground font-mono text-xs">
-          {format}
-        </span>
+        <span className="text-muted-foreground font-mono">{format}</span>
       </SelectTrigger>
       <SelectContent align="end" className="rounded-xl">
         {Object.entries(formats).map(([format, value]) => (
@@ -61,7 +64,7 @@ export function ColorFormatSelectorSkeleton({
 }: React.ComponentProps<typeof Skeleton>) {
   return (
     <Skeleton
-      className={cn("h-7 w-[116px] gap-1.5 rounded-lg", className)}
+      className={cn("h-8 w-[132px] gap-1.5 rounded-md", className)}
       {...props}
     />
   )

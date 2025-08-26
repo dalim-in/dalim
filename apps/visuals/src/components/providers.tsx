@@ -8,7 +8,7 @@ import { TooltipProvider } from '@dalim/core/ui/tooltip'
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <SessionProvider>
+            <SessionProvider> 
                 <TooltipProvider>
                     <ThemeProvider
                         attribute="class"

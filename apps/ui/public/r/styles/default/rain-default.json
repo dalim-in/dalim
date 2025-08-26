@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rain-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "rain"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/rain-default.tsx",
+      "content": "\"use client\"\n\nimport { Rain } from \"@/registry/default/ui/backgrounds/rain\"\n\nexport default function Component() {\n  return (\n    <div className=\"h-[500px] w-full\">\n      <Rain\n        intensity={500}\n        speed={0.5}\n        angle={10}\n        color={\"rgba(174, 194, 224, 0.6)\"}\n        dropSize={{ min: 1, max: 2 }}\n        lightningEnabled={true}\n        lightningFrequency={8}\n        thunderEnabled={true}\n        thunderVolume={1}\n        thunderDelay={2}\n        className=\"bg-background relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-gradient-to-b from-zinc-950 via-zinc-800 to-zinc-950\"\n      >\n        <div className=\"p-6\">\n          <p className=\"z-10 text-center text-3xl font-semibold tracking-tighter whitespace-pre-wrap text-white md:text-7xl\">\n            Rain\n          </p>\n        </div>\n      </Rain>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

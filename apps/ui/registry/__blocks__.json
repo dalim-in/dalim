@@ -1,0 +1,12 @@
+[
+  {
+    "name": "dashboard-01",
+    "description": "A dashboard with sidebar, charts and data table.",
+    "categories": ["dashboard"]
+  },
+  {
+    "name": "login-01",
+    "description": "A simple login form.",
+    "categories": ["authentication", "login"]
+  }
+]

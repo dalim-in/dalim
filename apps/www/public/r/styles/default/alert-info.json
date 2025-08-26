@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-info",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert/alert-info.tsx",
+      "content": "import { Info } from \"lucide-react\"\n\nimport {\n  Alert,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\"\n\nexport default function AlertDemo() {\n  return (\n    <div className=\"grid w-full max-w-xl items-start gap-4\">\n      <Alert variant=\"info\">\n        <Info />\n        <AlertTitle>Info Alert</AlertTitle>\n        <AlertDescription>\n          Here&apos;s some helpful information you should know.\n        </AlertDescription>\n      </Alert>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

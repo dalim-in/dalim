@@ -1,20 +1,21 @@
-"use client"
- 
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 
 type Config = {
+  style: "default"
   packageManager: "npm" | "yarn" | "pnpm" | "bun"
+  installationType: "cli" | "manual"
   radius: number
-  theme: string // This should be a string (theme name), not the baseColorsV4 type
 }
 
 const configAtom = atomWithStorage<Config>("config", {
+  style: "default",
   packageManager: "pnpm",
-  radius: 0.5,
-  theme: "stone", // Use a valid theme name from baseColorsV4
+  radius: 1,
+  installationType: "cli",
 })
 
 export function useConfig() {
   return useAtom(configAtom)
 }
+ 

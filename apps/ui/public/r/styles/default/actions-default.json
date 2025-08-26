@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "actions-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "ai"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/ai/actions-default.tsx",
+      "content": "\"use client\"\n\nimport Image from \"next/image\"\nimport {\n  CopyIcon,\n  RefreshCcwIcon,\n  ShareIcon,\n  ThumbsDownIcon,\n  ThumbsUpIcon,\n} from \"lucide-react\"\n\nimport { Action, Actions } from \"@/registry/default/ui/ai/actions\"\nimport {\n  Conversation,\n  ConversationContent,\n} from \"@/registry/default/ui/ai/conversation\"\nimport { Message, MessageContent } from \"@/registry/default/ui/ai/message\"\n\nconst messages: {\n  id: string\n  from: \"user\" | \"assistant\"\n  content: string\n  avatar: string\n  name: string\n}[] = [\n  {\n    id: \"1\",\n    from: \"user\",\n    content: \"Hello, how are you?\",\n    avatar: \"https://github.com/evilrabbit.png\",\n    name: \"Ali Imam\",\n  },\n  {\n    id: \"2\",\n    from: \"assistant\",\n    content: \"I am fine, thank you!\",\n    avatar: \"https://github.com/openai.png\",\n    name: \"OpenAI\",\n  },\n]\nconst Example = () => {\n  const actions = [\n    {\n      icon: RefreshCcwIcon,\n      label: \"Retry\",\n    },\n    {\n      icon: ThumbsUpIcon,\n      label: \"Like\",\n    },\n    {\n      icon: ThumbsDownIcon,\n      label: \"Dislike\",\n    },\n    {\n      icon: CopyIcon,\n      label: \"Copy\",\n    },\n    {\n      icon: ShareIcon,\n      label: \"Share\",\n    },\n  ]\n  return (\n    <div className=\"flex h-full w-full max-w-lg items-center justify-center\">\n      <Conversation className=\"relative w-full\">\n        <ConversationContent>\n          {messages.map((message) => (\n            <Message\n              className={`flex flex-col gap-2 ${message.from === \"assistant\" ? \"items-start\" : \"items-end\"}`}\n              from={message.from}\n              key={message.id}\n            >\n              <Image\n                src={message.avatar}\n                alt={message.name}\n                width={32}\n                height={32}\n                className=\"h-8 w-8 rounded-full\"\n              />\n              <MessageContent>{message.content}</MessageContent>\n              {message.from === \"assistant\" && (\n                <Actions className=\"mt-2\">\n                  {actions.map((action) => (\n                    <Action key={action.label} label={action.label}>\n                      <action.icon className=\"size-4\" />\n                    </Action>\n                  ))}\n                </Actions>\n              )}\n            </Message>\n          ))}\n        </ConversationContent>\n      </Conversation>\n    </div>\n  )\n}\nexport default Example\n",
+      "type": "registry:example"
+    }
+  ]
+}

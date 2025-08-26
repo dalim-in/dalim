@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-pattern-animated",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/grid-pattern-animated.tsx",
+      "content": "import { GridPattern } from \"@/registry/default/ui/backgrounds/grid-pattern\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex w-full justify-center\">\n      <GridPattern />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}
