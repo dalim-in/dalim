@@ -1,12 +1,10 @@
 {
   "root": true,
   "pages": [
-    "(root)", 
-    "AI", 
+    "(root)",  
     "components",
     "mockups", 
     "backgrounds", 
-    "texts", 
-    "hooks"
+    "texts"
   ]
 }

@@ -1,7 +1,6 @@
 dist
 node_modules
 .next
-build
-.contentlayer
+build 
 registry/__index__.tsx
 content/docs/components/calendar.mdx
