@@ -1,7 +1,6 @@
 {
   "root": true,
-  "pages": [
-    "(root)",  
+  "pages": [  
     "ai",
     "components",
     "mockups", 
