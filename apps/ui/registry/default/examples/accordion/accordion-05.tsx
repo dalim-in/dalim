@@ -106,7 +106,6 @@ export default function Component() {
                   key={index}
                   title={collapsible.title}
                   content={collapsible.content}
-                  open={collapsible.open}
                 />
               ))}
             </AccordionContent>

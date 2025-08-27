@@ -6,7 +6,6 @@ import type {
   KeyboardEventHandler,
 } from "react"
 import { Children } from "react"
-import type { ChatStatus } from "ai"
 import { Loader2Icon, SendIcon, SquareIcon, XIcon } from "lucide-react"
 
 import { cn } from "@/registry/default/lib/utils"
@@ -41,8 +40,6 @@ export const PromptInputTextarea = ({
   onChange,
   className,
   placeholder = "What would you like to know?",
-  minHeight = 48,
-  maxHeight = 164,
   ...props
 }: PromptInputTextareaProps) => {
   const handleKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
@@ -141,7 +138,7 @@ export const PromptInputButton = ({
 }
 
 export type PromptInputSubmitProps = ComponentProps<typeof Button> & {
-  status?: ChatStatus
+  status?: ""
 }
 
 export const PromptInputSubmit = ({
@@ -154,7 +151,7 @@ export const PromptInputSubmit = ({
 }: PromptInputSubmitProps) => {
   let Icon = <SendIcon className="size-4" />
 
-  if (status === "submitted") {
+  if (status === "") {
     Icon = <Loader2Icon className="size-4 animate-spin" />
   } else if (status === "streaming") {
     Icon = <SquareIcon className="size-4" />

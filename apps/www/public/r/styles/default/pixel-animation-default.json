@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/backgrounds/pixel-animation-default.tsx",
-      "content": "import { PixelAnimation } from \"@/registry/default/ui/backgrounds/pixel-animation\"\n\nexport default function Component() {\n  return (\n    <div className=\"relative flex h-full w-full rounded-xl border flex-col items-center justify-center overflow-hidden \">\n       <PixelAnimation pixelGap={10} />\n    </div>\n  )\n}\n",
+      "content": "import { PixelAnimation } from \"@/registry/default/ui/backgrounds/pixel-animation\"\n\nexport default function Component() {\n  return (\n    <div className=\"relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border\">\n      <PixelAnimation pixelGap={10} />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]
