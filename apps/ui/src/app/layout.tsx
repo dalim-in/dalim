@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       url: "https://ui.dalim.in",
     },
   ],
-  creator: "shadcn",
+  creator: "ali",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${process.env.UI_URL}/opengraph-image.jpg`],
-    creator: "@shadcn",
+    creator: "@ali",
   },
   icons: {
-    icon: "./icon.svg",
-    shortcut: "./icon.svg",
-    apple: "./icon.svg",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 }

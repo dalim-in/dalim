@@ -11,8 +11,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   outputFileTracingIncludes: {
-    "/*": ["./registry/**/*"],
-  },
+  "/*": [
+    "./registry/**/*",
+    "./src/content/docs/**/*",
+  ],
+},
+
   images: {
     remotePatterns: [
       {

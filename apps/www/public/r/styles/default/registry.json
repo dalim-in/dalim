@@ -838,6 +838,16 @@
       ]
     },
     {
+      "name": "pixel-animation",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/pixel-animation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -1559,6 +1569,19 @@
       "files": [
         {
           "path": "registry/default/examples/backgrounds/grid-pattern-custom.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "pixel-animation-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "pixel-animation"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/pixel-animation-default.tsx",
           "type": "registry:example"
         }
       ]

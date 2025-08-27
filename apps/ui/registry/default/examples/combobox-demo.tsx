@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
+import { cn } from "@/src/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
 
-import { cn } from "@/src/lib/utils"
 import { Button } from "@/registry/default/ui/button"
 import {
   Command,

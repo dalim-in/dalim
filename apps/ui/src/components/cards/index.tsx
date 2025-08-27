@@ -2,7 +2,7 @@ import Link from "next/link"
 import { DalimYellowIcon } from "@dalim/core/components/logo"
 
 import { ParticleCircle } from "@/registry/default/ui/backgrounds/particle-circle"
-import { PixelAnimation } from "@/registry/default/ui/backgrounds/pixel-animated"
+import { PixelAnimation } from "@/registry/default/ui/backgrounds/pixel-animation"
 import { Rain } from "@/registry/default/ui/backgrounds/rain"
 import { ShaderLines } from "@/registry/default/ui/backgrounds/shader-lines"
 import { ShaderRGB } from "@/registry/default/ui/backgrounds/shader-rgb"

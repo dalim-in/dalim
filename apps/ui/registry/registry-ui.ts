@@ -750,4 +750,14 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "pixel-animation",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/pixel-animation.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

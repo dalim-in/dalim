@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { cn } from "@/src/lib/utils"
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -9,7 +10,6 @@ import {
 import { DayButton, getDefaultClassNames } from "react-day-picker"
 import { DayPicker } from "react-day-picker/persian"
 
-import { cn } from "@/src/lib/utils"
 import { Button, buttonVariants } from "@/registry/default/ui/button"
 
 export default function CalendarHijri() {

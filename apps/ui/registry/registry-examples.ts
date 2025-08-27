@@ -354,6 +354,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "pixel-animation-default",
+    type: "registry:example",
+    registryDependencies: ["pixel-animation"],
+    files: [
+      {
+        path: "examples/backgrounds/pixel-animation-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "device-macbook",
     type: "registry:example",
     registryDependencies: ["device"],

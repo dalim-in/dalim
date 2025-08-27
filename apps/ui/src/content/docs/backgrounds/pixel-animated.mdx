@@ -1,0 +1,75 @@
+---
+title: Pixel Animation
+description: A background utility component that renders colorful animation leaves arranged in circular rings. Useful for decorative sections or ambient motion backgrounds.
+component: true
+---
+
+<ComponentPreview
+  name="pixel-animation-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[580px]"
+  description="Animated colorful leaves with blur and circular motion."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/pixel-animation.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="pixel-animation" title="components/ui/pixel-animation.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { PixelAnimation } from "@/components/ui/pixel-animation"
+```
+
+```tsx showLineNumbers
+<div className="relative h-screen w-full overflow-hidden">
+  <PixelAnimation pixelGap={10} />
+</div>
+```
+ 
+ ## API Reference
+
+### Props
+
+| Prop               | Type      | Default     | Description                                                                 |
+|--------------------|-----------|-------------|-----------------------------------------------------------------------------|
+| `containerWidth`   | `string`  | `"100vw"`   | Width of the animation container.                                           |
+| `containerHeight`  | `string`  | `"100vh"`   | Height of the animation container.                                          |
+| `backgroundColor`  | `string`  | `undefined` | Optional background color (not currently applied to canvas).                |
+| `pixelGap`         | `number`  | `6`         | Gap between pixels in the grid.                                             |
+| `animationSpeed`   | `number`  | `0.25`      | Speed multiplier for pixel flickering.                                      |
+| `colorHueStart`    | `number`  | `random`    | Starting hue value for color generation.                                    |
+| `colorHueRange`    | `number`  | `50`        | Range of hues to pick colors from.                                          |
+| `maxPixelSize`     | `number`  | `gap * 0.5` | Maximum pixel square size.                                                  |
+| `animationDuration`| `number`  | `360`       | Duration of one full animation cycle (show + hide).                         |
+| `showHint`         | `boolean` | `false`     | Reserved prop for displaying a hint overlay.                                |
+| `hintText`         | `string`  | `""`        | Hint text content if `showHint` is enabled.                                 |

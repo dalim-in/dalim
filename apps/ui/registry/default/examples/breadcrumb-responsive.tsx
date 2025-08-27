@@ -2,8 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-
 import { useMediaQuery } from "@/src/hooks/use-media-query"
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,

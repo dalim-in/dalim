@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { cn } from "@/src/lib/utils"
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -8,7 +9,6 @@ import {
 } from "lucide-react"
 import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 
-import { cn } from "@/src/lib/utils"
 import { Button, buttonVariants } from "@/registry/default/ui/button"
 
 function Calendar({
