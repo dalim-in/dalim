@@ -31,7 +31,7 @@ export default defineConfig({
 })
 
 export const docs = defineDocs({
-  dir: "src/content/docs",
+  dir: "./src/content/docs",
   docs: {
     schema: frontmatterSchema.extend({
       links: z
