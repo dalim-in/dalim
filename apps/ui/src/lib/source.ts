@@ -5,3 +5,4 @@ export const source: ReturnType<typeof loader> = loader({
   baseUrl: "/docs",
   source: docs.toFumadocsSource(),
 })
+ 
