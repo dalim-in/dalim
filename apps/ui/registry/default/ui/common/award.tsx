@@ -26,7 +26,7 @@ const levelColors = {
 }
 
 export function Awards({
-  variant = "badge",
+  variant = "award",
   title,
   subtitle,
   date,

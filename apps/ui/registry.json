@@ -848,6 +848,56 @@
       ]
     },
     {
+      "name": "particle-circle",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/particle-circle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "font-weight",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/texts/font-weight.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rainbow-effect",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/texts/rainbow-effect.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "award",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/common/award.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gauge",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/common/gauge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -1587,6 +1637,19 @@
       ]
     },
     {
+      "name": "particle-circle-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "particle-circle"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/particle-circle-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "device-macbook",
       "type": "registry:example",
       "registryDependencies": [
@@ -1634,6 +1697,32 @@
       "files": [
         {
           "path": "registry/default/examples/mockups/device-ipad.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "font-weight-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "font-weight"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/texts/font-weight-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "rainbow-effect-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "rainbow-effectt"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/texts/rainbow-effect-default.tsx",
           "type": "registry:example"
         }
       ]
@@ -1790,6 +1879,110 @@
       "files": [
         {
           "path": "registry/default/examples/mockups/browser-custom.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "award-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "award"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/award-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "award-stamp",
+      "type": "registry:example",
+      "registryDependencies": [
+        "award"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/award-stamp.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "award-badge",
+      "type": "registry:example",
+      "registryDependencies": [
+        "award"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/award-badge.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "award-certificate",
+      "type": "registry:example",
+      "registryDependencies": [
+        "award"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/award-certificate.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "gauge-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "gauge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/gauge-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "gauge-tickmark",
+      "type": "registry:example",
+      "registryDependencies": [
+        "gauge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/gauge-tickmark.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "gauge-rings",
+      "type": "registry:example",
+      "registryDependencies": [
+        "gauge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/gauge-rings.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "gauge-half",
+      "type": "registry:example",
+      "registryDependencies": [
+        "gauge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/gauge-half.tsx",
           "type": "registry:example"
         }
       ]

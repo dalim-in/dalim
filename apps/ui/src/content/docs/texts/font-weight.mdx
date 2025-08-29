@@ -1,0 +1,64 @@
+---
+title: Font Weight
+description: An animated text component that smoothly varies font weight in a breathing motion. Useful for hero headlines or eye-catching animated typography.
+component: true
+---
+
+<ComponentPreview
+  name="font-weight-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[280px]"
+  description="Animated text with breathing font weight variation."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/font-weight.json
+```
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="font-weight" title="components/ui/font-weight.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { FontWeight } from "@/components/ui/font-weight"
+```
+
+```tsx showLineNumbers
+<div className="relative flex h-screen w-full items-center justify-center">
+  <FontWeight text="Breathe" />
+</div>
+```
+
+## API Reference
+
+### FontWeight
+
+Renders animated text with variable font weight oscillation.
+
+| Prop                | Type     | Default | Description |
+|---------------------|----------|---------|-------------|
+| `text`              | string   | –       | The text content to animate. |
+| `className`         | string   | `""`    | Additional Tailwind/CSS classes for styling. |
+| `fontSize`          | number   | `150`   | Font size (in pixels). |
+| `minWeight`         | number   | `0`     | Minimum font weight variation setting. |
+| `maxWeight`         | number   | `840`   | Maximum font weight variation setting. |
+| `animationDuration` | number   | `1.5`   | Duration (seconds) of one weight oscillation cycle. |
+| `delayMultiplier`   | number   | `0.25`  | Staggered delay factor for each character’s animation. |

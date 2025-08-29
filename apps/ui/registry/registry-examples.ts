@@ -365,6 +365,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "particle-circle-default",
+    type: "registry:example",
+    registryDependencies: ["particle-circle"],
+    files: [
+      {
+        path: "examples/backgrounds/particle-circle-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "device-macbook",
     type: "registry:example",
     registryDependencies: ["device"],
@@ -404,6 +415,28 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/mockups/device-ipad.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "font-weight-default",
+    type: "registry:example",
+    registryDependencies: ["font-weight"],
+    files: [
+      {
+        path: "examples/texts/font-weight-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "rainbow-effect-default",
+    type: "registry:example",
+    registryDependencies: ["rainbow-effectt"],
+    files: [
+      {
+        path: "examples/texts/rainbow-effect-default.tsx",
         type: "registry:example",
       },
     ],
@@ -536,6 +569,94 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/mockups/browser-custom.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "award-default",
+    type: "registry:example",
+    registryDependencies: ["award"],
+    files: [
+      {
+        path: "examples/common/award-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "award-stamp",
+    type: "registry:example",
+    registryDependencies: ["award"],
+    files: [
+      {
+        path: "examples/common/award-stamp.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "award-badge",
+    type: "registry:example",
+    registryDependencies: ["award"],
+    files: [
+      {
+        path: "examples/common/award-badge.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "award-certificate",
+    type: "registry:example",
+    registryDependencies: ["award"],
+    files: [
+      {
+        path: "examples/common/award-certificate.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "gauge-default",
+    type: "registry:example",
+    registryDependencies: ["gauge"],
+    files: [
+      {
+        path: "examples/common/gauge-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "gauge-tickmark",
+    type: "registry:example",
+    registryDependencies: ["gauge"],
+    files: [
+      {
+        path: "examples/common/gauge-tickmark.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "gauge-rings",
+    type: "registry:example",
+    registryDependencies: ["gauge"],
+    files: [
+      {
+        path: "examples/common/gauge-rings.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "gauge-half",
+    type: "registry:example",
+    registryDependencies: ["gauge"],
+    files: [
+      {
+        path: "examples/common/gauge-half.tsx",
         type: "registry:example",
       },
     ],

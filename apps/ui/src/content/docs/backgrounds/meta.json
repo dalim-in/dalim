@@ -1,0 +1,16 @@
+{
+  "title": "Backgrounds",
+  "pages": [
+    "shader-ripple",
+    "shader-lines",
+    "shader-rgb",
+    "render-canvas",
+    "particle-circle",
+    "pixel-animated",
+    "rain",
+    "snow-flakes",
+    "animated-leaves",
+    "dot-pattern",
+    "grid-pattern"
+  ]
+}

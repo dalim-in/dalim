@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "pages": [  
+    "(root)",
+    "ai",
+    "components",
+    "mockups", 
+    "backgrounds", 
+    "texts",
+    "common"
+  ]
+}

@@ -760,4 +760,54 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "particle-circle",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/particle-circle.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "font-weight",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/texts/font-weight.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "rainbow-effect",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/texts/rainbow-effect.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "award",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/common/award.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "gauge",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/common/gauge.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

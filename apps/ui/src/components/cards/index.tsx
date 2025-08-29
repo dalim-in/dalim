@@ -45,16 +45,16 @@ export function CardsDemo() {
           </div>
         </Book>
       </div>
-      <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border sm:col-span-6 md:col-span-6 lg:col-span-6 xl:col-span-6">
-        <div className="-mt-16 -ml-8 -space-y-10">
+      <div className="relative flex h-100 md:h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border sm:col-span-6 md:col-span-6 lg:col-span-6 xl:col-span-6">
+        <div className="-mt-16 -ml-8 md:-space-y-3 xl:-space-y-8">
           <RainbowEffect
             className="font-bold tracking-tighter"
-            fontSize={8}
+            fontSize={6}
             text="Cool"
           />
           <RainbowEffect
             className="-pl-6 font-bold tracking-tighter"
-            fontSize={9}
+            fontSize={7}
             text="Designs"
           />
         </div>
@@ -113,7 +113,7 @@ export function CardsDemo() {
       <div className="relative flex h-100 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border sm:col-span-6 md:col-span-6 lg:col-span-6 xl:col-span-6">
         <Link href={"/components"}>
           <FontWeight
-            text="Let's Go"
+            text="Let's Go" 
             fontSize={60}
             className="dark:text-[#fff200]"
           />

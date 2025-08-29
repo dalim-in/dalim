@@ -1,0 +1,112 @@
+---
+title: Gauge
+description: A flexible, animated gauge component with support for full, half, and quarter circle types, gradients, multi-rings, thresholds, tick marks, and glow effects.
+component: true
+---
+
+<ComponentPreview
+  name="gauge-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
+  description="An accordion with three items"
+  align="start"
+/>
+
+<ComponentPreview
+  name="gauge-tickmark"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
+  description="An accordion with three items"
+  align="start"
+/>
+
+<ComponentPreview
+  name="gauge-rings"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
+  description="An accordion with three items"
+  align="start"
+/>
+
+<ComponentPreview
+  name="gauge-half"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
+  description="An accordion with three items"
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/gauge.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="gauge" title="components/ui/gauge.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Gauge } from "@/components/ui/gauge"
+```
+
+```tsx showLineNumbers
+<Awards
+  variant="award"
+  title="WINNER"
+  subtitle="A Design Award & Competetion"
+  recipient="Ali Imam"
+  date="June 2025"
+  level="gold"
+/>
+```
+## API Reference
+
+### Gauge
+
+A flexible, animated gauge component with support for full, half, and quarter circle types, gradients, multi-rings, thresholds, tick marks, and glow effects.
+
+| Prop             | Type                                                                                     | Default     | Description |
+|------------------|------------------------------------------------------------------------------------------|-------------|-------------|
+| `value`          | number                                                                                   | –           | Current value to display on the gauge. |
+| `size`           | number \| string                                                                         | `150`       | Size of the SVG gauge. |
+| `gapPercent`     | number                                                                                   | `5`         | Gap between primary and secondary strokes (as a percentage). |
+| `strokeWidth`    | number                                                                                   | `10`        | Stroke thickness of the gauge arc. |
+| `equal`          | boolean                                                                                  | `false`     | Makes primary and secondary arcs equal in length. |
+| `showValue`      | boolean                                                                                  | `true`      | Whether to display the numeric value inside the gauge. |
+| `showPercentage` | boolean                                                                                  | `false`     | Whether to append the unit (e.g., `%`) next to the value. |
+| `primary`        | `"danger" \| "warning" \| "success" \| "info" \| string \| { [key: number]: string }`    | –           | Primary stroke color or threshold-based mapping. |
+| `secondary`      | `"danger" \| "warning" \| "success" \| "info" \| string \| { [key: number]: string }`    | –           | Secondary stroke color or threshold-based mapping. |
+| `gradient`       | boolean                                                                                  | `false`     | Applies a gradient fill to the primary stroke. |
+| `multiRing`      | `{ enabled: boolean; rings?: Array<{ value: number; color: string; strokeWidth?: number; opacity?: number }> }` | – | Renders multiple concentric rings around the gauge. |
+| `thresholds`     | `Array<{ value: number; color: string; label?: string }>`                                | –           | Threshold markers with color indicators. |
+| `gaugeType`      | `"full" \| "half" \| "quarter"`                                                          | `"full"`    | Shape of the gauge arc. |
+| `transition`     | `{ length?: number; step?: number; delay?: number }`                                     | `{ length: 1000, step: 200, delay: 0 }` | Transition settings for animation. |
+| `className`      | string \|                                                                                | – | Tailwind/CSS classes for styling different gauge elements. |
+| `label`          | string                                                                                   | –           | Label text displayed under the gauge value. |
+| `unit`           | string                                                                                   | `"%"`       | Unit appended to the value when `showPercentage` is `true`. |
+| `min`            | number                                                                                   | `0`         | Minimum value of the gauge. |
+| `max`            | number                                                                                   | `100`       | Maximum value of the gauge. |
+| `tickMarks`      | boolean                                                                                  | `false`     | Displays tick marks along the arc. |
+| `glowEffect`     | boolean                                                                                  | `false`     | Applies a glow effect to the gauge stroke. |
