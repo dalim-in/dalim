@@ -20,8 +20,8 @@ import { Separator } from "@/registry/default/ui/separator"
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this shadcn/ui documentation: ${url}.
-Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
+    `I’m looking at this dalim/ui documentation: ${url}.
+    Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `
   )}`
 }

@@ -16,6 +16,9 @@
     "ui": "@/registry/default/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
+  }, 
+  "registries": {
+    "@dalim-ui": "https://ui.dalim.in/r/styles/default/{name}.json"
   },
   "iconLibrary": "lucide"
 }

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/default/blocks/call-to-action/call-to-action-01/page.tsx",
-      "content": "\"use client\"\n\nimport { Connect } from \"@/registry/default/blocks/call-to-action/call-to-action-01/components/connect\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-screen  w-full items-center justify-center p-6 md:p-10\">\n      <Connect />\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { Connect } from \"@/registry/default/blocks/call-to-action/call-to-action-01/components/connect\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-screen w-full items-center justify-center p-6 md:p-10\">\n      <Connect />\n    </div>\n  )\n}\n",
       "type": "registry:page",
       "target": "app/call-to-action/page.tsx"
     },
