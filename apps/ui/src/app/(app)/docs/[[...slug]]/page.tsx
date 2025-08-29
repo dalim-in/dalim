@@ -16,7 +16,7 @@ import { Badge } from "@/registry/default/ui/badge"
 import { Button } from "@/registry/default/ui/button"
 import { DocThemeSelector } from "@/src/components/ui/theme-selector"
 
-export const revalidate = 60 // or "force-cache"
+export const revalidate = false 
 export const dynamicParams = false
 
 export function generateStaticParams() {
