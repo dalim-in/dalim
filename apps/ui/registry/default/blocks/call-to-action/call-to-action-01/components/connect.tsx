@@ -6,9 +6,7 @@ import { useAnimate } from "framer-motion"
 import { Mail } from "lucide-react"
 
 import { cn } from "@/registry/default/lib/utils"
-import { 
-  Particles,
-} from "@/registry/default/ui/backgrounds/particle-highlight"
+import { Particles } from "@/registry/default/ui/backgrounds/particle-highlight"
 import { Button, buttonVariants } from "@/registry/default/ui/button"
 
 export function Connect() {
@@ -53,14 +51,14 @@ export function Connect() {
     )
   }, [animate])
   return (
-    <section className="relative mx-auto mt-6 mb-20 max-w-5xl">
+    <section className="relative mx-auto max-w-5xl">
       <div className="group h-full">
         <div
           className="group/item h-full md:col-span-6 lg:col-span-12"
           data-aos="fade-down"
         >
           <div className="rounded-3xl p-6">
-            <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-black">
+            <div className="relative z-20 h-full overflow-hidden rounded-3xl border">
               <Particles
                 className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover/item:opacity-100"
                 quantity={200}

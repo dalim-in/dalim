@@ -4,7 +4,7 @@ import { Connect } from "@/registry/default/blocks/call-to-action/call-to-action
 
 export default function Page() {
   return (
-    <div className="flex min-h-[600px] w-full items-center justify-center p-6 md:p-10">
+    <div className="flex min-h-screen w-full items-center justify-center p-6 md:p-10">
       <Connect />
     </div>
   )

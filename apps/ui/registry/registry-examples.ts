@@ -266,6 +266,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "scroll-progress-default",
+    type: "registry:example",
+    registryDependencies: ["scroll-progress"],
+    files: [
+      {
+        path: "examples/backgrounds/scroll-progress-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "shader-lines-default",
     type: "registry:example",
     registryDependencies: ["shader-lines"],

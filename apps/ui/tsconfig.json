@@ -33,6 +33,6 @@
     ".next/types/**/*.ts",
     "scripts/build-registry.mts",
     "next.config.mjs"
-  ],
+, "registry/default/blocks/hero/hero-01/components/hero"  ],
   "exclude": ["node_modules"]
 }

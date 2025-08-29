@@ -830,4 +830,14 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "scroll-progress",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/scroll-progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

@@ -1250,6 +1250,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "scroll-progress": {
+    name: "scroll-progress",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/ui/backgrounds/scroll-progress.tsx",
+      type: "registry:ui",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/backgrounds/scroll-progress.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "dashboard-01": {
     name: "dashboard-01",
     description: "A dashboard with sidebar, charts and data table.",
@@ -1331,6 +1349,50 @@ export const Index: Record<string, any> = {
     }),
     categories: ["connect","call-to-action"],
     meta: {"iframeHeight":"600px","mobile":"component"},
+  },
+  "hero-01": {
+    name: "hero-01",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button","render-canvas"],
+    files: [{
+      path: "registry/default/blocks/hero/hero-01/page.tsx",
+      type: "registry:page",
+      target: "app/hero/page.tsx"
+    },{
+      path: "registry/default/blocks/hero/hero-01/components/hero.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/hero/hero-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["banner","hero"],
+    meta: undefined,
+  },
+  "hero-02": {
+    name: "hero-02",
+    description: "A simple hero photo gallery section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/default/blocks/hero/hero-02/page.tsx",
+      type: "registry:page",
+      target: "app/hero/page.tsx"
+    },{
+      path: "registry/default/blocks/hero/hero-02/components/gallery.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/hero/hero-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["banner","hero"],
+    meta: undefined,
   },
   "chart-area-axes": {
     name: "chart-area-axes",
@@ -1812,6 +1874,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/examples/backgrounds/shader-ripple-default.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "scroll-progress-default": {
+    name: "scroll-progress-default",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["scroll-progress"],
+    files: [{
+      path: "registry/default/examples/backgrounds/scroll-progress-default.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/backgrounds/scroll-progress-default.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

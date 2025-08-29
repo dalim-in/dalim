@@ -6,8 +6,9 @@ import { Button } from "@/registry/default/ui/button"
 export const revalidate = false
 
 const FEATURED_BLOCKS = [
-  "dashboard-01", 
-  "login-01", 
+  "hero-01", 
+  "hero-02", 
+  "call-to-action-01", 
 ]
 
 export default async function BlocksPage() {

@@ -918,6 +918,16 @@
       ]
     },
     {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/scroll-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -1037,6 +1047,53 @@
       "categories": [
         "connect",
         "call-to-action"
+      ]
+    },
+    {
+      "name": "hero-01",
+      "type": "registry:block",
+      "description": "A simple hero section",
+      "registryDependencies": [
+        "button",
+        "render-canvas"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-01/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
+      ]
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block",
+      "description": "A simple hero photo gallery section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-02/components/gallery.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
       ]
     },
     {
@@ -1563,6 +1620,19 @@
       "files": [
         {
           "path": "registry/default/examples/backgrounds/shader-ripple-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "scroll-progress"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/scroll-progress-default.tsx",
           "type": "registry:example"
         }
       ]

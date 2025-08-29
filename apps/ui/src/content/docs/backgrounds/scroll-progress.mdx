@@ -1,0 +1,76 @@
+---
+title: Scroll Progress
+description: A customizable scroll progress bar with gradient variants, sizes, and optional percentage display.  
+component: true
+---
+
+<ComponentPreview
+  name="scroll-progress-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[580px]"
+  description="Animated colorful leaves with blur and circular motion."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://ui.dalim.in/r/scroll-progress.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="scroll-progress" title="components/ui/scroll-progress.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { ScrollProgress } from "@/components/ui/scroll-progress"
+```
+
+```tsx showLineNumbers
+<div className="relative h-screen w-full overflow-hidden">
+  <ScrollProgress variant={"ice"} showPercentage /> 
+</div>
+```
+
+## API Reference  
+
+### ScrollProgress  
+
+
+| Prop                | Type                                           | Default                                   | Description |
+|---------------------|-----------------------------------------------|-------------------------------------------|-------------|
+| `className`         | `string`                                      | –                                         | Additional Tailwind/CSS classes. |
+| `variant`           | `"default" \| "rainbow" \| "ocean" \| "sunset" \| "forest" \| "monochrome" \| "neon" \| "fire" \| "ice" \| "gold" \| "solid" \| "custom"` | `"default"` | Preset gradient style for the progress bar. |
+| `size`              | `"xs" \| "sm" \| "default" \| "lg" \| "xl" \| "2xl"` | `"default"` | Height of the progress bar. |
+| `position`          | `"top" \| "bottom"`                           | `"top"`                                   | Position of the progress bar on the screen. |
+| `rounded`           | `"none" \| "sm" \| "default" \| "lg" \| "xl" \| "full"` | `"none"` | Rounding of the progress bar edges. |
+| `glow`              | `"none" \| "sm" \| "default" \| "lg" \| "xl"` | `"none"`                                  | Shadow/glow intensity around the progress bar. |
+| `customGradient`    | `string`                                      | –                                         | Custom Tailwind gradient classes when `variant="custom"`. |
+| `springConfig`      | `{ stiffness?: number; damping?: number; restDelta?: number }` | `{ stiffness: 200, damping: 50, restDelta: 0.001 }` | Configuration for spring animation. |
+| `showPercentage`    | `boolean`                                     | `false`                                   | Whether to show scroll percentage text. |
+| `percentagePosition`| `"left" \| "right" \| "center"`               | `"right"`                                 | Where to display the percentage label. |
+| `container`         | `React.RefObject<HTMLElement>`                | –                                         | Optional scroll container to track instead of `window`. |

@@ -106,7 +106,7 @@ export function MenuUI() {
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink
-                            href="/components"
+                            href="/docs/backgrounds/shader-ripple"
                             className={navigationMenuTriggerStyle()}>
                             Components <span className="ml-2 rounded-full bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
                         </NavigationMenuLink>

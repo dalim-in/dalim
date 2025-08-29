@@ -106,4 +106,40 @@ export const blocks: Registry["items"] = [
       mobile: "component",
     },
   },
+  {
+    name: "hero-01",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button", "render-canvas"],
+    files: [
+      {
+        path: "blocks/hero/hero-01/page.tsx",
+        target: "app/hero/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-01/components/hero.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
+  {
+    name: "hero-02",
+    description: "A simple hero photo gallery section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/hero/hero-02/page.tsx",
+        target: "app/hero/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-02/components/gallery.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
 ]
