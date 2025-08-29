@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3001 --turbopack",
-    "build": "fumadocs-mdx && next build",
+    "build": "next build",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "ls -R src/content/docs && next build",
+    "vercel-build": "ls -R content/docs && next build",
     "format:write": "prettier -- \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "registry:build": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && prettier --log-level silent --write \"registry/**/*.{ts,tsx,json,mdx}\" --cache",
