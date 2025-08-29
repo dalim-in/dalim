@@ -17,7 +17,7 @@ import { Button } from "@/registry/default/ui/button"
 import { DocThemeSelector } from "@/src/components/ui/theme-selector"
 
 export const revalidate = false
-export const dynamic = "force-static"
+export const dynamic = "force-dynamic"
 export const dynamicParams = false
 
 export function generateStaticParams() {

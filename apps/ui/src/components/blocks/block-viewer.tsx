@@ -54,6 +54,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/registry/default/ui/toggle-group"
+import { UI_URL } from "@dalim/auth"
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>
@@ -209,7 +210,7 @@ function BlockViewerToolbar() {
           className="w-fit gap-1 px-2 shadow-none"
           size="sm"
           onClick={() => {
-            copyToClipboard(`npx shadcn@latest add ${item.name}`)
+            copyToClipboard(`npx shadcn@latest add ${UI_URL}/r/styles/default/${item.name}.json`)
           }}
         >
           {isCopied ? <Check /> : <Terminal />}

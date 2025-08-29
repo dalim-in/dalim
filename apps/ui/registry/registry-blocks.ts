@@ -84,4 +84,26 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["authentication", "login"],
   },
+  {
+    name: "call-to-action-01",
+    description: "A simple call to action form.",
+    type: "registry:block",
+    registryDependencies: ["button", "particle-highlight"],
+    files: [
+      {
+        path: "blocks/call-to-action/call-to-action-01/page.tsx",
+        target: "app/call-to-action/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/call-to-action/call-to-action-01/components/connect.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["connect", "call-to-action"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
 ]

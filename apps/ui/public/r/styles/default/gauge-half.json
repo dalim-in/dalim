@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/common/gauge-half.tsx",
-      "content": "\"use client\"\n\nimport { Gauge } from \"@/registry/default/ui/common/gauge\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex h-full w-full items-center justify-center\">\n      <Gauge value={63} />\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { Gauge } from \"@/registry/default/ui/common/gauge\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex h-full w-full items-center justify-center\">\n      <Gauge\n        value={46}\n        size={200}\n        gaugeType=\"half\"\n        primary={{\n          0: \"danger\",\n          30: \"warning\",\n          70: \"success\",\n        }}\n        thresholds={[\n          { value: 30, color: \"#f59e0b\" },\n          { value: 70, color: \"#22c55e\" },\n        ]}\n        label=\"Speed\"\n        unit=\" mph\"\n        max={120}\n        transition={{ length: 1800, delay: 0 }}\n      />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

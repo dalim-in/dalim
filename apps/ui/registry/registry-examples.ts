@@ -244,6 +244,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "particle-highlight-default",
+    type: "registry:example",
+    registryDependencies: ["particle-highlight"],
+    files: [
+      {
+        path: "examples/backgrounds/particle-highlight-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "shader-ripple-default",
     type: "registry:example",
     registryDependencies: ["shader-animation"],
@@ -371,6 +382,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/backgrounds/particle-circle-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "void-animation-default",
+    type: "registry:example",
+    registryDependencies: ["void-animation"],
+    files: [
+      {
+        path: "examples/backgrounds/void-animation-default.tsx",
         type: "registry:example",
       },
     ],
@@ -821,7 +843,18 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-demo.tsx",
+        path: "examples/button/button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-default",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button/button-default.tsx",
         type: "registry:example",
       },
     ],
@@ -832,7 +865,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-secondary.tsx",
+        path: "examples/button/button-secondary.tsx",
         type: "registry:example",
       },
     ],
@@ -843,7 +876,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-destructive.tsx",
+        path: "examples/button/button-destructive.tsx",
         type: "registry:example",
       },
     ],
@@ -854,7 +887,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-outline.tsx",
+        path: "examples/button/button-outline.tsx",
         type: "registry:example",
       },
     ],
@@ -865,7 +898,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-ghost.tsx",
+        path: "examples/button/button-ghost.tsx",
         type: "registry:example",
       },
     ],
@@ -876,7 +909,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-link.tsx",
+        path: "examples/button/button-link.tsx",
         type: "registry:example",
       },
     ],
@@ -887,7 +920,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-with-icon.tsx",
+        path: "examples/button/button-with-icon.tsx",
         type: "registry:example",
       },
     ],
@@ -898,7 +931,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-loading.tsx",
+        path: "examples/button/button-loading.tsx",
         type: "registry:example",
       },
     ],
@@ -909,7 +942,7 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-icon.tsx",
+        path: "examples/button/button-icon.tsx",
         type: "registry:example",
       },
     ],
@@ -920,7 +953,29 @@ export const examples: Registry["items"] = [
     registryDependencies: ["button"],
     files: [
       {
-        path: "examples/button-as-child.tsx",
+        path: "examples/button/button-as-child.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-liquid-glass",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button/button-liquid-glass.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-metal",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button/button-metal.tsx",
         type: "registry:example",
       },
     ],

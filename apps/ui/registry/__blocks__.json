@@ -8,5 +8,10 @@
     "name": "login-01",
     "description": "A simple login form.",
     "categories": ["authentication", "login"]
+  },
+  {
+    "name": "call-to-action-01",
+    "description": "A simple call to action form.",
+    "categories": ["connect", "call-to-action"]
   }
 ]

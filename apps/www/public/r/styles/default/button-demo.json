@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/default/examples/button-demo.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonDemo() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-2 md:flex-row\">\n      <Button>Button</Button>\n    </div>\n  )\n}\n",
+      "path": "registry/default/examples/button/button-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button, LiquidButton, MetalButton } from \"@/registry/default/ui/button\"\n\nexport default function ButtonDemo() {\n  return (\n    <div className=\"flex flex-wrap items-center gap-6 md:flex-row\">\n      <Button>Button</Button>\n      <LiquidButton>Liquid Button</LiquidButton>\n      <MetalButton>Metal Button</MetalButton>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

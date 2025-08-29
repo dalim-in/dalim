@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "registry/default/examples/button-with-icon.tsx",
+      "path": "registry/default/examples/button/button-with-icon.tsx",
       "content": "import { IconGitBranch } from \"@tabler/icons-react\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonWithIcon() {\n  return (\n    <Button variant=\"outline\" size=\"sm\">\n      <IconGitBranch /> New Branch\n    </Button>\n  )\n}\n",
       "type": "registry:example"
     }

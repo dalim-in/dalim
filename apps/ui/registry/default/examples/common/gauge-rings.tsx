@@ -14,7 +14,7 @@ export default function Component() {
             { value: 90 * 0.6, color: "#fff200" },
             { value: 63 * 0.6, color: "#10b981" },
           ],
-        }} 
+        }}
         transition={{ length: 1000, delay: 300 }}
       />
     </div>

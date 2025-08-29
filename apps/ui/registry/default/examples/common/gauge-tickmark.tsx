@@ -8,7 +8,7 @@ export default function Component() {
       <Gauge
         value={81}
         size={200}
-        gradient={true} 
+        gradient={true}
         primary="success"
         tickMarks={true}
         label="Progress"

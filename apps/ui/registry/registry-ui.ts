@@ -810,4 +810,24 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "void-animation",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/void-animation.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "particle-highlight",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/particle-highlight.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

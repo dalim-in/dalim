@@ -898,6 +898,26 @@
       ]
     },
     {
+      "name": "void-animation",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/void-animation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "particle-highlight",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/particle-highlight.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -989,6 +1009,34 @@
       "categories": [
         "authentication",
         "login"
+      ]
+    },
+    {
+      "name": "call-to-action-01",
+      "type": "registry:block",
+      "description": "A simple call to action form.",
+      "registryDependencies": [
+        "button",
+        "particle-highlight"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/call-to-action/call-to-action-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/call-to-action/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/call-to-action/call-to-action-01/components/connect.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "connect",
+        "call-to-action"
       ]
     },
     {
@@ -1494,6 +1542,19 @@
       ]
     },
     {
+      "name": "particle-highlight-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "particle-highlight"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/particle-highlight-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "shader-ripple-default",
       "type": "registry:example",
       "registryDependencies": [
@@ -1645,6 +1706,19 @@
       "files": [
         {
           "path": "registry/default/examples/backgrounds/particle-circle-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "void-animation-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "void-animation"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/void-animation-default.tsx",
           "type": "registry:example"
         }
       ]
@@ -2178,7 +2252,20 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-demo.tsx",
+          "path": "registry/default/examples/button/button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button/button-default.tsx",
           "type": "registry:example"
         }
       ]
@@ -2191,7 +2278,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-secondary.tsx",
+          "path": "registry/default/examples/button/button-secondary.tsx",
           "type": "registry:example"
         }
       ]
@@ -2204,7 +2291,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-destructive.tsx",
+          "path": "registry/default/examples/button/button-destructive.tsx",
           "type": "registry:example"
         }
       ]
@@ -2217,7 +2304,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-outline.tsx",
+          "path": "registry/default/examples/button/button-outline.tsx",
           "type": "registry:example"
         }
       ]
@@ -2230,7 +2317,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-ghost.tsx",
+          "path": "registry/default/examples/button/button-ghost.tsx",
           "type": "registry:example"
         }
       ]
@@ -2243,7 +2330,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-link.tsx",
+          "path": "registry/default/examples/button/button-link.tsx",
           "type": "registry:example"
         }
       ]
@@ -2256,7 +2343,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-with-icon.tsx",
+          "path": "registry/default/examples/button/button-with-icon.tsx",
           "type": "registry:example"
         }
       ]
@@ -2269,7 +2356,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-loading.tsx",
+          "path": "registry/default/examples/button/button-loading.tsx",
           "type": "registry:example"
         }
       ]
@@ -2282,7 +2369,7 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-icon.tsx",
+          "path": "registry/default/examples/button/button-icon.tsx",
           "type": "registry:example"
         }
       ]
@@ -2295,7 +2382,33 @@
       ],
       "files": [
         {
-          "path": "registry/default/examples/button-as-child.tsx",
+          "path": "registry/default/examples/button/button-as-child.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-liquid-glass",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button/button-liquid-glass.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-metal",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button/button-metal.tsx",
           "type": "registry:example"
         }
       ]
