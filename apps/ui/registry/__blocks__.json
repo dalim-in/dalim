@@ -30,6 +30,16 @@
     "categories": ["banner", "hero"]
   },
   {
+    "name": "hero-03",
+    "description": "A simple hero section",
+    "categories": ["banner", "hero"]
+  },
+  {
+    "name": "hero-04",
+    "description": "A simple hero section",
+    "categories": ["banner", "hero"]
+  },
+  {
     "name": "logos-01",
     "description": "A simple client logo section",
     "categories": ["client", "logos"]
@@ -48,5 +58,20 @@
     "name": "logos-04",
     "description": "A simple client logo section",
     "categories": ["client", "logos"]
+  },
+  {
+    "name": "stats-01",
+    "description": "A simple stats section",
+    "categories": ["data", "stats"]
+  },
+  {
+    "name": "stats-02",
+    "description": "A simple stats section",
+    "categories": ["data", "stats"]
+  },
+  {
+    "name": "stats-03",
+    "description": "A simple stats section",
+    "categories": ["data", "stats"]
   }
 ]

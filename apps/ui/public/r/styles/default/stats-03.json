@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-03",
+  "type": "registry:block",
+  "description": "A simple stats section",
+  "registryDependencies": [
+    "counter-number"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/stats/stats-03/page.tsx",
+      "content": "\"use client\"\n\nimport { Stats } from \"@/registry/default/blocks/stats/stats-03/components/stats\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10\">\n      <h1 className=\"text-primary/60 mb-10 max-w-sm text-center text-sm md:max-w-md\">\n        Our Technology, Your Advantage.\n      </h1>\n      <Stats />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/stats-03/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/stats/stats-03/components/stats.tsx",
+      "content": "import { Gauge } from \"@/registry/default/ui/common/gauge\"\n\nexport function Stats() {\n  return (\n    <div className=\"\">\n      <div className=\"flex flex-wrap justify-center gap-6 space-y-4 text-center\">\n        <div className=\"space-y-3 px-6\">\n          <Gauge value={23} showPercentage />\n          <p>Mobile</p>\n        </div>\n        <div className=\"space-y-3 md:border-x md:px-12\">\n          <Gauge value={65} showPercentage />\n          <p>Tablet</p>\n        </div>\n        <div className=\"space-y-3 px-6\">\n          <Gauge value={91} showPercentage />\n          <p>Desktop</p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "data",
+    "stats"
+  ]
+}

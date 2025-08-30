@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react"
 
+import { cn } from "@/registry/default/lib/utils"
+
 const rand = (min: number, max: number) => {
   return Math.random() * (max - min) + min
 }
@@ -130,6 +132,7 @@ interface PixelAnimationProps {
   animationDuration?: number
   showHint?: boolean
   hintText?: string
+  className?: string
 }
 
 export function PixelAnimation({
@@ -141,6 +144,7 @@ export function PixelAnimation({
   colorHueRange = 50,
   maxPixelSize,
   animationDuration = 360,
+  className,
 }: PixelAnimationProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -305,6 +309,7 @@ export function PixelAnimation({
 
   return (
     <div
+      className={cn("h-full w-full", className)}
       style={{
         overflow: "hidden",
         display: "flex",

@@ -958,6 +958,16 @@
       ]
     },
     {
+      "name": "gradient-bars",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/gradient-bars.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -1151,6 +1161,52 @@
       ]
     },
     {
+      "name": "hero-03",
+      "type": "registry:block",
+      "description": "A simple hero section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero-03/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-03/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
+      ]
+    },
+    {
+      "name": "hero-04",
+      "type": "registry:block",
+      "description": "A simple hero section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-04/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero-04/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-04/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
+      ]
+    },
+    {
       "name": "logos-01",
       "type": "registry:block",
       "description": "A simple client logo section",
@@ -1256,6 +1312,114 @@
       "categories": [
         "client",
         "logos"
+      ]
+    },
+    {
+      "name": "stats-01",
+      "type": "registry:block",
+      "description": "A simple stats section",
+      "registryDependencies": [
+        "counter-number"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/stats/stats-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/stats-01/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/stats/stats-01/components/stats.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "data",
+        "stats"
+      ]
+    },
+    {
+      "name": "stats-02",
+      "type": "registry:block",
+      "description": "A simple stats section",
+      "registryDependencies": [
+        "counter-number"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/stats/stats-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/stats-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/stats/stats-02/components/stats.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "data",
+        "stats"
+      ]
+    },
+    {
+      "name": "stats-02",
+      "type": "registry:block",
+      "description": "A simple stats section",
+      "registryDependencies": [
+        "counter-number"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/stats/stats-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/stats-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/stats/stats-02/components/stats.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "data",
+        "stats"
+      ]
+    },
+    {
+      "name": "stats-03",
+      "type": "registry:block",
+      "description": "A simple stats section",
+      "registryDependencies": [
+        "counter-number"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/stats/stats-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/stats-03/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/stats/stats-03/components/stats.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "data",
+        "stats"
       ]
     },
     {
@@ -1938,6 +2102,19 @@
       "files": [
         {
           "path": "registry/default/examples/backgrounds/shine-border-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "gradient-bars-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "gradient-bars"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/gradient-bars-default.tsx",
           "type": "registry:example"
         }
       ]

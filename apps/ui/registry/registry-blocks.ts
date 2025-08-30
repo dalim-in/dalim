@@ -161,6 +161,42 @@ export const blocks: Registry["items"] = [
     categories: ["banner", "hero"],
   },
   {
+    name: "hero-03",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/hero/hero-03/page.tsx",
+        target: "app/hero-03/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-03/components/hero.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
+  {
+    name: "hero-04",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/hero/hero-04/page.tsx",
+        target: "app/hero-04/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-04/components/hero.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
+  {
     name: "logos-01",
     description: "A simple client logo section",
     type: "registry:block",
@@ -245,6 +281,94 @@ export const blocks: Registry["items"] = [
     categories: ["client", "logos"],
     meta: {
       iframeHeight: "800px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "stats-01",
+    description: "A simple stats section",
+    type: "registry:block",
+    registryDependencies: ["counter-number"],
+    files: [
+      {
+        path: "blocks/stats/stats-01/page.tsx",
+        target: "app/stats-01/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/stats/stats-01/components/stats.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["data", "stats"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "stats-02",
+    description: "A simple stats section",
+    type: "registry:block",
+    registryDependencies: ["counter-number"],
+    files: [
+      {
+        path: "blocks/stats/stats-02/page.tsx",
+        target: "app/stats-02/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/stats/stats-02/components/stats.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["data", "stats"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "stats-02",
+    description: "A simple stats section",
+    type: "registry:block",
+    registryDependencies: ["counter-number"],
+    files: [
+      {
+        path: "blocks/stats/stats-02/page.tsx",
+        target: "app/stats-02/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/stats/stats-02/components/stats.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["data", "stats"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "stats-03",
+    description: "A simple stats section",
+    type: "registry:block",
+    registryDependencies: ["counter-number"],
+    files: [
+      {
+        path: "blocks/stats/stats-03/page.tsx",
+        target: "app/stats-03/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/stats/stats-03/components/stats.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["data", "stats"],
+    meta: {
+      iframeHeight: "600px",
       mobile: "component",
     },
   },

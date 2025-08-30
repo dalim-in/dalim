@@ -15,6 +15,11 @@ export const registryCategories = [
     hidden: false,
   },
   {
+    name: "Stats",
+    slug: "stats",
+    hidden: false,
+  },
+  {
     name: "Login",
     slug: "login",
     hidden: false,

@@ -398,6 +398,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "gradient-bars-default",
+    type: "registry:example",
+    registryDependencies: ["gradient-bars"],
+    files: [
+      {
+        path: "examples/backgrounds/gradient-bars-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "pixel-animation-default",
     type: "registry:example",
     registryDependencies: ["pixel-animation"],

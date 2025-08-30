@@ -870,4 +870,14 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "gradient-bars",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/gradient-bars.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

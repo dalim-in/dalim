@@ -86,7 +86,7 @@ export default function PhotoGallery({
       y: "15px",
       zIndex: 50, // Highest z-index (on top)
       direction: "left" as Direction,
-      src: "https://images.pexels.com/photos/32025694/pexels-photo-32025694/free-photo-of-romantic-wedding-in-ancient-ruins.jpeg",
+      src: "https://images.pexels.com/photos/33600936/pexels-photo-33600936.jpeg",
     },
     {
       id: 2,

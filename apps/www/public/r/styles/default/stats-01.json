@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-01",
+  "type": "registry:block",
+  "description": "A simple stats section",
+  "registryDependencies": [
+    "counter-number"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/stats/stats-01/page.tsx",
+      "content": "\"use client\"\n\nimport { Stats } from \"@/registry/default/blocks/stats/stats-01/components/stats\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10\">\n      <h1 className=\"text-primary/60 mb-10 max-w-sm text-center text-sm md:max-w-md\">\n        Dalim is more than just models - it powers APIs and platforms that help\n        developers and businesses innovate.\n      </h1>\n      <Stats />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/stats-01/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/stats/stats-01/components/stats.tsx",
+      "content": "import { CounterNumber } from \"@/registry/default/ui/texts/counter-number\"\n\nexport function Stats() {\n  return (\n    <div className=\"\">\n      <div className=\"grid flex-wrap justify-center gap-6 space-y-4 text-center md:flex\">\n        <div className=\"space-y-3 px-6\">\n          <CounterNumber prefix=\"+\" value={1200} size=\"xl\" />\n          <p>Projects Deliver</p>\n        </div>\n        <div className=\"space-y-3 md:border-x md:px-12\">\n          <CounterNumber value={22} suffix=\"Million\" size=\"xl\" />\n          <p>Active Requests</p>\n        </div>\n        <div className=\"space-y-3 px-6\">\n          <CounterNumber prefix=\"+\" value={5000} size=\"xl\" />\n          <p>App Downloads</p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "data",
+    "stats"
+  ]
+}

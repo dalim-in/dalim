@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-02",
+  "type": "registry:block",
+  "description": "A simple stats section",
+  "registryDependencies": [
+    "counter-number"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/stats/stats-02/page.tsx",
+      "content": "\"use client\"\n\nimport { Stats } from \"@/registry/default/blocks/stats/stats-02/components/stats\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full flex-col items-center justify-center p-6 md:p-10\">\n      <h1 className=\"text-primary/60 mb-10 max-w-sm text-center text-sm md:max-w-md\">\n        Dalim is more than just models - it powers APIs and platforms that help\n        developers and businesses innovate.\n      </h1>\n      <Stats />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/stats-02/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/stats/stats-02/components/stats.tsx",
+      "content": "import { CounterNumber } from \"@/registry/default/ui/texts/counter-number\"\n\nexport function Stats() {\n  return (\n    <div className=\"mx-auto max-w-5xl space-y-8 px-6 md:space-y-16\">\n      <div className=\"grid gap-1 *:text-center lg:grid-cols-3 dark:[--color-muted:var(--color-zinc-900)]\">\n        <div className=\"bg-muted space-y-4 rounded-(--radius) py-6 lg:py-12\">\n          <CounterNumber prefix=\"+\" value={1200} size=\"xl\" />\n          <p>Projects Deliver</p>\n        </div>\n        <div className=\"bg-muted space-y-4 rounded-(--radius) px-10 py-6 lg:py-12\">\n          <CounterNumber value={22} suffix=\"Million\" size=\"xl\" />\n          <p>Active Requests</p>\n        </div>\n        <div className=\"bg-muted space-y-4 rounded-(--radius) py-6 lg:py-12\">\n          <CounterNumber prefix=\"+\" value={5000} size=\"xl\" />\n          <p>App Downloads</p>\n        </div>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "data",
+    "stats"
+  ]
+}
