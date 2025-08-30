@@ -38,7 +38,7 @@ export const blocks: Registry["items"] = [
       {
         path: "blocks/dashboard-01/page.tsx",
         type: "registry:page",
-        target: "app/dashboard/page.tsx",
+        target: "app/dashboard-01/page.tsx",
       },
       {
         path: "blocks/dashboard-01/components/app-header.tsx",
@@ -74,7 +74,7 @@ export const blocks: Registry["items"] = [
     files: [
       {
         path: "blocks/login-01/page.tsx",
-        target: "app/login/page.tsx",
+        target: "app/login-01/page.tsx",
         type: "registry:page",
       },
       {
@@ -92,7 +92,7 @@ export const blocks: Registry["items"] = [
     files: [
       {
         path: "blocks/call-to-action/call-to-action-01/page.tsx",
-        target: "app/call-to-action/page.tsx",
+        target: "app/call-to-action-01/page.tsx",
         type: "registry:page",
       },
       {
@@ -107,6 +107,24 @@ export const blocks: Registry["items"] = [
     },
   },
   {
+    name: "call-to-action-02",
+    description: "A simple call to action form.",
+    type: "registry:block",
+    registryDependencies: ["button", "shine-border"],
+    files: [
+      {
+        path: "blocks/call-to-action/call-to-action-02/page.tsx",
+        target: "app/call-to-action-02/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/call-to-action/call-to-action-02/components/timeline.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["connect", "call-to-action"],
+  },
+  {
     name: "hero-01",
     description: "A simple hero section",
     type: "registry:block",
@@ -114,7 +132,7 @@ export const blocks: Registry["items"] = [
     files: [
       {
         path: "blocks/hero/hero-01/page.tsx",
-        target: "app/hero/page.tsx",
+        target: "app/hero-01/page.tsx",
         type: "registry:page",
       },
       {
@@ -132,7 +150,7 @@ export const blocks: Registry["items"] = [
     files: [
       {
         path: "blocks/hero/hero-02/page.tsx",
-        target: "app/hero/page.tsx",
+        target: "app/hero-02/page.tsx",
         type: "registry:page",
       },
       {
@@ -141,5 +159,93 @@ export const blocks: Registry["items"] = [
       },
     ],
     categories: ["banner", "hero"],
+  },
+  {
+    name: "logos-01",
+    description: "A simple client logo section",
+    type: "registry:block",
+    registryDependencies: ["marquee"],
+    files: [
+      {
+        path: "blocks/client-logos/logos-01/page.tsx",
+        target: "app/logos-01/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/client-logos/logos-01/components/logos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["client", "logos"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "logos-02",
+    description: "A simple client logo section",
+    type: "registry:block",
+    registryDependencies: ["marquee"],
+    files: [
+      {
+        path: "blocks/client-logos/logos-02/page.tsx",
+        target: "app/logos-02/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/client-logos/logos-02/components/logos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["client", "logos"],
+    meta: {
+      iframeHeight: "600px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "logos-03",
+    description: "A simple client logo section",
+    type: "registry:block",
+    registryDependencies: ["marquee"],
+    files: [
+      {
+        path: "blocks/client-logos/logos-03/page.tsx",
+        target: "app/logos-03/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/client-logos/logos-03/components/logos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["client", "logos"],
+    meta: {
+      iframeHeight: "800px",
+      mobile: "component",
+    },
+  },
+  {
+    name: "logos-04",
+    description: "A simple client logo section",
+    type: "registry:block",
+    registryDependencies: ["marquee"],
+    files: [
+      {
+        path: "blocks/client-logos/logos-04/page.tsx",
+        target: "app/logos-04/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/client-logos/logos-04/components/logos.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["client", "logos"],
+    meta: {
+      iframeHeight: "800px",
+      mobile: "component",
+    },
   },
 ]

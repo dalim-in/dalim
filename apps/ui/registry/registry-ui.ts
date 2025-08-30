@@ -840,4 +840,34 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "marquee",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/common/marquee.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "animated-gradient",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/animated-gradient.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "shine-border",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/shine-border.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

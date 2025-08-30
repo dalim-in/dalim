@@ -15,6 +15,11 @@
     "categories": ["connect", "call-to-action"]
   },
   {
+    "name": "call-to-action-02",
+    "description": "A simple call to action form.",
+    "categories": ["connect", "call-to-action"]
+  },
+  {
     "name": "hero-01",
     "description": "A simple hero section",
     "categories": ["banner", "hero"]
@@ -23,5 +28,25 @@
     "name": "hero-02",
     "description": "A simple hero photo gallery section",
     "categories": ["banner", "hero"]
+  },
+  {
+    "name": "logos-01",
+    "description": "A simple client logo section",
+    "categories": ["client", "logos"]
+  },
+  {
+    "name": "logos-02",
+    "description": "A simple client logo section",
+    "categories": ["client", "logos"]
+  },
+  {
+    "name": "logos-03",
+    "description": "A simple client logo section",
+    "categories": ["client", "logos"]
+  },
+  {
+    "name": "logos-04",
+    "description": "A simple client logo section",
+    "categories": ["client", "logos"]
   }
 ]

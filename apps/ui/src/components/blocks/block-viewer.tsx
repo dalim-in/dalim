@@ -233,7 +233,7 @@ function BlockViewerIframe({ className }: { className?: string }) {
       height={item.meta?.iframeHeight ?? 930}
       loading="lazy"
       className={cn(
-        "bg-background no-scrollbar relative z-20 w-full",
+          "relative z-10 w-full h-full bg-transparent",
         className
       )}
     />
@@ -253,7 +253,7 @@ function BlockViewerView() {
         >
           <ResizablePanel
             ref={resizablePanelRef}
-            className="bg-background relative aspect-[4/2.5] overflow-hidden rounded-lg border md:aspect-auto md:rounded-xl"
+            className="relative bg-transparent aspect-[4/2.5] overflow-hidden rounded-lg border md:aspect-auto md:rounded-xl"
             defaultSize={100}
             minSize={30}
           >

@@ -115,7 +115,7 @@ export function Connect() {
                         width="16.8"
                         height="18.2"
                         viewBox="0 0 12 13"
-                        className="fill-red-500"
+                        className="fill-brand"
                         stroke="white"
                         strokeWidth="1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ export function Connect() {
                           d="M12 5.50676L0 0L2.83818 13L6.30623 7.86537L12 5.50676V5.50676Z"
                         />
                       </svg>
-                      <span className="bg-ali relative -top-1 left-3 rounded-3xl px-2 py-1 text-xs text-white">
+                      <span className="bg-brand relative -top-1 left-3 rounded-3xl px-2 py-1 text-xs text-white dark:text-black">
                         Ali
                       </span>
                     </div>
@@ -145,13 +145,13 @@ export function Connect() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Link
-                        href={"https://cal.com/aliimam/designali"}
+                        href={"https://cal.com/dalim/15min"}
                         target="_blank"
                       >
                         <Button>Book a call</Button>
                       </Link>
                       <Link
-                        href="mailto:contact@designali.in"
+                        href="mailto:contact@dalim.in"
                         target="_blank"
                         className={cn(
                           buttonVariants({

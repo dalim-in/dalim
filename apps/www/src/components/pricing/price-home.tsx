@@ -11,8 +11,8 @@ export function Pricing() {
     return (
         <section className="mx-auto max-w-6xl border-x">
             <div className="py-10">
-                <div className="grid md:grid-cols-3">
-                    <Card className="flex flex-col rounded-none border-x-0 shadow-none">
+                <div className="grid md:grid-cols-2">
+                    <Card className="flex flex-col md:border-r rounded-none border-x-0 shadow-none">
                         <CardHeader>
                             <CardTitle className="text-3xl font-bold">Free</CardTitle>
                             <span className="my-3 block text-2xl font-semibold">$0 / mo</span>
@@ -46,46 +46,7 @@ export function Pricing() {
                                 </Button>
                             </Link>
                         </CardFooter>
-                    </Card>
-
-                    <Card className="relative rounded-none border-0 shadow-none md:border">
-                        <span className="bg-linear-to-br/increasing absolute inset-x-0 -top-3 mx-auto flex h-6 w-fit items-center rounded-full from-purple-400 to-amber-300 px-3 py-1 text-xs font-medium text-amber-950 ring-1 ring-inset ring-white/20 ring-offset-1 ring-offset-gray-950/5">Popular</span>
-
-                        <div className="flex flex-col">
-                            <CardHeader>
-                                <CardTitle className="text-3xl font-bold">Pro</CardTitle>
-                                <span className="my-3 block text-2xl font-semibold">$9 / mo</span>
-                                <CardDescription className="pb-6 text-sm">Team</CardDescription>
-                            </CardHeader>
-
-                            <CardContent className="space-y-4">
-                                <hr className="border-dashed" />
-                                <ul className="list-outside space-y-3 text-sm">
-                                    {['Everything in Free Plan', 'Unlimited downloads', 'Premium assets & templates', 'Lifetime commercial license', 'Advanced dashboard with analytics', 'Unlimited uploads', 'Team support', 'Monthly Product Updates', 'Cancel any time'].map((item, index) => (
-                                        <li
-                                            key={index}
-                                            className="flex items-center gap-2">
-                                            <Check className="size-3" />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </CardContent>
-
-                            <CardFooter>
-                                <Link
-                                    className="w-full mt-6"
-                                    href={'https://cal.com/dalim/15min'}
-                                    target="_blank">
-                                    <Button
-                                        size={'lg'} 
-                                        className="w-full">
-                                        Get Started
-                                    </Button>
-                                </Link>
-                            </CardFooter>
-                        </div>
-                    </Card>
+                    </Card> 
 
                     <Card className="flex flex-col rounded-none border-x-0 shadow-none">
                         <CardHeader>
@@ -98,7 +59,7 @@ export function Pricing() {
                             <hr className="border-dashed" />
 
                             <ul className="list-outside space-y-3 text-sm">
-                                {['Everything in Pro Plan', 'Any custom design', '1 Active request at a time', 'Unlimited brands', 'Updates every 48 hours', 'Unlimited design requests', 'Dedicated support', 'Cancel any time'].map((item, index) => (
+                                {['Everything in Free Plan', 'Branding', 'Website Design & Develop', 'Next.js 15, Typesctipt, Tailwind 4 CSS', 'Shadcn/ui', 'Google & Vercel Analytics', 'Responsive across desktop, tablet and mobile', 'Fast-loading, SEO-friendly, and performance optimized.', 'Theming – Adding light and dark mode.', 'Unlimited design changes'].map((item, index) => (
                                     <li
                                         key={index}
                                         className="flex items-center gap-2">

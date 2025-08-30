@@ -928,6 +928,36 @@
       ]
     },
     {
+      "name": "marquee",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/common/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "animated-gradient",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/animated-gradient.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shine-border",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/shine-border.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -965,7 +995,7 @@
         {
           "path": "registry/default/blocks/dashboard-01/page.tsx",
           "type": "registry:page",
-          "target": "app/dashboard/page.tsx"
+          "target": "app/dashboard-01/page.tsx"
         },
         {
           "path": "registry/default/blocks/dashboard-01/components/app-header.tsx",
@@ -1009,7 +1039,7 @@
         {
           "path": "registry/default/blocks/login-01/page.tsx",
           "type": "registry:page",
-          "target": "app/login/page.tsx"
+          "target": "app/login-01/page.tsx"
         },
         {
           "path": "registry/default/blocks/login-01/components/login-form.tsx",
@@ -1033,7 +1063,7 @@
         {
           "path": "registry/default/blocks/call-to-action/call-to-action-01/page.tsx",
           "type": "registry:page",
-          "target": "app/call-to-action/page.tsx"
+          "target": "app/call-to-action-01/page.tsx"
         },
         {
           "path": "registry/default/blocks/call-to-action/call-to-action-01/components/connect.tsx",
@@ -1044,6 +1074,30 @@
         "iframeHeight": "600px",
         "mobile": "component"
       },
+      "categories": [
+        "connect",
+        "call-to-action"
+      ]
+    },
+    {
+      "name": "call-to-action-02",
+      "type": "registry:block",
+      "description": "A simple call to action form.",
+      "registryDependencies": [
+        "button",
+        "shine-border"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/call-to-action/call-to-action-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/call-to-action-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/call-to-action/call-to-action-02/components/timeline.tsx",
+          "type": "registry:component"
+        }
+      ],
       "categories": [
         "connect",
         "call-to-action"
@@ -1061,7 +1115,7 @@
         {
           "path": "registry/default/blocks/hero/hero-01/page.tsx",
           "type": "registry:page",
-          "target": "app/hero/page.tsx"
+          "target": "app/hero-01/page.tsx"
         },
         {
           "path": "registry/default/blocks/hero/hero-01/components/hero.tsx",
@@ -1084,7 +1138,7 @@
         {
           "path": "registry/default/blocks/hero/hero-02/page.tsx",
           "type": "registry:page",
-          "target": "app/hero/page.tsx"
+          "target": "app/hero-02/page.tsx"
         },
         {
           "path": "registry/default/blocks/hero/hero-02/components/gallery.tsx",
@@ -1094,6 +1148,114 @@
       "categories": [
         "banner",
         "hero"
+      ]
+    },
+    {
+      "name": "logos-01",
+      "type": "registry:block",
+      "description": "A simple client logo section",
+      "registryDependencies": [
+        "marquee"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/client-logos/logos-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/logos-01/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/client-logos/logos-01/components/logos.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "client",
+        "logos"
+      ]
+    },
+    {
+      "name": "logos-02",
+      "type": "registry:block",
+      "description": "A simple client logo section",
+      "registryDependencies": [
+        "marquee"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/client-logos/logos-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/logos-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/client-logos/logos-02/components/logos.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "600px",
+        "mobile": "component"
+      },
+      "categories": [
+        "client",
+        "logos"
+      ]
+    },
+    {
+      "name": "logos-03",
+      "type": "registry:block",
+      "description": "A simple client logo section",
+      "registryDependencies": [
+        "marquee"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/client-logos/logos-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/logos-03/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/client-logos/logos-03/components/logos.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "mobile": "component"
+      },
+      "categories": [
+        "client",
+        "logos"
+      ]
+    },
+    {
+      "name": "logos-04",
+      "type": "registry:block",
+      "description": "A simple client logo section",
+      "registryDependencies": [
+        "marquee"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/client-logos/logos-04/page.tsx",
+          "type": "registry:page",
+          "target": "app/logos-04/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/client-logos/logos-04/components/logos.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px",
+        "mobile": "component"
+      },
+      "categories": [
+        "client",
+        "logos"
       ]
     },
     {
@@ -1755,6 +1917,32 @@
       ]
     },
     {
+      "name": "animated-gradient-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "animated-gradient"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/animated-gradient-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "shine-border-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "shine-border"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/shine-border-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "pixel-animation-default",
       "type": "registry:example",
       "registryDependencies": [
@@ -2127,6 +2315,19 @@
       "files": [
         {
           "path": "registry/default/examples/common/gauge-half.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "marquee-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "marquee"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/marquee-default.tsx",
           "type": "registry:example"
         }
       ]

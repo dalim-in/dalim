@@ -1,46 +1,40 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@dalim/core/ui/accordion'
- 
 
 export function FAQs() {
     const faqItems = [
         {
             id: 'item-1',
-            question: 'Can I switch plans later?',
-            answer: 'Absolutely. You can upgrade or downgrade your plan at any time from your dashboard.',
+            question: 'How fast will I receive my designs?',
+            answer: 'On average, most requests are completed in just two days or less. However, more complex requests can take longer.',
         },
         {
             id: 'item-2',
             question: 'Do I need a credit card to start?',
-            answer: 'No credit card is required for the Free plan. Youll only need one when upgrading to Startup or Pro.',
+            answer: 'No credit card is required for the Free plan.',
         },
         {
             id: 'item-3',
-            question: 'Does the Pro plan support teams?',
-            answer: 'Yes! The Pro plan is built for teams and agencies with collaboration features, access control, and shared asset libraries.',
+            question: 'How does onboarding work?',
+            answer: 'Book a meeting and we will discuss the project. I will share you the proposal that what I deliver and plans. After some advanced payment the project will started.',
         },
         {
             id: 'item-4',
-            question: 'What does “Unlimited Design Requests” mean?',
-            answer: "You can queue as many design tasks as you want. In the Startup plan, one task is handled at a time. In Pro, multiple requests can run simultaneously.",
+            question: 'What if I don’t like the design?',
+            answer: 'No worries! We will ll continue to revise the design until youre 100% satisfied.',
         },
         {
             id: 'item-5',
-            question: 'Can I upload my own assets?',
-            answer: 'Yes! Font and graphic uploads are available on all tiers, but Free has limited capacity (5 each), while Startup and Pro are unlimited.',
+            question: 'Are there any refunds?',
+            answer: 'Due to the high quality nature of the work, there will be no refunds issued past the first week of service. However, no refunds will be issued for completed work.',
         },
         {
             id: 'item-6',
-            question: 'Do I get a license for everything?',
-            answer: 'Yes. All assets you download or create are licensed for personal and commercial use with no attribution required on paid plans.',
-        },
-        {
-            id: 'item-7',
-            question: 'What’s the difference between Startup and Pro?',
-            answer: 'Startup is built for solo users who want design help but don’t need team collaboration or insights. Pro is for teams with more advanced needs like analytics, roles, and faster delivery.',
+            question: 'Who are the designers?',
+            answer: 'Dalim is a one-man agency, ran by Ali, the founder. Dalim does not employ other designers, or outsource work to any other entity. You will work directly with me through the entirety of your experience.',
         },
     ]
     return (
-       <div className="mx-auto max-w-6xl border-x px-6 pb-10">
+        <div className="mx-auto max-w-6xl border-x px-6 pb-10">
             <div className="relative pt-10 before:absolute before:-inset-x-6 before:top-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border))]"></div>
             <div>
                 <h1 className="mx-auto mb-10 max-w-xs px-6 text-center text-xl font-thin md:max-w-full md:text-3xl">Frequently asked questions?</h1>
@@ -48,7 +42,7 @@ export function FAQs() {
             <div className="grid items-stretch">
                 <div className="h-full w-full">
                     <Accordion
-                    defaultValue="item-1"
+                        defaultValue="item-1"
                         type="single"
                         collapsible
                         className="bg-muted dark:bg-muted/50 w-full rounded-3xl p-1">
@@ -69,8 +63,6 @@ export function FAQs() {
                         ))}
                     </Accordion>
                 </div>
-
-                 
             </div>
         </div>
     )

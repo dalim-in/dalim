@@ -376,6 +376,28 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "animated-gradient-default",
+    type: "registry:example",
+    registryDependencies: ["animated-gradient"],
+    files: [
+      {
+        path: "examples/backgrounds/animated-gradient-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "shine-border-default",
+    type: "registry:example",
+    registryDependencies: ["shine-border"],
+    files: [
+      {
+        path: "examples/backgrounds/shine-border-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "pixel-animation-default",
     type: "registry:example",
     registryDependencies: ["pixel-animation"],
@@ -690,6 +712,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/common/gauge-half.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "marquee-default",
+    type: "registry:example",
+    registryDependencies: ["marquee"],
+    files: [
+      {
+        path: "examples/common/marquee-default.tsx",
         type: "registry:example",
       },
     ],

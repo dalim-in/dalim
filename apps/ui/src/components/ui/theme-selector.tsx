@@ -242,3 +242,44 @@ export function DocThemeSelector({ className }: React.ComponentProps<"div">) {
     </div>
   )
 }
+
+
+
+export function BlockThemeSelector({ }: React.ComponentProps<"div">) {
+   
+  const [config, setConfig] = useConfig()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) {
+    // optionally return skeleton or null
+    return null
+  }
+
+  return (
+    <div className="flex flex-col justify-center gap-3 px-6">
+      {mounted && (
+        <div className="flex items-center gap-2">
+          <Label className="text-xs font-medium">Border Radius</Label>
+          <Slider
+            value={[config.radius]}
+            onValueChange={(value) => {
+              setConfig({
+                ...config,
+                radius: value[0],
+              })
+            }}
+            max={1.5}
+            min={0}
+            step={0.1}
+            className="w-40"
+          />
+          <div className="text-muted-foreground flex justify-between gap-2 text-xs">
+            <span className="font-medium">{config.radius} rem</span>
+          </div>
+        </div>
+      )}
+        
+    </div>
+  )
+}

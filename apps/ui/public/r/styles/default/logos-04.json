@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos-04",
+  "type": "registry:block",
+  "description": "A simple client logo section",
+  "registryDependencies": [
+    "marquee"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/client-logos/logos-04/page.tsx",
+      "content": "\"use client\"\n\nimport { ClientLogos } from \"@/registry/default/blocks/client-logos/logos-04/components/logos\"\nimport { AnimatedGradient } from \"@/registry/default/ui/backgrounds/animated-gradient\"\n\nexport default function Page() {\n  return (\n    <div className=\"relative flex min-h-screen w-full flex-col items-center justify-center p-6 md:p-10\">\n      <div className=\"relative z-50 flex flex-col justify-center\">\n        <h1 className=\"mb-10 px-6 text-center text-lg font-medium text-white\">\n          Backed by the design industry’s top creators and brands.\n        </h1>\n        <ClientLogos />\n      </div>\n      <AnimatedGradient />\n      <div className=\"absolute h-full w-full bg-red-500 mix-blend-color-burn\" />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/logos-04/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/client-logos/logos-04/components/logos.tsx",
+      "content": "/* eslint-disable react/jsx-key */\nimport {\n  Adobe,\n  Apple,\n  Dalim,\n  Gemini,\n  Github,\n  Google,\n  Grok,\n  Meta,\n  Nike,\n  OpenAI,\n  V0,\n  Vercel,\n} from \"dalim-icons\"\n\nexport function ClientLogos() {\n  return (\n    <div className=\"mx-auto max-w-5xl\">\n      <div className=\"mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6\">\n        {[\n          <OpenAI size={40} />,\n          <V0 size={40} />,\n          <Gemini size={40} />,\n          <Grok size={40} />,\n          <Vercel size={40} />,\n          <Apple size={40} />,\n          <Nike size={40} />,\n          <Dalim size={40} />,\n          <Github size={40} />,\n          <Google size={40} />,\n          <Meta size={40} />,\n          <Adobe size={40} />,\n        ].map((Logo, i) => (\n          <div\n            key={i}\n            className=\"bg-background/90 dark:bg-background/60 flex h-20 w-30 items-center justify-center rounded-sm shadow-2xl backdrop-blur-sm md:h-24 md:w-40\"\n          >\n            {Logo}\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "800px",
+    "mobile": "component"
+  },
+  "categories": [
+    "client",
+    "logos"
+  ]
+}

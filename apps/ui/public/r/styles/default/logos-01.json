@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos-01",
+  "type": "registry:block",
+  "description": "A simple client logo section",
+  "registryDependencies": [
+    "marquee"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/client-logos/logos-01/page.tsx",
+      "content": "\"use client\"\n\nimport { ClientLogos } from \"@/registry/default/blocks/client-logos/logos-01/components/logos\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-screen w-full flex-col items-center justify-center p-6 md:p-10\">\n      <h1 className=\"mb-10 px-6 text-center text-lg font-medium\">\n        Trusted by the world’s most creative companies.\n      </h1>\n      <ClientLogos />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/logos-01/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/client-logos/logos-01/components/logos.tsx",
+      "content": "/* eslint-disable @next/next/no-img-element */\nimport {\n  Apple,\n  Dalim,\n  Gemini,\n  Github,\n  Google,\n  Grok,\n  Nike,\n  OpenAI,\n  V0,\n  Vercel,\n} from \"dalim-icons\"\n\nexport function ClientLogos() {\n  return (\n    <div className=\"mx-auto max-w-5xl px-6\">\n      <div className=\"mx-auto mb-10 flex max-w-2xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-24 sm:gap-y-10\">\n        <OpenAI size={40} />\n        <V0 size={40} />\n        <Gemini size={40} />\n        <Grok size={40} />\n        <Vercel size={40} />\n        <Apple size={40} />\n        <Nike size={40} />\n        <Dalim size={40} />\n        <Github size={40} />\n        <Google size={40} />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "client",
+    "logos"
+  ]
+}

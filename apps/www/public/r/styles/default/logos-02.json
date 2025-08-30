@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logos-02",
+  "type": "registry:block",
+  "description": "A simple client logo section",
+  "registryDependencies": [
+    "marquee"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/client-logos/logos-02/page.tsx",
+      "content": "\"use client\"\n\nimport { ClientLogos } from \"@/registry/default/blocks/client-logos/logos-02/components/logos\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-screen w-full flex-col items-center justify-center p-6 md:p-10\">\n      <h1 className=\"mb-10 px-6 text-center text-lg font-medium\">\n        We partner with the design icons you already love.\n      </h1>\n      <ClientLogos />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/logos-02/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/client-logos/logos-02/components/logos.tsx",
+      "content": "import {\n  Apple,\n  Dalim,\n  Gemini,\n  Github,\n  Google,\n  Grok,\n  Nike,\n  OpenAI,\n  V0,\n  Vercel,\n} from \"dalim-icons\"\n\nimport { Marquee } from \"@/registry/default/ui/common/marquee\"\n\nexport function ClientLogos() {\n  return (\n    <div className=\"mx-auto flex h-full w-full max-w-3xl items-center justify-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [mask-size:100%_100%] [mask-repeat:no-repeat] px-6\">\n      <main className=\"\">\n        <Marquee className=\"py-6 [--gap:40px]\">\n          <OpenAI size={40} />\n          <V0 size={40} />\n          <Gemini size={40} />\n          <Grok size={40} />\n          <Vercel size={40} />\n          <Apple size={40} />\n          <Nike size={40} />\n          <Dalim size={40} />\n          <Github size={40} />\n          <Google size={40} />\n        </Marquee>\n      </main>\n    </div>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "client",
+    "logos"
+  ]
+}

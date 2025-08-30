@@ -69,13 +69,13 @@ export function Hero() {
           empower others.
         </p>
         <div className="flex justify-center gap-2">
-          <Link href={"/dashboard"}>
-            <Button variant="default" size="lg">
+          <Link href={"/"}>
+            <Button className="cursor-pointer" variant="default" size="lg">
               Start Project
             </Button>
           </Link>
-          <Link href={"https://cal.com/aliimam/designali"} target="_blank">
-            <Button variant="outline" size="lg">
+          <Link href={"https://cal.com/dalim/15min"} target="_blank">
+            <Button className="cursor-pointer" variant="outline" size="lg">
               Book a call
             </Button>
           </Link>
