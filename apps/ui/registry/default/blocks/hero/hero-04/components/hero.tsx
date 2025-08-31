@@ -1,34 +1,45 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 
 import { Button } from "@/registry/default/ui/button"
+import { LiquidCard } from "@/registry/default/ui/card"
 
 export function Hero() {
   return (
-    <div className="bg-background/20 relative z-20 mx-4 mt-10 flex flex-col items-center rounded-3xl border py-20 shadow-2xl backdrop-blur-md md:p-10">
-      <main className="relative w-full overflow-hidden px-6">
-        <h1 className="mb-3 text-center text-6xl font-extrabold tracking-tighter md:text-[clamp(2rem,8vw,7rem)]">
-          Designs That Give
-        </h1>
-        <p className="text-primary/60 px-6 text-center text-xs md:text-sm lg:text-lg">
-          Unleashing creativity through bold visuals, seamless interfaces, and
-          limitless possibilities.
-        </p>
-        <div className="my-8 flex items-center justify-center gap-1">
-          <span className="relative flex h-3 w-3 items-center justify-center">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-          </span>
-          <p className="text-xs text-green-500">Available for New Projects</p>
+    <div className="px-6">
+      <LiquidCard className="w-full max-w-3xl border border-white/20 p-0 shadow-none">
+        <div className="p-1">
+          <main className="relative overflow-hidden rounded-md border border-white/20 bg-black/20 py-10 shadow-2xl backdrop-blur-md">
+            <h1 className="mb-3 px-6 text-center text-5xl font-extrabold tracking-tighter text-white md:text-[clamp(2rem,8vw,7rem)]">
+              Design is <span className="text-[#fff200]">Everything</span>
+            </h1>
+            <p className="lg:text-md px-6 text-center text-xs text-white/60 md:text-sm">
+              Unleashing creativity through bold visuals and limitless
+              possibilities.
+            </p>
+            <div className="my-8 flex items-center justify-center gap-1">
+              <span className="relative flex h-3 w-3 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+              </span>
+              <p className="text-xs text-green-500">
+                Available for New Projects
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <Button
+                variant={"outline"}
+                className="cursor-pointer border border-white/20 bg-white/10 text-white hover:bg-white/10 hover:text-white"
+                size={"lg"}
+              >
+                Let&apos;s Go
+              </Button>
+            </div>
+          </main>
         </div>
-      </main>
-      <div className="">
-        <Link href={"/"}>
-          <Button size={"lg"}>Let&apos;s Go</Button>
-        </Link>
-      </div>
+      </LiquidCard>
     </div>
   )
 }

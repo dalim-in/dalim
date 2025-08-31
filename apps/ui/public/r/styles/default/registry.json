@@ -1207,6 +1207,29 @@
       ]
     },
     {
+      "name": "hero-05",
+      "type": "registry:block",
+      "description": "A simple hero section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-05/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero-05/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-05/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
+      ]
+    },
+    {
       "name": "logos-01",
       "type": "registry:block",
       "description": "A simple client logo section",
@@ -1420,6 +1443,52 @@
       "categories": [
         "data",
         "stats"
+      ]
+    },
+    {
+      "name": "pricing-01",
+      "type": "registry:block",
+      "description": "A simple pricing section",
+      "registryDependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/pricing/pricing-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/pricing-01/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/pricing/pricing-01/components/price.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "subscription",
+        "pricing"
+      ]
+    },
+    {
+      "name": "pricing-02",
+      "type": "registry:block",
+      "description": "A simple pricing section",
+      "registryDependencies": [
+        ""
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/pricing/pricing-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/pricing-02/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/pricing/pricing-02/components/price.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "subscription",
+        "pricing"
       ]
     },
     {

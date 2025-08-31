@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-02",
+  "type": "registry:block",
+  "description": "A simple pricing section",
+  "registryDependencies": [
+    ""
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/pricing/pricing-02/page.tsx",
+      "content": "import { CompareTable } from \"@/registry/default/blocks/pricing/pricing-02/components/price\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n       <CompareTable />\n    </div>\n  )\n}\n",
+      "type": "registry:page",
+      "target": "app/pricing-02/page.tsx"
+    },
+    {
+      "path": "registry/default/blocks/pricing/pricing-02/components/price.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cn } from \"@/src/lib/utils\"\nimport { Check } from \"lucide-react\"\n\nconst features = [\n  { name: \"Basic Designs\", included: \"starter\" },\n  { name: \"Up to 5 team members\", included: \"starter\" },\n  { name: \"Changes requests\", included: \"starter\" },\n  { name: \"Advanced Analytics\", included: \"pro\" },\n  { name: \"Up to 20 team members\", included: \"pro\" },\n  { name: \"Priority support\", included: \"pro\" },\n  { name: \"Custom integrations\", included: \"all\" },\n  { name: \"Unlimited team members\", included: \"all\" },\n  { name: \"24/7 phone support\", included: \"all\" },\n]\n\nconst plans = [\n  {\n    name: \"Free\",\n    price: { monthly: 15, yearly: 144 },\n    level: \"starter\",\n  },\n  {\n    name: \"Pro\",\n    price: { monthly: 49, yearly: 470 },\n    level: \"pro\",\n    popular: true,\n  },\n  {\n    name: \"Startup\",\n    price: { monthly: 99, yearly: 990 },\n    level: \"all\",\n  },\n]\n\nexport function CompareTable() {\n  return <PricingTable features={features} plans={plans} />\n}\n\ntype PlanLevel = \"starter\" | \"pro\" | \"all\" | string\n\ninterface PricingFeature {\n  name: string\n  included: PlanLevel | null\n}\n\ninterface PricingPlan {\n  name: string\n  level: PlanLevel\n  price: {\n    monthly: number\n    yearly: number\n  }\n  popular?: boolean\n}\n\ninterface PricingTableProps extends React.HTMLAttributes<HTMLDivElement> {\n  features: PricingFeature[]\n  plans: PricingPlan[]\n}\n\nexport function PricingTable({ features, plans, ...props }: PricingTableProps) {\n  return (\n    <section>\n      <div className={\"border-x\"} {...props}>\n        <div className=\"divide-y last:border-b\">\n          <div className=\"sticky top-20 z-10 mt-2 flex items-center border-t bg-neutral-50 pl-6 dark:bg-neutral-900\">\n            <div className=\"flex-1 text-sm font-medium\">Features</div>\n            <div className=\"flex items-center text-sm\">\n              {plans.map((plan) => (\n                <div\n                  key={plan.level}\n                  className=\"w-20 border-r p-6 text-center font-medium first:border-l last:border-0 md:w-40 lg:w-60 xl:w-68\"\n                >\n                  {plan.name}\n                </div>\n              ))}\n            </div>\n          </div>\n\n          {features.map((feature) => (\n            <div\n              key={feature.name}\n              className={cn(\"flex items-center pl-6 transition-colors\")}\n            >\n              <div className=\"flex-1 pr-4 text-sm\">{feature.name}</div>\n              <div className=\"flex items-center text-sm\">\n                {plans.map((plan) => (\n                  <div\n                    key={plan.level}\n                    className={cn(\n                      \"flex w-20 justify-center border-r py-6 first:border-l last:border-0 md:w-40 lg:w-60 xl:w-68\",\n                      plan.level && \"font-medium\"\n                    )}\n                  >\n                    {shouldShowCheck(feature.included, plan.level) ? (\n                      <Check className=\"h-5 w-5 text-yellow-500\" />\n                    ) : (\n                      <span className=\"text-neutral-300 dark:text-neutral-700\">\n                        -\n                      </span>\n                    )}\n                  </div>\n                ))}\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}\n\nfunction shouldShowCheck(\n  included: PricingFeature[\"included\"],\n  level: string\n): boolean {\n  if (included === \"all\") return true\n  if (included === \"pro\" && (level === \"pro\" || level === \"all\")) return true\n  if (\n    included === \"starter\" &&\n    (level === \"starter\" || level === \"pro\" || level === \"all\")\n  )\n    return true\n  return false\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "subscription",
+    "pricing"
+  ]
+}

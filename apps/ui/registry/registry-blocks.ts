@@ -197,6 +197,24 @@ export const blocks: Registry["items"] = [
     categories: ["banner", "hero"],
   },
   {
+    name: "hero-05",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/hero/hero-05/page.tsx",
+        target: "app/hero-05/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-05/components/hero.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
+  {
     name: "logos-01",
     description: "A simple client logo section",
     type: "registry:block",
@@ -371,5 +389,41 @@ export const blocks: Registry["items"] = [
       iframeHeight: "600px",
       mobile: "component",
     },
+  },
+  {
+    name: "pricing-01",
+    description: "A simple pricing section",
+    type: "registry:block",
+    registryDependencies: [""],
+    files: [
+      {
+        path: "blocks/pricing/pricing-01/page.tsx",
+        target: "app/pricing-01/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/pricing/pricing-01/components/price.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["subscription", "pricing"],
+  },
+  {
+    name: "pricing-02",
+    description: "A simple pricing section",
+    type: "registry:block",
+    registryDependencies: [""],
+    files: [
+      {
+        path: "blocks/pricing/pricing-02/page.tsx",
+        target: "app/pricing-02/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/pricing/pricing-02/components/price.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["subscription", "pricing"],
   },
 ]

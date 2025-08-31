@@ -1532,6 +1532,28 @@ export const Index: Record<string, any> = {
     categories: ["banner","hero"],
     meta: undefined,
   },
+  "hero-05": {
+    name: "hero-05",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/default/blocks/hero/hero-05/page.tsx",
+      type: "registry:page",
+      target: "app/hero-05/page.tsx"
+    },{
+      path: "registry/default/blocks/hero/hero-05/components/hero.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/hero/hero-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["banner","hero"],
+    meta: undefined,
+  },
   "logos-01": {
     name: "logos-01",
     description: "A simple client logo section",
@@ -1707,6 +1729,50 @@ export const Index: Record<string, any> = {
     }),
     categories: ["data","stats"],
     meta: {"iframeHeight":"600px","mobile":"component"},
+  },
+  "pricing-01": {
+    name: "pricing-01",
+    description: "A simple pricing section",
+    type: "registry:block",
+    registryDependencies: [""],
+    files: [{
+      path: "registry/default/blocks/pricing/pricing-01/page.tsx",
+      type: "registry:page",
+      target: "app/pricing-01/page.tsx"
+    },{
+      path: "registry/default/blocks/pricing/pricing-01/components/price.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/pricing/pricing-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["subscription","pricing"],
+    meta: undefined,
+  },
+  "pricing-02": {
+    name: "pricing-02",
+    description: "A simple pricing section",
+    type: "registry:block",
+    registryDependencies: [""],
+    files: [{
+      path: "registry/default/blocks/pricing/pricing-02/page.tsx",
+      type: "registry:page",
+      target: "app/pricing-02/page.tsx"
+    },{
+      path: "registry/default/blocks/pricing/pricing-02/components/price.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/pricing/pricing-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["subscription","pricing"],
+    meta: undefined,
   },
   "chart-area-axes": {
     name: "chart-area-axes",

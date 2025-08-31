@@ -7,8 +7,10 @@ export const revalidate = false
 
 const FEATURED_BLOCKS = [
   "hero-01", 
-  "hero-02", 
-  "call-to-action-01", 
+  "hero-04", 
+  "logos-03", 
+  "pricing-01", 
+  "call-to-action-02", 
 ]
 
 export default async function BlocksPage() {

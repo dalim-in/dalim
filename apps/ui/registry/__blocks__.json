@@ -40,6 +40,11 @@
     "categories": ["banner", "hero"]
   },
   {
+    "name": "hero-05",
+    "description": "A simple hero section",
+    "categories": ["banner", "hero"]
+  },
+  {
     "name": "logos-01",
     "description": "A simple client logo section",
     "categories": ["client", "logos"]
@@ -73,5 +78,15 @@
     "name": "stats-03",
     "description": "A simple stats section",
     "categories": ["data", "stats"]
+  },
+  {
+    "name": "pricing-01",
+    "description": "A simple pricing section",
+    "categories": ["subscription", "pricing"]
+  },
+  {
+    "name": "pricing-02",
+    "description": "A simple pricing section",
+    "categories": ["subscription", "pricing"]
   }
 ]
