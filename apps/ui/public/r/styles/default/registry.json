@@ -968,6 +968,16 @@
       ]
     },
     {
+      "name": "shader-morphing",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/shader-morphing.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -1221,6 +1231,29 @@
         },
         {
           "path": "registry/default/blocks/hero/hero-05/components/hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner",
+        "hero"
+      ]
+    },
+    {
+      "name": "hero-06",
+      "type": "registry:block",
+      "description": "A simple hero section",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/hero/hero-06/page.tsx",
+          "type": "registry:page",
+          "target": "app/hero-06/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/hero/hero-06/components/hero.tsx",
           "type": "registry:component"
         }
       ],
@@ -2184,6 +2217,19 @@
       "files": [
         {
           "path": "registry/default/examples/backgrounds/gradient-bars-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "shader-morphing-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "shader-morphing"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/shader-morphing-default.tsx",
           "type": "registry:example"
         }
       ]

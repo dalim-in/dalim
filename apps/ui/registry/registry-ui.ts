@@ -880,4 +880,14 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "shader-morphing",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/shader-morphing.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

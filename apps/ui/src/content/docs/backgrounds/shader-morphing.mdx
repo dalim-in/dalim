@@ -1,0 +1,71 @@
+---
+title: Shader Morphing
+description: The `ShaderMorphing` component renders a full-screen animated shader effect using **Three.js** and GLSL. It creates a morphing, neon-like gradient background that continuously evolves over time.  
+component: true
+---
+
+<ComponentPreview
+  name="shader-morphing-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[630px]"
+  description="Full-screen animated shader background using Three.js."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://ui.dalim.in/r/styles/default/shader-morphing.json
+
+```
+
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shader-morphing" title="components/ui/shader-morphing.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { Shaderlines } from "@/components/ui/shader-morphing"
+```
+
+```tsx  
+<div className="relative h-screen w-full">
+      {/* Background Shader */}
+      <ShaderMorphing />
+
+      {/* Foreground Content */}
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <h1 className="text-5xl font-bold text-white">Shader Morphing</h1>
+      </div>
+    </div>
+```
+ 
+### Props
+
+| Prop            | Type                                      | Default     | Description |
+|-----------------|-------------------------------------------|-------------|-------------|
+| `id`            | `string`                                  | –           | Optional id for the root container `<div>`. |
+| `className`     | `string`                                  | –           | Optional Tailwind/CSS classes applied to the container `<div>`. |
+| `style`         | `React.CSSProperties`                     | –           | Inline styles applied to the root container. |
+| `width`         | `number \| string`                        | `"100%"`    | Width of the canvas container. |
+| `height`        | `number \| string`                        | `"100%"`    | Height of the canvas container. |
+| `position`      | `"absolute" \| "fixed" \| "relative"`     | `"absolute"`| CSS positioning for the container. |
+| `zIndex`        | `number`                                  | `-1`        | Controls stacking order. |
+| `pointerEvents` | `"none" \| "auto"`                        | `"none"`    | Whether to block or allow mouse interactions. |
+| `animationSpeed`| `number`                                  | `1.0`       | Multiplier for shader animation speed. |
+| `transparentBg` | `boolean`                                 | `true`      | Whether the background is transparent. |

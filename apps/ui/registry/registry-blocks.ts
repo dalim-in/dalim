@@ -215,6 +215,24 @@ export const blocks: Registry["items"] = [
     categories: ["banner", "hero"],
   },
   {
+    name: "hero-06",
+    description: "A simple hero section",
+    type: "registry:block",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "blocks/hero/hero-06/page.tsx",
+        target: "app/hero-06/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/hero/hero-06/components/hero.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner", "hero"],
+  },
+  {
     name: "logos-01",
     description: "A simple client logo section",
     type: "registry:block",

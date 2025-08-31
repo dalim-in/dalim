@@ -8,7 +8,7 @@ import { LiquidCard } from "@/registry/default/ui/card"
 export function Hero() {
   return (
     <div className="px-6">
-      <LiquidCard className="w-full max-w-3xl border border-white/20 p-0 shadow-none">
+      <LiquidCard className="w-full max-w-3xl border border-black/20 p-0 shadow-none">
         <div className="p-1">
           <main className="relative overflow-hidden rounded-md border border-white/20 bg-black/20 py-10 shadow-2xl backdrop-blur-md">
             <h1 className="mb-3 px-6 text-center text-5xl font-extrabold tracking-tighter text-white md:text-[clamp(2rem,8vw,7rem)]">

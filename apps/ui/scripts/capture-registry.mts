@@ -4,7 +4,7 @@ import puppeteer from "puppeteer"
 
 import { getAllBlockIds } from "../src/lib/blocks"
 
-const REGISTRY_PATH = path.join(process.cwd(), "public/r")
+const REGISTRY_PATH = path.join(process.cwd(), "public/images")
 
 // ----------------------------------------------------------------------------
 // Capture screenshots.
@@ -38,7 +38,7 @@ async function captureScreenshots() {
   })
 
   for (const block of blocks) {
-    const pageUrl = `http://localhost:3001/view/${block}`
+    const pageUrl = `http://localhost:3001/view/styles/default/${block}`
 
     const page = await browser.newPage()
     await page.goto(pageUrl, {
@@ -78,7 +78,7 @@ async function captureScreenshots() {
       })
 
       await page.screenshot({
-        path: screenshotPath,
+        path: screenshotPath as `${string}.png`,
       })
     }
 

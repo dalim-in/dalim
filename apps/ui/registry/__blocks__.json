@@ -45,6 +45,11 @@
     "categories": ["banner", "hero"]
   },
   {
+    "name": "hero-06",
+    "description": "A simple hero section",
+    "categories": ["banner", "hero"]
+  },
+  {
     "name": "logos-01",
     "description": "A simple client logo section",
     "categories": ["client", "logos"]

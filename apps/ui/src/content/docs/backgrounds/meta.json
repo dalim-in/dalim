@@ -4,6 +4,7 @@
     "shader-ripple",
     "shader-lines",
     "shader-rgb",
+    "shader-morphing",
     "render-canvas",
     "particle-highlight",
     "particle-circle",

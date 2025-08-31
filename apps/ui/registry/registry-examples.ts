@@ -409,6 +409,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "shader-morphing-default",
+    type: "registry:example",
+    registryDependencies: ["shader-morphing"],
+    files: [
+      {
+        path: "examples/backgrounds/shader-morphing-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "pixel-animation-default",
     type: "registry:example",
     registryDependencies: ["pixel-animation"],
