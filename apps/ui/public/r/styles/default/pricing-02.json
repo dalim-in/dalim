@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/blocks/pricing/pricing-02/page.tsx",
-      "content": "import { CompareTable } from \"@/registry/default/blocks/pricing/pricing-02/components/price\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n       <CompareTable />\n    </div>\n  )\n}\n",
+      "content": "import { CompareTable } from \"@/registry/default/blocks/pricing/pricing-02/components/price\"\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <CompareTable />\n    </div>\n  )\n}\n",
       "type": "registry:page",
       "target": "app/pricing-02/page.tsx"
     },

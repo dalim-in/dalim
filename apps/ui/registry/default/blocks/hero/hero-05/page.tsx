@@ -4,7 +4,10 @@ import { PixelAnimation } from "@/registry/default/ui/backgrounds/pixel-animatio
 export default function DemoOne() {
   return (
     <div className="relative flex min-h-svh w-full flex-col items-center justify-center overflow-y-auto">
-      <PixelAnimation className="absolute opacity-30 inset-0 z-0 h-full" pixelGap={12} />
+      <PixelAnimation
+        className="absolute inset-0 z-0 h-full opacity-30"
+        pixelGap={12}
+      />
       <HeroSection />
     </div>
   )

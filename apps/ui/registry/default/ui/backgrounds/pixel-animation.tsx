@@ -286,7 +286,7 @@ export function PixelAnimation({
 
     animate()
   }
-  
+
   useEffect(() => {
     const resizeObserver = new ResizeObserver(resize)
     const container = containerRef.current
@@ -313,7 +313,7 @@ export function PixelAnimation({
         justifyContent: "center",
         alignItems: "center",
         cursor: "pointer",
-      }} 
+      }}
     >
       <div
         ref={containerRef}

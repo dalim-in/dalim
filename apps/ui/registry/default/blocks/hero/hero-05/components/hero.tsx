@@ -1,12 +1,13 @@
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/registry/default/ui/button"
 import { ArrowRight } from "lucide-react"
+
+import { Button } from "@/registry/default/ui/button"
 
 export function HeroSection() {
   return (
-    <div className="pt-20 z-30 h-screen">
+    <div className="z-30 h-screen pt-20">
       <div className="">
         <div className="text-center sm:mx-auto lg:mt-0 lg:mr-auto">
           <div>
