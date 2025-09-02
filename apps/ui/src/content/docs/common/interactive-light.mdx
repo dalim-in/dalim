@@ -1,0 +1,55 @@
+---
+title: Interactive Light
+description: The lamp follows your mouse cursor with a glowing effect, includes the grid background with radial highlight, supports.
+component: true
+---
+
+<ComponentPreview
+  name="interactive-light-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[630px]"
+  description="Full-screen animated shader background using Three.js."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://ui.dalim.in/r/styles/default/interactive-light.json
+```
+
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="interactive-light"
+  title="components/ui/interactive-light.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx
+import { InteractiveLight } from "@/components/ui/interactive-light"
+```
+
+```tsx
+<InteractiveLight
+  shineColor="#fff200"
+  lampHeight="10vh"
+  lampWidth="10vh"
+  transitionDuration={500}
+/>
+```

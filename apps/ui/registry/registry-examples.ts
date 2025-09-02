@@ -420,6 +420,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "shader-wave-default",
+    type: "registry:example",
+    registryDependencies: ["shader-wave"],
+    files: [
+      {
+        path: "examples/backgrounds/shader-wave-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "pixel-animation-default",
     type: "registry:example",
     registryDependencies: ["pixel-animation"],
@@ -646,6 +657,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/mockups/browser-custom.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "interactive-light-default",
+    type: "registry:example",
+    registryDependencies: ["interactive-light"],
+    files: [
+      {
+        path: "examples/common/interactive-light-default.tsx",
         type: "registry:example",
       },
     ],

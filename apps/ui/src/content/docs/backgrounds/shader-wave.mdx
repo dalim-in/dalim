@@ -1,0 +1,48 @@
+---
+title: Shader Wave
+description: Wave component with props for width, height, speed, tiles, pointer control, and DPR.
+component: true
+---
+
+<ComponentPreview
+  name="shader-wave-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[90%] **:[.preview]:min-h-[630px]"
+  description="Full-screen animated shader background using Three.js."
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://ui.dalim.in/r/styles/default/shader-wave.json
+```
+
+</TabsContent> <TabsContent value="manual"> <Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shader-wave" title="components/ui/shader-wave.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps> </TabsContent> </CodeTabs>
+
+## Usage
+
+```tsx  
+import { ShaderWave } from "@/components/ui/shader-wave"
+```
+
+```tsx  
+<ShaderWave /> 
+```
+ 

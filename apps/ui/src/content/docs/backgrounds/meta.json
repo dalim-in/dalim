@@ -5,6 +5,7 @@
     "shader-lines",
     "shader-rgb",
     "shader-morphing",
+    "shader-wave",
     "render-canvas",
     "particle-highlight",
     "particle-circle",

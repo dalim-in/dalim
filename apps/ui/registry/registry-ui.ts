@@ -890,4 +890,24 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "shader-wave",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/shader-wave.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "interactive-light",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/common/interactive-light.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

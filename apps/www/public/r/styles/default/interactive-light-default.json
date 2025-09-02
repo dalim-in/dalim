@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-light-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "interactive-light"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/common/interactive-light-default.tsx",
+      "content": "\"use client\"\n\nimport { InteractiveLight } from \"@/registry/default/ui/common/interactive-light\"\n\nexport default function Component() {\n  return (\n    <div className=\"flex relative h-full w-full items-center justify-center overflow-hidden rounded-md border\">\n      <InteractiveLight\n        shineColor=\"#fff200\"\n        lampHeight=\"10vh\"\n        lampWidth=\"10vh\"\n        transitionDuration={500}\n      /> \n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

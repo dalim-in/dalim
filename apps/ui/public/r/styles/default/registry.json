@@ -978,6 +978,26 @@
       ]
     },
     {
+      "name": "shader-wave",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/shader-wave.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "interactive-light",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/common/interactive-light.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
@@ -2235,6 +2255,19 @@
       ]
     },
     {
+      "name": "shader-wave-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "shader-wave"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/shader-wave-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "pixel-animation-default",
       "type": "registry:example",
       "registryDependencies": [
@@ -2503,6 +2536,19 @@
       "files": [
         {
           "path": "registry/default/examples/mockups/browser-custom.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "interactive-light-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "interactive-light"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/common/interactive-light-default.tsx",
           "type": "registry:example"
         }
       ]
