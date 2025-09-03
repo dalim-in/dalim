@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "news-search",
+  "type": "registry:example",
+  "registryDependencies": [
+    "ai"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/ai/news-search.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport type { NewsSearchResult } from \"@/registry/default/ui/ai/tools/news-tools\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\"\n\nexport function NewsList({ data }: { data: NewsSearchResult }) {\n  return (\n    <Card className=\"w-full max-w-lg\">\n      <CardHeader>\n        <CardTitle>News</CardTitle>\n        <CardDescription>Topic: {data.topic}</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ul className=\"space-y-2\">\n          {data.items.map((item) => (\n            <li key={item.id} className=\"rounded-md bg-muted px-3 py-2\">\n              {item.url ? (\n                <a\n                  href={item.url}\n                  className=\"font-medium hover:underline\"\n                  target=\"_blank\"\n                  rel=\"noreferrer\"\n                >\n                  {item.title}\n                </a>\n              ) : (\n                <span className=\"font-medium\">{item.title}</span>\n              )}\n              {item.publishedAt && (\n                <div className=\"text-xs text-muted-foreground\">\n                  {new Date(item.publishedAt).toLocaleString()}\n                </div>\n              )}\n            </li>\n          ))}\n        </ul>\n      </CardContent>\n    </Card>\n  )\n}\n\nexport default NewsList\n",
+      "type": "registry:example"
+    }
+  ]
+}

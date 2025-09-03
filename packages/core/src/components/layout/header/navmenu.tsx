@@ -19,14 +19,7 @@ export function Menu() {
                             passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
                         </Link>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <NavigationMenuLink
-                            href="/ai"
-                            className={navigationMenuTriggerStyle()}>
-                            AI <span className="ml-2 rounded-md bg-[#fff000] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">New</span>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
+                    </NavigationMenuItem> 
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                         <NavigationMenuContent
@@ -35,26 +28,41 @@ export function Menu() {
                             <ul className="grid gap-3 p-4 md:w-[600px] lg:w-[900px] lg:grid-cols-[1fr_1fr_1fr]">
                                 <div className="row-span-1 space-y-3">
                                     <ListItem
-                                        href="/pricing"
-                                        title="Pricing">
-                                        World's Top Designers profile list. Download the Assets from users.
-                                    </ListItem>
-                                    <ListItem
                                         href={`${FONTS_URL}`}
                                         title="Fonts">
                                         Discover beautifully crafted typefaces for every creative project.
                                     </ListItem>
-                                    <ListItem
-                                        href="/blogs"
-                                        title="Blogs">
-                                        Creative Chronicles: Insights, Inspiration, and Design Trends
+                                   <ListItem
+                                        href={`${GRAPHIC_URL}`}
+                                        title="Graphics">
+                                        Discover beautifully crafted typefaces for every creative project.
                                     </ListItem>
+                                     <ListItem
+                                        href={`${ICONS_URL}`}
+                                        title="Icons">
+                                        Discover beautifully Icons & Logos for every creative project.
+                                    </ListItem>
+                                     <ListItem
+                                        href={`${AGENCY_URL}`}
+                                        title="Agency">
+                                        Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.
+                                    </ListItem> 
                                 </div>
-                                <li className="row-span-1">
-                                    <NavigationMenuLink href={`${AGENCY_URL}`}>
+                                <li className="grid gap-y-3">
+                                    <NavigationMenuLink href={`${UI_URL}`}>
                                         <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
-                                            <div className="text-primary mb-2 text-lg font-medium">Agency</div>
-                                            <p className="text-muted-foreground text-sm leading-tight"> Design Without Limits. Get agency-level designs without the agency price.</p>
+                                            <div className="text-primary mb-2 text-lg font-medium">UI</div>
+                                            <p className="text-muted-foreground text-sm leading-tight"> 
+                                                Discover beautifully crafted typefaces for every creative project — from modern displays to.
+                                            </p>
+                                        </div>
+                                    </NavigationMenuLink>
+                                    <NavigationMenuLink href={`/pricing`}>
+                                        <div className="bg-secondary/60 hover:bg-accent flex h-full w-full select-none flex-col justify-end rounded-lg p-6 no-underline outline-none focus:shadow-md">
+                                            <div className="text-primary mb-2 text-lg font-medium">Pricing</div>
+                                            <p className="text-muted-foreground text-sm leading-tight"> 
+                                                World's Top Designers profile list. Download the Assets from users.
+                                            </p>
                                         </div>
                                     </NavigationMenuLink>
                                 </li>
@@ -65,14 +73,19 @@ export function Menu() {
                                         World's Top Designers profile list. Download the Assets from users.
                                     </ListItem>
                                     <ListItem
-                                        href={`${GRAPHIC_URL}`}
-                                        title="Graphics">
-                                        Discover beautifully crafted typefaces for every creative project.
-                                    </ListItem>
-                                    <ListItem
                                         href={`${WORKS_URL}`}
                                         title="Works">
-                                        Welcome to My Creative Playground! I’m Ali – Your Vision, My Design.
+                                       My Creative works for entire experience. A curated collection of graphic design work
+                                    </ListItem>
+                                    <ListItem
+                                        href={`/blogs`}
+                                        title="Blogs">
+                                        Exploring ideas that connect, communicate, and inspire.
+                                    </ListItem>
+                                     <ListItem
+                                        href={`/ai`}
+                                        title="AI">
+                                        A platform for discovering open-source design projects, fostering creative collaboration.
                                     </ListItem>
                                 </div>
                             </ul>

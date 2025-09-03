@@ -1,0 +1,92 @@
+---
+title: News Search
+description: A group of interactive buttons with optional tooltips, commonly used for message-level interget-weather like copy, like, share, etc.
+component: true 
+---
+
+<ComponentPreview
+  name="get-weather"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[300px]"
+  description="A set of action buttons with tooltips"
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/styles/default/get-weather.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+ 
+<ComponentSource name="get-weather" title="components/ui/ai/get-weather.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Action,
+  get-weather,
+} from "@/components/ui/ai/get-weather"
+
+import { CopyIcon, ShareIcon } from "lucide-react"
+```
+
+```tsx showLineNumbers
+<get-weather>
+  <Action tooltip="Copy" label="Copy">
+    <CopyIcon className="size-4" />
+  </Action>
+  <Action tooltip="Share" label="Share">
+    <ShareIcon className="size-4" />
+  </Action>
+</get-weather>
+```
+
+## API Reference
+
+### get-weather
+
+Container for a group of action buttons.
+
+| Prop       | Type   | Default | Description |
+|------------|--------|---------|-------------|
+| `className` | string | –       | Additional classes to style the wrapper. |
+| `children` | ReactNode | –    | One or more `<Action />` components. |
+
+### Action
+
+An individual interactive button with optional tooltip. Inherits all props from the underlying `Button`.
+
+| Prop       | Type       | Default   | Description |
+|------------|------------|-----------|-------------|
+| `tooltip`  | string     | –         | Text shown in a tooltip when hovering the button. |
+| `label`    | string     | –         | Accessible label (also rendered as `sr-only` text). |
+| `variant`  | string     | `"ghost"` | Button variant (e.g., `"ghost"`, `"default"`, `"outline"`). |
+| `size`     | string     | `"sm"`    | Button size (e.g., `"sm"`, `"md"`, `"lg"`). |
+| `className`| string     | –         | Additional classes for styling the button. |
+| `children` | ReactNode  | –         | The icon or content inside the action button. |
+| `...props` | Button props | –       | Any additional props supported by the `Button` component. |
