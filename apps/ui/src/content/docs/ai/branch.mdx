@@ -1,0 +1,78 @@
+---
+title: Branch
+description: A group of interactive buttons with optional tooltips, commonly used for message-level interbranch like copy, like, share, etc.
+component: true
+links:
+  doc: https://ai-sdk.dev/elements/components/branch
+---
+
+<ComponentPreview
+  name="branch-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[300px]"
+  description="A set of action buttons with tooltips"
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/styles/default/branch.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+ 
+<ComponentSource name="branch" title="components/ui/ai/branch.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Branch,
+  BranchMessages,
+  BranchNext,
+  BranchPage,
+  BranchPrevious,
+  BranchSelector,
+} from '@/components/ai-elements/branch';
+```
+
+```tsx showLineNumbers
+<Branch defaultBranch={0}>
+  <BranchMessages>
+    <Message from="user">
+      <MessageContent>Hello</MessageContent>
+    </Message>
+    <Message from="user">
+      <MessageContent>Hi!</MessageContent>
+    </Message>
+  </BranchMessages>
+  <BranchSelector from="user">
+    <BranchPrevious />
+    <BranchPage />
+    <BranchNext />
+  </BranchSelector>
+</Branch>
+``` 

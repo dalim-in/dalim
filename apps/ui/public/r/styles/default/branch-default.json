@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "branch-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "branch",
+    "ai"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/ai/branch-default.tsx",
+      "content": "\"use client\"\n\nimport {\n  Branch,\n  BranchMessages,\n  BranchNext,\n  BranchPage,\n  BranchPrevious,\n  BranchSelector,\n} from \"@/registry/default/ui/ai/branch\"\nimport { Message, MessageContent } from \"@/registry/default/ui/ai/message\"\n\nexport default function BranchDemo() {\n  return (\n    <div className=\"flex h-full items-center justify-center\">\n      <div className=\"mx-auto w-full max-w-xl\">\n        <Branch defaultBranch={0}>\n          <BranchMessages>\n            <Message from=\"user\">\n              <MessageContent>\n                What are the key strategies for optimizing React performance?\n              </MessageContent>\n            </Message>\n            <Message from=\"user\">\n              <MessageContent>\n                How can I improve the performance of my React application?\n              </MessageContent>\n            </Message>\n            <Message from=\"user\">\n              <MessageContent>\n                What performance optimization techniques should I use in React?\n              </MessageContent>\n            </Message>\n          </BranchMessages>\n          <BranchSelector from=\"user\" className=\"p-0\">\n            <BranchPrevious />\n            <BranchPage />\n            <BranchNext />\n          </BranchSelector>\n        </Branch>\n        <Branch defaultBranch={0}>\n          <BranchMessages>\n            <Message from=\"assistant\">\n              <MessageContent>\n                Here&apos;s the first response to your question. This approach\n                focuses on performance optimization.\n              </MessageContent>\n            </Message>\n            <Message from=\"assistant\">\n              <MessageContent>\n                Here&apos;s an alternative response. This approach emphasizes\n                code readability and maintainability over pure performance.\n              </MessageContent>\n            </Message>\n            <Message from=\"assistant\">\n              <MessageContent>\n                And here&apos;s a third option. This balanced approach considers\n                both performance and maintainability, making it suitable for\n                most use cases.\n              </MessageContent>\n            </Message>\n          </BranchMessages>\n          <BranchSelector from=\"assistant\" className=\"p-0\">\n            <BranchPrevious />\n            <BranchPage />\n            <BranchNext />\n          </BranchSelector>\n        </Branch>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

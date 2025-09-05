@@ -748,6 +748,26 @@
       ]
     },
     {
+      "name": "branch",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/ai/branch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/ai/prompt-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "device",
       "type": "registry:ui",
       "files": [
@@ -2674,11 +2694,40 @@
       "name": "actions-default",
       "type": "registry:example",
       "registryDependencies": [
+        "actions",
         "ai"
       ],
       "files": [
         {
           "path": "registry/default/examples/ai/actions-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "branch-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "branch",
+        "ai"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/ai/branch-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "prompt-input-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "prompt-input",
+        "ai"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/ai/prompt-input-default.tsx",
           "type": "registry:example"
         }
       ]

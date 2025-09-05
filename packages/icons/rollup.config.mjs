@@ -24,7 +24,7 @@ export default [
         sourcemap: true,
       },
       {
-        name: "coolshapes",
+        name: "icons",
         file: pkg["main:umd"],
         format: "umd",
         sourcemap: true,

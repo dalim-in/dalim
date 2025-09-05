@@ -661,6 +661,26 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "branch",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/ai/branch.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "prompt-input",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/ai/prompt-input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "device",
     type: "registry:ui",
     files: [

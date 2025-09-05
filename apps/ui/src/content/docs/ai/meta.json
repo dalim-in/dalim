@@ -1,6 +1,8 @@
 {
   "title": "AI",
   "pages": [
-    "actions"
+    "actions",
+    "branch",
+    "prompt-input"
   ]
 }

@@ -774,10 +774,32 @@ export const examples: Registry["items"] = [
   {
     name: "actions-default",
     type: "registry:example",
-    registryDependencies: ["ai"],
+    registryDependencies: ["actions", "ai"],
     files: [
       {
         path: "examples/ai/actions-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "branch-default",
+    type: "registry:example",
+    registryDependencies: ["branch", "ai"],
+    files: [
+      {
+        path: "examples/ai/branch-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "prompt-input-default",
+    type: "registry:example",
+    registryDependencies: ["prompt-input", "ai"],
+    files: [
+      {
+        path: "examples/ai/prompt-input-default.tsx",
         type: "registry:example",
       },
     ],

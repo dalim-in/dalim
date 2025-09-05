@@ -1,98 +1,77 @@
 "use client"
 
-import Image from "next/image"
+import { useState } from "react"
 import {
+  BookmarkIcon,
   CopyIcon,
   RefreshCcwIcon,
-  ShareIcon,
+  Share2Icon,
   ThumbsDownIcon,
   ThumbsUpIcon,
 } from "lucide-react"
 
 import { Action, Actions } from "@/registry/default/ui/ai/actions"
-import {
-  Conversation,
-  ConversationContent,
-} from "@/registry/default/ui/ai/conversation"
-import { Message, MessageContent } from "@/registry/default/ui/ai/message"
 
-const messages: {
-  id: string
-  from: "user" | "assistant"
-  content: string
-  avatar: string
-  name: string
-}[] = [
-  {
-    id: "1",
-    from: "user",
-    content: "Hello, how are you?",
-    avatar: "https://github.com/evilrabbit.png",
-    name: "Ali Imam",
-  },
-  {
-    id: "2",
-    from: "assistant",
-    content: "I am fine, thank you!",
-    avatar: "https://github.com/openai.png",
-    name: "OpenAI",
-  },
-]
-const Example = () => {
-  const actions = [
-    {
-      icon: RefreshCcwIcon,
-      label: "Retry",
-    },
-    {
-      icon: ThumbsUpIcon,
-      label: "Like",
-    },
-    {
-      icon: ThumbsDownIcon,
-      label: "Dislike",
-    },
-    {
-      icon: CopyIcon,
-      label: "Copy",
-    },
-    {
-      icon: ShareIcon,
-      label: "Share",
-    },
-  ]
+export default function ActionsDemo() {
+  const [liked, setLiked] = useState<null | "up" | "down">(null)
+  const [saved, setSaved] = useState(false)
+
   return (
-    <div className="flex h-full w-full max-w-lg items-center justify-center">
-      <Conversation className="relative w-full">
-        <ConversationContent>
-          {messages.map((message) => (
-            <Message
-              className={`flex flex-col gap-2 ${message.from === "assistant" ? "items-start" : "items-end"}`}
-              from={message.from}
-              key={message.id}
-            >
-              <Image
-                src={message.avatar}
-                alt={message.name}
-                width={32}
-                height={32}
-                className="h-8 w-8 rounded-full"
-              />
-              <MessageContent>{message.content}</MessageContent>
-              {message.from === "assistant" && (
-                <Actions className="mt-2">
-                  {actions.map((action) => (
-                    <Action key={action.label} label={action.label}>
-                      <action.icon className="size-4" />
-                    </Action>
-                  ))}
-                </Actions>
-              )}
-            </Message>
-          ))}
-        </ConversationContent>
-      </Conversation>
+    <div className="flex h-full items-center justify-center">
+      <div className="mx-auto max-w-md">
+        <Actions className="flex flex-wrap gap-2">
+          {/* Like / Dislike Toggle */}
+          <Action
+            label={liked === "up" ? "Unlike" : "Like"}
+            onClick={() => setLiked(liked === "up" ? null : "up")}
+            className={liked === "up" ? "bg-green-100 text-green-600" : ""}
+          >
+            <ThumbsUpIcon className="size-4" />
+          </Action>
+
+          <Action
+            label={liked === "down" ? "Undo dislike" : "Dislike"}
+            onClick={() => setLiked(liked === "down" ? null : "down")}
+            className={liked === "down" ? "bg-red-100 text-red-600" : ""}
+          >
+            <ThumbsDownIcon className="size-4" />
+          </Action>
+
+          {/* Retry */}
+          <Action label="Retry" onClick={() => alert("Retrying...")}>
+            <RefreshCcwIcon className="size-4" />
+          </Action>
+
+          {/* Copy */}
+          <Action
+            label="Copy"
+            onClick={() => navigator.clipboard.writeText("Copied content")}
+          >
+            <CopyIcon className="size-4" />
+          </Action>
+
+          {/* Share */}
+          <Action
+            label="Share"
+            onClick={() =>
+              navigator.share
+                ? navigator.share({ text: "Shared content" })
+                : alert("Sharing not supported")
+            }
+          >
+            <Share2Icon className="size-4" />
+          </Action>
+
+          {/* Save Toggle */}
+          <Action
+            label={saved ? "Unsave" : "Save"}
+            onClick={() => setSaved((prev) => !prev)}
+            className={saved ? "bg-blue-100 text-blue-600" : ""}
+          >
+            <BookmarkIcon className="size-4" />
+          </Action>
+        </Actions>
+      </div>
     </div>
   )
 }
-export default Example

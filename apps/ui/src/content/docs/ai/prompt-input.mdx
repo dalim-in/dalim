@@ -1,0 +1,71 @@
+---
+title: Prompt Input
+description: A group of interactive buttons with optional tooltips, commonly used for message-level interprompt-input like copy, like, share, etc.
+component: true
+links:
+  doc: https://ai-sdk.dev/elements/components/prompt-input
+---
+
+<ComponentPreview
+  name="prompt-input-default"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[300px]"
+  description="A set of action buttons with tooltips"
+  align="start"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx dlx shadcn@latest add https://ui.dalim.in/r/styles/default/prompt-input.json
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+ 
+<ComponentSource name="prompt-input" title="components/ui/ai/prompt-input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  PromptInput,
+  PromptInputSubmit,
+  PromptInputTextarea,
+  PromptInputToolbar,
+} from '@/components/ai-elements/prompt-input';
+```
+
+```tsx showLineNumbers
+<PromptInput onSubmit={() => {}} className="mt-4 relative">
+  <PromptInputTextarea onChange={(e) => {}} value={''} />
+  <PromptInputToolbar>
+    <PromptInputSubmit
+      className="absolute right-1 bottom-1"
+      disabled={false}
+      status={'ready'}
+    />
+  </PromptInputToolbar>
+</PromptInput>
+```
