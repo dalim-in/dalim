@@ -805,50 +805,6 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "get-weather",
-    type: "registry:example",
-    registryDependencies: ["ai"],
-    files: [
-      {
-        path: "examples/ai/get-weather.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "news-search",
-    type: "registry:example",
-    registryDependencies: ["ai"],
-    files: [
-      {
-        path: "examples/ai/news-search.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "public-stats",
-    type: "registry:example",
-    registryDependencies: ["ai"],
-    files: [
-      {
-        path: "examples/ai/public-stats.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "qr-code",
-    type: "registry:example",
-    registryDependencies: ["ai"],
-    files: [
-      {
-        path: "examples/ai/qr-code.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "alert-dialog-demo",
     type: "registry:example",
     registryDependencies: ["alert-dialog", "button"],
