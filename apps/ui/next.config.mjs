@@ -104,6 +104,14 @@ const nextConfig = {
       },
     ]
   },
+  webpack: (config) => {
+    // Handle shader files
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      type: 'asset/source',
+    });
+    return config;
+  },
 }
 
 const withMDX = createMDX({})
