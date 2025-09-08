@@ -13,6 +13,14 @@ links:
   align="start"
 />
 
+
+<ComponentPreview
+  name="actions-hover"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[300px]"
+  description="A set of action buttons with tooltips"
+  align="start"
+/>
+
 ## Installation
 
 <CodeTabs>
@@ -67,6 +75,150 @@ import { CopyIcon, ShareIcon } from "lucide-react"
   </Action>
 </Actions>
 ```
+
+## Usage with AI SDK
+
+Build a simple chat UI where the user can copy or regenerate the most recent message.
+
+Add the following component to your frontend:
+
+```tsx showLineNumbers
+'use client';
+
+import { useState } from 'react';
+import { Actions, Action } from '@/components/ui/ai/actions';
+import { Message, MessageContent } from '@/components/ui/ai/message';
+import {
+  Conversation,
+  ConversationContent,
+  ConversationScrollButton,
+} from '@/components/ui/ai/conversation';
+import {
+  Input,
+  PromptInputTextarea,
+  PromptInputSubmit,
+} from '@/components/ui/ai/prompt-input';
+import { Response } from '@/components/ui/ai/response';
+import { RefreshCcwIcon, CopyIcon } from 'lucide-react';
+import { useChat } from '@ai-sdk/react';
+import { Fragment } from 'react';
+
+const ActionsDemo = () => {
+  const [input, setInput] = useState('');
+  const { messages, sendMessage, status, regenerate } = useChat();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input.trim()) {
+      sendMessage({ text: input });
+      setInput('');
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 relative size-full rounded-lg border h-[600px]">
+      <div className="flex flex-col h-full">
+        <Conversation>
+          <ConversationContent>
+            {messages.map((message, messageIndex) => (
+              <Fragment key={message.id}>
+                {message.parts.map((part, i) => {
+                  switch (part.type) {
+                    case 'text':
+                      const isLastMessage =
+                        messageIndex === messages.length - 1;
+                      
+                      return (
+                        <Fragment key={`${message.id}-${i}`}>
+                          <Message from={message.role}>
+                            <MessageContent>
+                              <Response>{part.text}</Response>
+                            </MessageContent>
+                          </Message>
+                          {message.role === 'assistant' && isLastMessage && (
+                            <Actions>
+                              <Action
+                                onClick={() => regenerate()}
+                                label="Retry"
+                              >
+                                <RefreshCcwIcon className="size-3" />
+                              </Action>
+                              <Action
+                                onClick={() =>
+                                  navigator.clipboard.writeText(part.text)
+                                }
+                                label="Copy"
+                              >
+                                <CopyIcon className="size-3" />
+                              </Action>
+                            </Actions>
+                          )}
+                        </Fragment>
+                      );
+                    default:
+                      return null;
+                  }
+                })}
+              </Fragment>
+            ))}
+          </ConversationContent>
+          <ConversationScrollButton />
+        </Conversation>
+
+        <Input
+          onSubmit={handleSubmit}
+          className="mt-4 w-full max-w-2xl mx-auto relative"
+        >
+          <PromptInputTextarea
+            value={input}
+            placeholder="Say something..."
+            onChange={(e) => setInput(e.currentTarget.value)}
+            className="pr-12"
+          />
+          <PromptInputSubmit
+            status={status === 'streaming' ? 'streaming' : 'ready'}
+            disabled={!input.trim()}
+            className="absolute bottom-1 right-1"
+          />
+        </Input>
+      </div>
+    </div>
+  );
+};
+
+export default ActionsDemo;
+```
+
+Add the following route to your backend:
+
+```tsx showLineNumbers
+import { streamText, UIMessage, convertToModelMessages } from 'ai';
+
+// Allow streaming responses up to 30 seconds
+export const maxDuration = 30;
+
+export async function POST(req: Request) {
+  const { model, messages }: { messages: UIMessage[]; model: string } =
+    await req.json();
+
+  const result = streamText({
+    model: 'openai/gpt-4o',
+    messages: convertToModelMessages(messages),
+  });
+
+  return result.toUIMessageStreamResponse();
+}
+```
+
+## Features
+
+- Row of composable action buttons with consistent styling
+- Support for custom actions with tooltips
+- State management for toggle actions (like, dislike, favorite)
+- Keyboard accessible with proper ARIA labels
+- Clipboard and Web Share API integration
+- TypeScript support with proper type definitions
+- Consistent with design system styling
 
 ## API Reference
 

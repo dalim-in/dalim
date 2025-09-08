@@ -1,6 +1,6 @@
 ---
 title: Branch
-description: A group of interactive buttons with optional tooltips, commonly used for message-level interbranch like copy, like, share, etc.
+description: The Branch component manages multiple versions of AI messages, allowing users to navigate between different response branches. It provides a clean, modern interface with customizable themes and keyboard-accessible navigation buttons.
 component: true
 links:
   doc: https://ai-sdk.dev/elements/components/branch
@@ -76,3 +76,70 @@ import {
   </BranchSelector>
 </Branch>
 ``` 
+
+## Usage with AI SDK
+
+Branching is an advanced use case that you can implement yourself to suit your application's needs. While the AI SDK does not provide built-in support for branching, you have full flexibility to design and manage multiple response paths as required.
+
+## Features
+
+- Context-based state management for multiple message branches
+- Navigation controls for moving between branches (previous/next)
+- Uses CSS to prevent re-rendering of branches when switching
+- Branch counter showing current position (e.g., "1 of 3")
+- Automatic branch tracking and synchronization
+- Callbacks for branch change and navigation using onBranchChange
+- Support for custom branch change callbacks
+- Responsive design with mobile-friendly controls
+- Clean, modern styling with customizable themes
+- Keyboard-accessible navigation buttons
+
+
+### `<Branch />`
+
+| Prop            | Type                                   | Description                                                                 |
+|-----------------|----------------------------------------|-----------------------------------------------------------------------------|
+| `defaultBranch` | `number`                               | The index of the branch to show by default (default: `0`).                  |
+| `onBranchChange`| `(branchIndex: number) => void`        | Callback fired when the branch changes.                                     |
+| `...props`      | `React.HTMLAttributes<HTMLDivElement>` | Any other props are spread to the root div.                                 |
+
+---
+
+### `<BranchMessages />`
+
+| Prop       | Type                                   | Description                                         |
+|------------|----------------------------------------|-----------------------------------------------------|
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | Any other props are spread to the root div.         |
+
+---
+
+### `<BranchSelector />`
+
+| Prop       | Type                                   | Description                                                              |
+|------------|----------------------------------------|--------------------------------------------------------------------------|
+| `from`     | `UIMessage["role"]`                    | Aligns the selector for user, assistant or system messages.              |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | Any other props are spread to the selector container.                    |
+
+---
+
+### `<BranchPrevious />`
+
+| Prop       | Type                                   | Description                                                                          |
+|------------|----------------------------------------|--------------------------------------------------------------------------------------|
+| `...props` | `React.ComponentProps<typeof Button>`  | Any other props are spread to the underlying **shadcn/ui** Button component.         |
+
+---
+
+### `<BranchNext />`
+
+| Prop       | Type                                   | Description                                                                          |
+|------------|----------------------------------------|--------------------------------------------------------------------------------------|
+| `...props` | `React.ComponentProps<typeof Button>`  | Any other props are spread to the underlying **shadcn/ui** Button component.         |
+
+---
+
+### `<BranchPage />`
+
+| Prop       | Type                                      | Description                                                        |
+|------------|-------------------------------------------|--------------------------------------------------------------------|
+| `...props` | `React.HTMLAttributes<HTMLSpanElement>`   | Any other props are spread to the underlying `span` element.       |

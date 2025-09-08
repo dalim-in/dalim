@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "interactive-dots-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "interactive-dots"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/interactive-dots-default.tsx",
+      "content": "\"use client\"\n\nimport { InteractiveDots } from \"@/registry/default/ui/backgrounds/interactive-dots\"\n\nexport function DemoOne() {\n  return (\n    <div className=\"relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border\">\n      <InteractiveDots />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

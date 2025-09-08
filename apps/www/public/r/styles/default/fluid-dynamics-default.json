@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fluid-dynamics-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "fluid-dynamics"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/fluid-dynamics-default.tsx",
+      "content": "\"use client\"\n\nimport { FluidDynamics } from \"@/registry/default/ui/backgrounds/fluid-dynamics\"\n\nexport function DemoOne() {\n  return (\n    <div className=\"relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border\">\n      <FluidDynamics />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

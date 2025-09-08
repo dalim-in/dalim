@@ -299,6 +299,39 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "fluid-dynamics-default",
+    type: "registry:example",
+    registryDependencies: ["fluid-dynamics"],
+    files: [
+      {
+        path: "examples/backgrounds/fluid-dynamics-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "webgl-blob-default",
+    type: "registry:example",
+    registryDependencies: ["webgl-blob"],
+    files: [
+      {
+        path: "examples/backgrounds/webgl-blob-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "interactive-dots-default",
+    type: "registry:example",
+    registryDependencies: ["interactive-dots"],
+    files: [
+      {
+        path: "examples/backgrounds/interactive-dots-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "render-canvas-custom",
     type: "registry:example",
     registryDependencies: ["render-canvas"],
@@ -778,6 +811,17 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/ai/actions-default.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "actions-hover",
+    type: "registry:example",
+    registryDependencies: ["actions", "ai"],
+    files: [
+      {
+        path: "examples/ai/actions-hover.tsx",
         type: "registry:example",
       },
     ],

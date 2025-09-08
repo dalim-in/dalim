@@ -911,6 +911,36 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "fluid-dynamics",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/fluid-dynamics.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "webgl-blob",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/webgl-blob.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "interactive-dots",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/backgrounds/interactive-dots.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "shader-wave",
     type: "registry:ui",
     files: [

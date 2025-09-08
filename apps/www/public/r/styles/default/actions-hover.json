@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "actions-hover",
+  "type": "registry:example",
+  "registryDependencies": [
+    "actions",
+    "ai"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/ai/actions-hover.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport {\n  CopyIcon,\n  HeartIcon,\n  RefreshCcwIcon,\n  ShareIcon,\n  ThumbsDownIcon,\n  ThumbsUpIcon,\n} from \"lucide-react\"\n\nimport { Action, Actions } from \"@/registry/default/ui/ai/actions\"\nimport { Message, MessageContent } from \"@/registry/default/ui/ai/message\"\n\nconst Example = () => {\n  const [liked, setLiked] = useState(false)\n  const [disliked, setDisliked] = useState(false)\n  const [favorited, setFavorited] = useState(false)\n\n  const responseContent = `This is a response from an assistant.\n  \nTry hovering over this message to see the actions appear!`\n\n  const handleRetry = () => {\n    console.log(\"Retrying request...\")\n  }\n\n  const handleCopy = (content?: string) => {\n    console.log(\"Copied:\", content)\n  }\n\n  const handleShare = (content?: string) => {\n    console.log(\"Sharing:\", content)\n  }\n\n  const actions = [\n    {\n      icon: RefreshCcwIcon,\n      label: \"Retry\",\n      onClick: handleRetry,\n    },\n    {\n      icon: ThumbsUpIcon,\n      label: \"Like\",\n      onClick: () => setLiked(!liked),\n    },\n\n    {\n      icon: ThumbsDownIcon,\n      label: \"Dislike\",\n      onClick: () => setDisliked(!disliked),\n    },\n    {\n      icon: CopyIcon,\n      label: \"Copy\",\n      onClick: () => handleCopy(responseContent),\n    },\n    {\n      icon: ShareIcon,\n      label: \"Share\",\n      onClick: () => handleShare(responseContent),\n    },\n    {\n      icon: HeartIcon,\n      label: \"Favorite\",\n      onClick: () => setFavorited(!favorited),\n    },\n  ]\n\n  return (\n    <div className=\"flex h-full items-center justify-center\">\n      <Message\n        className=\"group flex flex-col items-start gap-2\"\n        from=\"assistant\"\n      >\n        <MessageContent>{responseContent}</MessageContent>\n        <Actions className=\"mt-2 opacity-0 group-hover:opacity-100\">\n          {actions.map((action) => (\n            <Action key={action.label} label={action.label}>\n              <action.icon className=\"size-4\" />\n            </Action>\n          ))}\n        </Actions>\n      </Message>\n    </div>\n  )\n}\n\nexport default Example\n",
+      "type": "registry:example"
+    }
+  ]
+}

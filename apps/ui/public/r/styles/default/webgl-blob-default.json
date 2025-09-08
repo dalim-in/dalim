@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "webgl-blob-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "webgl-blob"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/backgrounds/webgl-blob-default.tsx",
+      "content": "\"use client\"\n\nimport { WebGLBlob } from \"@/registry/default/ui/backgrounds/webgl-blob\"\n\nexport function DemoOne() {\n  return (\n    <div className=\"relative bg-black flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl border\">\n      <WebGLBlob />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

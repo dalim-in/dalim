@@ -998,6 +998,36 @@
       ]
     },
     {
+      "name": "fluid-dynamics",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/fluid-dynamics.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "webgl-blob",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/webgl-blob.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "interactive-dots",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/backgrounds/interactive-dots.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "shader-wave",
       "type": "registry:ui",
       "files": [
@@ -2132,6 +2162,45 @@
       ]
     },
     {
+      "name": "fluid-dynamics-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "fluid-dynamics"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/fluid-dynamics-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "webgl-blob-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "webgl-blob"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/webgl-blob-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "interactive-dots-default",
+      "type": "registry:example",
+      "registryDependencies": [
+        "interactive-dots"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/backgrounds/interactive-dots-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "render-canvas-custom",
       "type": "registry:example",
       "registryDependencies": [
@@ -2700,6 +2769,20 @@
       "files": [
         {
           "path": "registry/default/examples/ai/actions-default.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "actions-hover",
+      "type": "registry:example",
+      "registryDependencies": [
+        "actions",
+        "ai"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/ai/actions-hover.tsx",
           "type": "registry:example"
         }
       ]
